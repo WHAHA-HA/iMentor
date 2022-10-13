@@ -1,0 +1,69 @@
+<div class="UnitContainer" id="top" ng-init="gotoTop();" style="">
+    <a class="bckUnit" style="" ng-click="go('resources'); $root.isResources = true;" href="" class="backBtn"><i class="icon-my_files"></i> My Files</a>
+    <div ng-if="showDropdown" style="position: relative;top:0px;" class="mobileCont">
+        <h2 style="padding-bottom: 15px;"> Select your grade </h2>
+        <select ng-init="selectedGrade = theGrade || selectedGrade;"
+                ng-model="selectedGrade"
+            ng-options="item as item.grade_description + ' (' + item.grade_number + ')' for item in userGrades"
+            ng-change="updateGrade(selectedGrade, selectedGrade.grade_id, selectedGrade.grade_number)"
+            >
+        </select>
+    </div>
+<div class="margin-20"></div>
+<div style="position: relative; top:0px;" class="mobileCont">
+<h2> [[grade_description]] </h2>
+    <div class="margin-15"></div>
+
+
+    <div ng-repeat="u in scheduledUnits" class="units box papers" ng-click="go('/grade/' + [[u.grade_id]] + '/unit/' + [[u.unit_id]], u.unit_description);" style="position: relative;">
+
+        <div style="height: 200px;position: relative;">
+            <h4 class="titles" style="color:#585757;height: 15px;font-size: 16px;padding:0px 20px;">[[$index + 1]]. [[u.unit_description]]  <div ng-if="u.new_content_flag == 'True'" class="iconBlue newFlag"><img class="newFlag" style="height: 35px;image-rendering: auto;" src="//cdn.imentor.org/new_platform/static/portfolio/img/11_new.png"></div></h4>
+
+            <div style="position: relative;">
+                <!--<img style="margin-top: 30px;height:auto;" ng-src="[[u.featured_image]]"/>
+                <img ng-if="[[u.featured_image]] == ''" ng-src="//cdn.imentor.org/new_platform/static/portfolio/img/default_unit_grey.png"/>-->
+            </div>
+            <div style="padding-top: 40px;">
+                <i class="icon-[[u.featured_image]] unit-icons" ng-class="{'iconBlue': u.current_flag == 'True'};"></i>
+                <i ng-if="[[u.featured_image]] == ''" class="icon-default icon-default"/>
+            </div>
+
+            <div class="imageFrame overbox">
+                <span style="position: relative;top: -60px; font-size: 16px; display: block;" ng-bind-html="[[u.secondary_unit_description]]"></span>
+            </div>
+        </div>
+        <div class="userInfo" ng-hide="userrole != 'Mentor' && userrole !== 'Mentee'" ng-show="u.both_finished_flag == 'False' || u.both_finished_flag == 'NA'">
+            <span class="mentorS" ng-hide="userrole != 'Mentor' && userrole !== 'Mentee'">
+                <i ng-hide="u.mentee_finished_flag == 'True' || otherPersonMentee == ' '" style="" class="icon-person"></i>
+                <i ng-show="u.mentee_finished_flag == 'True'" ng-class="{'iconBlue': u.mentee_finished_flag == 'True'};" class="icon-person personBlue"></i>
+                <i ng-if="u.mentee_finished_flag == 'True'" class="icon-check iconBlue checkBlue"></i>
+                <p class="gray userName" ng-show="otherPersonMentor" ng-class="{'iconBlue': u.mentee_finished_flag == 'True'};">[[firstname.split("", 15).join("").toUpperCase();]]<span ng-if="firstname.length > 14">...</span></p>
+                <p class="gray userName" ng-show="otherPersonMentee" ng-class="{'iconBlue': u.mentee_finished_flag == 'True'};">[[otherPersonMentee.split("", 15).join("").toUpperCase();]]<span ng-if="otherPersonMentee.length > 14">...</span></p>
+
+            </span>
+            <span class="menteeS" ng-hide="userrole != 'Mentor' && userrole !== 'Mentee'">
+                <i ng-hide="u.mentor_finished_flag == 'True' || otherPersonMentor == ' '" class="icon-person"></i>
+                <i ng-if="u.mentor_finished_flag == 'True'" ng-class="{'iconBlue': u.mentor_finished_flag == 'True'};" class="icon-person personBlue"></i>
+                <i ng-if="u.mentor_finished_flag == 'True'" class="icon-check iconBlue checkBlue"></i>
+                <p class="gray userName" ng-if="otherPersonMentee"  ng-class="{'iconBlue': u.mentor_finished_flag == 'True'};">[[firstname.split("", 15).join("").toUpperCase();]]<span ng-if="firstname.length > 14">...</span></p>
+                <p class="gray userName" ng-if="otherPersonMentor"  ng-class="{'iconBlue': u.mentor_finished_flag == 'True'};">[[otherPersonMentor.split("", 15).join("").toUpperCase();]]<span ng-if="otherPersonMentor.length > 14">...</span></p>
+
+            </span>
+        </div>
+
+        <div class="userInfo" ng-show="u.both_finished_flag == 'True' && u.current_flag == 'False'">
+            <i style="font-size: 20px;" class="fa fa-star iconBlue"></i>
+            <p class="iconBlue">FINISHED</p>
+        </div>
+        <div class="userInfo currentLesson" ng-show="u.current_flag == 'True'">
+            <div>CURRENT UNIT</div>
+        </div>
+
+    </div>
+
+        </div>
+    </div>
+
+</div>
+

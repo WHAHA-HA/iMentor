@@ -1,0 +1,92 @@
+<div ng-show="visible" class="row chat-window col-xs-5 col-md-3 {{vm.theme}}" ng-class="" ng-init="showSearch=false;" ng-click="markAsRead();$root.markAsRead=true;">
+    <div class="col-xs-12 col-md-12">
+        <div class="panel">
+            <div class="panel-heading chat-top-bar">
+                <div class="desktopStylesBlock">
+                    <div class="col-md-6 col-xs-6 chat-user" style="text-align: left;">
+                        <h3 class="panel-title">[[$root.chatTitle]]</h3>
+                    </div>
+                    <div class="col-md-6 col-xs-6 window-actions" style="text-align: right;">
+                        <span class="chatHelp" style="position: relative;right: 20px;bottom: 5px;" ng-show="!showSearch"><a style="color: lightgrey;" href="//learn.imentor.org/help/article/link/welcome-to-conversations" target="_blank">Need help?</a></span>
+                        <span class="fa fa-search" ng-click="showSearch= !showSearch; search.text='';vm.scrollToBottom()"></span>
+                        <span ng-show="showSearch"><input class="search-control" style="position: relative;top: -3px;" type="text" placeholder="Search messages" ng-model="search.text"></span>
+                        <span style="position: relative;left: 10px;bottom: 2px;font-size:24px;" class="fa fa-close" ng-click="vm.close();unseenCount();"></span>
+                    </div>
+                </div>
+                <div class="mobileStylesBlock">
+                    <div class="col-md-8 col-xs-8 chat-user" style="text-align: left;"  ng-if="!showSearch">
+                        <h3 class="panel-title">[[$root.chatTitle]]</h3>
+                    </div>
+                    <div class="col-md-4 col-xs-4 window-actions" style="text-align: right;"  ng-class="{'full-width':showSearch}">
+                        <span class="chatHelp" style="position: relative;right: 20px;bottom: 5px;" ng-show="!showSearch"><a style="color: lightgrey;" href="//learn.imentor.org/help/article/link/welcome-to-conversations" target="_blank">Need help?</a></span>
+                        <span class="fa fa-search" ng-click="showSearch= !showSearch; search.text='';vm.scrollToBottom()"></span>
+                        <span ng-show="showSearch"><input class="search-control" style="position: relative;top: -3px;" type="text" placeholder="Search messages" ng-model="search.text"></span>
+                        <span style="position: relative;left: 10px;bottom: 2px;font-size:24px;" class="fa fa-close" ng-click="vm.close()"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="panel-body msg-container-base" ng-style="vm.panelStyle"  disable-background-scrolll  tabindex="0">
+                <div ng-click="$root.loadMoreMessages();"  ng-disabled="$root.chatLoadingMore === true || $root.chatTitle == 'Loading...'" ng-hide="$root.chatShowLoadMore === false"  style="text-align: center;"><button class="btn btn-sm chat-submit-button" style="margin-top: 10px;"  ng-disabled="$root.chatLoadingMore === true || $root.chatTitle == 'Loading...'" ng-class="{'disabled' : $root.chatLoadingMore === true}" >[[$root.chatLoadMoreText]]</button></div>
+                <div class="row msg-container" ng-repeat="message in messages  | filter:search.text" ng-init="selfAuthored = $root.useridnum == message.recipient_user_id" ng-hide="message.auto_saved==true">
+                    <div class="col-md-12 col-xs-12">
+                        <div class="chat-msg-header" ng-class="{'chat-msg-sent': !selfAuthored, 'chat-msg-recieved': selfAuthored}">
+                            <span style="display: block;font-size: 12px;color: gray;" class="date">[[message.received_show_date]] [[message.first_name]] said...</span>
+                            <!--<span style="display: block;font-size: 12px;color: gray;"></span>-->&nbsp;
+                        </div>
+                        <div class="chat-msg" ng-class="{'chat-msg-sent': !selfAuthored, 'chat-msg-recieved': selfAuthored}">
+                            <span class="hide">myUserId:[[vm.myUserId]]</span>
+                            <img ng-if="message.imageUrl" class="profile" ng-class="{'pull-right': !selfAuthored, 'pull-left': selfAuthored}" ng-src="[[message.imageUrl]]"/>
+                            <p class="chatMsg" style="padding: 2px 0px;color:black !important;white-space: pre-wrap; line-height: 1.5em;" ng-bind-html="message.data | highlight:search.text">[[message.data]]</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="panel-footer chat-bottom-bar">
+                <form style="display:inherit" ng-submit="vm.submitFunction()">
+                    <div class="input-grou">
+                        <text-angular class="textAngularChat" ng-model="vm.writingMessage" placeholder="{{vm.inputPlaceholderText}}" name="textAngularBox1"></text-angular>
+                        <span class="input-group-btn" style="left: 16px;">
+                                <div class="im-embed-attachment-preview">
+                                    <div class="filesList upload-list"  ng-show="uploadProgress || filesUpload.length>0" style="position: relative;bottom:20px;">
+                                        <ul style="clear:both" >
+                                            <li class="sel-file" ng-repeat="f in filesUpload | reverse">
+                                                <!--<div class="file-trash pull-left" ng-click="remove(f)"><a class="fa fa-trash-o remove" ng-click="remove(f)"></a></div>
+                                                <div class="" style="width: 35%;display: inline-block;" ng-class="{'upload-complete-color': f.progress===100}">
+                                                    <a ng-show="f.progress <= 100 && !errorMsg" href="{{f.result.url}}" alt="{{f.name}}" target="_blank">{{f.savedname.substring(0,30)}}<span ng-show="f.savedname.length >= 30">...</span></a>
+                                                </div>-->
+                                                <br/>
+                                                <div class="progress" ><div style="width:{{f.progress}}%">[[f.progress]]%</div></div>
+                                                <br/>
+                                                <div class=" fileUp-cntrl" style="position: relative;" >
+                                                    <span class="fa fa-times remove" ng-click="f.upload.abort();f.upload.aborted=true; abort(f);remove(f);"></span>
+                                                </div>
+                                                <!--<div ng-show="errorMsg" style="margin-top: 20px;background-color: #eee;padding: 10px;">
+                                                    <span style="font-size: 26px;color: red;float: left; margin-right: 7px;" class="fa fa-times" ng-click="f.upload.abort();f.upload.aborted=true; abort(f);remove(f);" ng-show="f.upload != null && !f.upload.aborted"></span>
+                                                    <span ng-show="errorMsg">{{f.savedname.substring(0,30)}} {{errorMsg}}</span>
+                                                </div>-->
+                                                <div class="clearfix"></div>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="file-drop-box-container">
+                                        <div ngf-select ngf-drop ng-model="filesUpload" ngf-multiple="false" ngf-keep="true" accept="{{allowTypes}}" ngf-accept="validateType($file)"  ng-disabled="uploadProgress || filesUpload.length>0" ngf-drag-over-class="dragClass" ng-class="{'linkDisabled': uploadProgress || filesUpload.length>0}">
+                                            Click here to select a file from your computer and begin the upload.
+                                            <br />
+                                            <a href=" " title="Send a file" style="background-color:#FFFFFF;color:#000000;text-decoration:none"><i style="font-size: 26px;" class="fa fa-paperclip fa-rotate-135 upload-button" ng-class="{'upload-button-progress': uploadProgress || filesUpload.length>0}"></i></a>
+                                        </div>
+
+                                    </div>
+
+                                </div>
+                            <button style="background-color: transparent;" type="submit" class="btn" ng-disabled="vm.writingMessage.length < 1 || vm.sendingTxt == true || (!vm.writingMessage.startsWith('<p><span>') && vm.writingMessage.length < 1);" ng-class="{'sendingText': vm.sendingTxt == true, 'notSendingText': !vm.sendingTxt}">
+                                <i style="font-size: 26px;" class="fa fa-paper-plane fa-rotate-35 send-button"></i>
+                            </button>
+                            <!--<input type="submit" style="margin-left: 5px;" class="btn btn-sm chat-submit-button" value="{{vm.submitButtonText}}"/>-->
+                        </span>
+                    </div>
+                </form>
+
+            </div>
+        </div>
+    </div>
+</div>

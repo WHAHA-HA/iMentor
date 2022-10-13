@@ -1,0 +1,121 @@
+@media (max-width: 960px) {
+    .main-header {
+        font-size: 40px;
+    }
+    .subheader {
+        font-size: 20px;
+        padding-top: 10px;
+    }
+    .button-lg {
+        font-size: 16px;
+        height: 50px;
+        width: 130px;
+    }
+    .landingBtns {
+        margin-left: 0;
+    }
+    .landingBtn {
+        margin-left: 20px;
+    }
+}
+
+@media (max-device-width: 800px) {
+    .main-header {
+        font-size: 40px;
+    }
+    .subheader {
+        font-size: 20px;
+    }
+    .loginForm {
+        position: relative !important;
+        margin: 0 auto !important;
+        margin-top: 50% !important;
+        float: none;
+        top: auto;
+        right: auto;
+        padding: 10px;
+    }
+    .signinMsg {
+        margin-bottom: 15px;
+        float: left;
+        width: 300px;
+    }
+    .signinLink {
+        font-size: 16px;
+        float: none;
+        display: inline-block;
+        margin: 50px 0px 0px 0px;
+    }
+    .signinCont {
+        left: 45px;
+    }
+    .h1,
+    .h2,
+    .h3,
+    .h4,
+    .h5,
+    .h6,
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        font-weight: 400;
+    }
+    .validation-box {
+        top: 230px;
+        left: 0px;
+        position: relative;
+        display: inline-block;
+    }
+    .about {
+        display: inline-block;
+        left: 0px;
+        top: 85%;
+        margin-bottom: 20px;
+        text-align: center;
+        width: 100%;
+        position: absolute;
+    }
+    .validation-box2 {
+        top: 120px;
+        left: 0px;
+    }
+    .signupform .error-inline {
+        position: relative;
+        background-color: transparent;
+        padding: 14px 10px 15px 10px;
+        color: white;
+        width: 180px;
+    }
+}
+
+@media (max-device-width: 800px) and (orientation: landscape) {
+    .signinLink {
+        margin: 20px 10px 0px 0px;
+        right: 0;
+        position: absolute;
+        z-index: 9999;
+    }
+    .landingBtns {
+        top: 89%;
+    }
+    .loginForm {
+        margin-top: 5% !important;
+    }
+    .resetpass {
+        background-color: transparent;
+    }
+
+    .resetpass-background {
+        display: block;
+        background-color: rgba(17, 165, 229, 0.94);
+        position: fixed;
+        left: 0;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 0;
+    }
+}

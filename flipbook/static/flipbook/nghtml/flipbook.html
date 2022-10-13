@@ -1,0 +1,128 @@
+<div class="UnitContainer" id="top" style="">
+    <div ng-if="showDropdown" style="position: relative;top:0px;" class="mobileCont">
+        <h2 class="header-title" style="padding-bottom: 15px;">Review your platform content</h2>
+        <div
+        isteven-multi-select
+        input-model="vm.partner_info"
+        output-model="vm.selectedPartnerSites"
+        button-label="name"
+        item-label="name"
+        tick-property="ticked"
+        class="partner-sites"
+        max-height="200px"
+        max-labels="1"
+        on-item-click="vm.updatePartner()"
+        on-select-all="vm.updatePartnerAll()"
+        on-select-none="vm.resetPartner()"
+        on-reset="vm.resetPartner()"
+        translation="vm.partnerSitesLang"
+        helper-elements="all filter none"
+        >
+      </div>
+      <div class="refresh">
+        <button ng-click="vm.updatePartner()" class="icon" ng-disabled="vm.apiCall" ng-hide="vm.selectedPartnerSites.length === 0 "><i class="fa fa-refresh"></i></button>
+      </div>
+    </div>
+<div class="margin-20"></div>
+<div class="margin-20"></div>
+<div style="position: relative; top:0px;" class="mobileCont">
+
+<div ng-show="vm.selectedPartnerSites.length>0" id="flipbook-table2">
+<div class="row filter-buttons" >
+    <div class="col-md-12 col-lg-12">
+      <button id="show_new" class="flipbook-chc" ng-class="{'selected':  vm.filter === 'new' }" ng-click="vm.updateFilter('new')" style="" >
+        New
+      </button>
+      <button id="show_all"  class="flipbook-chc" ng-class="{'selected':  vm.filter === 'all' }" ng-click="vm.updateFilter('all')" style="" >
+        All
+      </button>
+      <button id="show_all"  class="flipbook-chc" ng-class="{'selected':  vm.filter === 'review' }" ng-click="vm.updateFilter('review')" style="" >
+        Review
+      </button>
+      <button id="show_all"  class="flipbook-chc" ng-class="{'selected':  vm.filter === 'safety' }" ng-click="vm.updateFilter('safety')" style="" >
+        Safety
+      </button>
+      <button id="show_all"  class="flipbook-chc" ng-class="{'selected':  vm.filter === 'story' }" ng-click="vm.updateFilter('story')" style="" >
+        Story
+      </button>
+
+      <input class="search" placeholder="Search" ng-model="vm.searchString">
+        <i class="fa fa-search fa-flip-horizontal" aria-hidden="true"></i>
+    </div>
+</div>
+<div class="margin-15"></div>
+
+
+<table class="table table-striped new-content" ng-show="loadingFlipbookNewContent === false && vm.new_content.length>0 && vm.filteredItems.length>0" id="flipbook-table">
+    <thead style="background-color: black;color:white"  fsm-sticky-header="vm.useFixedHeader" scroll-body="#flipbook-table" scroll-stop='35'  fsm-z-index="9">
+    <tr class="table-header table-header-top">
+        <th colspan="12" class="text-bottom manage-col">
+            <span dropdown on-toggle="toggled(open)" class="pull-left dropdown">
+              <a href dropdown-toggle style="color: white;" ng-class="{'disabled': !vm.selectedContentId}">
+                  Manage <i class="fa fa-wrench"></i>
+              </a>
+              <ul class="enrollment-dropdown dropdown-menu" aria-labelledby="simple-dropdown"  ng-show="vm.selectedContent &&  vm.selectedContent.flag_type_id == 'NA'">
+                  <li>
+
+                      <a href class="" ng-click="vm.addFlag(1)">
+                          Add review flag
+                      </a>
+                  </li>
+                  <li>
+                      <a href class="" ng-click="vm.addFlag(2)">
+                          Add safety flag
+                      </a>
+                  </li>
+                  <li>
+                      <a href class="" ng-click="vm.addFlag(3) ">
+                          Add story flag
+                      </a>
+                  </li>
+              </ul>
+               <ul class="enrollment-dropdown dropdown-menu" aria-labelledby="simple-dropdown"  ng-show="vm.selectedContent &&  vm.selectedContent.flag_type_id != 'NA'">
+                   <li>
+
+                       <a href class="" ng-click="vm.addFlag('NA')">
+                           Remove existing flag
+                       </a>
+                   </li>
+               </ul>
+            </span>
+        </th>
+    </tr>
+    <tr class="table-header">
+        <th class="text-bottom flag-col"><i class="fa fa-flag" aria-hidden="true"></i></th>
+        <th>Flag</th>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>User Type</th>
+        <th>Content Link</th>
+        <th>Content Last Update</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr  ng-repeat="content in  (vm.filteredItems = (vm.new_content  | filter:vm.searchString))"   ng-class="{'selected': vm.selectedContentId == content.content_id, 'unselected': vm.selectedContentId != content.content_id}">
+        <td class="text-center manage-col"  ng-click="vm.updateContentSelection(content)"
+         >
+            <span class="fa fa-flag flag-ok"  ng-class="{'selected': vm.selectedContentId == content.content_id, 'unselected': vm.selectedContentId != content.content_id}" />
+        </td>
+        <td>
+            <span ng-if="content.flag_type_id === 1">Review</span>
+            <span ng-if="content.flag_type_id === 2">Safety</span>
+            <span ng-if="content.flag_type_id === 3">Story</span>
+            <span ng-if="content.flag_type_id == 'NA'"> </span>
+        </td>
+        <td><a ng-href="{{content.profile_link}}" target="_blank">{{content.first_name}}</a></td>
+        <td><a ng-href="{{content.profile_link}}" target="_blank">{{content.last_name}}</a></td>
+        <td>{{content.user_type}}</td>
+        <td><a ng-click="vm.openContent(content,$index);" style="color:#6fa2fb;">{{content.content_type}}</a></td>
+        <!--<td ng-if="content.content_type == 'Conversation'" ><span style="cursor:pointer" ng-click="$root.openChatAdmin(content.content_link.split(',')[0], content.content_link.split(',')[1], content.content_link.split(',')[2])">{{content.content_type}}</span></td>-->
+        <td>{{content.content_updated}}</td>
+    </tr>
+    </tbody>
+</table>
+
+</div>
+</div>
+    
+</div>

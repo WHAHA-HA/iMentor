@@ -1,0 +1,780 @@
+body {
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  font-family: "Helvetica Neue", "Helvetica", "Arial" !important;
+  font-weight: 200;
+  height:100%;
+  background: rgba(12,38,111,1);
+  background: -moz-linear-gradient(top, rgba(12,38,111,1) 0%, rgba(68,108,128,1) 37%, rgba(130,184,146,1) 74%, rgba(184,252,162,1) 100%);
+  background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(12,38,111,1)), color-stop(37%, rgba(68,108,128,1)), color-stop(74%, rgba(130,184,146,1)), color-stop(100%, rgba(184,252,162,1)));
+  background: -webkit-linear-gradient(top, rgba(12,38,111,1) 0%, rgba(68,108,128,1) 37%, rgba(130,184,146,1) 74%, rgba(184,252,162,1) 100%);
+  background: -o-linear-gradient(top, rgba(12,38,111,1) 0%, rgba(68,108,128,1) 37%, rgba(130,184,146,1) 74%, rgba(184,252,162,1) 100%);
+  background: -ms-linear-gradient(top, rgba(12,38,111,1) 0%, rgba(68,108,128,1) 37%, rgba(130,184,146,1) 74%, rgba(184,252,162,1) 100%);
+  background: linear-gradient(to bottom, rgba(12,38,111,1) 0%, rgba(68,108,128,1) 37%, rgba(130,184,146,1) 74%, rgba(184,252,162,1) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#0c266f', endColorstr='#b8fca2', GradientType=0 );
+  height: 100%;
+}
+.attendanceView {
+  width: 1080px;
+  height: auto;
+  padding: 0px 40px 30px 40px;
+  background-color: white;
+  margin: 0 auto;
+  height: 100%;
+  min-height: 800px;
+  margin-bottom: 40px;
+}
+.header-title {
+  color: #4a4a4a;
+  font-weight: 200;
+  padding-top: 45px;
+  font-family: georgia;
+  margin-bottom: 20px;
+  font-size: 30px;
+}
+.selectDropdown{
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  color: #737373;
+  font-weight: 200;
+  -webkit-border-radius: 0px;
+  border-radius: 0px;
+  font-size: 14px;
+  padding: 10px;
+  width: 300px;
+  cursor: pointer;
+  background: transparent url('//cdn.imentor.org/new_platform/static/img/arrow-down.png') no-repeat 95% center;
+  background-size: 15px 15px;
+  border: none;
+  border-bottom: 1px solid #3a7cfb;
+  box-shadow: none !important;
+  text-align: left;
+}
+.selectDropdown:focus {
+  outline: -webkit-focus-ring-color auto 0px;
+}
+.studentTable{
+  position: relative;
+  top: 100px;
+}
+
+
+/*---------------------------------------*/
+
+select.dateselect {
+  width: 100px;
+  background: #FFFFFF url('//cdn.imentor.org/new_platform/static/img/arrow-down.png') no-repeat 80px center;
+  background-size: 15px;
+}
+
+#classroom-mgmt-body {
+  margin-top: 50px;
+  padding: 0px 40px 50px;
+}
+
+.partner-sites {
+  display: inline-block;
+  vertical-align: top;
+}
+
+.mgmt-container {
+  width: 1300px;
+  margin: 0 auto;
+  padding-right: 40px;
+}
+
+.current-lesson {
+  float: left;
+  min-height: 324px;
+  width: 60%;
+  font-weight: 200;
+  font-size: 20px;
+}
+
+.current-lesson .content{
+  padding: 50px 30px 50px 50px;
+  background-color: #ffffff;
+  overflow: hidden;
+}
+
+.current-lesson .content .participation {
+  float: left;
+  width: 50%;
+}
+
+.current-lesson .content .participation .pair-participation {
+  margin-bottom: 0px;
+}
+
+.current-lesson .content .participation .pair-participation .big-number {
+  font-size: 144px;
+  display: inline-block;
+  line-height: 100%;
+}
+
+.current-lesson .content .participation .pair-participation .percentage {
+  font-size: 25px;
+  padding-top: 10px;
+  vertical-align: top;
+  display: inline-block;
+}
+
+.current-lesson .content .participation .figures .mentee, .current-lesson .content .participation .figures .mentor {
+  display: inline-block;
+  width: 48%;
+  font-size: 48px;
+}
+
+.current-lesson .content .participation .figures .percentage{
+  font-size: 15px;
+  vertical-align: top;
+  padding-top: 10px;
+  display: inline-block;
+}
+
+.current-lesson .content .participation .figures .text {
+  font-size: 20px;
+}
+
+.box {
+  width: 210px;
+  display: inline-block;
+}
+
+.current-lesson .content .stats {
+  float: left;
+  padding-top: 20px;
+  width: 50%;
+}
+.current-lesson .content .stats .graph {
+  float: left;
+  width: 100px;
+}
+
+.current-lesson .content .stats .values {
+  float: left;
+  padding-left: 30px;
+  padding-top: 0px;
+}
+
+.last-two {
+  float: right;
+  min-height: 370px;
+  width: 40%;
+  font-weight: 200;
+  font-size: 20px;
+}
+
+.current-lesson .title, .last-two .title {
+  padding: 5px;
+  color: white;
+}
+
+.last-two .content{
+  height: 398px;
+  padding: 50px 30px 20px 50px;
+  background-color: #ffffff;
+  overflow: hidden;
+  border-left: 2px solid silver;
+}
+
+.last-two .content .first, .last-two .content .second {
+  float: left;
+  width: 50%;
+  text-align: center;
+}
+
+.last-two .content .pair-participation{
+  margin-bottom: 10px;
+}
+
+.last-two .content .pair-participation .big-number {
+  font-size: 110px;
+  display: inline-block;
+  line-height: 100%;
+}
+
+.last-two .content .pair-participation .percentage {
+  font-size: 20px;
+  vertical-align: top;
+  display: inline-block;
+}
+
+.last-two .content .figures {
+  padding-top: 10px;
+}
+
+.last-two .content .figures .mentee, .last-two .content .figures .mentor {
+  width: 48%;
+  font-size: 36px;
+  display: inline-block;
+}
+
+.last-two .content .figures .mentee {
+  padding-left: 25px;
+}
+
+.last-two .content .figures .mentor {
+  padding-right: 25px;
+}
+
+.last-two .content .figures .percentage{
+  font-size: 15px;
+  vertical-align: super;
+}
+
+.last-two .content .figures .text {
+  font-size: 14px;
+}
+
+.last-two .content p.description {
+  font-size: 14px;
+  height: 40px;
+}
+
+
+/* Colors */
+.blue-bg {
+  background-color: #3a7cfb;
+}
+
+.blue {
+  color: #3a7cfb;
+}
+
+.gray-bg {
+  background-color: #7f7f7f;
+}
+.darkGray{
+  background-color: #4a4a4a;
+}
+.black-bg {
+  background-color: #000000;
+}
+
+.gray {
+  color: #7f7f7f;
+}
+
+.black {
+  color: #000000;
+}
+
+.left-border {
+  border-left: 2px solid silver;
+}
+
+.right-border {
+  border-right: 2px solid silver;
+}
+
+.href-no-active {
+  pointer-events: none;
+  cursor: default;
+}
+
+.padding-bottom-zero {
+  padding-bottom: 0px !important;
+}
+
+.glyphicon {
+  color: #CECCCC;
+}
+.glyphicon.selected {
+  color: #7BD439;
+}
+
+.refresh {
+  display: inline-block;
+  padding: 5px 0px 0px 20px;
+}
+
+.refresh .icon {
+  color: white;
+  font-size: 20px;
+}
+
+table.roster {
+  width: 100%;
+  clear: both;
+  margin-top: 50px;
+}
+
+table.roster thead .header {
+  background-color: #4a4a4a;
+  color: white;
+}
+
+table.roster thead .header .text-bottom {
+  vertical-align: bottom;
+}
+
+table.roster .header .contact a.disabled {
+  cursor: not-allowed;
+  color: gray !important;
+}
+
+table.roster td {
+  padding: 10px;
+  width: 200px;
+  /*min-width: 76px;*/
+}
+
+table.roster td .half{
+  width: 49%;
+  display: inline-block;
+}
+
+table.roster tbody {
+  background-color: white;
+  color: black;
+  border: 2px solid lightgray;
+}
+
+table.roster tbody tr {
+  cursor: pointer;
+}
+
+table.roster tbody tr:nth-child(odd) {
+  background-color: #EEEEEE;
+}
+table.roster tbody tr:hover {
+  background-color: #e7effe;
+}
+
+
+table.roster tbody tr.selected {
+  background-color: #e5f6ef;
+}
+
+
+
+table.roster tbody td.contact, table.roster thead tr.header td.contact {
+  width: 8%;
+}
+
+table.roster tbody td.mentor-name, table.roster tbody td.mentee-name,
+table.roster thead tr.header td.mentee-name, table.roster thead tr.header td.mentor-name {
+  width: 16%;
+}
+
+table.roster tbody td.mentee {
+  padding-left: 30px;
+  padding-right: 20px;
+  width: 125px;
+}
+
+table.roster tbody .conv-ico {
+  padding-left: 15px;
+}
+
+table.roster tbody td.mentor {
+  padding-right: 25px;
+  padding-left: 25px;
+  width: 125px;
+}
+table.roster tbody tr.selected {
+  background-color: #e5f6ef;
+}
+table.roster thead tr.header td.mentor, table.roster thead tr.header td.mentee {
+  width: 100px;
+}
+
+table.roster .open>.dropdown-menu {
+  background-color: #4a4a4a;
+}
+
+table.roster .dropdown-menu>li>a {
+  color: white;
+}
+
+table.roster .dropdown-menu>li>a:focus, table.roster .dropdown-menu>li>a:hover {
+  color: #3a7cfb !important;
+  background-color: transparent !important;
+}
+
+table.roster tfoot {
+  color: white;;
+}
+
+table.roster tfoot tr td img{
+  margin-left: 20px;
+}
+
+table.roster .ticker-col {
+  padding-left: 20px;
+}
+.table-header-top{
+  border-bottom: 1px solid white;
+}
+.table-header{
+  background-color: #4a4a4a !important;
+  color: white;
+  height: 40px;
+}
+
+a.dropdown-toggle.disabled {
+  color: #9E9E9E;
+}
+a.dropdown-toggle{
+  color: white ;
+}
+img.tick {
+  content:url("//cdn.imentor.org/new_platform/static/snapshot/img/check_mark.png");
+}
+
+img.tick:hover {
+  content:url("//cdn.imentor.org/new_platform/static/snapshot/img/check_grey.png");
+}
+
+img.tick.selected {
+  content:url("//cdn.imentor.org/new_platform/static/snapshot/img/check_blue.png");
+}
+
+
+
+.btn-primary {
+  padding: 12px 30px;
+  /* font-family: Helvetica Neue; */
+  font-size: 16px;
+  font-weight: 200;
+  border: 0px;
+  margin-right: 9px;
+  background-color: #FD9851;
+  border-radius: 0px;
+}
+.btn-primary:hover {
+  background-color: #FDA651;
+}
+.btn-primary.active, .btn-primary:active, .open>.dropdown-toggle.btn-primary, .btn-primary.focus, .btn-primary:focus {
+  background-color: #FDA651;
+  color: white;
+  border-color: transparent;
+  outline: -webkit-focus-ring-color auto 0px;
+}
+.btn-primary.active.focus, .btn-primary.active:focus, .btn-primary.active:hover, .btn-primary:active.focus, .btn-primary:active:focus, .btn-primary:active:hover, .open>.dropdown-toggle.btn-primary.focus, .open>.dropdown-toggle.btn-primary:focus, .open>.dropdown-toggle.btn-primary:hover {
+  background-color: #FDA651;
+  color: white;
+  border-color: transparent;
+  outline: -webkit-focus-ring-color auto 0px;
+}
+.btn-default.focus, .btn-default:focus,.btn-default:hover {
+  color: #737373;
+  background-color: white;
+  border-color: transparent;
+}
+.btn-primary a:hover {
+  color: white !important;
+}
+.btn-primary.disabled, .btn-primary.disabled.active, .btn-primary.disabled.focus, .btn-primary.disabled:active, .btn-primary.disabled:focus, .btn-primary.disabled:hover, .btn-primary[disabled], .btn-primary[disabled].active, .btn-primary[disabled].focus, .btn-primary[disabled]:active, .btn-primary[disabled]:focus, .btn-primary[disabled]:hover, fieldset[disabled] .btn-primary, fieldset[disabled] .btn-primary.active, fieldset[disabled] .btn-primary.focus, fieldset[disabled] .btn-primary:active, fieldset[disabled] .btn-primary:focus, fieldset[disabled] .btn-primary:hover {
+  background-color: #FDA651;
+  border-color: white;
+}
+.margin-20 {
+  height: 20px;
+}
+.margin-30 {
+  height: 30px;
+}
+.margin-40 {
+  height: 40px;
+}
+
+/* Custom Calendar */
+._720kb-datepicker-calendar {
+  width: 300px;
+}
+._720kb-datepicker-calendar-header:nth-child(odd) {
+  background: white;
+}
+._720kb-datepicker-calendar-month {
+  color: gray;
+}
+._720kb-datepicker-calendar-day:hover, ._720kb-datepicker-calendar-day._720kb-datepicker-active {
+  background: #FD9851;
+  color: white !important;
+  border-radius: 20px;
+}
+._720kb-datepicker-calendar-month span {
+  font-size: 13px;
+  margin-left: 1%;
+  color: gray;
+  font-weight: 400;
+}
+._720kb-datepicker-calendar-days-header div {
+  width: 14.2%;
+  font-weight: 500;
+  font-size: 11.5px;
+  padding: 10px 0.5%;
+  float: left;
+  text-align: center;
+  color: rgba(0,0,0,0.7);
+}
+._720kb-datepicker-calendar-header:nth-child(even) {
+  background: white;
+}
+._720kb-datepicker-calendar-days-header {
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 0 2% 0 2%;
+  background: transparent;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.32);
+  border-top: 1px solid rgba(0, 0, 0, 0.32);
+}
+datepicker, .datepicker, [datepicker], ._720kb-datepicker-calendar-header, ._720kb-datepicker-calendar-body, ._720kb-datepicker-calendar-days-header, ._720kb-datepicker-calendar-years-pagination-pages {
+  font-family: "Helvetica Neue", "Helvetica", "Arial" !important;
+  font-size: 13.5px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  box-sizing: border-box;
+  width: 300px;
+}
+
+/* Custom Time Picker */
+.c_timepicker{
+  position: relative;
+  left: -80px;
+  top: -2px;
+}
+#date-pick {
+  position: relative;
+  top: 32px;
+}
+.btn-link {
+  color: white;
+}
+.form-control {
+  display: block;
+  width: 100%;
+  height: 34px;
+  padding: 6px 12px;
+  font-size: 14px;
+  line-height: 1.42857143;
+  color: #555;
+  background-color: #fff;
+  background-image: none;
+  border: 0px solid #ccc;
+  border-radius: 0px;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  -webkit-transition: none;
+  -o-transition: none;
+  transition: none;
+}
+.btn {
+  display: inline-block;
+  padding: 6px 16px;
+  margin-bottom: 0;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.42857143;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  -ms-touch-action: manipulation;
+  touch-action: manipulation;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  background-image: none;
+  border: 1px solid transparent;
+  border-radius: 0px;
+}
+.c_timepicker td {
+  color: white;
+}
+.c_timepicker button {
+  margin-left: 4px;
+  color: #737373;
+}
+input.form-control {
+  margin: 0px 3px;
+  color: #737373;
+}
+
+input::-webkit-input-placeholder{
+  color: #737373;
+  font-weight: 200;
+}
+input:-moz-placeholder { /* Firefox 18- */
+  color: #737373;
+  font-weight: 200;
+}
+input::-moz-placeholder {  /* Firefox 19+ */
+  color: #737373;
+  font-weight: 200;
+}
+input:-ms-input-placeholder {
+  color: #737373;
+  font-weight: 200;
+}
+input::-webkit-inner-spin-button {
+  display: none;
+}
+input[type=number] {-moz-appearance: textfield;}
+
+
+
+.nav-tabs>li>a, .nav-tabs>li>a:hover, .nav-tabs>li>a:focus {
+
+  border: 1px solid #ddd;
+}
+
+.ngdialog.ngdialog-theme-default .ngdialog-content {
+  border-radius: 0;
+  color: #333;
+}
+
+.classroom .col-xs-2 {
+  padding-right: 0;
+  padding-top: 20px;
+}
+
+.classroom .col-xs-10 {
+  border: 1px solid #ddd;
+  min-height: 550px;
+}
+
+.classroom .attendance-grid {
+  width: 100%;
+}
+.classroom  .grid-container {
+  height: 500px;
+  overflow: hidden;
+}
+
+.attended { border-bottom: red 4px solid;}
+
+.ui-grid-header-cell-row h1 ,.ui-grid-header-cell-row h2 ,.ui-grid-header-cell-row h3 ,.ui-grid-header-cell-row h4 {
+  color: #333;
+}
+
+.refresh button{
+  border: none;
+  background: transparent;
+}
+.refresh button:focus, .refresh button:hover {
+  color: gray !important;
+  text-decoration: none;
+}
+
+.font-size-20 {
+  font-size: 20px;
+}
+
+.font-size-14 {
+  font-size: 14px;
+}
+.stats {
+  display: inline-block;
+  width: 33%;
+  text-align: center;
+  background-color: #EEEEEE;
+}
+.title {
+  padding: 20px 0px;
+  color: white;
+  text-align: center;
+}
+.statsChart{
+  margin-top: 70px;
+}
+.percent{
+  font-size: 74px;
+}
+.percentSign{
+  font-size: 24px;
+  position: relative;
+  top: -30px;
+  left: 5px;
+}
+.PresentBtn{
+  padding: 10px;
+  background-color: #76C63B;
+}
+.AbsentBtn {
+  background-color: red;
+  padding: 10px;
+}
+label.btn.btn-default.bt-present.active{
+
+}
+label.btn.btn-default.bt-absent.active{
+
+}
+label.btn.btn-default.bt-present.selected{
+  background-color: #76C63B;
+}
+label.btn.btn-default.bt-absent.selected{
+  background-color: #9E9E9E;
+}
+.fa-check {
+  color: #76C63B;
+  font-size: 22px;
+}
+.fa-times{
+  color: #76C63B;
+  font-size: 22px;
+}
+.fa-check.selected {
+  color: white;
+}
+.fa-times.selected{
+  color: white;
+}
+.bt-present{
+  border-bottom-left-radius: 18px;
+  border-top-left-radius: 18px;
+}
+.bt-absent{
+  border-bottom-right-radius: 18px;
+  border-top-right-radius: 18px;
+}
+.btn-group{
+  border: 2px solid #76C63B;
+  border-radius: 20px;
+}
+.bt-present {
+  border-right: 2px solid #76C63B;
+}
+.lesson-description{
+
+}
+.multiSelect > button {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  color: #3a7cfb;
+  font-weight: 200;
+  -webkit-border-radius: 0px;
+  border-radius: 0px;
+  font-size: 18px;
+  padding: 10px;
+  width: 350px;
+  cursor: pointer;
+  background: #FFFFFF url(/new_platform/static/img/caret.png) no-repeat 95% center;
+
+  background-size: 15px 15px;
+  border: 0px solid transparent;
+  border-bottom: 2px solid #a5c6ff;
+  box-shadow: none !important;
+  text-align: left;
+}
+.multiSelect .caret {
+  display: none;
+}
+.btn.active, .btn:active {
+  /* background-image: none; */
+  outline: 0;
+  -webkit-box-shadow: inset 0 3px 5px transparent;
+  box-shadow: inset 0 3px 5px transparent;
+}
+.btn-default.active, .btn-default:active, .open>.dropdown-toggle.btn-default {
+  /* color: #333; */
+  /* background-color: #e6e6e6; */
+  border-color: transparent;
+}

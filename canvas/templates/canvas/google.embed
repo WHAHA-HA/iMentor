@@ -1,0 +1,5 @@
+<!--Below are the variations in links that users may provide from Google, specifically Google apps such as documents and spreadsheets.-->
+<!--{{url}}-->
+
+<!--Below is our generic iframe HTML for Google content.-->
+<iframe src="{{url}}" width="640" height="480" frameborder="0" allowFullScreen  sandbox="allow-scripts allow-same-origin allow-popups" ></iframe>

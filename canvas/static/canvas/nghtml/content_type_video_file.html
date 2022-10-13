@@ -1,0 +1,19 @@
+<div class="im-embed-attachment content-video">
+    <div class="im-embed-attachment-preview">
+        <div class="im-embed-attachment-icon"> <i class="fa fa-file-video-o"></i> </div>
+        <div class="im-embed-attachment-detail">
+            <div class="im-embed-attachment-title"> <a href="{{url}}" alt="{{url}}">{{url}}</a> </div>
+            <div class="im-embed-attachment-view">
+               <button ng-click="downloadFile(url)"><i class="fa fa-download"></i>Download</button>
+                <a href="{{url}}" target="_blank">
+                    <button><i class="fa fa-eye"></i> View</button>
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="clearfix"></div>
+    <div class="im-embed-attachment-viewer"  track-on="focusin|mouseover" track-event="viewer-preview" tabindex="-1">
+        <video ng-src="{{url}}" width="320" height="240" controls="controls" track-on="play|ended|pause|abort" track-event="video" >
+        </video>
+    </div>
+</div>

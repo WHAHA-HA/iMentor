@@ -1,0 +1,62 @@
+﻿--We create indexes on the columns relevant to generating intake applications.
+
+CREATE INDEX forms_form_copy_parent_id_idx ON forms_form_copy (parent_id);
+CREATE INDEX forms_form_copy_user_id_idx ON forms_form_copy (user_id);
+CREATE INDEX forms_form_copy_persona_id_idx ON forms_form_copy (persona_id);
+CREATE INDEX forms_form_copy_member_site_id_idx ON forms_form_copy (member_site_id);
+CREATE INDEX forms_form_copy_form_was_completed_datetime_idx ON forms_form_copy (form_was_completed_datetime);
+CREATE INDEX forms_form_copy_last_touched_datetime_idx ON forms_form_copy (last_touched_datetime);
+CREATE INDEX forms_form_copy_started_datetime_idx ON forms_form_copy (started_datetime);
+
+CREATE INDEX forms_form_member_site_member_site_id_idx ON forms_form_member_site (member_site_id);
+CREATE INDEX forms_form_member_site_form_id_idx ON forms_form_member_site (form_id);
+
+CREATE INDEX forms_form_role_can_answer_form_id_idx ON forms_form_role_can_answer (form_id);
+CREATE INDEX forms_form_role_can_answer_role_id_can_answer_idx ON forms_form_role_can_answer (role_id_can_answer);
+
+CREATE INDEX forms_form_role_can_modify_form_id_idx ON forms_form_role_can_modify (form_id);
+CREATE INDEX forms_form_role_can_modify_role_id_can_modify_idx ON forms_form_role_can_modify (role_id_can_modify);
+
+CREATE INDEX forms_form_role_can_modify_copy_form_id_idx ON forms_form_role_can_modify_copy (form_id);
+CREATE INDEX forms_form_role_can_modify_copy_role_id_can_modify_idx ON forms_form_role_can_modify_copy (role_id_can_modify);
+
+CREATE INDEX forms_section_form_id_idx ON forms_section (form_id);
+
+CREATE INDEX forms_section_answer_question_id_idx ON forms_section_answer (question_id);
+CREATE INDEX forms_section_answer_answer_datetime_idx ON forms_section_answer (answer_datetime);
+
+CREATE INDEX forms_section_answer_copy_question_id_idx ON forms_section_answer_copy (question_id);
+CREATE INDEX forms_section_answer_copy_user_id_idx ON forms_section_answer_copy (user_id);
+CREATE INDEX forms_section_answer_copy_persona_id_idx ON forms_section_answer_copy (persona_id);
+CREATE INDEX forms_section_answer_copy_parent_id_idx ON forms_section_answer_copy (parent_id);
+CREATE INDEX forms_section_answer_copy_member_site_id_idx ON forms_section_answer_copy (member_site_id);
+CREATE INDEX forms_section_answer_copy_answer_datetime_idx ON forms_section_answer_copy (answer_datetime);
+
+CREATE INDEX forms_section_copy_user_id_idx ON forms_section_copy (user_id);
+CREATE INDEX forms_section_copy_persona_id_idx ON forms_section_copy (persona_id);
+CREATE INDEX forms_section_copy_parent_id_idx ON forms_section_copy (parent_id);
+CREATE INDEX forms_section_copy_form_id_idx ON forms_section_copy (form_id);
+CREATE INDEX forms_section_copy_member_site_id_idx ON forms_section_copy (member_site_id);
+
+CREATE INDEX forms_section_question_dep_on_question_id_idx ON forms_section_question (dependent_on_question_id);
+CREATE INDEX forms_section_question_dep_on_noanswer_question_id_idx ON forms_section_question (dependent_on_noanswer_question_id);
+CREATE INDEX forms_section_question_if_answered_goto_question_idx ON forms_section_question (if_answered_goto_question);
+CREATE INDEX forms_section_question_section_id_idx ON forms_section_question (section_id);
+
+CREATE INDEX forms_section_question_copy_user_id_idx ON forms_section_question_copy (user_id);
+CREATE INDEX forms_section_question_copy_persona_id_idx ON forms_section_question_copy (persona_id);
+CREATE INDEX forms_section_question_copy_parent_id_idx ON forms_section_question_copy (parent_id);
+CREATE INDEX forms_section_question_copy_member_site_id_idx ON forms_section_question_copy (member_site_id);
+CREATE INDEX forms_section_question_copy_dep_on_question_id_idx ON forms_section_question_copy (dependent_on_question_id);
+CREATE INDEX forms_section_question_copy_dep_on_noanswer_question_id_idx ON forms_section_question_copy (dependent_on_noanswer_question_id);
+CREATE INDEX forms_section_question_copy_if_answered_goto_question_idx ON forms_section_question_copy (if_answered_goto_question);
+CREATE INDEX forms_section_question_copy_section_id_idx ON forms_section_question_copy (section_id);
+
+CREATE INDEX forms_section_user_response_user_id_idx ON forms_section_user_response (user_id);
+CREATE INDEX forms_section_user_response_question_id_idx ON forms_section_user_response (question_id);
+CREATE INDEX forms_section_user_response_answer_id_idx ON forms_section_user_response (answer_id);
+
+CREATE INDEX forms_user_response_parse_map_master_question_id_idx ON forms_user_response_parse_map (master_question_id);
+CREATE INDEX forms_user_response_parse_map_parse_rule_idx ON forms_user_response_parse_map (parse_rule);
+
+CREATE INDEX forms_user_response_parse_status_form_copy_id_idx ON forms_user_response_parse_status (form_copy_id);

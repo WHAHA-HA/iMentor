@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html >
+<head lang="en">
+  <meta charset="UTF-8">
+  <title>Mentor Rubric | iMentor</title>
+  <link rel="shortcut icon" href="//cdn.imentor.org/new_platform/static/img/favicon.png" type="image/x-icon" />
+
+  <!-- Vendor CSS -->
+  <link href="//cdn.imentor.org/new_platform/static/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="//cdn.imentor.org/new_platform/static/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
+  
+   <!-- Vendor Style -->
+  <link href="/new_platform/static/mentor_rubric/css/production/libs.min.css" rel="stylesheet" />
+  <!-- Custom Style -->
+  <link href="/new_platform/static/mentor_rubric/css/production/app.min.css" rel="stylesheet" />
+  <!-- Vendor Scripts -->
+  <script src="/new_platform/static/mentor_rubric/js/production/libs.min.js"></script>
+  <!-- Custom Scripts -->
+  <script src="/new_platform/static/mentor_rubric/js/production/app.min.js"></script>
+
+</head>
+<body ng-app="mentor_rubric" >
+  <div ng-include src="'/new_platform/static/mentor_rubric/nghtml/header-bar.html'"></div>
+
+  <div   class="content flipbook-body" ng-class="{'sidenav-open': tgState}">
+    <div class="container-fluid ng-scope">
+      <div ui-view class=" slide"></div>
+    </div>
+  </div>
+
+</body>
+</html>
+

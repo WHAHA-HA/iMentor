@@ -1,0 +1,12 @@
+{	
+	"name": "Test Canvas", 
+	"config":{ "someConfig": false},
+	"images": [
+		{"id": 1, "title": "One", "order": 1, "url": "http://i415.photobucket.com/albums/pp236/Keefers_/Keffers%20Animals/DSC00549.jpg", "thumbnail": "http://i415.photobucket.com/albums/pp236/Keefers_/Keffers%20Animals/DSC00549.jpg", "page": "http://i415.photobucket.com/albums/pp236/Keefers_/Keffers%20Animals/DSC00549.jpg", "type": 1, "category": "Cute"},
+		{"id": 2, "title": "two", "order": 2, "url": "http://i415.photobucket.com/albums/pp236/Keefers_/Keffers%20Animals/1669501g8hvdviejo.jpg", "thumbnail": "http://i415.photobucket.com/albums/pp236/Keefers_/Keffers%20Animals/1669501g8hvdviejo.jpg", "page": "http://i415.photobucket.com/albums/pp236/Keefers_/Keffers%20Animals/1669501g8hvdviejo.jpg", "type": 1, "category": "Cute"},
+		{"id": 8, "title": "eight", "order": 8, "url": "http://i1276.photobucket.com/albums/y462/staffpicks/Animated_GIFs/kitty-3.gif", "thumbnail": "http://i1276.photobucket.com/albums/y462/staffpicks/Animated_GIFs/kitty-3.gif", "page": "http://i1276.photobucket.com/albums/y462/staffpicks/Animated_GIFs/kitty-3.gif", "type": 1, "category": "Cute"},
+		{"id": 4, "title": "four", "order": 4, "url": "http://i1134.photobucket.com/albums/m612/Jesseforever69/ANIMALS/tumblr_mb0rilPHcu1rb98muo1_500.gif", "thumbnail": "http://i1134.photobucket.com/albums/m612/Jesseforever69/ANIMALS/tumblr_mb0rilPHcu1rb98muo1_500.gif", "page": "http://i1134.photobucket.com/albums/m612/Jesseforever69/ANIMALS/tumblr_mb0rilPHcu1rb98muo1_500.gif", "type": 1, "category": "Cute"},
+		{"id": 5, "title": "five", "order": 5, "url": "http://i1054.photobucket.com/albums/s499/vadimzbanok/1384.gif", "thumbnail": "http://i1054.photobucket.com/albums/s499/vadimzbanok/1384.gif", "page": "http://i1054.photobucket.com/albums/s499/vadimzbanok/1384.gif", "type": 1, "category": "Cute"},
+		{"id": 6, "title": "six", "order": 6, "url": "http://i1022.photobucket.com/albums/af341/iveliq100/iveliq100002/1385834_529732533782859_797935878_n_zps1347b5a0.jpg", "thumbnail": "http://i1022.photobucket.com/albums/af341/iveliq100/iveliq100002/1385834_529732533782859_797935878_n_zps1347b5a0.jpg", "page": "http://i1022.photobucket.com/albums/af341/iveliq100/iveliq100002/1385834_529732533782859_797935878_n_zps1347b5a0.jpg", "type": 1, "category": "Funny"}
+	]
+}

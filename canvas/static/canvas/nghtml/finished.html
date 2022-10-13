@@ -1,0 +1,32 @@
+<div id="finished" class="appinfom">
+    <div class="centered">
+        <div class="appinfo translucentBkg" style="color:white !important; font-weight:200 !important;">
+            <h2>Congrats!</h2>
+            <h2>You finished your lesson.</h2>
+            <div class="margin60"></div>
+            <div>
+                <button ng-click="reviewWork();" class="button-all button-med orange" style="margin: 0 0 20px 0; width: 220px">Review your lesson</button>
+            </div>
+            <div>
+                <button ng-click="goHref('/portfolio/#/');" class="button-all button-med white" style="margin: 0 0 20px 0; width: 220px">Continue to Portfolio</button>
+            </div>
+            <div>
+                <button ng-click="logout();" class="button-all button-med white" style="width: 110px">Sign out</button>
+            </div>
+        </div>
+    </div>
+    <div ng-controller="Shell as vm" style="position: fixed;
+    bottom: 0px;right: 0px;" ng-show="$root.showChat"  class="chatShell" ng-class="{ 'zIndexTop' : vm.visible === true}">
+        <irontec-simple-chat
+                messages="vm.messages"
+                username="vm.username"
+                input-placeholder-text="You can write here"
+                submit-button-text="Send your message"
+                title="{{vm.title}}"
+                theme="material"
+                submit-function="vm.sendMessage"
+                visible="vm.visible"
+                expand-on-new="vm.expandOnNew">
+        </irontec-simple-chat>
+    </div>
+</div>

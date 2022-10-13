@@ -1,0 +1,50 @@
+<div>
+    <form name="_form" class="form-horizontal" data-ng-submit="submit(_form)">
+        <div class="modal-header">
+            <button type="button" class="close" data-ng-click="dismiss()" aria-hidden="true">&times;</button>
+            <h3>Widget Settings</h3>
+        </div>
+
+        <div class="modal-body">
+            <div class="form-group" data-ng-class="{error: _form.name.$error && _form.submitted}">
+                <label class="control-label col-lg-3 col-md-3">Widget Id</label>
+                <div class="col-lg-9 col-md-9">
+                    <input name="name" type="text" data-ng-model="form.id" class="form-control" />
+                </div>
+                <label class="control-label col-lg-3 col-md-3">Name</label>
+                <div class="col-lg-9 col-md-9">
+                    <input name="name" type="text" data-ng-model="form.title" class="form-control" />
+                </div>
+                <label class="control-label col-lg-3 col-md-3">Height</label>
+                <div class="col-lg-9 col-md-9" >
+                    <select data-ng-model="form.height" ng-options="key*1 as value for (key, value) in widgetHeights"  class="form-control"></select>
+                    <!--<select ng-model="form.height"  class="form-control" >
+                        <option ng-repeat="key*1 as value for (key,value) height in widgetHeights" ng-selected="{{height.value==form.height}}" value="{{height.value*1}}">
+                            {{height.title}}
+                        </option>
+                    </select>-->
+                </div>
+                <label class="control-label col-lg-3 col-md-3">Width</label>
+                <div class="col-lg-9 col-md-9" >
+                    <div class=" form-control">
+                        <input type="radio" data-ng-model="form.width"  data-ng-value="1"  >Half <input type="radio" ng-model="form.width"  data-ng-value="2" >Full
+                    </div>
+                </div>
+                <label class="control-label col-lg-3 col-md-3">Send Mask</label>
+                <div class="col-lg-9 col-md-9">
+                    <input name="name" type="text" data-ng-model="form.sendMask" class="form-control" />
+                </div>
+                <label class="control-label col-lg-3 col-md-3">Recv Mask</label>
+                <div class="col-lg-9 col-md-9">
+                    <input name="name" type="text" data-ng-model="form.recvMask" class="form-control" />
+                </div>
+
+            </div>
+         </div>   
+
+        <div class="modal-footer">
+            <a data-ng-click="dismiss()" class="btn btn-default" tabindex="-1"><i class="glyphicon glyphicon-remove"></i>Cancel</a>
+            <button type="submit" class="btn btn-primary"><i class="glyphicon glyphicon-ok"></i>Save</button>
+        </div>
+    </form>
+</div>

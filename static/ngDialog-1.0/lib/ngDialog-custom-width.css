@@ -1,0 +1,84 @@
+html, h1,h2,h3{
+  font-weight: 200;
+}
+body{
+  background: url('canvas_blurry_bg-sm.jpg') no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+.ngdialog.ngdialog-theme-plain .ngdialog-content {
+	background: transparent;
+  	width: 550px;
+  	padding: 0em;
+}
+a:focus {
+  outline: -webkit-focus-ring-color auto 0px;
+}
+.orange{
+  background-color: #FD9851;
+}
+.gray{
+	background-color: #EEEEEE;
+}
+.tasks {
+  background-color: white;
+  margin-bottom: 10px;
+  height: 230px;
+  padding: 6px 30px;
+}
+.ngdialog-close{
+	display: none;
+}
+.ngdialog.ngdialog-theme-plain .ngdialog-button.ngdialog-button-primary {
+  background: #FD9851;
+}
+.ngdialog.ngdialog-theme-plain .ngdialog-button {
+  padding: 10px 30px;
+  font-size: 14px;
+  font-weight: 200;
+  border: 0px;
+  margin-right: 9px;
+  color: white !important;
+  border-radius: 0px;
+}
+.ngdialog.ngdialog-theme-plain .ngdialog-button {
+  border: 0;
+  cursor: pointer;
+  font-size: .8em;
+  margin: 0 0 0 .5em;
+  padding: .75em 2em;
+  width: 130px;
+  padding: 0px !important;
+  /* text-transform: uppercase; */
+}
+button.ngdialog-button {
+  border: solid transparent 0px !important;
+}
+.ngdialog.ngdialog-theme-plain {
+  padding-top: 100px;
+}
+.ngdialog-button {
+  display: inline-block;
+}
+.ngdialog-button{
+  color: #2B2B2B !Important;
+  text-align: center;
+  padding: 12px;
+  text-decoration: none;
+  text-decoration: none;
+  width: 110px;
+  height: 50px;
+  color:white;
+}
+.address {
+  color: #00aeef !important;
+  font-size: 14px;
+}
+.date {
+  font-size: 16px;
+}
+.icons{
+	margin-right: 7px;
+}

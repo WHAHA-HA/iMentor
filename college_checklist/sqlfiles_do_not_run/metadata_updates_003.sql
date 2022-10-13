@@ -1,0 +1,2 @@
+﻿INSERT INTO utils_college (id,name,alias,uni_system_name,county_name,longitude,latitude)
+VALUES (4903,'Macaulay Honors College at CUNY',NULL,'City University of New York','New York County',-73.98341700,40.74023800);

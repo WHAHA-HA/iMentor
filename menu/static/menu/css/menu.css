@@ -1,0 +1,149 @@
+html {
+  height: 100%;
+  min-height: 600px;
+}
+
+body {
+  height: 100%;
+}
+
+.admins{
+  color: white;
+  /*background: url("//cdn.imentor.org/new_platform/static/menu/images/bg.jpg") no-repeat center center fixed;*/
+  /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#19395b+0,2c5e67+31,469379+73,5ec389+100 */
+  background: #19395b; /* Old browsers */
+  background: -moz-linear-gradient(top, #19395b 0%, #2c5e67 31%, #469379 73%, #5ec389 100%); /* FF3.6-15 */
+  background: -webkit-linear-gradient(top, #19395b 0%,#2c5e67 31%,#469379 73%,#5ec389 100%); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to bottom, #19395b 0%,#2c5e67 31%,#469379 73%,#5ec389 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#19395b', endColorstr='#5ec389',GradientType=0 ); /* IE6-9 */
+  min-height: 1000px;
+
+}
+.admin-heading {
+  position: relative;
+  top: 50px;
+  float: left;
+  width: 100%;
+  margin-bottom: 120px;
+  color: #4a4a4a;
+  font-family: georgia;
+}
+.admin-container {
+  width: 1080px;
+  margin: 0 auto;
+  height: 97%;
+  /* max-width: 848px; */
+  /* margin-left: 60px; */
+  padding-left: 80px;
+  background: white;
+  position: relative;
+  top: 30px;
+}
+.admin-sub {
+  position: relative;
+  top: 130px;
+  font-size: 18px;
+}
+.fa-book, .fa{
+  font-size: 100px;
+}
+.square {
+
+  top: 170px;
+  width: 280px;
+  height: 270px;
+  background-color: white;
+  display: inline-block;
+  margin: 0px 40px 30px 0px;
+  color: #4187ff;
+  text-align: center;
+  padding-top: 45px;
+  font-size: 16px;
+  border: 1px solid #4187ff;
+}
+.square:hover{
+  cursor: pointer;
+}
+.sq-header {
+  margin-bottom: 30px;
+  color: #6C6C6C;
+  font-weight: normal;
+}
+.row {
+  margin-right: 0px !important;
+  margin-left: 0px !important;
+}
+.square a {
+  color: black !Important;
+}
+.square:last-child {
+  margin-right: 0px;
+}
+.ta-editor {
+  min-height: 300px;
+  height: auto;
+  overflow: auto;
+  font-family: inherit;
+  font-size: 100%;
+  margin:20px 0;
+}
+.noteinput{
+  height: 20px;
+  border: 1px solid gray;
+  width: 140px;
+  position: relative;
+  top: -1px;
+  /* right: 0px; */
+  float: right;
+  margin-right: 150px;
+  font-size: 14px;
+}
+.notefield {
+  margin: 10px;
+
+  padding: 2px 0px;
+}
+.notefield input:focus, textarea:focus, keygen:focus, select:focus {
+  outline-offset: 0px !important;
+  outline: rgba(7, 23, 72, 0.84) auto 1px;
+}
+#note .row button {
+  float: right;
+  margin-right: 10px;
+}
+.ngdialog.ngdialog-theme-plain .ngdialog-content {
+  width: 520px !important;
+}
+.ta-editor.ta-html, .ta-scroll-window.form-control {
+  min-height: 200px !important;
+}
+.ta-scroll-window > .ta-bind {
+  min-height: 200px !important;
+}
+#note input {
+  padding: 0px 5px;
+}
+
+@media (max-width: 880px) {
+  .square {
+    width: 100% !important;
+    font-size: 18px;
+  }
+  .admin-container {
+    width: 100%;
+  }
+  .admin-container .row {
+    margin-right: 0px !important;
+    margin-left: 0px !important;
+    padding: 0px 20px;
+  }
+  .admin-heading {
+    text-align: center;
+  }
+  body {
+    height: 100%;
+    width: 100%;
+    min-height: 1400px;
+  }
+
+}

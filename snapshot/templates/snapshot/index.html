@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title>Snapshot | iMentor</title>
+  <link rel="shortcut icon" href="/new_platform/static/img/favicon.png" type="image/x-icon" />
+
+  <!-- Vendor CSS -->
+  <link href="/new_platform/static/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="/new_platform/static/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
+  <link href="https://i.icomoon.io/public/3e64826c61/iMentorIcons/style.css" rel="stylesheet">
+
+  <!-- Vendor Style -->
+  <link href="/new_platform/static/snapshot/css/production/libs.min.css" rel="stylesheet" />
+  <!-- Custom Style -->
+  <link href="/new_platform/static/snapshot/css/production/app.min.css" rel="stylesheet" />
+  <!-- Vendor Scripts -->
+  <script src="/new_platform/static/snapshot/js/production/libs.min.js"></script>
+  <!-- Custom Scripts -->
+  <script src="/new_platform/static/snapshot/js/production/app.min.js"></script>
+
+
+</head>
+<body ng-app="classroom_mgmt" ng-controller="ClassroomMgmtCtrl as clsMgmt" >
+
+<div ng-include src="'/new_platform/static/snapshot/nghtml/header-bar.html'"></div>
+
+<div id="classroom-mgmt-body" class="container-fluid" >
+
+  <div class="mgmt-container">
+    <h2 class="header-title" style="padding-bottom: 15px;">Review your recent platform participation</h2>
+
+    <div
+            isteven-multi-select
+            input-model="clsMgmt.partnerSites"
+            output-model="clsMgmt.selectedPartnerSites"
+            button-label="name"
+            item-label="name"
+            tick-property="ticked"
+            class="partner-sites"
+            max-height="200px"
+            max-labels="1"
+            on-item-click="clsMgmt.updatePage();"
+            translation="clsMgmt.partnerSitesLang"
+            selection-mode="single"
+    >
+    </div>
+
+    <div class="refresh">
+      <button ng-click="clsMgmt.refresh()" class="icon" ng-disabled="clsMgmt.callsOnApi > 0"  ng-hide="clsMgmt.selectedPartnerSites.length === 0 "><i class="fa fa-refresh"></i>
+      </button>
+    </div>
+
+    <div class="margin-20"></div>
+    <div class="margin-20"></div>
+
+    <!-- Current Lesson Section-->
+    <div class="current-lesson" ng-show="clsMgmt.selectedPartnerSites.length>0">
+      <div class="title blue-bg" style="padding-left: 35px;">
+        Current Lesson: [[clsMgmt.lessons[0].description]]
+      </div>
+
+      <!-- <div ng-if="page_loaded" class="content"> -->
+      <div class="content">
+
+        <div class="participation blue text-center">
+          <div class="box">
+            <p class="pair-participation">
+              <span class="big-number">[[clsMgmt.lessons[0].overall_pair_participation]]</span><span class="percentage"> %</span>
+            </p>
+            <p class="black" style="clear: both;">Pair participation</p>
+            <div class="figures">
+              <div class="mentee">
+                <p class="percent-number">[[clsMgmt.lessons[0].overall_mentee_participation]]<span class="percentage">%</span></p>
+                <p class="black text">Mentee</p>
+              </div>
+              <div class="mentor">
+                <p class="percent-number">[[clsMgmt.lessons[0].overall_mentor_participation]]<span class="percentage">%</span></p>
+                <p class="black text">Mentor</p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="stats">
+          <div class="canvas">
+            <div class="graph">
+              <img src='/new_platform/static/snapshot/img/canvas_finished.png' alt="Canvas Icon" title="Canvas Icon"/>
+              <p>Canvas</p>
+            </div>
+            <div class="values black">
+
+              <p>[[clsMgmt.lessons[0].canvas_pair_participation]]% pair</p>
+              <p>[[clsMgmt.lessons[0].canvas_mentee_participation]]% mentee</p>
+              <p>[[clsMgmt.lessons[0].canvas_mentor_participation]]% mentor</p>
+            </div>
+          </div>
+          <div class="conversations">
+            <div class="graph">
+              <img src='/new_platform/static/snapshot/img/conversations_sent_message.png' alt="Conversations Icon" title="Conversations Icon"/>
+              <p>Conversations</p>
+            </div>
+            <div class="values black">
+              <p>[[clsMgmt.lessons[0].conversations_pair_participation]]% pair</p>
+              <p>[[clsMgmt.lessons[0].conversations_mentee_participation]]% mentee</p>
+              <p>[[clsMgmt.lessons[0].conversations_mentor_participation]]% mentor</p>
+            </div>
+          </div>
+        </div>
+
+
+      </div>
+    </div>
+
+    <!-- Last two sections -->
+    <div class="last-two" ng-show="clsMgmt.selectedPartnerSites.length>0">
+      <div class="title black-bg">
+        <span class="description desc1">[[clsMgmt.lessons[1].description]]</span>
+        <span class="description desc2">[[clsMgmt.lessons[2].description]]</span>
+      </div>
+      <div class="content">
+
+        <!-- First Lesson -->
+        <div class="first">
+          <div class="box">
+            <p class="pair-participation">
+              <span class="big-number">[[clsMgmt.lessons[1].overall_pair_participation]]</span><span class="percentage">%</span>
+            </p>
+            <p class="font-size-14">Pair participation</p>
+            <div class="figures">
+              <div class="mentee">
+                <p>[[clsMgmt.lessons[1].overall_mentee_participation]]<span class="percentage">%</span></p>
+                <p class="text">Mentee</p>
+              </div>
+              <div class="mentor">
+                <p>[[clsMgmt.lessons[1].overall_mentor_participation]]<span class="percentage">%</span></p>
+                <p class="text">Mentor</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Second Lesson -->
+        <div class="second">
+          <div class="box">
+            <p class="pair-participation">
+              <span class="big-number">[[clsMgmt.lessons[2].overall_pair_participation]]</span><span class="percentage">%</span>
+            </p>
+            <p class="font-size-14">Pair participation</p>
+            <div class="figures">
+              <div class="mentee">
+                <p>[[clsMgmt.lessons[2].overall_mentee_participation]]<span class="percentage">%</span></p>
+                <p class="text">Mentee</p>
+              </div>
+              <div class="mentor">
+                <p>[[clsMgmt.lessons[2].overall_mentor_participation]]<span class="percentage">%</span></p>
+                <p class="text">Mentor</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Table -->
+    <table class="roster" ng-show="clsMgmt.selectedPartnerSites.length>0" id="snapshot-table">
+      <thead  fsm-sticky-header="useFixedHeader" scroll-body="#snapshot-table" scroll-stop='35'>
+      <tr class="table-header table-header-top">
+        <th colspan="12" class="text-bottom manage-col">
+            <span dropdown on-toggle="toggled(open)" class="pull-left email-link"
+            >
+              <a href dropdown-toggle style="color: white;" ng-class="{'disabled': !clsMgmt.anySelection}">
+                Contact
+              </a>
+              <ul class="enrollment-dropdown dropdown-menu" aria-labelledby="simple-dropdown">
+                <li>
+                  <a href class="" ng-click="clsMgmt.sendEmails('mentees')">
+                    Email selected mentees
+                  </a>
+                </li>
+                <li>
+                  <a href class="" ng-click="clsMgmt.sendEmails('mentors')">
+                    Email selected mentors
+                  </a>
+                </li>
+                <li>
+                  <a href class="" ng-click="clsMgmt.sendEmails('both') ">
+                    Email selected pairs
+                  </a>
+                </li>
+                <li ng-show="subdomain == 'nyc' || 'platformtraining' || subdomain == '127'">
+                  <a href class="" ng-click="clsMgmt.sendTexts('mentees')">
+                    Text selected mentees
+                  </a>
+                </li>
+                <li ng-show="subdomain == 'nyc' || 'platformtraining' || subdomain == '127'">
+                  <a href class="" ng-click="clsMgmt.sendTexts('mentors')">
+                    Text selected mentors
+                  </a>
+                </li>
+                <li ng-show="subdomain == 'nyc' || 'platformtraining' || subdomain == '127'">
+                  <a href class="" ng-click="clsMgmt.sendTexts('both') ">
+                    Text selected pairs
+                  </a>
+                </li>
+              </ul>
+            </span>
+
+        </th>
+      </tr>
+      <tr class="header"  >
+        <td rowspan="2" class="text-bottom contact ticker-col">
+          <a href style="color: white;" ng-click="clsMgmt.updateSelections()">
+                <span class="glyphicon glyphicon-ok" style="margin-right: 5px;float: left;"
+                      ng-class="{'selected': clsMgmt.globalSelection == true, 'unselected': clsMgmt.globalSelection != true}"
+
+                /></span>
+          </a>
+
+
+        </td>
+        <td rowspan="2" class="text-bottom mentee-name">Mentee Name</td>
+        <td rowspan="2" class="text-bottom mentor-name">Mentor Name</td>
+        <td class="text-center blue-bg padding-bottom-zero" colspan="2">
+          <p>[[clsMgmt.lessons[0].description]]</p>
+          <p>[[clsMgmt.lessons[0].lesson_start | date:'MM/dd/yy' ]] to [[clsMgmt.lessons[0].lesson_end | date:'MM/dd/yy']]</p>
+        </td>
+        <td class="text-center padding-bottom-zero" colspan="2">
+          <p>[[clsMgmt.lessons[1].description]]</p>
+          <p class="gray">[[clsMgmt.lessons[1].lesson_start | date:'MM/dd/yy' ]] to [[clsMgmt.lessons[1].lesson_end | date:'MM/dd/yy']]</p>
+        </td>
+        <td class="text-center padding-bottom-zero" colspan="2">
+          <p>[[clsMgmt.lessons[2].description]]</p>
+          <p class="gray">[[clsMgmt.lessons[2].lesson_start | date:'MM/dd/yy' ]] to [[clsMgmt.lessons[2].lesson_end | date:'MM/dd/yy']]</p>
+        </td>
+      </tr>
+      <tr class="header" >
+        <td class="text-center blue-bg mentee">Mentee</td>
+        <td class="text-center blue-bg mentor">Mentor</td>
+        <td class="text-center mentee">Mentee</td>
+        <td class="text-center mentor">Mentor</td>
+        <td class="text-center mentee">Mentee</td>
+        <td class="text-center mentor">Mentor</td>
+      </tr>
+      </thead>
+
+      <tbody>
+      <tr ng-repeat="ele in clsMgmt.roster track by $index" ng-class="{'selected': ele.selected == true, 'unselected': ele.selected != true}" >
+        <td class="ticker-col contact" ng-click="clsMgmt.updateRosterSelection(ele)">
+            <span class="" ng-class="{'selected': ele.selected == true, 'unselected': ele.selected != true,' fa fa-check-square-o': ele.selected == true, 'fa fa-square-o':ele.selected != true}">
+            </span>
+        </td>
+        <td class="mentee-name">
+          <a href="[[ele.mentee_profile_link]]" target="_blank">[[ele.mentee_first_name]] [[ele.mentee_last_name]]</a>
+        </td>
+        <td class="mentor-name">
+          <a href="[[ele.mentor_profile_link]]" target="_blank" ng-if=" 'NA' != ele.mentor_first_name">[[ele.mentor_first_name]] [[ele.mentor_last_name]]</a>
+        </td>
+        <td class="left-border mentee">
+          <a ng-href='[[clsMgmt.lessons[0].engagement[$index].party_canvas_link]]' target='_blank' class="canvas-ico"
+             ng-class="{ 'href-no-active': 'NA' == clsMgmt.lessons[0].engagement[$index].party_canvas_link }">
+
+            <img ng-if=" 'Not available' == clsMgmt.lessons[0].engagement[$index].party_canvas_icon " src='/new_platform/static/snapshot/img/canvas_not_available.png' alt="Not available" title="Not available"/>
+            <img ng-if=" 'Not started' == clsMgmt.lessons[0].engagement[$index].party_canvas_icon " src='/new_platform/static/snapshot/img/canvas_not_started.png' alt="Not started" title="Not started"/>
+            <img ng-if=" 'Not finished' == clsMgmt.lessons[0].engagement[$index].party_canvas_icon " src='/new_platform/static/snapshot/img/canvas_not_finished.png' alt="Not finished" title="Not finished"/>
+            <img ng-if=" 'Finished' == clsMgmt.lessons[0].engagement[$index].party_canvas_icon " src='/new_platform/static/snapshot/img/canvas_finished.png' alt="Finished" title="Finished"/>
+            <img ng-if=" 'Finished late' == clsMgmt.lessons[0].engagement[$index].party_canvas_icon " src='/new_platform/static/snapshot/img/canvas_finished_late.png' alt="Finished early or late" title="Finished early or late"/>
+
+          </a>
+
+          <img ng-if=" 'Not available' == clsMgmt.lessons[0].engagement[$index].party_conversations_icon " src='/new_platform/static/snapshot/img/conversations_not_available.png'
+               alt="Not available" title="Not available" class="conv-ico"/>
+          <img ng-click="openChatAdmin(clsMgmt.lessons[0].engagement[$index].party_conversations_link.split(',')[0], clsMgmt.lessons[0].engagement[$index].party_conversations_link.split(',')[1], clsMgmt.lessons[0].engagement[$index].party_conversations_link.split(',')[2])" ng-if=" 'Not started' == clsMgmt.lessons[0].engagement[$index].party_conversations_icon " src='/new_platform/static/snapshot/img/conversations_not_started.png'
+               alt="Not started" title="Not started" class="conv-ico"/>
+          <img ng-click="openChatAdmin(clsMgmt.lessons[0].engagement[$index].party_conversations_link.split(',')[0], clsMgmt.lessons[0].engagement[$index].party_conversations_link.split(',')[1], clsMgmt.lessons[0].engagement[$index].party_conversations_link.split(',')[2])" ng-if=" 'Sent message' == clsMgmt.lessons[0].engagement[$index].party_conversations_icon "
+               src='/new_platform/static/snapshot/img/conversations_sent_message.png' alt="Sent message" title="Sent message" class="conv-ico"/>
+        </td>
+        <td class="right-border mentor">
+          <div ng-if=" 'NA' != ele.mentor_first_name">
+            <a ng-href='[[clsMgmt.lessons[0].engagement[$index].counterparty_canvas_link]]' target='_blank' class="canvas-ico"
+               ng-class="{ 'href-no-active': 'NA' == clsMgmt.lessons[0].engagement[$index].counterparty_canvas_link }">
+
+              <img ng-if=" 'Not available' == clsMgmt.lessons[0].engagement[$index].counterparty_canvas_icon " src='/new_platform/static/snapshot/img/canvas_not_available.png' alt="Not available" title="Not available"/>
+              <img ng-if=" 'Not started' == clsMgmt.lessons[0].engagement[$index].counterparty_canvas_icon " src='/new_platform/static/snapshot/img/canvas_not_started.png' alt="Not started" title="Not started"/>
+              <img ng-if=" 'Not finished' == clsMgmt.lessons[0].engagement[$index].counterparty_canvas_icon " src='/new_platform/static/snapshot/img/canvas_not_finished.png' alt="Not finished" title="Not finished"/>
+              <img ng-if=" 'Finished' == clsMgmt.lessons[0].engagement[$index].counterparty_canvas_icon " src='/new_platform/static/snapshot/img/canvas_finished.png' alt="Finished" title="Finished"/>
+              <img ng-if=" 'Finished late' == clsMgmt.lessons[0].engagement[$index].counterparty_canvas_icon " src='/new_platform/static/snapshot/img/canvas_finished_late.png' alt="Finished early or late" title="Finished early or late"/>
+
+            </a>
+
+            <img ng-if=" 'Not available' == clsMgmt.lessons[0].engagement[$index].counterparty_conversations_icon " src='/new_platform/static/snapshot/img/conversations_not_available.png'
+                 alt="Not available" title="Not available" class="conv-ico"/>
+            <img ng-click="openChatAdmin(clsMgmt.lessons[0].engagement[$index].counterparty_conversations_link.split(',')[0], clsMgmt.lessons[0].engagement[$index].counterparty_conversations_link.split(',')[1], clsMgmt.lessons[0].engagement[$index].counterparty_conversations_link.split(',')[2])" ng-if=" 'Not started' == clsMgmt.lessons[0].engagement[$index].counterparty_conversations_icon " src='/new_platform/static/snapshot/img/conversations_not_started.png'
+                 alt="Not started" title="Not started" class="conv-ico"/>
+            <img ng-click="openChatAdmin(clsMgmt.lessons[0].engagement[$index].counterparty_conversations_link.split(',')[0], clsMgmt.lessons[0].engagement[$index].counterparty_conversations_link.split(',')[1], clsMgmt.lessons[0].engagement[$index].counterparty_conversations_link.split(',')[2])" ng-if=" 'Sent message' == clsMgmt.lessons[0].engagement[$index].counterparty_conversations_icon "
+                 src='/new_platform/static/snapshot/img/conversations_sent_message.png' alt="Sent message" title="Sent message" class="conv-ico"/>
+          </div>
+        </td>
+        <td class="mentee">
+          <a ng-href='[[clsMgmt.lessons[1].engagement[$index].party_canvas_link]]' target='_blank' class="canvas-ico"
+             ng-class="{ 'href-no-active': 'NA' == clsMgmt.lessons[1].engagement[$index].party_canvas_link }">
+
+            <img ng-if=" 'Not available' == clsMgmt.lessons[1].engagement[$index].party_canvas_icon " src='/new_platform/static/snapshot/img/canvas_not_available.png' alt="Not available" title="Not available"/>
+            <img ng-if=" 'Not started' == clsMgmt.lessons[1].engagement[$index].party_canvas_icon " src='/new_platform/static/snapshot/img/canvas_not_started.png' alt="Not started" title="Not started"/>
+            <img ng-if=" 'Not finished' == clsMgmt.lessons[1].engagement[$index].party_canvas_icon " src='/new_platform/static/snapshot/img/canvas_not_finished.png' alt="Not finished" title="Not finished"/>
+            <img ng-if=" 'Finished' == clsMgmt.lessons[1].engagement[$index].party_canvas_icon " src='/new_platform/static/snapshot/img/canvas_finished.png' alt="Finished" title="Finished"/>
+            <img ng-if=" 'Finished late' == clsMgmt.lessons[1].engagement[$index].party_canvas_icon " src='/new_platform/static/snapshot/img/canvas_finished_late.png' alt="Finished early or late" title="Finished early or late"/>
+
+          </a>
+
+          <img ng-if=" 'Not available' == clsMgmt.lessons[1].engagement[$index].party_conversations_icon " src='/new_platform/static/snapshot/img/conversations_not_available.png'
+               alt="Not available" title="Not available" class="conv-ico"/>
+          <img ng-click="openChatAdmin(clsMgmt.lessons[1].engagement[$index].party_conversations_link.split(',')[0], clsMgmt.lessons[1].engagement[$index].party_conversations_link.split(',')[1], clsMgmt.lessons[1].engagement[$index].party_conversations_link.split(',')[2])" ng-if=" 'Not started' == clsMgmt.lessons[1].engagement[$index].party_conversations_icon " src='/new_platform/static/snapshot/img/conversations_not_started.png'
+               alt="Not started" title="Not started" class="conv-ico"/>
+          <img ng-click="openChatAdmin(clsMgmt.lessons[1].engagement[$index].party_conversations_link.split(',')[0], clsMgmt.lessons[1].engagement[$index].party_conversations_link.split(',')[1], clsMgmt.lessons[1].engagement[$index].party_conversations_link.split(',')[2])" ng-if=" 'Sent message' == clsMgmt.lessons[1].engagement[$index].party_conversations_icon "
+               src='/new_platform/static/snapshot/img/conversations_sent_message.png' alt="Sent message" title="Sent message" class="conv-ico"/>
+        </td>
+        <td class="mentor">
+          <div ng-if=" 'NA' != ele.mentor_first_name">
+            <a ng-href='[[clsMgmt.lessons[1].engagement[$index].counterparty_canvas_link]]' target='_blank' class="canvas-ico"
+               ng-class="{ 'href-no-active': 'NA' == clsMgmt.lessons[1].engagement[$index].counterparty_canvas_link }">
+
+              <img ng-if=" 'Not available' == clsMgmt.lessons[1].engagement[$index].counterparty_canvas_icon " src='/new_platform/static/snapshot/img/canvas_not_available.png' alt="Not available" title="Not available"/>
+              <img ng-if=" 'Not started' == clsMgmt.lessons[1].engagement[$index].counterparty_canvas_icon " src='/new_platform/static/snapshot/img/canvas_not_started.png' alt="Not started" title="Not started"/>
+              <img ng-if=" 'Not finished' == clsMgmt.lessons[1].engagement[$index].counterparty_canvas_icon " src='/new_platform/static/snapshot/img/canvas_not_finished.png' alt="Not finished" title="Not finished"/>
+              <img ng-if=" 'Finished' == clsMgmt.lessons[1].engagement[$index].counterparty_canvas_icon " src='/new_platform/static/snapshot/img/canvas_finished.png' alt="Finished" title="Finished"/>
+              <img ng-if=" 'Finished late' == clsMgmt.lessons[1].engagement[$index].counterparty_canvas_icon " src='/new_platform/static/snapshot/img/canvas_finished_late.png' alt="Finished early or late" title="Finished early or late"/>
+
+            </a>
+
+            <img ng-if=" 'Not available' == clsMgmt.lessons[1].engagement[$index].counterparty_conversations_icon " src='/new_platform/static/snapshot/img/conversations_not_available.png'
+                 alt="Not available" title="Not available" class="conv-ico"/>
+            <img ng-click="openChatAdmin(clsMgmt.lessons[1].engagement[$index].counterparty_conversations_link.split(',')[0], clsMgmt.lessons[1].engagement[$index].counterparty_conversations_link.split(',')[1], clsMgmt.lessons[1].engagement[$index].counterparty_conversations_link.split(',')[2])" ng-if=" 'Not started' == clsMgmt.lessons[1].engagement[$index].counterparty_conversations_icon " src='/new_platform/static/snapshot/img/conversations_not_started.png'
+                 alt="Not started" title="Not started" class="conv-ico"/>
+            <img ng-click="openChatAdmin(clsMgmt.lessons[1].engagement[$index].counterparty_conversations_link.split(',')[0], clsMgmt.lessons[1].engagement[$index].counterparty_conversations_link.split(',')[1], clsMgmt.lessons[1].engagement[$index].counterparty_conversations_link.split(',')[2])" ng-if=" 'Sent message' == clsMgmt.lessons[1].engagement[$index].counterparty_conversations_icon "
+                 src='/new_platform/static/snapshot/img/conversations_sent_message.png' alt="Sent message" title="Sent message" class="conv-ico"/>
+          </div>
+        </td>
+        <td class="mentee">
+          <a ng-href='[[clsMgmt.lessons[2].engagement[$index].party_canvas_link]]' target='_blank' class="canvas-ico"
+             ng-class="{ 'href-no-active': 'NA' == clsMgmt.lessons[2].engagement[$index].party_canvas_link }" >
+
+            <img ng-if=" 'Not available' == clsMgmt.lessons[2].engagement[$index].party_canvas_icon " src='/new_platform/static/snapshot/img/canvas_not_available.png' alt="Not available" title="Not available"/>
+            <img ng-if=" 'Not started' == clsMgmt.lessons[2].engagement[$index].party_canvas_icon " src='/new_platform/static/snapshot/img/canvas_not_started.png' alt="Not started" title="Not started"/>
+            <img ng-if=" 'Not finished' == clsMgmt.lessons[2].engagement[$index].party_canvas_icon " src='/new_platform/static/snapshot/img/canvas_not_finished.png' alt="Not finished" title="Not finished"/>
+            <img ng-if=" 'Finished' == clsMgmt.lessons[2].engagement[$index].party_canvas_icon " src='/new_platform/static/snapshot/img/canvas_finished.png' alt="Finished" title="Finished"/>
+            <img ng-if=" 'Finished late' == clsMgmt.lessons[2].engagement[$index].party_canvas_icon " src='/new_platform/static/snapshot/img/canvas_finished_late.png' alt="Finished early or late" title="Finished early or late"/>
+
+          </a>
+
+          <img ng-if=" 'Not available' == clsMgmt.lessons[2].engagement[$index].party_conversations_icon " src='/new_platform/static/snapshot/img/conversations_not_available.png'
+               alt="Not available" title="Not available" class="conv-ico"/>
+          <img ng-click="openChatAdmin(clsMgmt.lessons[2].engagement[$index].party_conversations_link.split(',')[0], clsMgmt.lessons[2].engagement[$index].party_conversations_link.split(',')[1], clsMgmt.lessons[2].engagement[$index].party_conversations_link.split(',')[2])" ng-if=" 'Not started' == clsMgmt.lessons[2].engagement[$index].party_conversations_icon " src='/new_platform/static/snapshot/img/conversations_not_started.png'
+               alt="Not started" title="Not started" class="conv-ico"/>
+          <img ng-click="openChatAdmin(clsMgmt.lessons[2].engagement[$index].party_conversations_link.split(',')[0], clsMgmt.lessons[2].engagement[$index].party_conversations_link.split(',')[1], clsMgmt.lessons[2].engagement[$index].party_conversations_link.split(',')[2])" ng-if=" 'Sent message' == clsMgmt.lessons[2].engagement[$index].party_conversations_icon "
+               src='/new_platform/static/snapshot/img/conversations_sent_message.png' alt="Sent message" title="Sent message" class="conv-ico"/>
+        </td>
+        <td class="mentor">
+          <div ng-if=" 'NA' != ele.mentor_first_name">
+            <a ng-href='[[clsMgmt.lessons[2].engagement[$index].counterparty_canvas_link]]' target='_blank' class="canvas-ico"
+               ng-class="{ 'href-no-active': 'NA' == clsMgmt.lessons[2].engagement[$index].counterparty_canvas_link }">
+
+              <img ng-if=" 'Not available' == clsMgmt.lessons[2].engagement[$index].counterparty_canvas_icon " src='/new_platform/static/snapshot/img/canvas_not_available.png' alt="Not available" title="Not available"/>
+              <img ng-if=" 'Not started' == clsMgmt.lessons[2].engagement[$index].counterparty_canvas_icon " src='/new_platform/static/snapshot/img/canvas_not_started.png' alt="Not started" title="Not started"/>
+              <img ng-if=" 'Not finished' == clsMgmt.lessons[2].engagement[$index].counterparty_canvas_icon " src='/new_platform/static/snapshot/img/canvas_not_finished.png' alt="Not finished" title="Not finished"/>
+              <img ng-if=" 'Finished' == clsMgmt.lessons[2].engagement[$index].counterparty_canvas_icon " src='/new_platform/static/snapshot/img/canvas_finished.png' alt="Finished" title="Finished"/>
+              <img ng-if=" 'Finished late' == clsMgmt.lessons[2].engagement[$index].counterparty_canvas_icon " src='/new_platform/static/snapshot/img/canvas_finished_late.png' alt="Finished early or late" title="Finished early or late"/>
+
+            </a>
+
+            <img ng-if=" 'Not available' == clsMgmt.lessons[2].engagement[$index].counterparty_conversations_icon " src='/new_platform/static/snapshot/img/conversations_not_available.png'
+                 alt="Not available" title="Not available" class="conv-ico"/>
+            <img ng-click="openChatAdmin(clsMgmt.lessons[2].engagement[$index].counterparty_conversations_link.split(',')[0], clsMgmt.lessons[2].engagement[$index].counterparty_conversations_link.split(',')[1], clsMgmt.lessons[2].engagement[$index].counterparty_conversations_link.split(',')[2])" ng-if=" 'Not started' == clsMgmt.lessons[2].engagement[$index].counterparty_conversations_icon " src='/new_platform/static/snapshot/img/conversations_not_started.png'
+                 alt="Not started" title="Not started" class="conv-ico"/>
+            <img ng-click="openChatAdmin(clsMgmt.lessons[2].engagement[$index].counterparty_conversations_link.split(',')[0], clsMgmt.lessons[2].engagement[$index].counterparty_conversations_link.split(',')[1], clsMgmt.lessons[2].engagement[$index].counterparty_conversations_link.split(',')[2])" ng-if=" 'Sent message' == clsMgmt.lessons[2].engagement[$index].counterparty_conversations_icon "
+                 src='/new_platform/static/snapshot/img/conversations_sent_message.png' alt="Sent message" title="Sent message" class="conv-ico"/>
+          </div>
+        </td>
+      </tr>
+      </tbody>
+
+      <tfoot>
+      <tr class="gray-bg">
+        <td colspan="9">
+          Canvas Legend
+          <img src='/new_platform/static/snapshot/img/canvas_not_available.png' alt="Not available" title="Not available"/> Not available
+          <img src='/new_platform/static/snapshot/img/canvas_not_started.png' alt="Not started" title="Not started"/> Not started
+          <img src='/new_platform/static/snapshot/img/canvas_not_finished.png' alt="Not finished" title="Not finished"/> Not finished
+          <img src='/new_platform/static/snapshot/img/canvas_finished.png' alt="Finished" title="Finished"/> Finished
+          <img src='/new_platform/static/snapshot/img/canvas_finished_late.png' alt="Finished early or late" title="Finished early or late"/> Finished early or late
+        </td>
+      </tr>
+      <tr class="gray-bg">
+        <td colspan="9">
+          Conversations Legend
+          <img src='/new_platform/static/snapshot/img/conversations_not_available.png' alt="Not available" title="Not available"/> Not available
+          <img src='/new_platform/static/snapshot/img/conversations_not_started.png' alt="Not started" title="Not started"/> Not started
+          <img src='/new_platform/static/snapshot/img/conversations_sent_message.png' alt="Sent message" title="Sent message"/> Sent message
+        </td>
+      </tr>
+      </tfoot>
+    </table>
+
+  </div>
+  <div ng-controller="Shell as vm" style="position: fixed;
+    bottom: 0px;right: 0px;">
+    <irontec-simple-chat
+            messages="vm.messages"
+            username="vm.username"
+            input-placeholder-text="You can write here"
+            submit-button-text="Send your message"
+            title="[[vm.title]]"
+            theme="material"
+            submit-function="vm.sendMessage"
+            visible="vm.visible"
+            expand-on-new="vm.expandOnNew">
+    </irontec-simple-chat>
+  </div>
+</div>
+</body>
+</html>

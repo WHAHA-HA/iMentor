@@ -1,0 +1,588 @@
+.presentation ul {
+    list-style: none;
+    padding: 0;
+}
+.upload-list ul {
+    padding: 0;
+    margin: 3px 0;
+}
+.upload-list li {
+    padding: 10px;
+    margin-bottom: 15px;
+}
+.upload-list .progress div {
+    font-size: smaller;
+    background: #00aeef;
+    width: 0;
+    height: 20px;
+}
+
+.chat-window {
+  max-width: 550px;
+  width: 550px;
+  margin-right: 20px;
+  font-weight: 200;
+}
+.chat-th-material .chat-top-bar {
+  background: #00aeef;
+  color: #fff;
+}
+.chat-th-material .chat-submit-button {
+  background: #00aeef;
+  color: #fff;
+}
+
+.chat-th-material .chat-input:focus {
+  border-color: #00aeef;
+  box-shadow: 0 0px 0px #fff inset, 0 0 0px #009688;
+  outline: 0 none;
+}
+.msg-container-base {
+  display: block;
+  max-height: 350px;
+  overflow-y: scroll;
+}
+.msg-container-base:focus{
+  outline: -webkit-focus-ring-color auto 0px;
+}
+.msg-container-base .msg-container {
+  display: block;
+  overflow: hidden;
+  text-align: left;
+}
+.fa.fa-search, .notification-inner .fa-comment-o{
+  font-size: 20px;
+  position: relative;
+  top: -3px;
+  right: 5px;
+}
+.chat-msg {
+    /* These are technically the same, but use both */
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+
+    -ms-word-break: break-all;
+    /* This is the dangerous one in WebKit, as it breaks things wherever */
+    word-break: break-all;
+    /* Instead use this non-standard one: */
+    word-break: break-word;
+}
+.chat-msg.chat-msg-sent {
+  float: right;
+  width: 70%;
+}
+.chat-msg.chat-msg-recieved {
+  float: left;
+  width: 70%;
+}
+.chat-msg-header.chat-msg-sent {
+  float: right;
+  width: 70%;
+}
+.panel-title {
+  margin-left: -15px;
+  font-weight: 200;
+}
+.chat-top-bar {
+  height: 40px;
+}
+.search-control {
+  display: inline-block;
+  width: 200px;
+  padding: 4px;
+  font-size: 14px;
+  line-height: 1.42857143;
+  color: #555;
+  background-color: #fff;
+  background-image: none;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  /* -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075); */
+  /* box-shadow: inset 0 1px 1px rgba(0,0,0,.075); */
+  /* -webkit-transition: border-color ease-in-out .15s,-webkit-box-shadow ease-in-out .15s; */
+  -o-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+  /* transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s; */
+}
+.highlighted {
+  background: yellow
+}
+.chatNoMsgs{
+  color: white !important;
+}
+.chat-bottom-bar {
+  overflow: hidden;
+  padding: 10px;
+  position: relative;
+  height: 160px;
+  max-height: 220px;
+}
+.chat-input{
+  height: 190px !important;
+  border: 1px solid #ccc !important;
+}
+.input-group-btn {
+  vertical-align: bottom;
+}
+.fa-rotate-135 {
+  filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=1);
+  -webkit-transform: rotate(135deg);
+  -ms-transform: rotate(135deg);
+  transform: rotate(135deg);
+}
+i.fa.fa-paper-plane.fa-rotate-35 {
+  color: #00aeef;
+}
+.chat-msg-header {
+  background: transparent;
+  /* border-radius: 2px; */
+  /* box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2); */
+  max-width: 100%;
+  padding: 0px;
+  position: relative;
+  top: 15px;
+}
+.chat-window .upload-list {
+  top: -25px;
+}
+.chat-window .upload-list .remove{
+  font-size: 15px;
+}
+.chat-window .upload-list .progress{
+      display: inline-block;
+    overflow: visible;
+    margin-bottom: 0;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    border-radius: 0;
+    position: relative;
+    top: 4px;
+  width: 100%  !important;
+  left:0;
+  text-align: left;
+  height: 20px  !important;
+}
+.chat-window .filesList.upload-list {
+    padding: 0px; 
+}
+.chat-window .upload-list li {
+  padding: 0;
+  color: #333;
+}
+.chat-window .upload-list .remove:hover {
+cursor: pointer;
+}
+
+.chat-window .filesList.upload-list .fileUp-cntrl {
+  padding-top: 5px;
+  text-align: center;
+}
+
+.chat-window .upload-list .progress div {
+    font-size: 14px;
+}
+
+.chat-window .upload-button{
+  font-size:34px;
+  position:relative;
+  top: 0px;
+  color: #4A4A4A;
+}
+.btn.notSendingText[disabled] .fa-paper-plane{
+  color:#4A4A4A;
+}
+.chat-bottom-bar .file-drop-box-container {
+  padding: 10px 10px;
+  width: 100%;
+}
+.chat-bottom-bar .text-toolbar { 
+  padding-top: 0;
+}
+.linkDisabled {
+  cursor: not-allowed;
+  pointer-events: none;
+  color: grey;
+}
+.messageNotification {
+  display: inline-block !important;
+  position: relative;
+  right: 140px;
+  float: right;
+  color: white;
+}
+.chatMsg a{
+  color: #00aeff !important;
+}
+.chatMsg p{
+  word-break: keep-all !important;
+}
+.pull-right{
+  float:right;
+}
+.pull-left{
+  float:left;
+}
+.angular-notifications-icon {
+  right: -10px;
+  top: -6px;
+  border-radius: 50%;
+  text-align: center;
+  padding-left: 1px;
+  padding-right: 1px;
+  padding-top: 0;
+  min-width: 20px;
+  height: 20px;
+  background: #00aeef!important;
+  color: #fff;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  cursor: default;
+}
+.textAngularChat{
+  text-align: left;
+}
+.chatMsg h1,.chatMsg h2,.chatMsg h3,.chatMsg h4,.chatMsg h5,.chatMsg h6,.chatMsg p{
+  color:black !important;
+}
+.textAngularChat .text-toolbar{
+  margin-left: 0px !important;
+}
+.textAngularChat .ta-editor.ta-html, .textAngularChat .ta-scroll-window.form-control {
+  min-height: 100px !important;
+  height: 120px !important;
+  /* max-height: 160px !important; */
+  overflow-y: auto;
+
+}
+.textAngularChat i, .chat-msg i{
+  font-style: italic;
+}
+.textAngularChat .angularTextbar button.btn {
+  width: 60px;
+  border: 0px solid gray;
+}
+.textAngularChat .ta-scroll-window.ta-text.ta-editor.form-control {
+  z-index: 1;
+}
+
+.tooltip {
+  top:-20px;
+  left:20px;
+  background-color:transparent;
+  color:gray;
+  border-radius:5px;
+  opacity:0;
+  position:absolute;
+  -webkit-transition: opacity 0.5s;
+  -moz-transition:  opacity 0.5s;
+  -ms-transition: opacity 0.5s;
+  -o-transition:  opacity 0.5s;
+  transition:  opacity 0.5s;
+}
+
+.hover:hover .tooltip {
+  opacity:1;
+}
+.textAngularChat i {
+  font-style: italic;
+  font-size: 14px;
+}
+.chatShell {
+  z-index: -1; 
+}
+.zIndexTop {
+  z-index: 9999;
+}
+
+.chat-window .send-button{
+
+  }
+.full-width {
+  width: 100%;
+}
+
+.mobileStylesBlock {
+      display: none;
+}
+
+.desktopStylesBlock {
+    display: block;
+}
+
+@media (max-device-width: 100px) {
+  .chat-window {
+    width: 100% !important;
+  }
+  /*
+  .chatShell{
+    width: 100% !important;
+        position: fixed;
+    bottom: 0px;
+    z-index: 1;
+    right: 0px;
+    left: 0px;
+    top: 0px;
+  }*/
+  .msg-container-base {
+    max-height: 200px;
+  }
+  .chat-bottom-bar {
+    height: 200px;
+    max-height: 200px;
+  }
+  .chat-window .fa-close{
+    left: 18px !important;
+  }
+  .chat-window .panel-title{
+    position: relative;
+    bottom: 6px;
+  }
+  .chatHelp{
+    display: none;
+  }
+
+  .search-control {
+        top: -27px;
+  }
+}
+
+
+@media (max-device-width: 800px) {
+  .chat-window {
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+
+  .msg-container-base {
+    max-height: 100%;
+    height: auto;
+    /*padding-bottom: 235px; */
+    position: absolute;
+    left: 0px;
+    width: 100%;
+    top: 0px; /*39*/
+    bottom: 200px;
+    margin-top: 40px;
+}
+
+.chat-bottom-bar {
+    height: 200px;
+    max-height: 200px;
+    position: fixed;
+    bottom: 0px;
+}
+
+.chatShell{
+    top: 0px;
+    left: 0px;
+    width:100%;
+}
+
+  .chat-bottom-bar {
+    height: 200px;
+    max-height: 200px;
+  }
+  .chat-window .fa-close{
+    left: 18px !important;
+  }
+  .chat-window .panel-title{
+    position: relative;
+    bottom: 0px;
+  }
+  .chatHelp{
+    display: none;
+  }
+
+  .search-control {
+        top: -27px;
+  }
+span.username {
+        display: none;
+    }
+    .messageNotification {
+        right: 0;
+    }
+
+  .mobileStylesBlock {
+      display: block;
+  }
+
+  .desktopStylesBlock {
+    display: none;
+  }
+  span.insert-emoji {
+    position: relative;
+    left: 15px;
+  }
+  .chat-bottom-bar .input-group-btn {
+    max-width: 10px;
+  }
+
+}
+@media (max-device-width: 800px) and (orientation:landscape){
+.textAngularChat .ta-editor.ta-html, .textAngularChat .ta-scroll-window.form-control {
+    min-height: 85px !important;
+    height: 85px !important;
+    /* max-height: 160px !important; */
+    overflow-y: auto;
+  }
+
+  .chat-bottom-bar {
+    height: 125px;
+    max-height: 125px;
+    position: fixed;
+    bottom: 0px;
+  }
+
+  .chat-window .upload-button{
+    top: -68px;
+  }
+
+  .chat-window .send-button{
+    padding-bottom: 8px;
+  }
+
+  .chat-window .filesList.upload-list .fileUp-cntrl {
+    padding-top: 10px;
+  }
+
+  .msg-container-base {
+    bottom: 125px;
+  }
+
+}
+
+@media (max-device-width: 600px) {
+  .messageNotification {
+      right: -15px;
+  }
+}
+
+
+@media (max-width: 600px) {
+.messageNotification {
+    right: -15px;
+}
+}
+
+.flip-box-content .msg-container-base {
+
+}
+
+.disabled { cursor: default; opacity: .5; color: gray; }
+
+.ta-scroll-window > .ta-bind {
+    min-height: 170px;
+    margin-bottom: 10px;
+    font-size: 16px;
+     /* These are technically the same, but use both */
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+
+    -ms-word-break: break-all;
+    /* This is the dangerous one in WebKit, as it breaks things wherever */
+    word-break: break-all;
+    /* Instead use this non-standard one: */
+    word-break: break-word;
+}
+
+
+.chat-top-bar .fa.fa-close {
+    font-family: FontAwesome!important;
+    font-style: normal;
+    font-size: 24px;
+}
+
+.textAngularChat .text-toolbar {
+  /* margin-left: 0px !important; */
+  /*display: none;*/
+}
+
+.chat-bottom-bar .angularTextbar > .btn:not(.insert-emoji) {
+  display: none;
+}
+.insert-emoji {
+
+}
+.insert-emoji .dropdown-toggle {
+  border: 0px solid transparent;
+}
+.insert-emoji  i.fa.fa-smile-o {
+  font-size: 30px;
+  color: #4A4A4A;
+  font-style: normal !important;
+}
+.chat-bottom-bar .ta-toolbar.text-toolbar{
+  height:0px;
+}
+.chat-bottom-bar .ta-toolbar.text-toolbar {
+  height: 0px;
+  float: right;
+  position: relative;
+  left: -10px;
+}
+.chat-bottom-bar {
+  overflow: visible;
+}
+.emoji-menu-footer {
+  margin-top: 10px;
+  background: #E2EDF0;
+  display: none;
+}
+.insert-emoji .dropdown-menu {
+  position: absolute;
+  top: -330px;
+  left: -200px;
+  z-index: 999;
+}
+.textAngularChat .ta-scroll-window.ta-text.ta-editor.form-control {
+  z-index: 1;
+  width: 85%;
+  float: left;
+  border: 2px solid #b1b1b1;
+  border-radius: 0px;
+}
+.textAngularChat .ta-root.focussed > .ta-scroll-window.form-control {
+  border: 2px solid #b1b1b1;
+}
+.textAngularChat .open>.dropdown-toggle.btn-default {
+  background-color: white;
+}
+.chat-bottom-bar .input-group-btn {
+  vertical-align: bottom;
+  position: relative;
+  top: 45px;
+}
+.insert-emoji  .btn-default:active {
+  color: #333;
+  background-color: transparent !important;
+}
+.insert-emoji .dropdown-toggle:hover {
+  background-color: white;
+}
+.insert-emoji.btn-default:active:hover {
+  background-color: transparent;
+}
+/***Emoji Menu***/
+.insert-emoji .nav>li>a {
+  position: relative;
+  display: block;
+  padding: 5px 7px;
+}
+.insert-emoji .tab-content { max-height: 250px; overflow-y:scroll;}
+.emoji-menu-category { }
+.emoji-menu-category img{ width: 20px; height:20px;}
+
+.emoji-menu img{ width: 20px; height:20px; float: left;}
+.emoji-menu a{
+  display: inline-block;
+  text-decoration: none;
+  padding: .25rem .7rem;
+  overflow: hidden;
+  border-radius: 6px;
+  float: left; }
+.emoji-menu a:hover{ background: #E2EDF0; }
+.emoji-menu-footer { margin-top: 10px; background: #E2EDF0;  }
+.emoji-menu-footer img { width: 40px; height:40px;}
+/***-Emoji Menu-***/

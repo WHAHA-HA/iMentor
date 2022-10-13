@@ -1,0 +1,39 @@
+<!--Type:3-->
+<div class="phonebox">
+  <span class="questiontext" ng-bind-html="htmlText"></span>
+  <input type="text"
+         ng-required="question.is_required"
+         ng-model="phoneNumbers[0]"
+         ng-blur="update()"
+         maxlength="3"
+         class="phone-number"
+         ng-change="moveFocus(0)"
+         tabindex="[[tabIndex]]"
+         ng-readonly="question.onBackendCall == true"
+      />
+  -
+  <input type="text"
+         ng-required="question.is_required"
+         ng-model="phoneNumbers[1]"
+         ng-blur="update()"
+         maxlength="3"
+         ng-change="moveFocus(1)"
+         class="phone-number"
+         tabindex="[[tabIndex+1]]"
+         ng-readonly="question.onBackendCall == true"
+      />
+  -
+  <input type="text"
+         ng-required="question.is_required"
+         ng-model="phoneNumbers[2]"
+         ng-blur="update()"
+         maxlength="4"
+         ng-change="moveFocus(2)"
+         class="phone-number"
+         tabindex="[[tabIndex+2]]"
+         ng-readonly="question.onBackendCall == true"
+    />
+  <span ng-show="question.required && question.edited == true && question.showRequired == true" class="form-error">[[fieldErrMsg]]</span>
+  <span class="error">[[error]]</span>
+</div>
+

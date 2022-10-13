@@ -1,0 +1,12 @@
+﻿INSERT into forms_form_member_site (id, member_site_id, form_id) VALUES (5, 243, 1);
+INSERT into forms_form_member_site (id, member_site_id, form_id) VALUES (6, 243, 2);
+INSERT into forms_form_member_site (id, member_site_id, form_id) VALUES (7, 181, 1);
+INSERT into forms_form_member_site (id, member_site_id, form_id) VALUES (8, 181, 2);
+INSERT into forms_form_member_site (id, member_site_id, form_id) VALUES (9, 86, 1);
+INSERT into forms_form_member_site (id, member_site_id, form_id) VALUES (10, 86, 2);
+INSERT into forms_form_member_site (id, member_site_id, form_id) VALUES (11, 179, 1);
+INSERT into forms_form_member_site (id, member_site_id, form_id) VALUES (12, 179, 2);
+INSERT into forms_form_member_site (id, member_site_id, form_id) VALUES (13, 197, 1);
+INSERT into forms_form_member_site (id, member_site_id, form_id) VALUES (14, 197, 2);
+INSERT into forms_form_member_site (id, member_site_id, form_id) VALUES (15, 187, 1);
+INSERT into forms_form_member_site (id, member_site_id, form_id) VALUES (16, 187, 2);

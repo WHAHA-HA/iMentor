@@ -1,0 +1,33 @@
+<!--Type: 23-->
+<div>
+
+  <input type="text"
+         ng-model="employer1"
+         placeholder="[[question.question_text]]"
+         ng-required="question.is_required"
+         typeahead-min-length="3"
+         ng-disabled="!question.is_active || question.onBackendCall == true"
+         typeahead="employer.name for employer in getEmployers($viewValue)"
+         typeahead-loading="loadingEmployers"
+         typeahead-on-select='onSelect($item, $model, $label)'
+         ng-change = "clearEmployer()"
+         ng-blur="update()"
+         tabindex="[[tabIndex]]"
+         class="form-control">
+  <!--<i ng-show="loadingEmployers" class="glyphicon glyphicon-refresh"></i>-->
+  <br/>
+  <input type="text"
+         ng-required="question.dependence_required"
+         placeholder="If your employer was not listed above, please list it here"
+         ng-model="employer2"
+         ng-blur="update()"
+         ng-change="updateRequired()"
+         class="question-ptext"
+         name="textbox1"
+         tabindex="[[tabIndex+1]]"
+         ng-disabled="question.onBackendCall == true"
+         ng-show="!employer || !employer.id"
+      />
+  <span ng-show="question.required && question.edited == true && question.showRequired == true" class="form-error">[[fieldErrMsg]]</span>
+  <span class="error">[[error]]</span>
+</div>

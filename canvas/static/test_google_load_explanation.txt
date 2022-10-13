@@ -1,0 +1,5 @@
+The file saved here named “test_google_load.js” allows the iMentor platform, in particular the Canvas from 1/9/16 onward, to determine whether Google services are available. If so, the file downloads successfully and signals to the iMentor platform that it can load other Google documents such as posters and spreadsheets for users. If not, the file fails to download and prompts the iMentor platform to display a descriptive failure message to its users.
+
+Therefore, it is critical to leave this file intact, with the file name “test_google_load.js” and with the permissions “anyone on the Internet can view”.
+
+This explanation was last updated on 1/9/16.

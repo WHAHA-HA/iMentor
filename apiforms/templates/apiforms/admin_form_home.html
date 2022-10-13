@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>  Intake Application | iMentor </title>
+  <meta http-equiv="cache-control" content="max-age=0" />
+  <meta http-equiv="cache-control" content="no-cache" />
+  <meta http-equiv="expires" content="0" />
+  <meta http-equiv="expires" content="Tue, 01 Jan 1980 1:00:00 GMT" />
+  <meta http-equiv="pragma" content="no-cache" />
+ <script type="text/javascript">
+        var imentor_cdn_prefix = "{{CDN_URL}}";
+        function getCdnUrlPrefix(path) {
+          return imentor_cdn_prefix + (path || '');
+        }
+    </script>
+  <link rel="shortcut icon" href="{{CDN_URL}}/new_platform/static/img/favicon.png" type="image/x-icon" />
+
+  <!-- Vendor CSS -->
+  <link href="{{CDN_URL}}/new_platform/static/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="{{CDN_URL}}/new_platform/static/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="{{CDN_URL}}/new_platform/static/apiforms/css/form.css"/>
+  <link href="{{CDN_URL}}/new_platform/static/apiforms/css/header-bar.css" rel="stylesheet" />
+  <link href="{{CDN_URL}}/new_platform/static/angular-hamburger/angular-hamburger-toggle.css" rel="stylesheet" />
+
+  <!-- Vendor Scripts -->
+  <script src="{{CDN_URL}}/new_platform/static/jquery/jquery.min.js"></script>
+  <script src="{{CDN_URL}}/new_platform/static/angular/angular.min.js"></script>
+  <script src="{{CDN_URL}}/new_platform/static/angular-cookies/angular-cookies.js"></script>
+  <script src="{{CDN_URL}}/new_platform/static/angular-cookie/angular-cookie.js"></script>
+  <script src="{{CDN_URL}}/new_platform/static/angular-animate/angular-animate.min.js"></script>
+  <script src="{{CDN_URL}}/new_platform/static/angular-ui-router/angular-ui-router.min.js"></script>
+  <script src="{{CDN_URL}}/new_platform/static/angular-ui-utils/ui-utils.min.js"></script>
+  <script src="{{CDN_URL}}/new_platform/static/bootstrap/js/bootstrap.min.js"></script>
+  <script src="{{CDN_URL}}/new_platform/static/angular-ui-bootstrap/ui-bootstrap-tpls.min.js"></script>
+  <script src="{{CDN_URL}}/new_platform/static/angular-ui-utils/ui-utils.min.js"></script>
+  <script src="{{CDN_URL}}/new_platform/static/angular-scroll/angular-scroll.min.js"></script>
+  <script src="{{CDN_URL}}/new_platform/static/angular-route/angular-route.min.js"></script>
+  <script src="{{CDN_URL}}/new_platform/static/angular-resource/angular-resource.js"></script>
+  <script src="{{CDN_URL}}/new_platform/static/underscore/underscore-min.js"></script>
+  <script src="{{CDN_URL}}/new_platform/static/angular-datepicker/angular-datepicker.js"></script>
+  <script src="{{CDN_URL}}/new_platform/static/moment-2.9.0/moment.js"></script>
+  <script src="{{CDN_URL}}/new_platform/static/angular-hamburger/angular-hamburger-toggle.js"></script>
+
+  <!-- [[ block extra_js_scripts ]] -->
+  <script type="text/javascript"  src="{{CDN_URL}}/new_platform/static/apiforms/js/logger.js"></script>
+  <script type="text/javascript"  src="{{CDN_URL}}/new_platform/static/apiforms/js/rest_services.js"></script>
+  <script type="text/javascript"  src="{{CDN_URL}}/new_platform/static/apiforms/js/forms.js"></script>
+  <script type="text/javascript"  src="{{CDN_URL}}/new_platform/static/auth/js/loginModule.js"></script>
+  <script type="text/javascript"  src="{{CDN_URL}}/new_platform/static/auth/js/loginForm.js"></script>
+  <script type="text/javascript"  src="{{CDN_URL}}/new_platform/static/apiforms/js/directive.js"></script>
+  <script type="text/javascript"  src="{{CDN_URL}}/new_platform/static/apiforms/js/directives/free_form_textarea_dir.js"></script>
+  <script type="text/javascript"  src="{{CDN_URL}}/new_platform/static/apiforms/js/directives/free_form_textbox_dir.js"></script>
+  <script type="text/javascript"  src="{{CDN_URL}}/new_platform/static/apiforms/js/directives/phone_box_dir.js"></script>
+  <script type="text/javascript"  src="{{CDN_URL}}/new_platform/static/apiforms/js/directives/select_toggle_dir.js"></script>
+  <script type="text/javascript"  src="{{CDN_URL}}/new_platform/static/apiforms/js/directives/address_dir.js"></script>
+  <script type="text/javascript"  src="{{CDN_URL}}/new_platform/static/apiforms/js/directives/multiselect_dir.js"></script>
+  <script type="text/javascript"  src="{{CDN_URL}}/new_platform/static/apiforms/js/directives/datetime_dir.js"></script>
+  <script type="text/javascript"  src="{{CDN_URL}}/new_platform/static/apiforms/js/directives/dropdown_school_dir.js"></script>
+  <script type="text/javascript"  src="{{CDN_URL}}/new_platform/static/apiforms/js/directives/career_occupation_dir.js"></script>
+  <script type="text/javascript"  src="{{CDN_URL}}/new_platform/static/apiforms/js/directives/racial_dir.js"></script>
+  <script type="text/javascript"  src="{{CDN_URL}}/new_platform/static/apiforms/js/directives/career_dir.js"></script>
+  <script type="text/javascript"  src="{{CDN_URL}}/new_platform/static/apiforms/js/directives/academic_dir.js"></script>
+  <script type="text/javascript"  src="{{CDN_URL}}/new_platform/static/apiforms/js/directives/multi_select_nopref_toggle_dir.js"></script>
+  <script type="text/javascript"  src="{{CDN_URL}}/new_platform/static/apiforms/js/directives/dropdown_employer_dir.js"></script>
+  <script type="text/javascript"  src="{{CDN_URL}}/new_platform/static/apiforms/js/directives/dropdown_dependence_dir.js"></script>
+</head>
+
+{% if app_form %}
+<body ng-app="imForm" ng-controller="componentsCtrl" ng-click="reportClick()" ng-init="init(user_id = {{user_id_from_flask}}, app_form = {{app_form}}); app_form = {{app_form}}; user_id = {{user_id_from_flask}};">
+{% else %}
+<body ng-app="imForm" ng-controller="componentsCtrl" ng-click="reportClick()" ng-init="user_id = {{user_id_from_flask}}; init(user_id = {{user_id_from_flask}});">
+{% endif %}
+<div ng-include src="'{{CDN_URL}}/new_platform/static/apiforms/nghtml/header-bar.html'"></div>
+  <div class="container" id="body-container">
+    <div ng-include src="'{{CDN_URL}}/new_platform/static/apiforms/nghtml/header_tabs.html'"></div>
+
+    <h2>[[section.description]]<a href style="margin-left: 20px;" ng-click="exportApplication(user_id)"><i class="fa fa-cloud-download"></i></a></h2>
+    <div name="mentorforms" class="theform" id="mentorforms" novalidate >
+      <div class='questionsContainer'>
+        <div id="default" tabindex="-1"></div>
+
+        <div ng-repeat="question in section.questions | orderBy:['ordinal','sub_ordinal']"  class="question-section" ng-class="{clearfix: question.sub_ordinal <= 100, 'second-col' : question.sub_ordinal >= 200 }"
+             class="theform" ng-show="question.is_visible" id="q[[question.id]]" data-question-type="[[question.question_type]]"  data-question-ordinal="[[question.ordinal]]"  data-question-sub-ordinal="[[question.sub_ordinal]]"  ng-attr-data-question-text="[[(question.question_type != 15 && question.question_type != 16) && question.question_text || undefined]]">
+
+          <!--[[question.id]] : [[question.is_visible]] <br/>-->
+          <!--[[question.question_type]] --><br/>
+          <!--Questions Type 1-->
+          <div class="freeFormTextArea" id="freeTextA_[[question.ordinal]]_[[question.sub_ordinal]]" ng-if="question.question_type == 1" question="question"  field-err-msg="fieldErrMsg"> </div>
+
+          <!--Questions Type 2-->
+          <div class="freeFormTextBox" id="freeTextB_[[question.ordinal]]_[[question.sub_ordinal]]" ng-if="question.question_type == 2" question="question" field-err-msg="fieldErrMsg"> </div>
+
+          <!--Questions Type 3-->
+          <div class="phone-box" id="phone_[[question.ordinal]]_[[question.sub_ordinal]]" ng-if="question.question_type == 3" question="question"  field-err-msg="fieldErrMsg"> </div>
+
+          <!--Questions Type 4-->
+          <div class="address" id="address_[[question.ordinal]]_[[question.sub_ordinal]]" ng-if="question.question_type == 4" question="question" states="states" field-err-msg="fieldErrMsg"> </div>
+
+            <!--Questions Type 5-->
+          <div class="select-toggle" id="toggle_[[question.ordinal]]_[[question.sub_ordinal]]" ng-if="question.question_type == 5" question="question" field-err-msg="fieldErrMsg">
+          </div>
+
+          <!--Questions Type 6-->
+          <div class="single-select-radio" id="radio_[[question.ordinal]]_[[question.sub_ordinal]]" ng-if="question.question_type == 6" question="question" field-err-msg="fieldErrMsg">
+          </div>
+
+          <!--Questions Type 7-->
+          <div class="multi-select" id="multi_[[question.ordinal]]_[[question.sub_ordinal]]" ng-if="question.question_type == 7" question="question" field-err-msg="fieldErrMsg">
+          </div>
+
+          <!--Questions Type 8-->
+          <div class="dropdown" id="dropdown_[[question.ordinal]]_[[question.sub_ordinal]]" ng-if="question.question_type == 8" question="question" field-err-msg="fieldErrMsg">
+          </div>
+
+          <!--Questions Type 9-->
+          <div class="dropdown-country" id="country_[[question.ordinal]]_[[question.sub_ordinal]]" ng-if="question.question_type == 9" question="question" countries="countries" field-err-msg="fieldErrMsg">
+          </div>
+
+          <!--Questions Type 10-->
+          <div class="dropdown-state" id="state_[[question.ordinal]]_[[question.sub_ordinal]]" ng-if="question.question_type == 10" question="question" states="states" field-err-msg="fieldErrMsg">
+          </div>
+
+          <!--Questions Type 11-->
+          <div class="dropdown-employer" id="employer_[[question.ordinal]]_[[question.sub_ordinal]]" ng-if="question.question_type == 11" question="question" field-err-msg="fieldErrMsg">
+          </div>
+
+          <!--Questions Type 12-->
+          <div class="dropdown-college" id="college_[[question.ordinal]]_[[question.sub_ordinal]]" ng-if="question.question_type == '12'" question="question" field-err-msg="fieldErrMsg">
+          </div>
+
+          <!--Questions Type 13-->
+          <div class="dropdown-school" id="school_[[question.ordinal]]_[[question.sub_ordinal]]" ng-if="question.question_type == '13'" question="question" schools="schools" field-err-msg="fieldErrMsg">
+          </div>
+
+          <!--Questions Type 14-->
+          <div class="datetime" id="datetime_[[question.ordinal]]_[[question.sub_ordinal]]" ng-if="question.question_type == '14'" question="question" field-err-msg="fieldErrMsg">
+          </div>
+
+          <!--Questions Type 15: update is not required-->
+          <div class="heading" id="heading_[[question.ordinal]]_[[question.sub_ordinal]]" ng-if="question.question_type == '15'" question="question" field-err-msg="fieldErrMsg">
+          </div>
+
+          <!--Questions Type 16: update is not required-->
+          <div class="instruction" id="instruction_[[question.ordinal]]_[[question.sub_ordinal]]" ng-if="question.question_type == '16'" question="question" field-err-msg="fieldErrMsg">
+          </div>
+
+          <!--Questions Type 17-->
+          <div class="career_occupation"id="careerO-_[[question.ordinal]]_[[question.sub_ordinal]]" ng-if="question.question_type == '17'" question="question" careers="careers" field-err-msg="fieldErrMsg">
+          </div>
+
+          <!--Questions Type 18 Career Only-->
+          <div class="career" id="career_[[question.ordinal]]_[[question.sub_ordinal]]" ng-if="question.question_type == '18'" question="question" careers-only="careers_only" field-err-msg="fieldErrMsg">
+          </div>
+
+          <!--Questions Type 19 Racial Group-->
+          <div class="racial" id="race_[[question.ordinal]]_[[question.sub_ordinal]]" ng-if="question.question_type == '19'" question="question" racials="racials" field-err-msg="fieldErrMsg">
+          </div>
+
+          <!--Questions Type 20 Academic Fields-->
+          <div class="academic" id="academic_[[question.ordinal]]_[[question.sub_ordinal]]" ng-if="question.question_type == '20'" question="question" academics="academics" field-err-msg="fieldErrMsg">
+          </div>
+
+          <!--Questions Type 21 Academic Fields-->
+          <div class="program" id="program_[[question.ordinal]]_[[question.sub_ordinal]]" ng-if="question.question_type == '21'" question="question" programs="programs" field-err-msg="fieldErrMsg">
+          </div>
+
+          <!--Questions Type 22 Multi Select Nopref Toggle -->
+          <div class="noprefToggle" id="nopref_[[question.ordinal]]_[[question.sub_ordinal]]" ng-if="question.question_type == '22'" question="question" field-err-msg="fieldErrMsg">
+          </div>
+
+          <!--Questions Type 23-->
+          <div class="dropdown-dependence" id="employer_[[question.ordinal]]_[[question.sub_ordinal]]" ng-if="question.question_type == 23" question="question" field-err-msg="fieldErrMsg">
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+  <div class="buttoncontainer">
+    <div class="loginBtns" ng-controller="saveBtnController">
+      <!-- <div ng-show="mentorforms.$invalid && inv">please complete all the fields before moving to the next section.</div>-->
+
+      <button class="button-all button-sm orange" type="submit" ng-click="goToNextSection(section)" ng-show="isNext" tabindex="1000000" >Next</button>
+      <button class="button-all button-sm orange" type="submit" ng-click="submitApplication(description, user_id)" ng-disabled="busySubmit == true" ng-hide="isNext" tabindex="1000001" >[[buttonText]]</button>
+     <!-- <div ng-show="showMsg" class="userAlert"><h4>[[theMsg]]</h4></div>-->
+      <!--<div ng-show="error" class="userAlert"><h3>[[error]]</h3></div>-->
+    </div>
+  </div>
+
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+              (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-3696665-2', 'auto');
+    ga('send', 'pageview');
+
+  </script>
+</body>
+
+</html>

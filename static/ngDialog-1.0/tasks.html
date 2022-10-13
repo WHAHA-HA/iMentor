@@ -1,0 +1,41 @@
+<div ng-controller="TasksCtrl" id="tasks-container">
+  <!-- Buttons and links -->
+ <!-- <a style="color:white;" href="" ng-click="openTasks()">Tasks</a>-->
+
+  <!-- Templates -->
+  <script type="text/ng-template" id="tasksTemplate">   
+    <div ng-repeat="task in data | orderBy:'task_type'" >
+
+      <div class="tasks task1" ng-if="task.task_type === 1" ng-show="hidersvp==false">
+        <div class="ngdialog-message">
+          <h3>{{task.description}}</h3>
+          <p class="date"><i class="fa fa-map-marker icons"></i>{{task.location}}</p>
+          <p class="address"><i class="fa fa-calendar icons"></i>{{task.date}} </p>
+        </div>
+        <div class="ngdialog-buttons">
+          <button type="button" class="ngdialog-button orange" ng-click="closeRSVP()" style="margin-right: 20px;">I am going</button>
+          <button type="button" class="ngdialog-button gray" ng-click="closeRSVP()">I am not going</button>
+        </div>
+      </div>
+
+      <div class="tasks task2" ng-if="task.task_type === 2" ng-show="hiderating==false">
+        <div class="ngdialog-message">
+          <h3>{{task.description}}</h3>
+          <ul class="ratingnum"><li ng-repeat="n in [] | range:10" ng-click="closeRating()">{{n}}</li></ul>
+          <div>Your previous rating: {{task.rating}}</div>
+        </div>
+      </div>
+   
+      <div class="tasks task3" ng-if="task.task_type === 3" ng-show="hidesurvey==false">
+        <div class="ngdialog-message">
+          <h3>{{task.description}} </h3>
+          <p>{{task.info}} </p>
+          <p>Time: {{task.time}} mins </p>
+        </div>
+        <div class="ngdialog-buttons">
+          <button type="button" class="ngdialog-button orange" ng-click="closeSurvey()">Begin Survey</button>
+      </div>
+    </div>
+      </div>
+</script>
+</div>

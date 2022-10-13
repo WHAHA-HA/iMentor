@@ -1,0 +1,173 @@
+Legacy_ID,Legacy_Name,Legacy_ID_Consolidaton,New_Name,New_ID
+35,Accounting,,Accounting,21
+48,Actor / Actress,,Actor / Actress,5
+54,Adult Education,,Adult Education,43
+4,Advertising,,Advertising,22
+125,Aerospace/Defense,,Aerospace/Defense,69
+61,Airline Personnel,,Airline Personnel,108
+96,Alternative/Complementary Medicine,,Alternative/Complementary Medicine,83
+80,Animal Science/Zoology & Marine Science,,Animal Science/Zoology & Marine Science,126
+,,,Archaeologist,127
+38,Architecture,,Architecture,59
+79,Arts Education/Therapy/Administration,,Arts Education/Therapy/Administration,44
+,,,Astronomer,128
+1,Athlete,,Athlete,1
+21,Audiology & Speech Pathology/Communicative Disorders,,Audiology & Speech Pathology/Communicative Disorders,84
+124,Automotive / Motor vehicles,,Automotive / Motor vehicles,160
+37,Avionics / Aviation,,Avionics / Aviation,70
+,,,Bioengineering,60
+,,,Bioinformatics/Biostatistics,129
+104,Biotechnology/Pharmaceuticals,,Biotechnology/Pharmaceuticals,130
+129,Botany/Forestry/Horticulture/Agriculture,,Botany/Forestry/Horticulture/Agriculture,131
+14,Broadcasting (Radio/Television),,Broadcasting (Radio/Television),6
+,,,Building /Grounds maintenance,161
+123,Career Planning Resources,,Career Planning Resources,109
+,,,Carpentry,162
+110,Chemistry/Chemical Engineering,,Chemistry/Chemical Engineering,132
+39,Childcare Worker / Youth Services Worker,,Childcare Worker / Youth Services Worker,110
+,,,Chiropractic,85
+91,Civil Engineering,,Civil Engineering,61
+109,"Civil Service (Post Office, Motor Vehicles, etc.)",,"Civil Service (Post Office, Motor Vehicles, etc.)",71
+32,Clerical / Office Management,,Clerical / Office Management,23
+122,Coach,,Coach,2
+121,College Residency Advisor,,College Residency Advisor,46
+62,College / University Professor,,College / University Professor,45
+107,Community Relations Manager,,Community Relations Manager,119
+135,Computer Hardware Engineer,,Computer Hardware Engineer,146
+27,Computer / Help Desk Support,,Computer / Help Desk Support,145
+26,Computer Programmer,,Computer Programmer,147
+108,Computer Science,,Computer Science,148
+51,Computer Security Specialist,,Computer Security Specialist,149
+12,Computer Software Engineer,,Computer Software Engineer,150
+70,Computer Technician,,Computer Technician,151
+,,,Construction,163
+24,Consulting,,Consulting,24
+15,Culinary Arts / Chef,,Culinary Arts / Chef,7
+75,Dancer / Choreographer,,Dancer / Choreographer,8
+136,Database Administrators,,Database Administrators,152
+149,Dental Hygienist / Assistant,,Dental Hygienist / Assistant,86
+111,Dentist,,Dentist,87
+42,Electrical Engineering,,Electrical Engineering,62
+,,,Electrician,164
+143,Electronics,,Electronics,153
+150,Energy / Utilities,,Energy / Utilities,72
+50,"Entertainment Business (sports management, record labels, etc.)",,"Entertainment Business (sports management, record labels, etc.)",20
+10,Entrepreneurship/Small Business Owner,,Entrepreneurship/Small Business Owner,25
+118,Environmental Engineering,,Environmental Engineering,63
+93,Environmental Science,,Environmental Science,133
+53,Event Planning & Hospitality,,Event Planning & Hospitality,37
+98,Events Planning / Events Coordinator,,Events Planning / Events Coordinator,38
+89,Fashion/Textile Art,,Fashion/Textile Art,9
+34,Film/Video/Television,,Film/Video/Television,10
+5,Finance,,Finance,26
+131,Financial Aid Coordinator,,Financial Aid Coordinator,47
+7,Fine Arts/Visual Arts/Graphic Design,,Fine Arts/Visual Arts/Graphic Design,11
+,,,Fire Fighter / Emergency Medical Service / Ambulance,111
+,,,Forensic Science,134
+,,,Genetics,135
+115,Genetics/Microbiology,,Genetics/Microbiology,136
+,,,Gerontology & Aging,88
+94,Government-International Relations / Consulate,,Government-International Relations / Consulate,73
+9,Guidance Counseling,,Guidance Counseling,48
+49,"Health Management, Policy & Consulting",,"Health Management, Policy & Consulting",89
+25,Higher Education Administration (Admissions Officer / Development Officer),,Higher Education Administration (Admissions Officer / Development Officer),49
+113,Hospitality / Tourism,18,,
+102,Hotel / Restaurant Management,,Hotel / Restaurant Management,13
+19,Human Resources,,Human Resources,27
+43,Human Rights Worker,,Human Rights Worker,120
+,,,Industrial Design,64
+8,Industrial Engineering & Operations Research,,Industrial Engineering & Operations Research,65
+87,Installation / Maintenance / Repair,,Installation / Maintenance / Repair,165
+20,Insurance,,Insurance,28
+58,Interior Design,,Interior Design,14
+134,International Law,,International Law,113
+73,Internet / New Media (Business Development),,Internet / New Media (Business Development),154
+33,Investor / Stockbroker,,Investor / Stockbroker,29
+16,Journalism,,Journalism,39
+142,Judicial,,Judicial,74
+120,Laboratory / Pathology Services,,Laboratory / Pathology Services,166
+126,Landscape Architecture,,Landscape Architecture,66
+13,Law Enforcement and Criminal Justice,,Law Enforcement and Criminal Justice,114
+17,Lawyer - Corporate,,Lawyer Ð Corporate,115
+66,Lawyer Ð Government,,Lawyer Ð Government,116
+56,Lawyer - Public Defender / Public Interest,,Lawyer Ð Public Defender / Public Interest,117
+68,Library/Information Services,,Library/Information Services,138
+,,,Library Sciences,137
+78,Literary / Academic Writing,,Literary / Academic Writing,40
+92,Lobbying/Labor Relations,,Lobbying/Labor Relations,75
+,,,Lobbyist,76
+71,Management / Front Office,,Management / Front Office,30
+138,Manufacturing / Production,,Manufacturing / Production,31
+22,Marketing,,Marketing,32
+130,Materials Science,,Materials Science,139
+105,Mechanical Engineering,,Mechanical Engineering,67
+30,Medical Doctor,,Medical Doctor,90
+64,Medical Office Assistance (Records / Support / Insurance),,Medical Office Assistance (Records / Support / Insurance),91
+116,Mental Health / Social Services,,Mental Health / Social Services,92
+,,,Meteorology,140
+,,,Military/Armed Forces and Defense,77
+74,Museums/Libraries (Collections),,Museums/Libraries (Collections),50
+41,Musician / Singer,,Musician / Singer,15
+151,N/A,106,,
+67,Network and Systems Administrators,,Network and Systems Administrators,155
+2,Non-profit Development / Fundraising / Grant Writing,,Non-profit Development / Fundraising / Grant Writing,121
+3,Non-profit Programming,,Non-profit Programming,122
+127,Nuclear Engineering,,Nuclear Engineering,68
+55,Nursing / Nurse Practitioner,,Nursing / Nurse Practitioner,93
+,,,Nutrition & Dietetics,94
+88,Occupational Therapy,,Occupational Therapy,95
+114,Optometry / Ophthalmology,,Optometry / Ophthalmology,96
+106,Other,,Other,171
+59,Paralegal / Legal Secretary,,Paralegal / Legal Secretary,118
+46,Pharmaceutical Sales,,Pharmaceutical Sales,97
+148,Pharmacy,,Pharmacy,98
+,,,Photography,16
+81,Physical Therapy,,Physical Therapy,99
+84,Physical Trainer,,Physical Trainer,3
+76,Physician Assistant,,Physician Assistant,100
+128,Physics,,Physics,141
+,,,Plumbing,167
+119,Podiatric Medicine,,Podiatric Medicine,101
+140,"Politics, Political Parties, Legislative Branch (Federal and State)",,"Politics, Political Parties, Legislative Branch (Federal and State)",78
+63,Private tutor / Instructor (Example: SAT Test Prep),,Private tutor / Instructor (Example: SAT Test Prep),51
+95,Psychology / Psychiatry,,Psychology / Psychiatry,102
+36,Public Health,,Public Health,79
+29,Public Policy/Advocacy/Think Tanks,,Public Policy/Advocacy/Think Tanks,80
+6,Public Relations,,Public Relations,41
+28,Publishing,,Publishing,42
+100,Radiology / Imaging,,Radiology / Imaging,103
+60,Real Estate,,Real Estate,33
+,,,Recreation/Sports Medicine,104
+,,,Rehab Counseling,105
+112,Religious Service,,Religious Service,123
+69,Research,,Research,142
+117,"Restaurant, Hotel & Cruise Personnel",,"Restaurant, Hotel & Cruise Personnel",17
+101,Retail Sales / Management,,Retail Sales / Management,35
+23,Retail / Wholesale,,Retail / Wholesale,34
+,,,Robotics,143
+40,Sales,,Sales,36
+65,"School Administration (Principal, Superintendent, etc.)",,"School Administration (Principal, Superintendent, etc.)",52
+97,School Psychology,,School Psychology,53
+82,School Social Work,,School Social Work,54
+,,,Science Education & Science Illustration,55
+141,Security/Intelligence (Federal),,Security/Intelligence (Federal),81
+31,Social Worker / Social Services / Mental Health Worker,,Social Worker / Social Services / Mental Health Worker,124
+57,Special Education,,Special Education,56
+,,,Sports Medicine,4
+86,Statistics/Mathematics,,Statistics/Mathematics,144
+90,Surgeon,,Surgeon,106
+,,,Tailor / Garment Repair,168
+11,Teacher,,Teacher,57
+,,,Teaching,58
+52,Technical Writing,,Technical Writing,156
+77,Telecommunications,,Telecommunications,157
+47,Theatrical Arts (writing/directing/production),,Theatrical Arts (writing/directing/production),18
+18,Tourism & Hospitality,,Tourism & Hospitality,19
+133,Translation & Interpretation,,Translation & Interpretation,112
+139,Transportation,,Transportation,169
+99,Urban & Regional Planning,,Urban & Regional Planning,82
+,,,Veterinary Medicine,107
+103,Video/Computer Game Design,,Video/Computer Game Design,158
+83,Volunteer Manager / Recruitment Manager,,Volunteer Manager / Recruitment Manager,125
+,,,Waste management services,170
+45,Website Design,,Website Design,159

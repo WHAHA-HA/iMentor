@@ -1,0 +1,51 @@
+<div ng-show="visible" class="row chat-window col-xs-5 col-md-3 {{vm.theme}}" ng-class="{minimized: vm.isHidden}" ng-init="showSearch=false;" ng-click="markAsRead();$root.markAsRead=true;">
+    <div class="col-xs-12 col-md-12">
+        <div class="panel">
+            <div class="panel-heading chat-top-bar">
+                <div class="col-md-6 col-xs-6" style="text-align: left;">
+                    <h3 class="panel-title">Messages for [[$root.firstname2]]</h3>
+                </div>
+                <div class="col-md-6 col-xs-6 window-actions" style="text-align: right;">
+                    <span class="fa fa-search" ng-click="showSearch= !showSearch; search.text='';vm.scrollToBottom()"></span>
+                    <span ng-show="showSearch"><input class="search-control" style="position: relative;top: -3px;" type="text" placeholder="Search messages" ng-model="search.text"></span>
+                    <span class="fa fa-close" style="font-size: 24px;position: relative;top: -2px;" ng-click="vm.close()"></span>
+                </div>
+            </div>
+            <div class="panel-body msg-container-base" ng-style="vm.panelStyle">
+                <div ng-if="vm.messages.length < 1"><h4 style="color:gray;">Users have't exchanged any messages yet</h4></div>
+                <div class="row msg-container" ng-repeat="message in vm.messages  | filter:search.text" ng-init="selfAuthored = $root.useridnum2 == message.recipient_user_id" ng-hide="message.auto_saved==true">
+                    <div class="col-md-12 col-xs-12">
+                        <div class="chat-msg-header" ng-class="{'chat-msg-sent': !selfAuthored, 'chat-msg-recieved': selfAuthored}">
+                            <span style="display: block;font-size: 12px;color: gray;" class="date">Sent: [[message.received_by_server]]</span>
+                            <span style="display: block;font-size: 12px;color: gray;">[[message.first_name]] said...</span>&nbsp;
+                        </div>
+                        <div class="chat-msg" ng-class="{'chat-msg-sent': !selfAuthored, 'chat-msg-recieved': selfAuthored}">
+                            <span class="hide">myUserId:[[vm.myUserId]]</span>
+                            <img ng-if="message.imageUrl" class="profile" ng-class="{'pull-right': !selfAuthored, 'pull-left': selfAuthored}" ng-src="[[message.imageUrl]]"/>
+                            <p style="padding: 20px 0px;color:black;white-space: pre-wrap;" ng-bind-html="message.data | highlight:search.text">{{message.data}}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="panel-footer chat-bottom-bar" style="height:0px;">
+            <form style="display:inherit" ng-submit="vm.submitFunction()">
+                <div class="input-group">
+                        <span class="input-group-btn">
+                                <div class="im-embed-attachment-preview">
+                                    <div class="file-drop-box-container" >
+                                        <div ngf-select ngf-drop ng-model="filesUpload" ngf-multiple="false" ngf-keep="true" accept="{{allowTypes}}" ngf-accept="validateType($file)"  ng-disabled="uploadProgress || filesUpload.length>0" ngf-drag-over-class="dragClass">
+                                            Click here to select a file from your computer and begin the upload.
+                                            <br />
+
+                                        </div>
+                                    </div>
+                                </div>
+
+                            <!--<input type="submit" style="margin-left: 5px;" class="btn btn-sm chat-submit-button" value="{{vm.submitButtonText}}"/>-->
+                        </span>
+                </div>
+            </form>
+        </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,46 @@
+<div class="circular" style="display:none"><img ng-src="{{user.photo}}" /></div>
+<div class="col-sm-6 bg-info " ><span></span></div>
+<!--<div class="row">
+	<span>
+		<a class="pull-right  btn btn-primary" data-ng-click="getMessages()"><i class="glyphicon glyphicon-refresh"></i> Refresh</a> 
+	</span>
+	<span>
+		<a class="pull-right btn btn-primary" data-ng-click="blockUI()" ng-show="user.role === 'Mentor'"><i class="glyphicon glyphicon-stop"></i> <span>{{blockuiUser ? 'Un Block' : 'Block'}}</span> Mentee UI</a> 
+	</span>
+</div> -->
+<!--<div class="row canvas-user ">
+	
+
+	<div class="col-sm-6 bg-info " ><span><img ng-src="{{user.photo}}" /> {{user.f_name}} - {{user.role}}</span></div>
+	<div class="col-sm-6" >
+		<h3 class="pull-right"  ng-show="otherUser.f_name"></h3>
+			<div class=" canvas-user-menter">
+					<img ng-src="{{user.photo}}" alt="" /> <span>{{otherUser.role}} - {{otherUser.f_name}}</span> : 
+					<span ng-class="otherUser.online ? 'bg-success' : 'bg-danger'" >{{otherUser.online ? "Online" : "Offline"}}</span>
+			</div>
+	</div>
+</div>-->
+<div gridsterTEMP="gridsterOptions" class="canvas-set" ng-controller="headerController">
+	<ul>
+		<li ng-hide="($root.subdomain == 'nyc' || $root.subdomain == '127') && (widget.parent_id == 217 || widget.parent_id == 216)" style="  list-style: none;" gridster-itemTEMP="widget" data-ng-repeat="widget in containerWidgets" class="canvas-app lesson-set {{widget.id}}">
+			<widget type="{{widget.type}}">
+				
+			</widget>
+		</li>
+	</ul>
+
+</div>
+<div ng-if="$root.canvas.canvasType == 3 && $root.userrole == 'Mentor'" class="portfolioOpen" style="margin-bottom: 20px;">
+	<i style="font-size: 40px;" class="fa fa-comment"></i>
+	<div style="display: inline-block;"><h3>Keep the conversation going</h3></div>
+	<div style="text-align: left;padding-top: 0px;">
+		<!--<p style="padding: 0px 30px;">Check out our new product Portfolio, which lets you track your progress with your mentee and write a reflection at the end of each unit.<br><br>Reflections will be unlocked soon.</br></br></p>-->
+		<p style="padding: 0px 30px 20px 0px;">Congratulations! You've reached the end of the unit, but that doesn't mean you can't keep the momentum going. Send {{otherUser.f_name}} a message in <a href="http://learn.imentor.org/help/article/link/welcome-to-conversations" target="_blank">Conversations</a> to offer final advice, clarify next steps, and celebrate finishing the unit together.</p>
+	</div>
+</div>
+
+<div style="padding: 0px;padding-bottom: 50px;">
+<button data-ng-click="finishActivity();" ng-class="{'blue': blueButton == true && (finishButtonText == finishButtonDefaultText)}" class="btn btn-primary pull-right" ng-show="widgets.length>0"  ng-disabled="finishButtonText != finishButtonDefaultText" >{{savedNotification===true ? 'Saving...' : finishButtonText}}</button>
+</div>
+	<div im-block-ui="{{blockui}}" im-block-ui-element="body"  ></div>
+<span style="display:none">{{$root.firstname}}</span>

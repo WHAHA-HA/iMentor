@@ -1,0 +1,17 @@
+ALTER TABLE ONLY utils_occupation ADD CONSTRAINT utils_occupation_career_id FOREIGN KEY (career_id) REFERENCES utils_career(id);
+alter table iuser_user rename occupation_id to old_occupation_id;
+alter table iuser_user rename career_id to old_career_id;
+alter table iuser_user add column occupation_id integer default null;
+alter table iuser_user add column career_id integer default null;
+alter table iuser_user add column home_phone_is_cell boolean default false;
+alter table iuser_user add column work_phone_is_cell boolean default false;
+alter table iuser_user add column parent_home_phone_is_cell boolean default false;
+alter table iuser_user add column parent_work_phone_is_cell boolean default false;
+alter table iuser_user add constraint occupation_id_fk foreign key (occupation_id) references utils_occupation(id);
+alter table iuser_user add constraint career_id_fk foreign key (career_id) references utils_career(id);
+alter table iuser_user drop constraint career_id_refs_id_43feecead6b159a0;
+alter table iuser_user drop constraint occupation_id_refs_id_3c1027a8e6bfad8b;
+update iuser_user set occupation_id = 19 where old_occupation_id = 113;
+update iuser_user set occupation_id = 171 where old_occupation_id = 151;
+update iuser_user set career_id = 16 where old_career_id = 17;
+update iuser_user set career_id = 13 where old_career_id = 6;

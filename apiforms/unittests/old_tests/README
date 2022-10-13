@@ -1,0 +1,6 @@
+The most basic order to run this:
+1. Start off with running populate_base_records.py
+2. user_copy_functionality.py
+3. populate_freeform_response.py
+
+Then you can run everything else, ideally (in terms of dependencies)

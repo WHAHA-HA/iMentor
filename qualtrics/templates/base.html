@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>iMentor : Surveys New</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Bootstrap -->
+		<link href="{{ url_for('static', filename='css/bootstrap.min.css') }}" rel="stylesheet">
+		<link href="{{ url_for('static', filename='css/bootstrap-theme.min.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='css/bootstrap-admin-theme.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='css/DT_bootstrap.css') }}" rel="stylesheet">
+    <link href="//cdn.imentor.org/new_platform/static/angular-hamburger/angular-hamburger-toggle.css" rel="stylesheet" />
+    <link href="{{ url_for('static', filename='css/survey.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='css/header-bar.css') }}" rel="stylesheet">
+
+    <script type="text/javascript" src="//code.jquery.com/jquery-2.0.3.min.js"></script>
+    <script src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
+    <script src="//cdn.imentor.org/new_platform/static/angular/angular.min.js"></script>
+    <script src="//cdn.imentor.org/new_platform/static/angular-hamburger/angular-hamburger-toggle.js"></script>
+    <script src="{{ url_for('static', filename='js/header-bar.js') }}"></script>
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script type="text/javascript" src="js/html5shiv.js"></script>
+    <script type="text/javascript" src="js/respond.min.js"></script>
+
+    <![endif]-->
+  </head>
+
+  <body class="bootstrap-admin-with-small-navbar">
+  <div ng-app="qualtricsPage">
+  <div ng-controller="headerController">
+  <!-- main / large navbar -->
+    <div class="navbar navbar-default" style="position: fixed;top: 0px;" role="navigation">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <hamburger-toggle state="tgState" class="hamburger-toggle"></hamburger-toggle>
+          <a class="navbar-brand">
+            Qualtrics
+          </a>
+
+          <div class="notifications"><span class="username" style="position: relative;right: 15px;color:white !important; font-weight:200 !important; top: -5px;"><a href="/iuser/myinfo/{{useridnum}}/">{{firstname}} {{lastname.split('')[0] }}</a></span><span><i class="glyphicon glyphicon-comment"></i></span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="sidenav" ng-class="{open: tgState}">
+      <ul class="nav nav-pills nav-stacked">
+        <li><a href="/events/personal/">Calendar</a></li>
+        <li><a href="/iuser/myinfo/{{useridnum}}/">Profile</a></li>
+        <li><a href="/resource/">Resources</a></li>
+        <li ui-sref-active="active"><a href="#"> Support</a></li>
+        <li ui-sref-active="active"><a href="/iuser/logout/">Log out</a></li>
+      </ul>
+    </div>
+  </div>
+  </div>
+  <div class="container">
+    <!-- left, vertical navbar & content -->
+    <div class="row" style="padding-top:13px;">
+                <!-- left, vertical navbar -->
+		{% block content %}
+      {% endblock %}
+ <!-- footer -->
+      <div class=" navbar-footer">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-12">
+              <footer role="contentinfo">
+                <p class="left">&nbsp;</p>
+                <p class="right">&copy; 2013 <a href="//www.meritoo.org" target="_blank">Imentor.org</a></p>
+              </footer>
+            </div>
+          </div>
+        </div>
+      </div>
+      </div>
+    </div>
+
+      <script type="text/javascript" src="{{ url_for('static', filename='js/twitter-bootstrap-hover-dropdown.min.js') }}"></script>
+      <script type="text/javascript" src="{{ url_for('static', filename='js/bootstrap-admin-theme-change-size.js') }}"></script>
+      <script type="text/javascript" src="{{ url_for('static', filename='js/jquery.dataTables.min.js') }}"></script>
+      <script type="text/javascript" src="{{ url_for('static', filename='js/DT_bootstrap.js') }}"></script>
+
+  </body>
+</html>

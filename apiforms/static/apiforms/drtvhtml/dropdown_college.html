@@ -1,0 +1,33 @@
+<!--Type: 12-->
+<div style="display: inline-block;">
+  <div>
+    <input type="text"
+           class="form-control question-ptext"
+           ng-model="college"
+           ng-class="{'not-required' : colleges.length > 0}"
+           placeholder="[[question.question_text]]"
+           ng-required="question.is_required"
+           typeahead-min-length="3"
+           ng-disabled="!question.is_active || question.onBackendCall == true"
+           typeahead="college.name for college in getColleges($viewValue)"
+           typeahead-loading="loadingColleges"
+           typeahead-on-select='onSelect($item, $model, $label)'
+           ng-blur = "updateValidState()"
+           ng-change = "updateValidState()"
+           name="college1"
+           tabindex="[[tabIndex]]"
+        >
+    <!--<i ng-show="loadingColleges" class="glyphicon glyphicon-refresh"></i>-->
+  </div>
+  <div ng-repeat="college in colleges track by $index" class="selected" style="width: 75%;" id="collegeList">
+    <div style="padding: 10px 15px; margin-top: 5px;" id="college-[[$index]]">
+      [[college.name]]
+      <span style="cursor: pointer;" class="pull-right" ng-click="removeCollege(college)" ng-enter="removeCollege(college)" tabindex="[[tabIndex+1+$index]]">
+        <i class="fa fa-times" style="padding-right: 0px;"></i>
+      </span>
+    </div>
+  </div>
+
+</div>
+<span ng-show="question.required && question.edited == true && question.showRequired == true" class="form-error">[[fieldErrMsg]]</span>
+<span class="error">[[error]]</span>

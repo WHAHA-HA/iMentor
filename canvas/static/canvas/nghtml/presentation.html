@@ -1,0 +1,41 @@
+<div class="row presentation">
+  <div class="span12">
+    <div class="pa-sidebar well well-small">
+    	<center>
+            <div ng-if="inaccessibleLesson === false">
+          		<h1 class="canvasName" ng-if="vm.canvasName">{{vm.canvasName}}</h1>
+                <h5 class="canvasName" style="margin:0px 0px 0px 10px;" ng-if="vm.canvasDateStartDisplay && vm.canvasDateEndDisplay">Time range: {{vm.canvasDateStartDisplay}} to {{vm.canvasDateEndDisplay}}</h5>
+                <h5 class="canvasName" style="margin:3px 0px 0px 10px;" ng-if="vm.canvasFirstFinishDisplay != 'NA'">First finished: {{vm.canvasFirstFinishDisplay}}</h5>
+                <h5 class="canvasName" style="margin:3px 0px 0px 10px;" ng-if="vm.canvasFirstFinishDisplay == 'NA'">First finished: not yet finished</h5>
+                <h5 class="canvasName" style="margin:3px 0px 60px 10px;" ng-if="vm.canvasFinishDisplay != 'NA' ">Last updated: {{vm.canvasFinishDisplay}}</h5>
+                <h5 class="canvasName" style="margin:3px 0px 60px 10px;" ng-if="vm.canvasFinishDisplay == 'NA'">Last updated: not yet updated</h5>
+            </div>
+		</center>
+		
+		<div canvas config="vm.canvas.config" widgets="vm.canvas.widgets" blockui="vm.blockui" track-on="focusin|mouseover" track-event="canvas" tabindex="-1" id="canvas1"  canvas-set="vm.canvas.canvas_set" > 
+			
+		</div>
+        <center>
+            <!-- TEST loading tasks in canvas -->
+            <div ng-controller="TasksCtrl" ng-init="init();">
+            </div>
+            <div ng-controller="Shell as vm" style="position: fixed;
+    bottom: 0px; right: 0px;" ng-show="$root.showChat" class="chatShell" ng-class="{ 'zIndexTop' : vm.visible === true}">
+                <irontec-simple-chat
+                        messages="vm.messages"
+                        username="vm.username"
+                        input-placeholder-text="You can write here"
+                        submit-button-text="Send your message"
+                        title="{{vm.title}}"
+                        theme="material"
+                        submit-function="vm.sendMessage"
+                        visible="vm.visible"
+                        expand-on-new="vm.expandOnNew">
+                </irontec-simple-chat>
+            </div>
+        </center>
+    </div> 
+  </div>
+</div>
+
+

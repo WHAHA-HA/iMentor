@@ -1,0 +1,39 @@
+<!--Type: 14 <br/>-->
+<span class="questiontext" ng-bind-html="htmlText" style="margin-bottom: 0px;"></span>
+<div>
+  <select ng-model="month"
+          ng-options="month as month.title for month in months"
+          ng-change="refreshDays()"
+          ng-blur="update()"
+          ng-disabled="!question.is_active || question.onBackendCall == true"
+          tabindex="[[tabIndex]]"
+
+      >
+    <option value="">Month</option>
+  </select>
+
+  &nbsp;
+  <select ng-model="day"
+          ng-options="day as day.id for day in days"
+          ng-change="updateRequired()"
+          ng-blur="update()"
+          ng-disabled="!question.is_active || question.onBackendCall == true"
+          tabindex="[[tabIndex+1]]"
+      >
+    <option value="">Day</option>
+  </select>
+
+  &nbsp;
+  <select ng-model="year"
+          ng-options="year as year for year in years"
+          ng-change="updateRequired()"
+          ng-blur="update()"
+          ng-disabled="!question.is_active || question.onBackendCall == true"
+          tabindex="[[tabIndex+2]]"
+      >
+    <option value="">Year</option>
+  </select>
+
+  <span ng-show="question.required && question.edited == true && question.showRequired == true" class="form-error">[[fieldErrMsg]]</span>
+  <span class="error">[[error]]</span>
+</div>

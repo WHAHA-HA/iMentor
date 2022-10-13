@@ -1,0 +1,16 @@
+﻿--We create indexes on the columns relevant to the Portfolio.
+
+CREATE INDEX portfolio_reflection_card_grade_id_idx ON portfolio_reflection_card (grade_id);
+CREATE INDEX portfolio_reflection_card_unit_id_idx ON portfolio_reflection_card (unit_id);
+
+CREATE INDEX reflection_user_details_last_viewed_idx ON portfolio_reflection_user_details (last_viewed);
+CREATE INDEX reflection_user_details_started_idx ON portfolio_reflection_user_details (started);
+CREATE INDEX reflection_user_details_completed_idx ON portfolio_reflection_user_details (completed);
+CREATE INDEX reflection_user_details_user_id_idx ON portfolio_reflection_user_details (user_id);
+CREATE INDEX reflection_user_details_persona_id_idx ON portfolio_reflection_user_details (persona_id);
+CREATE INDEX reflection_user_details_grade_id_idx ON portfolio_reflection_user_details (grade_id);
+CREATE INDEX reflection_user_details_unit_id_idx ON portfolio_reflection_user_details (unit_id);
+CREATE INDEX reflection_user_details_reflection_card_id_idx ON portfolio_reflection_user_details (reflection_card_id);
+
+CREATE INDEX reflection_user_response_reflection_user_details_id_idx ON portfolio_reflection_user_response (reflection_user_details_id);
+CREATE INDEX reflection_user_response_user_id_idx ON portfolio_reflection_user_response (user_id);

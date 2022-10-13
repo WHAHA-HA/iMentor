@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title> List | College Checklist | iMentor </title>
+
+  <meta http-equiv="cache-control" content="max-age=0" />
+  <meta http-equiv="cache-control" content="no-cache" />
+  <meta http-equiv="expires" content="0" />
+  <meta http-equiv="expires" content="Tue, 01 Jan 1980 1:00:00 GMT" />
+  <meta http-equiv="pragma" content="no-cache" />
+
+  <link rel="shortcut icon" href="//cdn.imentor.org/new_platform/static/cchklist/favicon.png" type="image/x-icon" />
+  <!-- Latest compiled and minified CSS -->
+
+  <!-- Vendor Style -->
+  <link href="//cdn.imentor.org/new_platform/static/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="//cdn.imentor.org/new_platform/static/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
+  <link href="//cdn.imentor.org/new_platform/static/angular-notifications/angular-notification-icons.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="/new_platform/static/cchklist/css/checklist.css"/>
+  <link rel="stylesheet" href="//cdn.imentor.org/new_platform/static/angular-datepicker/angular-datepicker.css"/>
+  <link href="//cdn.imentor.org/new_platform/static/angular-hamburger/angular-hamburger-toggle.css" rel="stylesheet" />
+  <link href="//cdn.imentor.org/new_platform/static/hambuger-menu/header-bar-universal.css" rel="stylesheet" />
+  <link href="//cdn.imentor.org/new_platform/static/textAngular/textAngular.css" rel="stylesheet"  />
+  <link href="//cdn.imentor.org/new_platform/static/textAngular/textAngular.custom.css" rel="stylesheet"  />
+
+  <link href="/new_platform/static/conversations/css/style.css" rel="stylesheet" />
+  <link href="/new_platform/static/conversations/css/themes.css" rel="stylesheet" />
+  <link href="/new_platform/static/conversations/css/custom.css" rel="stylesheet" />
+
+
+  <!-- Vendor Scripts -->
+  <script src="//cdn.imentor.org/new_platform/static/jquery/jquery.min.js"></script>
+  <script src="//cdn.imentor.org/new_platform/static/exif/exif.js"></script>
+  <script src="//cdn.imentor.org/new_platform/static/angular/angular.min.js"></script>
+  <script src="//cdn.imentor.org/new_platform/static/angular-animate/angular-animate.min.js"></script>
+  <script src="//cdn.imentor.org/new_platform/static/angular-ui-router/angular-ui-router.min.js"></script>
+  <script src="//cdn.imentor.org/new_platform/static/angular-ui-utils/ui-utils.min.js"></script>
+  <script src="//cdn.imentor.org/new_platform/static/bootstrap/js/bootstrap.min.js"></script>
+  <script src="//cdn.imentor.org/new_platform/static/underscore/underscore-min.js"></script>
+  <script src="//cdn.imentor.org/new_platform/static/angular-ui-bootstrap/ui-bootstrap-tpls.min.js"></script>
+  <script src="//cdn.imentor.org/new_platform/static/angular-ui-utils/ui-utils.min.js"></script>
+  <script src="//cdn.imentor.org/new_platform/static/angular-datepicker/angular-datepicker.js"></script>
+  <script src="//cdn.imentor.org/new_platform/static/moment-2.9.0/moment.js"></script>
+  <script src="//cdn.imentor.org/new_platform/static/angular-hamburger/angular-hamburger-toggle.js"></script>
+  <script src="//cdn.imentor.org/new_platform/static/canvas/js/upload.service.js"></script>
+  <script src="//cdn.imentor.org/new_platform/static/angular-resource/angular-resource.js"></script>
+  <script src='//cdn.imentor.org/new_platform/static/ng-file-upload/ng-file-upload-shim.js'></script>
+  <script src='//cdn.imentor.org/new_platform/static/ng-file-upload/ng-file-upload.js'></script>
+  <script src="//cdn.imentor.org/new_platform/static/canvas/js/upload.service.js"></script>
+  <script src="//cdn.imentor.org/new_platform/static/angular-notifications/angular-notification-icons.min.js"></script>
+  <script src="//cdn.imentor.org/new_platform/static/angular-scroll/angular-scroll.min.js"></script>
+  <script src="//cdn.imentor.org/new_platform/static/autolinker/Autolinker.js"></script>
+ <script src="//cdn.imentor.org/new_platform/static/exif/angular-fix-image-orientation.js"></script>
+
+  <script src='//cdn.imentor.org/new_platform/static/textAngular/textAngular-dropdownToggle.js'></script>
+  <script src='//cdn.imentor.org/new_platform/static/textAngular/bootstrap-colorpicker-module.js'></script>
+  <script src='//cdn.imentor.org/new_platform/static/textAngular/textAngular-rangy.min.js'></script>
+  <script src='//cdn.imentor.org/new_platform/static/textAngular/textAngular-sanitize.custom.js'></script>
+  <script src='//cdn.imentor.org/new_platform/static/textAngular/textAngular.js'></script>
+
+  <!-- TextAngular Setup - Vendor Scripts -->
+  <script src="//cdn.imentor.org/new_platform/static/angular-animate/angular-animate.min.js"></script>
+  <script src='//cdn.imentor.org/new_platform/static/textAngular/textAngularSetup-brackets.js'></script>
+  <script src='//cdn.imentor.org/new_platform/static/ment.io/mentio.custom.js'></script>
+  <script src='//cdn.imentor.org/new_platform/static/ng-file-upload/ng-file-upload-shim.js'></script>
+  <script src='//cdn.imentor.org/new_platform/static/ng-file-upload/ng-file-upload.js'></script>
+  <script src="//cdn.imentor.org/new_platform/static/canvas/js/upload.service.js"></script>
+  <script src="//cdn.imentor.org/new_platform/static/angular-notifications/angular-notification-icons.min.js"></script>
+
+  <!-- Custom Scripts -->
+  <!-- TextAngular Setup - Custom Scripts -->
+  <script src="/new_platform/static/canvas/js/embed.service.js"></script>
+  <script src="/new_platform/static/canvas/js/upload.service.js"></script>
+  <script src="/new_platform/static/canvas/js/helper.js"></script>
+  <script src="/new_platform/static/canvas/js/blockui.directive.js"></script>
+  <script src="/new_platform/static/canvas/js/image.selector.directive.js"></script>
+
+  <!--{% block extra_js_scripts %}-->
+  <script type="text/javascript"  src="/new_platform/static/cchklist/js/one/cchecklist.js"></script>
+  <script type="text/javascript" src="/new_platform/static/cchklist/js/one/cc_controllers.js"></script>
+  <script type="text/javascript" src="/new_platform/static/cchklist/js/one/rest_services.js"></script>
+
+
+  <script src="/new_platform/static/conversations/scripts/index2.js "></script>
+  <script src="/new_platform/static/conversations/scripts/chatModule.js "></script>
+  <!--{% endblock extra_js_scripts %}-->
+
+
+</head>
+
+<body ng-app="ChecklistOne">
+<div ng-include src="'/new_platform/static/cchklist/nghtml/header-bar.html'"style="  position: fixed;top: 0px;"></div>
+<div  id="cclist_app">
+
+
+
+  <div class="checklist-body" style="margin-left: 40px;">
+    <h3 id="checklist_header">
+      Create your list of colleges
+		</h3>
+
+		<p id="checklist_intro">
+      What colleges do you see yourself going to? Find the colleges you are interested in and assign them a category of Safety, Target, or Reach.
+		</p>
+
+		<div ui-view></div>
+
+	</div>
+</div>
+<div ng-controller="Shell as vm" style="position: fixed;
+    bottom: 0px;z-index: 1;right: 0px;" ng-show="$root.showChat">
+  <irontec-simple-chat
+          messages="vm.messages"
+          username="vm.username"
+          input-placeholder-text="You can write here"
+          submit-button-text="Send your message"
+          title="[[vm.title]]"
+          theme="material"
+          submit-function="vm.sendMessage"
+          visible="vm.visible"
+          expand-on-new="vm.expandOnNew">
+  </irontec-simple-chat>
+</div>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-3696665-2', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</body>
+</html>
+

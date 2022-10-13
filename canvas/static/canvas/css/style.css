@@ -1,0 +1,627 @@
+body{
+  position: relative;
+  font-size: 16px;
+  overflow-x: -moz-hidden-unscrollable;
+}
+
+/*** Page Transition ***/
+/*
+.slide.ng-leave {
+  position: relative;
+}
+.slide.ng-enter {
+  position: absolute;
+}
+.slide.ng-enter, .slide.ng-leave {
+  -webkit-transition: -webkit-transform 0.3s ease-in, opacity 0.3s ease-in;
+     -moz-transition: -moz-transform 0.3s ease-in, opacity 0.3s ease-in;
+       -o-transition: -o-transform 0.3s ease-in, opacity 0.3s ease-in;
+          transition: transform 0.3s ease-in, opacity 0.3s ease-in;
+}
+.slide.ng-enter, .slide.ng-leave.ng-leave-active {
+  -webkit-transform: scaleX(0.0001);
+       -o-transform: scaleX(0.0001);
+          transform: scaleX(0.0001);
+  opacity: 0;
+}
+.slide, .slide.ng-enter.ng-enter-active {
+  -webkit-transform: scaleX(1);
+       -o-transform: scaleX(1);
+          transform: scaleX(1);
+  opacity: 1;
+}*/
+/*** --page transition-- ***/
+
+/*** global canvas styles ***/
+.presentation {
+    margin: auto;
+    max-width: 840px;
+}
+
+.presentation ul {
+    list-style: none;
+    padding:0;
+}
+
+.presentation a {
+    color: #00aeef;
+}
+
+/*** global canvas styles ***/
+
+/**** Canavs ,Widget Container and Widget *****/
+.canvas-user img {
+  height:50px;
+}
+
+.canvas-user-menter{
+  font-size: 0.8em;
+}
+
+.canvas-app {
+  
+}
+.gridster {
+    /*border: 1px solid #ccc;*/
+}
+
+.box {
+    height: 100%;
+    border: 1px solid #ccc;
+    background-color: #fff;
+
+}
+.box-header {
+    padding: 0 30px 0 10px;
+    position: relative;
+    color: white !important;
+}
+.box-header h3 {
+    margin-top: 10px;
+    display: inline-block;
+}
+.box-content {
+    padding: 10px;
+    height: 100%;/* fallback if needed */
+  
+}
+.box-header-btns {
+  position: relative;
+  float: right;
+  margin-right: -20px;
+  display: inline-block;
+}
+
+.widget-content {
+  height: 100%;
+  overflow: auto;
+}
+
+.activities li{
+  border-bottom: 1px solid yellow;
+  padding-bottom: 5px;
+}
+
+.reconnecting-writer  {
+  position: relative;
+}
+
+.html-widget {
+  position: relative;
+}
+
+.response-type-widget {
+    position: relative;
+}
+.response-html-widget  .im-embed-attachment {
+
+}
+/**** text formatting widget ***/
+div#taTextElement {
+  height: 100%;
+  margin: 20px 0px;
+}
+span.bar-btn-dropdown {
+  border: 0px solid red;
+  margin: 0px;
+  padding: 0px !important;
+  opacity: 1 !important;
+}
+.ta-scroll-window.ta-text.ta-editor.form-control {
+   border: 0px; !important
+ }
+.form-control {
+  box-shadow: none !important;
+}
+.ta-scroll-window > .ta-bind {
+  min-height: 170px;
+  margin-bottom: 10px;
+  font-size: 16px;
+}
+.viewer-widget .ta-toolbar.btn-toolbar {
+  display: none;
+}
+.ta-toolbar .fa{ 
+    font: normal normal normal 14px/1 FontAwesome;
+}
+
+/****BLOCK UI DIRECTIVE***/
+  .im-block-ui {
+    position:absolute;
+    top:0; right:0;
+    bottom:0; left:0;
+    z-index: 100500;
+    background-color: #fff;
+    opacity: 0;
+    transition: all linear 0.5s;
+    display: none;
+  }
+
+  .im-block-ui-active {
+    opacity: 1;
+    display: block;
+  }
+
+  body.im-block-ui-open {
+    overflow: hidden;
+}
+/****BLOCK UI DIRECTIVE***/
+
+
+/****IMAGE SELECTOR DIRECTIVE***/
+.modal-body {
+    max-height: 500px;
+    overflow-y: hidden;
+}
+.modal-dialog{
+    overflow-y: initial !important
+}
+.im-image-selector.modal-body.col-xs-3.a {
+  min-height: 50px;
+}
+.im-image-selector-images{
+  max-height: 430px;
+    overflow-y: auto;
+}
+.im-image-selector-categories {
+  padding-left: 5px;
+   max-height: 500px;
+    overflow-y: auto;
+}
+
+.im-image-selector-categories a { 
+  margin-bottom: 10px; 
+  width: 100%; 
+  white-space: normal;
+}
+
+.im-image-selector-categories input {
+  width: 100%;
+  margin-bottom: 5px;
+}
+
+
+.im-image-selector-categories-animate.ng-enter,
+.im-image-selector-categories-animate.ng-leave,
+.im-image-selector-categories-animate.ng-move {
+  -webkit-transition: 400ms cubic-bezier(0.250, 0.250, 0.750, 0.750) all;
+  -moz-transition: 400ms cubic-bezier(0.250, 0.250, 0.750, 0.750) all;
+  -ms-transition: 400ms cubic-bezier(0.250, 0.250, 0.750, 0.750) all;
+  -o-transition: 400ms cubic-bezier(0.250, 0.250, 0.750, 0.750) all;
+  transition: 400ms cubic-bezier(0.250, 0.250, 0.750, 0.750) all;
+  position: relative;
+  display: block;
+}
+.im-image-selector-categories-animate.ng-enter {
+   opacity: 0;
+  top: -50px;
+  height: 0px;
+}
+.im-image-selector-categories-animate.ng-enter.ng-enter-active {
+  opacity: 1;
+   top: 0;
+  height: 30px;
+}
+.im-image-selector-categories-animate.ng-leave {
+  opacity: 1;
+   top: 0;
+  height: 30px;
+}
+.im-image-selector-categories-animate.ng-leave.ng-leave-active {
+  opacity: 0;
+  top: -50px;
+  height: 0px;
+}
+.im-image-selector-categories-animate.ng-move {
+  opacity: 0.5;
+}
+.im-image-selector-categories-animate.ng-move.ng-move-active {
+  opacity: 1;
+}
+/****IMAGE SELECTOR DIRECTIVE***/
+
+
+/****WRITER VIEWER DIRECTIVE***/
+.detailBox {
+    width:100%;
+    height: 100%;
+}
+.titleBox {
+    background-color:#fdfdfd;
+    padding:10px;
+}
+.titleBox label{
+  color:#444;
+  margin:0;
+  display:inline-block;
+}
+
+.commentBox {
+    padding:10px;
+    border-top:1px dotted #bbb;
+}
+.commentBox .form-group:first-child, .actionBox .form-group:first-child {
+    width:80%;
+}
+.commentBox .form-group:nth-child(2), .actionBox .form-group:nth-child(2) {
+    width:18%;
+}
+.actionBox .form-group * {
+    width:100%;
+}
+.taskDescription {
+    margin-top:10px 0;
+    margin-bottom: 0;
+}
+.taskDescription img {
+    width:45px;
+    border-radius:50%;
+}
+.commentList {
+    padding:0;
+    list-style:none;
+    overflow:auto;
+}
+.commentList li {
+    margin:0;
+    margin-top:20px;
+}
+.commentList li > div {
+    display:table-cell;
+}
+.commenterImage {
+    width:30px;
+    margin-right:5px;
+    height:100%;
+    float:left;
+}
+.commenterImage img {
+    width:100%;
+    border-radius:50%;
+}
+.commentText p {
+    margin:0;
+}
+.sub-text {
+    color:#aaa;
+    font-family:verdana;
+    font-size:11px;
+}
+.actionBox {
+    border-top:1px dotted #bbb;
+    padding:10px;
+}
+/****WRITER VIEWER DIRECTIVE***/
+
+
+/***Writer popup List***/
+.menu-highlighted {
+    font-weight: bold;
+}
+
+.popup-search .list-group-item.active {
+    color: #fff;
+    background-color: #428bca;
+    border-color: #428bca;
+}
+
+.popup-search .list-group-item.active .text-muted {
+    color: #ccc;
+}
+
+.popup-search .list-group-item.active .text-primary {
+    color: #fff;
+}
+
+.popup-search .list-group-item {
+    padding: 5px;
+}
+
+.popup-search .popup-photo {
+    max-width: 30px;
+    max-height: 30px;
+    border-radius: 15px;
+}
+/***-Writer Emoji List-***/
+
+/***Emoji Menu***/
+.insert-emoji .nav>li>a {
+  position: relative;
+  display: block;
+  padding: 5px 7px;
+}
+.insert-emoji .tab-content { max-height: 250px; overflow-y:scroll;}
+.emoji-menu-category { }
+.emoji-menu-category img{ width: 20px; height:20px;}
+
+.emoji-menu img{ width: 20px; height:20px; float: left;}
+.emoji-menu a{ 
+  display: inline-block;
+  text-decoration: none;
+  padding: .25rem .7rem;
+  overflow: hidden;
+  border-radius: 6px;
+  float: left; }
+.emoji-menu a:hover{ background: #E2EDF0; }
+.emoji-menu-footer { margin-top: 10px; background: #E2EDF0;  }
+.emoji-menu-footer img { width: 40px; height:40px;}
+/***-Emoji Menu-***/
+
+/***File Upload***/
+
+
+.upload-list ul{
+  padding: 0;
+  margin: 3px 0;
+} 
+
+.upload-response{
+  padding: 0;
+  margin: 3px 0;
+  clear: both;
+}
+
+.upload-list li{
+
+   padding: 10px;
+  margin-bottom: 15px;
+}
+
+.upload-button-abort, .upload-result  {
+  margin-left: 10px; 
+}
+
+
+.upload-list .progress {
+  display: inline-block;
+  width: 50%;
+  overflow: visible;
+  margin-bottom: 0;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  border-radius: 0;
+  position: relative;
+  left: 50px;
+  top: 4px;
+}
+.filesList.upload-list {
+  padding: 0px 20px;
+}
+.upload-list .progress div {
+  font-size: smaller;
+  background: #00aeef;
+  width: 0;
+  height: 20px;
+}
+
+.file-trash{
+  width: 25px;
+  display: inline-block;
+}
+.upload-list .thumb {
+  float: left;
+  width: 24px;
+  height: 24px;
+  padding-right: 10px;
+}
+
+.upload-button-abort {
+  padding-left: 10px;
+}
+
+.upload-complete-color {
+  color: #00aeef;
+}
+
+/***-File Upload-***/
+
+/*** Common Content Embed ***/
+* {
+    box-sizing : border-box;
+    }
+
+.im-embed-attachment iframe {
+    max-width:    : 410px;
+    width   : 100%;
+    /*
+    height  : 530px;
+    min-height: 200px;
+    */
+    display : block;
+    }
+
+.im-embed-attachment-icon {
+    /*width: 120px;
+    height: 100px;*/
+    float        : left;
+    /*border-right : 1px solid #eee;*/
+    }
+
+.im-embed-attachment-icon i {
+    margin    : 5px 22px;
+    color     : DarkGray;
+    font-size : 24px;
+    }
+
+.im-embed-attachment-view button {
+    font-family: inherit;
+    font-size: 14px;
+    background-color: rgb(203, 203, 203);
+    border: 1px solid #ccc;
+    border-radius: 0px;
+    color: DarkGray;
+    cursor: pointer;
+    outline: 0;
+    margin: 20px 8px 0 8px;
+    box-shadow: none;
+    width: 110px;
+    padding: 4px;
+    }
+
+.im-embed-attachment-view button:hover {
+    color: DarkGray;
+    }
+
+.im-embed-attachment-view button i {
+    margin-right : 6px;
+    }
+
+.im-embed-attachment-view button a {
+    color : #333;
+    }
+
+.im-embed-attachment-viewer iframe {
+    margin : 0 auto;
+    }
+
+.im-embed-attachment-viewer {
+    position         : relative;
+    font-weight: 200;
+
+
+}
+/*
+.im-embed-attachment-viewer i {
+    position  : absolute;
+    right     : 10px;
+    top       : 8px;
+    color     : #fff;
+    font-size : 25px;
+    cursor    : pointer;
+}
+*/
+
+.im-embed-attachment {
+    padding: 0px;
+    border             : 1px solid #e4e4e4;
+    border-radius      : 2px;
+    margin             : 20px 0;
+    box-shadow         : 0px 1px 1px 0 rgba(0, 0, 0, 0.26);
+    border-bottom      : 0;
+    overflow           : auto;
+    -webkit-transition : all 0.5s linear;
+    -o-transition      : all 0.5s linear;
+    -moz-transition    : all 0.5s linear;
+    -ms-transition     : all 0.5s linear;
+    -kthtml-transition : all 0.5s linear;
+    transition         : all 0.5s linear;
+    }
+
+
+.im-embed-attachment-detail {
+    width        : calc(100% - 200px);
+    float        : left;
+    margin-top: 10px;
+    }
+
+.im-embed-attachment-title {
+    font-weight   : normal;
+    padding       : 0;
+    overflow      : hidden;
+    text-overflow : ellipsis;
+    }
+
+.im-embed-attachment-prompt {
+    text-align: left;
+    font-size: 16px;
+    font-weight: 200;
+    padding: 5px 0;
+    white-space: normal;
+    color: #616161;
+    margin-left: 2px;
+}
+
+.im-embed-notloaded {
+    display: block;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    margin: 0;
+    position: absolute;
+    background-color: #E0E0E0;
+    padding: 20px 30px;
+    color:  #020202;
+    font-weight: 200;
+    overflow-y: auto; 
+}
+
+.canvas-set .im-embed-notloaded ul{
+  list-style: initial;
+  margin-left: 20px;
+}
+.im-embed-notloaded i.fa{
+
+  font-style: normal;
+  speak: inherit;
+  font-weight: inherit;
+  font-variant: inherit;
+  text-transform: inherit;
+  line-height: inherit;
+  font-size: inherit;
+  width: inherit;
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.response-constraint {
+  font-weight: 200;
+  padding: 0px 0px 10px 30px;
+}
+/*** -common content style- ***/
+
+/*** image content ***/
+.image-widget .im-embed-attachment-viewer img {
+  max-width: 100%;
+  cursor:pointer;
+}
+.image-widget .im-embed-attachment-viewer img:fullscreen {
+  cursor:default;
+}
+.btn-default:hover {
+  border-color: #ccc !important;
+}
+/*** -image content - ***/
+
+.file-drop-box-container {
+    padding: 10px 10px;
+    width: 100%;
+}
+
+.file-drop-box {
+    background: #fff;
+    border: 2px dashed DarkGray;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    padding: 20px 0;
+    color:  DarkGray;
+    cursor:pointer;
+}
+.file-drop-box.dragover {
+    border: 2px dashed #00aeef;
+}
+.file-drop-box .fa {
+  font-size: 60px !important;
+}

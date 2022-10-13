@@ -1,0 +1,21 @@
+body{
+  background: url('//cdn.imentor.org/new_platform/static/lesson_mgmt/img/blurry_bg.jpg') no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  font-family: "Helvetica Neue", "Helvetica", "Arial" !important;
+}
+.page_404{
+  color: white;
+  width: 600px;
+  margin: 0 auto;
+  margin-top: 150px;
+  height: 200px;
+  /* background-color: blue; */
+  padding: 20px;
+  border: 1px solid white;
+}
+.page_404 h1, .page_404 h2 {
+  font-weight: 200;
+}

@@ -1,0 +1,37 @@
+<div ng-click="editColleges()" class="all-btns edit-school darkgray-btn" id="editSchool">Edit list</div>
+<div class="content coll-search" id="coll-search">
+  <div class="row">
+    <div class="coll-nav bolded">
+      <div class="coll-row-xlg">College</div>
+      <div class="coll-row-sm">Category</div>
+      <div class="coll-row-lg">Application progress</div>
+    <div class="coll-row-sm">Due date</div>
+  </div>
+  </div>
+
+<div ng-repeat="collegeType in collegeTypes  | orderBy:'ordinal' " ng-class="collegeType.class">
+  <div class="college" ng-repeat="college in filtered = (checklist.selected_colleges | filter:{category_id: collegeType.id} )">
+    <div class="row coll-row-line" id="[['college_' + $index]]">
+      <div class="coll-row-xlg bolded collnam">
+        <span class="thecoll-name" id="coll-name">[[college.college.name]] </span>
+        <span> <button class="edit-college" id="edit-col" ng-click="showCollegesModal(college)"></button></span>
+      </div>
+      <div class="stype coll-row-sm bolded">
+        <span id="coll-type">[[collegeType.name]]</span>
+      </div>
+      <div class="coll-row-lg progBar">
+        <progressbar id="progressb" type="[[getCollegeChoiceType(college)]]" value="getProgressPercentage(getCollegeById(college.id, cpyColleges))"></progressbar>
+      </div>
+      <div class="coll-row-sm bolded dateBar">
+        <div id="date-pick" class="datepicker" date-set="[[today | date:'MM/dd/yyyy']]" date-format="MM/dd/yy" date-min-limit="[[minDate | date:'MM/dd/yy']]" date-max-limit="[[maxDate | date:'yyyy/MM/dd']]" button-prev="<i class='fa fa-arrow-left'></i>" button-next="<i class='fa fa-arrow-right'></i>">
+          <input ng-model="college.app_deadline" type="text" placeholder="MM/DD/YY" class="app-deadline" ng-change="updateCollegeWithDeadline(college)" readonly/>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+<div>
+  <!--<button class="choose-school">Choose a college</button>-->
+</div>
+

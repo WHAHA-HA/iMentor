@@ -1,0 +1,7 @@
+<!--Below are the variations in links that users may provide from Prezi.-->
+<!--http://prezi.com/{{url}}-->
+<!--http://prezi.com/{{url}}/?utm_campaign=share&utm_medium=copy&rc=ex0share-->
+<!--https://prezi.com/{{url}}/mrs-sporty-integrated-interactive-marketing-campaign/-->
+
+<!--Below is our generic iframe HTML for Prezi content.-->
+<iframe src="https://prezi.com/embed/{{url}}" width="640" height="480" frameborder="0" allowFullScreen  sandbox="allow-scripts allow-same-origin allow-popups" ></iframe>

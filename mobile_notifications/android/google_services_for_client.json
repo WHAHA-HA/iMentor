@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "222325012800",
+    "firebase_url": "https://imentor-android-push.firebaseio.com",
+    "project_id": "imentor-android-push",
+    "storage_bucket": "imentor-android-push.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:222325012800:android:d6b5efc2ba1c7413",
+        "android_client_info": {
+          "package_name": "imentor.convapp.android"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "222325012800-jv97p94h8fkm6q8dok3n7ga2rm8fe166.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBYpzeif7yOLSxUrwBXLgnC3sOsNzNKYH0"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,64 @@
+
+<!--Type: 4 <br/> -->
+<div >
+  <span class="questiontext" ng-bind-html="htmlText"></span>
+  <div class="address-input" id="address">
+    <input type="text"
+           id="address-street1"
+           ng-required="question.is_required"
+           ng-model="question.user_response.user_response.address"
+           placeholder="Address"
+           ng-blur="update()"
+           ng-change="updateRequired()"
+           name = "address1"
+           tabindex="[[tabIndex]]"
+           ng-disabled="question.onBackendCall == true"
+        />
+      <!--<span ng-show="myForm.address1.$error.required && myForm.address1.$touched" class="form-error">[[fieldErrMsg]]</span>-->
+    <input type="text"
+           id="address-street2"
+           ng-required="question.is_required"
+           ng-model="question.user_response.user_response.city"
+           placeholder="City"
+           ng-blur="update()"
+           ng-change="updateRequired()"
+           name="address2"
+           tabindex="[[tabIndex+1]]"
+           ng-disabled="question.onBackendCall == true"
+        />
+    <!--<span ng-show="myForm.address2.$error.required && myForm.address2.$touched" class="form-error">[[fieldErrMsg]]</span>-->
+    <br/>
+
+
+    <select ng-model="state"
+            id= "address-state"
+            ng-options="state as state.name for state in states"
+            ng-required="question.is_required"
+            ng-change="update()"
+            ng-disabled="!question.is_active || question.onBackendCall == true"
+            ng-change="updateRequired()"
+            name="address3"
+            tabindex="[[tabIndex+2]]"
+        >
+            <option value="">State</option>
+    </select>
+    <!--<span ng-show="myForm.address3.$error.required && myForm.address3.$touched" class="form-error">[[fieldErrMsg]]</span>-->
+    <br/>
+    <input type="text"
+           id="address-zip"
+           ng-required="question.is_required"
+           ng-model="question.user_response.user_response.zipcode"
+           placeholder="Zip Code"
+           ng-blur="update()"
+           ng-change="updateRequired()"
+           maxlength="5"
+           name="address4"
+           tabindex="[[tabIndex+3]]"
+           ng-disabled="question.onBackendCall == true"
+        />
+    <!--<span ng-show="myForm.address4.$error.required && myForm.address4.$touched" class="form-error">[[fieldErrMsg]]</span>-->
+    <span ng-show="question.required && question.edited == true && question.showRequired == true" class="form-error">[[fieldErrMsg]]</span>
+    <span class="error">[[error]]</span>
+  </div>
+
+</div>

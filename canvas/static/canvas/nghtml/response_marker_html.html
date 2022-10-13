@@ -1,0 +1,23 @@
+<div class=" profile-pic circular">
+    <img ng-src="{{user.photo}}" alt="{{user.f_name}}"/>
+</div>
+<div class="im-embed-attachment">
+    <div class="im-embed-attachment-detail">
+        <div class="im-embed-attachment-prompt">{{prompt}}</div>
+        <!--
+        <div class="response-constraint">
+        	<span ng-show="responseMarker.max_words && responseMarker.max_words>0 && (!responseMarker.min_words || responseMarker.min_words===0)">Please write less than {{responseMarker.max_words}} words.</span>
+        	<span ng-show="responseMarker.min_words && responseMarker.min_words>0 && (!responseMarker.max_words || responseMarker.max_words===0)">Please write at least {{responseMarker.max_words}} words.</span>
+        	<span  ng-show="responseMarker.min_words && responseMarker.min_words>0 && responseMarker.max_words && responseMarker.max_words>0">Please write between {{responseMarker.max_words}} and {{responseMarker.min_words}} words.</span>
+        </div>
+        -->
+    </div>
+    <div class="clearfix"> </div>
+    <div class="im-embed-attachment-viewer"  track-on="focusin|mouseover" track-event="viewer-preview" tabindex="-1" style="margin:0px !important;" >
+	  	<div class="col-lg-12 col-md-12 widget-content content-response" >
+			<div mentio-text-angular data-ng-model="richtextContent.html"></div>
+		</div>
+		
+	</div>
+</div>
+<div class="clearfix"> </div>

@@ -1,0 +1,27 @@
+
+<!--Type: 13 <br/>-->
+<div>
+  <div class="schoolblock">
+    <span class="questiontext" ng-bind-html="htmlText"></span>
+    <select ng-model="schoolName"
+            ng-options="k as k for (k, v) in schools"
+            ng-disabled="!question.is_active || question.onBackendCall == true"
+            ng-change="updateRequired()"
+            tabindex="[[tabIndex]]"
+        >
+      <option value="">Select your school</option>
+    </select>
+    <br/>
+     <select ng-model="class"
+            ng-options="class as class.class for class in schools[schoolName]"
+            ng-change = "update()"
+            ng-disabled="!question.is_active || question.onBackendCall == true"
+            tabindex="[[tabIndex+1]]"
+         >
+      <option value="">Select your class</option>
+    </select>
+
+    <span ng-show="question.required && question.edited == true && question.showRequired == true" class="form-error">[[fieldErrMsg]]</span>
+    <span class="error">[[error]]</span>
+  </div>
+</div>

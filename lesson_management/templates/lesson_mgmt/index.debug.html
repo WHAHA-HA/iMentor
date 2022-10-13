@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title>Lesson Management | iMentor</title>
+  <link rel="shortcut icon" href="//cdn.imentor.org/new_platform/static/img/favicon.png" type="image/x-icon" />
+
+  <!-- Vendor CSS -->
+  <link href="//cdn.imentor.org/new_platform/static/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="//cdn.imentor.org/new_platform/static/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
+  <link href="//cdn.imentor.org/new_platform/static/nvd3-1.1.15-beta/nv.d3.min.css" rel="stylesheet" >
+  <link href="//cdn.imentor.org/new_platform/static/angular-hamburger/angular-hamburger-toggle.css" rel="stylesheet" />
+  <link href="//cdn.imentor.org/new_platform/static/angular-multi-select/isteven-multi-select.css" rel="stylesheet"/>
+  <link rel="stylesheet" href="//cdn.imentor.org/new_platform/static/angular-datepicker/angular-datepicker.css"/>
+  <link href="//cdn.imentor.org/new_platform/static/angular-multi-select/isteven-multi-select.css" rel="stylesheet"/>
+  <!-- Custom CSS -->
+  <link href="/new_platform/static/lesson_mgmt/css/lesson_mgmt.css" rel="stylesheet" />
+  <link href="/new_platform/static/lesson_mgmt/css/header-bar.css" rel="stylesheet" />
+
+
+  <!-- Vendor Scripts -->
+  <script src="//cdn.imentor.org/new_platform/static/jquery/jquery.min.js"></script>
+  <script src="//cdn.imentor.org/new_platform/static/angular/angular.js"></script>
+  <script src="//cdn.imentor.org/new_platform/static/angular-ui-bootstrap/ui-bootstrap-tpls.min.js"></script>
+  <script src="//cdn.imentor.org/new_platform/static/angular-ui-router/angular-ui-router.min.js"></script>
+  <script src="//cdn.imentor.org/new_platform/static/angular-resource/angular-resource.js"></script>
+  <script src="//cdn.imentor.org/new_platform/static/d3-3.3.13/d3.min.js"></script>
+  <script src="//cdn.imentor.org/new_platform/static/nvd3-1.1.15-beta/nv.d3.min.js"></script> <!-- or use another assembly -->
+  <script src="//cdn.imentor.org/new_platform/static/angular-nvd3/angular-nvd3.min.js"></script>
+  <script src="//cdn.imentor.org/new_platform/static/angular-hamburger/angular-hamburger-toggle.js"></script>
+  <script src="//cdn.imentor.org/new_platform/static/angular-multi-select/isteven-multi-select.js"></script>
+  <script src="//cdn.imentor.org/new_platform/static/underscore/underscore-min.js"></script>
+  <script src="//cdn.imentor.org/new_platform/static/angular-mask/mask.min.js"></script>
+  <script src="//cdn.imentor.org/new_platform/static/ngDialog/lib/ngDialog.min.js "></script>
+  <script src="//cdn.imentor.org/new_platform/static/angular-datepicker/angular-datepicker.js"></script>
+  <script src="//cdn.imentor.org/new_platform/static/angular-route/angular-route.min.js"></script>
+  <script src="//cdn.imentor.org/new_platform/static/angular-multi-select/isteven-multi-select.js"></script>
+  <script src="//cdn.imentor.org/new_platform/static/autolinker/Autolinker.js"></script>
+
+  <!-- Custom Scripts -->
+  <script type="text/javascript"  src="/new_platform/static/lesson_mgmt/js/angular-init.js"></script>
+  <script src="/new_platform/static/tasks/js/tasks.js "></script>
+
+</head>
+<body ng-app="lesson_mgmt" ng-controller="MainCtrl" ng-init="init()">
+
+<div ng-include src="'/new_platform/static/lesson_mgmt/nghtml/header-bar.html'"></div>
+
+<div id="lesson-mgmt-body" class="container-fluid">
+
+  <div ng-view></div>
+
+</div>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-3696665-2', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</body>
+</html>

@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title>Surveys | iMentor</title>
+  <link rel="shortcut icon" href="//cdn.imentor.org/new_platform/static/img/favicon.png" type="image/x-icon" />
+
+  <!-- Vendor CSS -->
+  <link href="//cdn.imentor.org/new_platform/static/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="//cdn.imentor.org/new_platform/static/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
+  <link href="//cdn.imentor.org/new_platform/static/nvd3-1.1.15-beta/nv.d3.min.css" rel="stylesheet" >
+  <link href="//cdn.imentor.org/new_platform/static/angular-hamburger/angular-hamburger-toggle.css" rel="stylesheet" />
+  <link href="//cdn.imentor.org/new_platform/static/angular-multi-select/isteven-multi-select.css" rel="stylesheet"/>
+  <link href="//cdn.imentor.org/new_platform/static/ngDialog/lib/ngDialog.min.css" rel="stylesheet" />
+  <link href="//cdn.imentor.org/new_platform/static/ngDialog/lib/ngDialog-theme-plain.min.css" rel="stylesheet" />
+
+  <!-- Custom CSS -->
+  <link href="/new_platform/static/qualtrics/css/qualtrics.css" rel="stylesheet" />
+  <link href="/new_platform/static/qualtrics/css/header-bar.css" rel="stylesheet" />
+  <link href="/new_platform/static/hambuger-menu/header-bar-universal-admin.css" rel="stylesheet" />
+
+
+  <!-- Vendor Scripts -->
+  <script src="//cdn.imentor.org/new_platform/static/jquery/jquery.min.js"></script>
+  <script src="//cdn.imentor.org/new_platform/static/angular/angular.min.js"></script>
+  <script src="//cdn.imentor.org/new_platform/static/angular-ui-bootstrap/ui-bootstrap-tpls.min.js"></script>
+  <script src="//cdn.imentor.org/new_platform/static/angular-ui-router/angular-ui-router.min.js"></script>
+  <script src="//cdn.imentor.org/new_platform/static/angular-resource/angular-resource.js"></script>
+  <script src="//cdn.imentor.org/new_platform/static/d3-3.3.13/d3.min.js"></script>
+  <script src="//cdn.imentor.org/new_platform/static/nvd3-1.1.15-beta/nv.d3.min.js"></script> <!-- or use another assembly -->
+  <script src="//cdn.imentor.org/new_platform/static/angular-nvd3/angular-nvd3.min.js"></script>
+  <script src="//cdn.imentor.org/new_platform/static/angular-hamburger/angular-hamburger-toggle.js"></script>
+  <script src="//cdn.imentor.org/new_platform/static/angular-multi-select/isteven-multi-select.js"></script>
+  <script src="//cdn.imentor.org/new_platform/static/underscore/underscore-min.js"></script>
+  <script src="//cdn.imentor.org/new_platform/static/ngDialog/lib/ngDialog.min.js "></script>
+ <script src="//cdn.imentor.org/new_platform/static/isMobile/isMobile.min.js"></script>
+  <script src="//cdn.imentor.org/new_platform/static/fsm-sticky-header/fsm-sticky-header.js"></script>
+
+
+  <!-- Custom Scripts -->
+  <script type="text/javascript"  src="/new_platform/static/qualtrics/js/angular-init.js"></script>
+  <script type="text/javascript"  src="/new_platform/static/qualtrics/js/controllers.js"></script>
+  <script type="text/javascript"  src="/new_platform/static/qualtrics/js/directives.js"></script>
+  <script src="/new_platform/static/tasks/js/tasks.js "></script>
+
+</head>
+<body ng-app="qualtrics" ng-controller="TrackingCtrl" ng-init="init();">
+
+<div ng-include src="'/new_platform/static/qualtrics/nghtml/header-bar.html'"></div>
+
+<div id="qualtrics-body" class="container-fluid">
+
+<div class="survey_container">
+  <h2 class="header-title" style="padding-bottom: 15px;">Manage your surveys</h2>
+  <div
+    isteven-multi-select
+    input-model="surveys"
+    output-model="selectedSurveys"
+    button-label="description"
+    item-label="description"
+    tick-property="ticked"
+    class="surveys"
+    max-height="200px"
+    max-labels="1"
+    selection-mode = "single"
+    translation="surveyListLang"
+    on-item-click="loadMentees(pageSize,1)"
+    on-select-all="delayedLoadMentees()"
+    on-select-none="delayedLoadMentees()"
+    on-reset="delayedLoadMentees()"
+      >
+  </div>
+
+  <div
+      isteven-multi-select
+      input-model="partnerSites"
+      output-model="selectedPartnerSites"
+      button-label="name"
+      item-label="name"
+      tick-property="ticked"
+      class="partner-sites"
+      max-height="200px"
+      max-labels="1"
+      on-item-click="loadMentees(pageSize,1)"
+      on-select-all="delayedLoadMentees()"
+      on-select-none="delayedLoadMentees()"
+      on-reset="delayedLoadMentees()"
+      translation="partnerSitesLang"
+      helper-elements="all filter none"
+      ng-show="selectedSurveys.length > 0"
+      >
+  </div>
+
+  <button class="hideshow-btn" ng-if="!summaryVisible && selectedPartnerSites.length>0"><a style="color: #00aeff;font-weight: 200;" href class="pull-right qualtrics-blue" ng-click="toggleStatusPanel()"><i style="color: #00aeff;font-size: 26px;position: relative;
+    top: 4px;
+    right: 1px;"class="fa fa-pie-chart"></i> Show</a></button>
+
+  <div class="hideshow" style="position: relative;left:30%">
+  </div>
+  <div class="summary" ng-show="summaryVisible && selectedPartnerSites.length>0">
+    <div class="title blue-bg lesson-description"><h4 class="pull-left">Survey Progress</h4>
+    </div>
+
+
+<!--    <div class='invitedTotal'>
+      <h1>[[s_total_invited]]</h1>
+      <p>Total invited</p>
+    </div> -->
+    <div class="chartOpts">
+      <nvd3 options="chartOptions" data="chartData"></nvd3>
+    </div>
+
+    <div class="chartLegend">
+      <div style="list-style-type: none ">
+        <li class="chartStats"><span class="legnd_span" >[[s_total_not_invited.toFixed(0)]]</span> Not invited</li>
+        <li class="chartStats"><span class="legnd_span" >[[s_total_not_started.toFixed(0)]]</span> Not started</li>
+        <li class="chartStats"><span class="legnd_span" >[[s_total_incomplete.toFixed(0)]]</span> Incomplete</li>
+        <li class="chartStats"><span class="legnd_span" >[[s_total_completed.toFixed(0)]]</span> Complete</li>
+      </div>
+    </div>
+  </div>
+
+
+  <p style="height: 20px;">&nbsp;</p>
+  <div class="row" ng-show="selectedPartnerSites.length>0">
+    <div class="col-md-12 col-lg-12">
+      <input class="search" placeholder="Search" ng-model="searchString" ng-blur="loadMentees(pageSize,1)" ng-enter="loadMentees(pageSize,1)">
+      <i class="fa fa-search fa-flip-horizontal" aria-hidden="true"></i>
+    </div>
+  </div>
+
+  
+  <div class="row" ng-show="selectedPartnerSites.length>0"  style="padding-bottom:10px">
+    <div style="padding: 10px 15px 5px 15px;color:white;">
+      <span  class="survey-table-count">Show [[mentees.data.length]] of [[mentees.total]] users</span>
+    </div>
+  </div>
+  <table class="stats" ng-show="selectedPartnerSites.length>0" id="survey-table">
+    <thead   fsm-sticky-header="useFixedHeader" scroll-body="#survey-table" scroll-stop='35' fsm-z-index="9">
+    <tr >
+      <th  colspan="9" class="survey-table-actions" style="padding-top:0">
+        <div class="list-info" ng-show="selectedPartnerSites.length>0"  style="margin-top:0">
+              <a href class="pull-left" ng-click="invite(pageSize,1)">Invite</a>
+              <a href class="pull-left" ng-click="uninvite(pageSize,1)">Uninvite</a>
+              <a href class="pull-left" ng-click="sendEmail(pageSize,1)" >Email</a>
+          <a href class="pull-right" style="" ng-click="exportToCsv()">Export as CSV</a>
+            </div>
+
+      </th>
+    </tr>
+    <tr class="header" style="" >
+      <th>
+        <span class="glyphicon glyphicon-ok" style="float: left;font-size: 14px;" ng-class="{'selected': globalSelection == true, 'unselected': globalSelection != true}" ng-click="updateSelections()"></span>
+      </th>
+      <th>
+        <a href="" ng-click="sortBy('first_name')">First Name</a>
+        <span class="sort" ng-click="sortBy('first_name')" ng-show="sortField === 'first_name'" ng-class="{reverse: sortDir=='desc'}"></span>
+        <div class="fa fa-sort" ng-click="sortBy('first_name')" ng-show="sortField != 'first_name'" ></div>
+
+      </th>
+      <th>
+        <a href="" ng-click="sortBy('last_name')">Last Name</a>
+        <span class="sort" ng-click="sortBy('last_name')" ng-show="sortField === 'last_name'" ng-class="{reverse: sortDir=='desc'}"></span>
+        <div class="fa fa-sort" ng-click="sortBy('last_name')" ng-show="sortField != 'last_name' " ></div>
+      </th>
+      <th>
+        <a href="" ng-click="sortBy('partner_id')">Partner Site</a>
+        <span class="sort" ng-click="sortBy('partner_id')" ng-show="sortField === 'partner_id'" ng-class="{reverse: sortDir=='desc'}"></span>
+        <div class="fa fa-sort" ng-click="sortBy('partner_id')" ng-show="sortField != 'partner_id'" ></div>
+      </th>
+      <th>
+        Survey Status
+        <br/>
+        <span dropdown on-toggle="toggled(open)" class="field-name pull-left">
+          <a href dropdown-toggle>
+            <span> [[displayFilterValues(surveyStatusChoices,option.filter.survey_status)]]</span>
+            <i class="glyphicon glyphicon-chevron-down pull-right"></i>
+          </a>
+          <ul class="qualtrics-dropdown dropdown-menu" aria-labelledby="simple-dropdown">
+            <li >
+              <a href class="" ng-click="setFilterAll('survey_status', surveyStatusChoices) ">
+                <i class="glyphicon glyphicon-ok" ng-style="{ visibility: getFilterAll('survey_status', surveyStatusChoices) ? 'visible' : 'hidden' }" ></i> All
+              </a>
+            </li>
+            <li ng-repeat="(key, val) in surveyStatusChoices">
+              <a href class="" ng-click="setFilter('survey_status', 1 * key) ">
+                <i class="glyphicon glyphicon-ok" ng-style="{ visibility: isInFilter('survey_status', 1*key) ? 'visible' : 'hidden' }" ></i> [[val]]
+              </a>
+            </li>
+          </ul>
+        </span>
+
+      </th>
+      <th>
+        User Status
+        <br/>
+        <span dropdown on-toggle="toggled(open)" class="field-name pull-left">
+          <a href dropdown-toggle>
+            <span> [[displayFilterValues(userStatusChoices,option.filter.user_status)]]</span>
+            <i class="glyphicon glyphicon-chevron-down pull-right"></i>
+          </a>
+          <ul class="qualtrics-dropdown dropdown-menu" aria-labelledby="simple-dropdown">
+            <li>
+              <a href class="" ng-click="setFilterAll('user_status', userStatusChoices) ">
+                <i class="glyphicon glyphicon-ok" ng-style="{ visibility: getFilterAll('user_status', userStatusChoices) ? 'visible' : 'hidden' }" ></i> All
+              </a>
+            </li>
+            <li ng-repeat="(key, val) in userStatusChoices">
+              <a href class="" ng-click="setFilter('user_status', key) ">
+                <i class="glyphicon glyphicon-ok" ng-style="{ visibility: isInFilter('user_status', key) ? 'visible' : 'hidden' }" ></i> [[val]]
+              </a>
+            </li>
+          </ul>
+        </span>
+
+      </th>
+
+      <th>
+        Match Status
+        <br/>
+        <span dropdown on-toggle="toggled(open)" class="field-name pull-left">
+          <a href dropdown-toggle>
+            <span> [[displayFilterValues(matchChoices,option.filter.match_status)]]</span>
+            <i class="glyphicon glyphicon-chevron-down pull-right"></i>
+          </a>
+          <ul class="qualtrics-dropdown dropdown-menu" aria-labelledby="simple-dropdown">
+            <li>
+              <a href class="" ng-click="setFilterAll('match_status', matchChoices) ">
+                <i class="glyphicon glyphicon-ok" ng-style="{ visibility: getFilterAll('match_status', matchChoices) ? 'visible' : 'hidden' }" ></i> All
+              </a>
+            </li>
+            <li ng-repeat="(key, val) in matchChoices">
+              <a href class="" ng-click="setFilter('match_status', key) ">
+                <i class="glyphicon glyphicon-ok" ng-style="{ visibility: isInFilter('match_status', key) ? 'visible' : 'hidden' }" ></i> [[val]]
+              </a>
+            </li>
+          </ul>
+        </span>
+
+      </th>
+    </tr>
+    </thead>
+
+    <tbody>
+    <!--Shows statistics-->
+    <tr class="mentee" ng-class="{'selected': mentee.selected == true, 'unselected': mentee.selected != true}"
+        ng-repeat="mentee in mentees.data " ng-click="updateMenteeSelection(mentee)">
+      <td class="chkbox">
+        <span ng-class="mentee.selected? ' fa fa-check-square-o' : 'fa fa-square-o'" ng-class="{'selected': mentee.selected == true, 'unselected': mentee.selected != true}"
+
+            />
+      </td>
+      <td>[[mentee.first_name]]</td>
+      <td>[[mentee.last_name]]</td>
+      <td>[[getPartnerById(mentee.partner_id).name]]</td>
+      <td ng-class="{'green': mentee.survey_status == 'Completed'}">[[surveyStatusChoices[mentee.survey_status] ]]</td>
+      <td ng-class="{'green': mentee.user_status == 'A'}">[[userStatusChoices[mentee.user_status] ]]</td>
+      <td ng-class="{'green': mentee.match_status == 'NA' || mentee.match_status == 'M'}">[[matchChoices[mentee.match_status] ]]</td>
+    </tr>
+    </tbody>
+
+  </table>
+
+  <p style="height: 2px;margin: 0px;">&nbsp;</p>
+  <div class="row" ng-show="selectedPartnerSites.length>0">
+    <div class="col-md-12 col-lg-12">
+      <div class="pagenav-container">
+        <pagination total-items="mentees.total" ng-model="currentPage" max-size="5" class="pagination-sm pull-right" rotate="false" items-per-page="pageSize"  ng-change="pageChanged()"></pagination>
+
+      </div>
+
+    </div>
+  </div>
+</div>
+</div>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-3696665-2', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</body>
+</html>

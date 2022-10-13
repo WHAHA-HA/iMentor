@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title>Portfolio | iMentor</title>
+  <link rel="shortcut icon" href="//cdn.imentor.org/new_platform/static/img/favicon.png" type="image/x-icon" />
+   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+
+  <!-- Vendor CSS -->
+  <link href="//cdn.imentor.org/new_platform/static/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="//cdn.imentor.org/new_platform/static/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
+  <link href="https://i.icomoon.io/public/3e64826c61/iMentorIcons/style.css" rel="stylesheet">
+ 
+  <!-- Custom CSS -->
+  <link href="/new_platform/static/portfolio/css/production/libs.min.css" rel="stylesheet" /> 
+  <link href="/new_platform/static/portfolio/css/production/app.min.css" rel="stylesheet" /> 
+ 
+  
+  <!-- Vendor Scripts -->
+  <script src="/new_platform/static/portfolio/js/production/libs.min.js "></script>
+ 
+  <!-- Custom Scripts -->
+  <script src="/new_platform/static/portfolio/js/production/app.min.js "></script>
+
+</head>
+<body ng-app="portfolio">
+
+<div ng-include src="'/new_platform/static/portfolio/nghtml/header-bar.html'"></div>
+
+{% if user_id_from_flask %}
+    <div id="portfolio-body" class="container-fluid" ng-controller="PortfolioCtrl" ng-init="user_id = {{user_id_from_flask}}; init(user_id); ">
+{% else %}
+    <div id="portfolio-body" class="container-fluid" ng-controller="PortfolioCtrl" ng-init="init()">
+{% endif %}
+
+  <div ng-view>
+
+  </div>
+
+</div>
+        <div ng-controller="Shell as vm" style="position: fixed;
+    bottom: 0px;right: 0px;" ng-show="$root.showChat"   class="chatShell"  ng-class="{ 'zIndexTop' : vm.visible === true}">
+            <irontec-simple-chat
+                    messages="vm.messages"
+                    username="vm.username"
+                    input-placeholder-text="You can write here"
+                    submit-button-text="Send your message"
+                    title="[[vm.title]]"
+                    theme="material"
+                    submit-function="vm.sendMessage"
+                    visible="vm.visible"
+                    expand-on-new="vm.expandOnNew">
+            </irontec-simple-chat>
+        </div>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-3696665-2', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</body>
+</html>

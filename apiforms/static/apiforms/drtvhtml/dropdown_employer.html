@@ -1,0 +1,21 @@
+<!--Type: 11-->
+<div>
+  <div style="display: inline-block;">
+    <input type="text"
+           ng-model="question.user_response.user_response"
+           placeholder="[[question.question_text]]"
+           ng-required="question.is_required"
+           typeahead-min-length="3"
+           ng-disabled="!question.is_active || question.onBackendCall == true"
+           typeahead="employer.name for employer in getEmployers($viewValue)"
+           typeahead-loading="loadingEmployers"
+           typeahead-on-select='onSelect($item, $model, $label)'
+           ng-change = "clearEmployer()"
+           ng-blur="update()"
+           tabindex="[[tabIndex]]"
+           class="form-control">
+    <!--<i ng-show="loadingEmployers" class="glyphicon glyphicon-refresh"></i>-->
+  </div>
+  <span ng-show="question.required && question.edited == true && question.showRequired == true" class="form-error">[[fieldErrMsg]]</span>
+  <span class="error">[[error]]</span>
+</div>

@@ -1,0 +1,8 @@
+<!--Below are the variations in links that users may provide from Vimeo.-->
+<!--https://vimeo.com/{{url}}-->
+<!--https://vimeo.com/channels/staffpicks/{{url}}-->
+
+<!--Below is our generic iframe HTML for Vimeo content.-->
+<div class="js-video [vimeo, widescreen]">
+<iframe src="https://player.vimeo.com/video/{{url}}" width="640" height="480" frameborder="0" allowFullScreen  sandbox="allow-scripts allow-same-origin allow-popups" ></iframe>
+</div>

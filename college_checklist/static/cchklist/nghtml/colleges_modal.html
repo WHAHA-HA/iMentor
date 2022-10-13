@@ -1,0 +1,186 @@
+<!--School Detail-->
+
+<div class="container colleges-modal" >
+	<div class="container-fluid main-section">
+
+    <div class="row">
+      <div class="pull-left">
+        <select class="colleges" ng-options="college.college.name for college in colleges track by college.id" ng-model="college">
+        </select>
+
+      </div>
+
+      <div class="pull-right">
+        <button class="pull-right close-top" ng-click="close()"></button>
+      </div>
+    </div>
+
+    <div class="row section">
+      <div class="title">
+          Application
+      </div>
+    </div>
+
+    <div class="row fields">
+      <div class="questions pull-left">
+        Is your application complete?
+      </div>
+
+      <div class="actions">
+        <button class="yes pull-left" id="app-complete" ng-class="{'selected': college.app_completion == YES}" ng-click = "updateAttr('app_completion',YES)">Yes</button>
+      </div>
+    </div>
+
+    <div class="row fields">
+      <div class="questions pull-left">
+        Have you reviewed your application?
+      </div>
+
+      <div class="actions">
+        <button id="btn-yes1" class="yes pull-left" ng-class="{'selected': college.app_review == YES}" ng-click = "updateAttr('app_review',YES)">Yes</button>
+        <button id="btn-no1" class="no pull-left" ng-class="{'selected': college.app_review == NA }" ng-click = "updateAttr('app_review',NA)">N/A</button>
+      </div>
+    </div>
+
+    <div class="row fields">
+      <div class="questions pull-left">
+        Have you paid your application fee?
+      </div>
+
+      <div class="actions">
+        <button id="btn-yes2" class="yes pull-left" ng-class="{'selected': college.fee_payment == YES}" ng-click = "updateAttr('fee_payment',YES)">Yes</button>
+        <button id="btn-no2" class="no pull-left" ng-class="{'selected': college.fee_payment == NA}" ng-click = "updateAttr('fee_payment',NA)">N/A</button>
+      </div>
+    </div>
+
+    <div class="row fields">
+      <div class="questions pull-left">
+        When did you submit your application?
+      </div>
+
+      <div class="actions" style="padding-top: 10px;">
+
+        <div id="date-pick" class="datepicker" date-set="[[today | date:'MM/dd/yy']]" date-format="MM/dd/yy" date-min-limit="[[minDate | date:'MM/dd/yy']]" date-max-limit="[[maxDate | date:'yyyy/MM/dd']]" button-prev="<i class='fa fa-arrow-left'></i>" button-next="<i class='fa fa-arrow-right'></i>">
+          <input ng-model="college.app_submission" type="text" placeholder="MM/DD/YY" class="submission-deadline" ng-change="updateAttr('app_submission')" readonly/>
+
+        </div>
+      </div>
+    </div>
+
+    <div class="row section">
+      <div class="title">
+        Supporting documents
+      </div>
+    </div>
+
+    <div class="row fields">
+      <div class="questions pull-left">
+        Did you submit your transcripts?
+      </div>
+      <div class="actions">
+        <button id="btn-yes3" class="yes pull-left" ng-class="{'selected': college.transcript_submission == YES}" ng-click = "updateAttr('transcript_submission',YES)">Yes</button>
+        <button id="btn-no3" class="no pull-left" ng-class="{'selected': college.transcript_submission == NA}" ng-click = "updateAttr('transcript_submission',NA)">N/A</button>
+      </div>
+    </div>
+
+    <div class="row fields">
+      <div class="questions pull-left">
+        Did you submit your test scores?
+      </div>
+      <div class="actions">
+        <button id="btn-yes4" class="yes pull-left" ng-class="{'selected': college.test_submission == YES}" ng-click = "updateAttr('test_submission',YES)">Yes</button>
+        <button id="btn-no4" class="no pull-left" ng-class="{'selected': college.test_submission == NA}" ng-click = "updateAttr('test_submission',NA)">N/A</button>
+      </div>
+    </div>
+
+    <div class="row fields">
+      <div class="questions pull-left">
+        Did you submit your essay and personal statement?
+      </div>
+      <div class="actions">
+        <button id="btn-yes5" class="yes pull-left" ng-class="{'selected': college.essay_submission == YES}" ng-click = "updateAttr('essay_submission',YES)">Yes</button>
+        <button id="btn-no5" class="no pull-left" ng-class="{'selected': college.essay_submission == NA}" ng-click = "updateAttr('essay_submission',NA)">N/A</button>
+      </div>
+    </div>
+
+    <div class="row fields">
+      <div class="questions pull-left">
+        Did you submit your letters of recommendation?
+      </div>
+      <div class="actions">
+        <button id="btn-yes6" class="yes pull-left" ng-class="{'selected': college.recommendation_submission === YES}" ng-click = "updateAttr('recommendation_submission',YES)">Yes</button>
+        <button id="btn-no6" class="no pull-left" ng-class="{'selected': college.recommendation_submission === NA}" ng-click = "updateAttr('recommendation_submission',NA)">N/A</button>
+      </div>
+    </div>
+
+    <div class="row section">
+      <div class="title">
+        Financial aid
+      </div>
+    </div>
+
+    <div class="row fields">
+      <div class="questions pull-left">
+        Did you submit your FAFSA?
+      </div>
+
+      <div class="actions">
+        <button id="btn-yes7" class="yes pull-left" ng-class="{'selected': college.fafsa_submission == YES}" ng-click = "updateAttr('fafsa_submission',YES)">Yes</button>
+        <button id="btn-no7" class="no pull-left" ng-class="{'selected': college.fafsa_submission == NA}" ng-click = "updateAttr('fafsa_submission',NA)">N/A</button>
+      </div>
+    </div>
+
+    <div class="row section">
+      <div class="title">
+        Result
+      </div>
+    </div>
+
+    <div class="row fields result">
+      <div class="questions pull-left">
+        What result did you receive?
+      </div>
+
+      <div class="actions" style="width: auto;">
+        <button id="btn-accept" class="yes pull-left" ng-class="{'selected': college.result == ACCEPTED}" ng-click = "updateAttr('result',ACCEPTED)">Accepted</button>
+        <button id="btn-rejt" class="no pull-left" ng-class="{'selected': college.result == REJECTED}" ng-click = "updateAttr('result',REJECTED)">Rejected</button>
+        <button id="btn-wait" class="no pull-left" ng-class="{'selected': college.result == WAITLISTED}" ng-click = "updateAttr('result',WAITLISTED)">Waitlisted</button>
+      </div>
+    </div>
+
+    <div class="row section">
+      <div class="title">
+        Choice
+      </div>
+    </div>
+
+    <div class="row fields">
+      <div class="questions pull-left">
+        Are you going to this college?
+      </div>
+
+      <div class="actions">
+        <button id="btn-yes8" ng-disabled="college.result != ACCEPTED " class="yes pull-left" ng-class="{'selected': college.choice == YES && college.result == ACCEPTED }" ng-click = "updateAttr('choice',YES)">Yes</button>
+        <button id="btn-no8" class="no pull-left" ng-class="{'selected': college.choice == NA}" ng-click = "updateAttr('choice',NA)">No</button>
+      </div>
+    </div>
+
+
+    <div class="row section">
+      <div ng-click="close()" id="btn-close" class="all-btns darkgray-btn pull-left">
+        <!-- <button class="save pull-left" ng-click="save()">Save</button> -->
+        Close
+      </div>
+
+    </div>
+
+
+
+	</div>
+
+</div>
+
+
+</body>
+
+</html>

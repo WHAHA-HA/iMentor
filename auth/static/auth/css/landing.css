@@ -1,0 +1,453 @@
+/* --- General Styles --- */
+
+html {
+    font-family: "Helvetica Neue", "Helvetica", "Arial" !important;
+}
+
+html,
+body {
+    height: 100%;
+}
+
+a {
+    color: #FFFFFF !important;
+}
+
+a:hover {
+    color: #FD9851 !important;
+    text-decoration: none !important;
+}
+
+.bolded {
+    font-weight: bold;
+}
+
+.centered {
+    left: 0;
+    margin: auto;
+    margin-top: -100px;
+    position: absolute;
+    text-align: center;
+    top: 40%;
+    width: 100%;
+}
+
+.button-all {
+    font-family: "Helvetica Neue", "Helvetica", "Arial" !important;
+    border: none;
+    font-weight: 400;
+    color: #FFFFFF;
+}
+
+.button-lg {
+    font-size: 16px;
+    height: 60px;
+    width: 200px;
+}
+
+.button-med {
+    font-size: 14px;
+    height: 45px;
+    width: 150px;
+}
+
+.button-sm {
+    font-size: 14px;
+    height: 45px;
+    width: 120px;
+}
+
+input {
+    background-color: transparent;
+    width: 294px;
+    height: 45px;
+    border: 2px solid #FFFFFF;
+    padding: 0px 15px;
+}
+
+input::-webkit-input-placeholder {
+    color: #FFFFFF;
+}
+
+input:-moz-placeholder {
+    /* Firefox 18- */
+    color: #FFFFFF;
+}
+
+input::-moz-placeholder {
+    /* Firefox 19+ */
+    color: #FFFFFF;
+}
+
+input:-ms-input-placeholder {
+    color: #FFFFFF;
+}
+
+.orange {
+    background-color: #FD9851;
+}
+
+.white {
+    background-color: #EEEEEE;
+    color: #020202;
+}
+
+.white.button-all:hover {
+    background-color: #FFFFFF;
+}
+
+
+/* --- Landing Page Main --- */
+
+.landingPage {
+    color: white;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+.main-header {
+    font-size: 70px;
+    top: 51%;
+}
+
+.subheader {
+    font-size: 26px;
+    color: #FFFFFF;
+    top: 74%;
+}
+
+.signinLink {
+    cursor: pointer;
+    float: right;
+    font-size: 18px;
+    color: #FFFFFF;
+    margin: 50px 60px 0px 0px;
+}
+
+.signinLink.button-all {
+    background-color: #EEEEEE;
+    color: #2B2B2B !Important;
+    text-align: center;
+    padding: 12px;
+    text-decoration: none;
+    text-decoration: none;
+    width: 110px;
+    height: 50px;
+}
+
+.signinLink.button-all:hover {
+    background-color: #FFFFFF;
+}
+
+.appinfoback {
+    cursor: pointer;
+}
+
+button.orange:hover {
+    background-color: #FDA651;
+}
+
+.landingBtns {
+    top: 85%;
+    margin-left: -30px;
+}
+
+.button-all[disabled] {
+    cursor: default;
+    background-color: transparent !important;
+    font-size: 14px;
+    font-style: normal;
+    border: 1px solid #CCC;
+    color: white;
+}
+
+.landingBtn {
+    margin-left: 80px;
+}
+
+.margin20 {
+    margin: 20px 0px;
+}
+
+.margin40 {
+    margin: 40px 0px;
+}
+
+.about {
+    position: absolute;
+    /* bottom: -140px; */
+    display: inline-block;
+    left: 60px;
+    top: 93%;
+    /* margin-bottom: 100px; */
+}
+
+
+/* --- Landing Page Signin form --- */
+
+.loginForm {
+    font-family: "Helvetica Neue", "Helvetica", "Arial" !important;
+    width: 360px;
+    float: right;
+    background-color: transparent;
+    margin-top: 15px;
+    margin-right: 60px;
+    position: absolute;
+    top: 35px;
+    right: 60px;
+    min-width: 210px;
+    color: white !important;
+    font-weight: 200 !important;
+    margin: 0 auto;
+    background-color: rgba(0, 0, 0, 0.56);
+    padding: 40px 30px 40px 35px;
+}
+
+.signinBtn {
+    margin-top: 20px;
+}
+
+.loginBtns {
+    margin: 30px 0px;
+}
+
+.forgot-pass {
+    margin: 15px 0px 0px 0px;
+}
+
+.ng-scope {
+    margin: 0;
+}
+
+.resetpass {
+    background-color: rgba(17, 165, 229, 0.94);
+    height: 100%;
+}
+
+.asubmitted {
+    background: url("//cdn.imentor.org/new_platform/static/apiforms/img/done.jpg") no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+.send-pass input {
+    display: block;
+    margin: 30px auto !important;
+}
+
+.new-pass input {
+    display: block;
+    margin: 0px auto !important;
+}
+
+.signupform {
+    width: 40%;
+    margin: 0 auto;
+    min-width: 280px;
+}
+
+
+/* --- application information ---*/
+
+.appinfo {
+    width: 40%;
+    margin: 0 auto;
+    min-width: 380px;
+    max-width: 400px;
+}
+
+
+/* --- error handling ---*/
+
+
+/* --- error signup ---*/
+
+.signupform input.ng-dirty.ng-valid-parse.ng-valid-required.ng-invalid.ng-invalid-pwmatch,
+.signupform .ng-invalid.ng-dirty.ng-valid-email.ng-invalid-required.ng-touched {}
+
+.signupform .error-inline {
+    position: relative;
+    background-color: #FFFFFF;
+    padding: 14px 10px 15px 10px;
+    color: #D0021B;
+    width: 180px;
+}
+
+.validation-box {
+    top: -33px;
+    left: 193px;
+    position: relative;
+    display: inline-block;
+}
+
+.validation-box2 {
+    top: -33px;
+    position: relative;
+    left: 190px;
+    display: inline-block;
+}
+
+.validations {
+    width: 200px;
+    float: right;
+}
+
+input:focus {
+    outline: -webkit-focus-ring-color auto 0px;
+}
+
+input:focus,
+textarea:focus,
+keygen:focus,
+select:focus {
+    outline-offset: 0px !important;
+}
+
+
+/*
+input.ng-invalid.ng-dirty.ng-valid-email.ng-invalid-required {
+    background-color: #FAE5E8;
+    color: #D0021B;
+}
+input.ng-invalid.ng-dirty.ng-valid-email.ng-invalid-required::-webkit-input-placeholder  {
+    color: #D0021B;
+}*/
+
+.privacy {
+    position: absolute;
+    top: 93%;
+    /* float: initial; */
+    /* padding-right: 30px; */
+    /* cursor: pointer; */
+    display: inline-block;
+    /* margin: 0 auto; */
+    left: 35%;
+}
+
+.admins {
+    color: white;
+    background: url("//cdn.imentor.org/new_platform/static/img/green-bgn.jpg") no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+.admin-heading {
+    position: relative;
+    top: 100px;
+}
+
+.admin-container {
+    width: 828px;
+    margin: 0 auto;
+    /* height: 100%; */
+    /* max-width: 848px; */
+    /* margin-left: 60px; */
+    padding-left: 10px;
+}
+
+.admin-sub {
+    position: relative;
+    top: 130px;
+    font-size: 18px;
+}
+
+.square {
+    position: relative;
+    top: 170px;
+    width: 240px;
+    height: 140px;
+    background-color: white;
+    display: inline-block;
+    margin: 0px 40px 30px 0px;
+    color: black;
+    text-align: center;
+    padding-top: 55px;
+    font-size: 16px;
+}
+
+.row {
+    margin-right: 0px !important;
+    margin-left: 0px !important;
+}
+
+.square a {
+    color: black !Important;
+}
+
+.square:last-child {
+    margin-right: 0px;
+}
+
+.ta-editor {
+    min-height: 300px;
+    height: auto;
+    overflow: auto;
+    font-family: inherit;
+    font-size: 100%;
+    margin: 20px 0;
+}
+
+.noteinput {
+    height: 20px;
+    border: 1px solid gray;
+    width: 140px;
+    position: relative;
+    top: -1px;
+    /* right: 0px; */
+    float: right;
+    margin-right: 150px;
+    font-size: 14px;
+}
+
+.notefield {
+    margin: 10px;
+    padding: 2px 0px;
+}
+
+.notefield input:focus,
+textarea:focus,
+keygen:focus,
+select:focus {
+    outline-offset: 0px !important;
+    outline: rgba(7, 23, 72, 0.84) auto 1px;
+}
+
+#note .row button {
+    float: right;
+    margin-right: 10px;
+}
+
+.ngdialog.ngdialog-theme-plain .ngdialog-content {
+    width: 520px !important;
+}
+
+.ta-editor.ta-html,
+.ta-scroll-window.form-control {
+    min-height: 200px !important;
+}
+
+.ta-scroll-window > .ta-bind {
+    min-height: 200px !important;
+}
+
+#note input {
+    padding: 0px 5px;
+}
+
+.padding20 {
+    margin: 20px 0px;
+}
+
+.padding40 {
+    padding: 40px 0px;
+}
+
+.resetpass-background {
+        display: none;
+}

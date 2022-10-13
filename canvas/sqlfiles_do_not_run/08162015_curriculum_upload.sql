@@ -1,0 +1,18 @@
+﻿INSERT into canvas_curriculum (id, canvas_type, start_datetime, end_datetime, grade_id, unit_id, member_id, description) VALUES (9, 1, '6/8/15 00:00:00', '6/8/15 23:59:59', 3, 1, NULL, 'Introduction to iMentor');
+
+INSERT into canvas_set (id, role, curriculum_id, start_datetime, end_datetime, description) VALUES (19, 1, 9, '6/8/15 00:00:00', '6/8/15 23:59:59', 'Introduction to iMentor');
+
+INSERT into canvas_app (id, canvas_set_id, app_type,  n_of_total, total, ordinal, description) VALUES (60, 19, 2, 1, 1, 100, 'Lesson Overview');
+
+INSERT into canvas_widget (id, canvas_app_id, ordinal) VALUES (96, 60, 100);
+INSERT into canvas_widget (id, canvas_app_id, ordinal) VALUES (97, 60, 200);
+INSERT into canvas_widget (id, canvas_app_id, ordinal) VALUES (98, 60, 300);
+INSERT into canvas_widget (id, canvas_app_id, ordinal) VALUES (99, 60, 400);
+
+INSERT into canvas_widget_content (id, widget_id, content_type, ordinal, filename, url, html, plain_text) VALUES (148, 96, 11, 100, NULL, NULL, '<img src="/new_platform/static/canvas/images/remember.png" style="float:right;" />This lesson introduces new mentees to the iMentor program. It familiarizes them with program goals, expectations, and common vocabulary they will use throughout the program: staff, mentor, mentee, pair, relationship, and goals.<p><p>At the end of this lesson, mentees will be able to:<ul><li>Define what a mentor is</li><li>Articulate the goals and purpose of the program</li><li>Describe the role of the program staff, mentor, and mentee in our program</li><li>Illustrate the different relationships that exist between program staff, mentee, and mentor</li></ul></p></p><b>For the complete lesson, click <a href="https://learn.imentor.org/help/article/link/np-building-relationships-introduction-to-imentor-11" target="_blank">here</a>.</b>', NULL);
+INSERT into canvas_widget_content (id, widget_id, content_type, ordinal, filename, url, html, plain_text) VALUES (149, 97, 11, 100, NULL, NULL, '<img src="/new_platform/static/canvas/images/display.png" style="float:right;" />Display the following slideshow to facilitate the lesson. For instructions on editing the slideshow, click <a href="https://learn.imentor.org/help/article/link/editting-slide-presentations" target="_blank">here</a>.', NULL);
+INSERT into canvas_widget_content (id, widget_id, content_type, ordinal, filename, url, html, plain_text) VALUES (150, 97, 6, 200, NULL, 'https://docs.google.com/presentation/d/1RsIkqnTLgy9LS7-cWLDf_sB_lghUeNWlka3FmAEyrV8/embed', NULL, NULL);
+INSERT into canvas_widget_content (id, widget_id, content_type, ordinal, filename, url, html, plain_text) VALUES (151, 98, 11, 100, NULL, NULL, '<img src="/new_platform/static/canvas/images/display.png" style="float:right;" />If Youtube is unavailable to be streamed at your school, use the below video, which is streamed from Vimeo.', NULL);
+INSERT into canvas_widget_content (id, widget_id, content_type, ordinal, filename, url, html, plain_text) VALUES (152, 98, 3, 200, NULL, 'https://vimeo.com/134947495', NULL, NULL);
+INSERT into canvas_widget_content (id, widget_id, content_type, ordinal, filename, url, html, plain_text) VALUES (153, 99, 11, 100, NULL, NULL, '<img src="/new_platform/static/canvas/images/display.png" style="float:right;" />If Youtube is unavailable to be streamed at your school, use the below video, which is streamed from Vimeo.', NULL);
+INSERT into canvas_widget_content (id, widget_id, content_type, ordinal, filename, url, html, plain_text) VALUES (154, 99, 3, 200, NULL, 'https://vimeo.com/135689070', NULL, NULL);

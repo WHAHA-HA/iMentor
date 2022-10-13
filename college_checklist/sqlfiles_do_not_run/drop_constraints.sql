@@ -1,0 +1,11 @@
+alter table college_checklist drop CONSTRAINT college_checklist_app_completion_check;
+alter table college_checklist drop CONSTRAINT college_checklist_app_review_check;
+alter table college_checklist drop CONSTRAINT college_checklist_category_check;
+alter table college_checklist drop CONSTRAINT college_checklist_choice_check;
+alter table college_checklist drop CONSTRAINT college_checklist_essay_submission_check;
+alter table college_checklist drop CONSTRAINT college_checklist_fafsa_submission_check;
+alter table college_checklist drop CONSTRAINT college_checklist_fee_payment_check;
+alter table college_checklist drop CONSTRAINT college_checklist_recommendation_submission_check;
+alter table college_checklist drop CONSTRAINT college_checklist_result_check;
+alter table college_checklist drop CONSTRAINT college_checklist_test_submission_check;
+alter table college_checklist drop CONSTRAINT college_checklist_transcript_submission_check;

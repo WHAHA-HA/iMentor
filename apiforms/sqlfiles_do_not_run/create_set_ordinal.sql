@@ -1,0 +1,10 @@
+alter table forms_section add column ordinal INTEGER NOT NULL DEFAULT 0;
+alter table forms_section_copy add column ordinal INTEGER NOT NULL DEFAULT 0;
+update forms_section set ordinal = 1 where description = 'Contact Information';
+update forms_section set ordinal = 2 where description = 'Evaluation';
+update forms_section set ordinal = 3 where description = 'Matching';
+update forms_section set ordinal = 4 where description = 'References';
+update forms_section_copy set ordinal = 1 where description = 'Contact Information';
+update forms_section_copy set ordinal = 2 where description = 'Evaluation';
+update forms_section_copy set ordinal = 3 where description = 'Matching';
+update forms_section_copy set ordinal = 4 where description = 'References';

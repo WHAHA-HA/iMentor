@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html >
+<head lang="en">
+  <meta charset="UTF-8">
+  <title>Flipbook | iMentor</title>
+
+  <script type="text/javascript">
+      var imentor_cdn_prefix = "{{CDN_URL}}";
+      function getCdnUrlPrefix(path) {
+        return imentor_cdn_prefix + (path || '');
+      }
+  </script>
+  <link rel="shortcut icon" href="//cdn.imentor.org/new_platform/static/img/favicon.png" type="image/x-icon" />
+
+  <!-- Vendor CSS -->
+  <link href="{{CDN_URL}}/new_platform/static/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="{{CDN_URL}}/new_platform/static/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
+  <link href="https://i.icomoon.io/public/3e64826c61/iMentorIcons/style.css" rel="stylesheet">
+  
+  <!-- Vendor Style -->
+  <link href="{{CDN_URL}}/new_platform/static/flipbook/css/production/libs.min.css" rel="stylesheet" />
+  <!-- Custom Style -->
+  <link href="{{CDN_URL}}/new_platform/static/flipbook/css/production/app.min.css" rel="stylesheet" />
+  <!-- Vendor Scripts -->
+  <script src="{{CDN_URL}}/new_platform/static/flipbook/js/production/libs.min.js"></script>
+  <!-- Custom Scripts -->
+  <script src="{{CDN_URL}}/new_platform/static/flipbook/js/production/app.min.js"></script>
+
+</head>
+<body ng-app="flipbook" >
+  <div ng-include src="'{{CDN_URL}}/new_platform/static/flipbook/nghtml/header-bar.html'"></div>
+
+  <div   class="content flipbook-body" ng-class="{'sidenav-open': tgState}">
+    <div class="container-fluid ng-scope">
+      <div ui-view class=" slide"></div>
+    </div>
+  </div>
+
+</body>
+</html>

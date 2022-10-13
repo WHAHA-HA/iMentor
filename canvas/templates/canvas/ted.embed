@@ -1,0 +1,7 @@
+<!--Below are the variations in links that users may provide from TED.-->
+<!--http://www.ted.com/talks/{{url}}-->
+
+<!--Below is our generic iframe HTML for TED content.-->
+<div class="js-video [vimeo, widescreen]">
+<iframe src="https://www.youtube.com/embed/{{url}}?enablejsapi=1" width="640" height="480" frameborder="0" allowfullscreen  sandbox="allow-scripts allow-same-origin allow-popups" ></iframe>
+</div>

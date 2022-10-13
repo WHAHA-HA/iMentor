@@ -1,0 +1,19 @@
+
+<h3 class="selection_header"> [[ college.college.name ]] </h3>
+<div class="btn-group selected_college_btns" data-toggle="buttons">
+  <label class="btn btn-default college-btn safety_btn">
+    <input type="radio" class="college-btn safety_btn" name="category" value="1" /> Safety
+  </label>
+  <label class="btn btn-default college-btn target_btn" ng-click="updateSelection()">
+    <input type="radio" name="category" value="2" /> Target
+  </label>
+  <label class="btn btn-default college-btn reach_btn">
+    <input type="radio" class="btn btn-default" name="category" value="3" /> Reach
+  </label>
+</div>
+<span>
+  <a href="#" id="trash-can">
+    <img ng-src="//cdn.imentor.org/new_platform/static/cchklist/img/trash.png" ng-click="deleteSelection(college)" />
+  </a>
+</span>
+

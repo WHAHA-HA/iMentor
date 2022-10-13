@@ -1,0 +1,116 @@
+<div class="box" >
+	<div class="box-header">
+
+		<div class="box-header-btns">
+			<span class="lessonNums" style="">{{widget.n_of_total}} of {{widget.total}}</span> <!--| Send Mask : {{widget.send_mask}} -->
+			<a title="settings" data-ng-click="openSettings()" data-ng-show="config.editable">
+				<i class="glyphicon glyphicon-cog"></i>
+			</a>
+			<a title="Remove widget" data-ng-click="remove()" data-ng-show="config.editable">
+				<i class="glyphicon glyphicon-trash"></i>
+			</a>
+		</div>
+		<div class="widg-description">{{widget.description}}</div>
+	</div>
+	<div class="box-content canvas-app lesson2">
+			<!--<div  compile="getWidgetApp(widget)" >
+				<div  data-ng-repeat="appWidget in widget.widgets" class="present-widget">
+					<div  data-ng-repeat="content in appWidget.content">
+						<div  compile="getWidgetContent(content)" ng-if="content.is_visible===true">
+						</div>
+						<div  data-ng-repeat="responseMarker in content.response_markers">
+							<div  compile="getWidgetResponseMarker(responseMarker)" ></div>
+						</div>
+					</div>						
+				</div>
+			</div>-->
+			
+			<div   ng-if="widget.app_type == 1" class="reconnecting-app" >
+				<div  data-ng-repeat="appWidget in widget.widgets" class="canvas-widget">
+					<div  data-ng-repeat="content in appWidget.content" class="canvas-content">
+						<div  compile="getWidgetContent(content)" ng-if="content.is_visible===true"></div>
+					</div>						
+				</div>
+				<div class="reconnecting-writer" id="{{'reconnecting_writer_' + widget.id}}"></div>
+			</div>
+			<div   ng-if="widget.app_type == 2" class="presentation-app" >
+				<div  data-ng-repeat="appWidget in widget.widgets" class="present-widget">
+					<div  data-ng-repeat="content in appWidget.content" class="lesson">
+						
+						<div  data-ng-repeat="responseMarkerRef in content.response_marker_refs" class="lesson-sect">
+							<div ng-if="responseMarkerRef.position===1">
+								<div ng-if="responseMarkerRef.responses.length ===0 || (responseMarkerRef.responses.length ===1 && responseMarkerRef.responses[0].response_html.length === 0 && responseMarkerRef.responses[0].response_url.length === 0) " class="lesson-sect">
+									<div class="noresponse">
+										<span ng-if="otherUser.f_name && $root.menteeAbsent == 'False'"> {{otherUser.f_name}} didn't have a chance to complete this part yet. Please go ahead and complete whatever you can so they can respond next time. We also encourage you to send {{otherUser.f_name}} a message in <a href="http://learn.imentor.org/help/article/link/welcome-to-conversations" target="_blank">Conversations</a>. </span>
+										<span ng-if="otherUser.f_name && $root.menteeAbsent == 'NA'"> {{otherUser.f_name}} didn't have a chance to complete this part yet. Please go ahead and complete whatever you can so they can respond next time. We also encourage you to send {{otherUser.f_name}} a message in <a href="http://learn.imentor.org/help/article/link/welcome-to-conversations" target="_blank">Conversations</a>. </span>
+										<span ng-if="otherUser.f_name && $root.menteeAbsent == 'True'"><ul><li>{{otherUser.f_name}} wasn't in class today, but it is still important for you to demonstrate consistency and complete your portion of the Canvas.</li><li>You can also consider sending a message to {{otherUser.f_name}} through <a href="http://learn.imentor.org/help/article/link/welcome-to-conversations" target="_blank">Conversations</a>.</li><li>If you have any questions or concerns, either about what to do or about {{otherUser.f_name}}, please reach out to your Program Manager.</li></ul></span>
+										<span ng-if="!otherUser.f_name"> Your upcoming match didn't have a chance to complete this part yet. Please go ahead and complete whatever you can so they can respond in the near future. </span>
+									</div>
+								</div>
+								<div data-ng-repeat="response in responseMarkerRef.responses" class="lesson-sect"  ng-if="responseMarkerRef.responses.length >0 && (responseMarkerRef.responses[0].response_html.length > 0 || responseMarkerRef.responses[0].response_url.length > 0 )">
+									<div ng-if="response"  compile="getWidgetResponse(responseMarkerRef)" class="lesson-sect" id="{{'response_marker_ref_response_' + response.id}}"></div>
+								</div>
+							</div>
+						</div>
+						<div  data-ng-repeat="responseMarker in content.response_markers" class="lesson-sect">
+							<div ng-if="responseMarker.position===1">
+								<div data-ng-repeat="response in responseMarker.responses" class="lesson-sect">
+									<div ng-if="response"  compile="getWidgetResponseMarker(responseMarker)" class="lesson-sect" id="{{'response_' + response.id}}"></div>
+								</div>
+								<div ng-if="responseMarker.responses.length === 0 "  compile="getWidgetResponseMarker(responseMarker)" class="lesson-sect" id="{{'response_marker_' + responseMarker.id}}">	
+								</div>
+							</div>
+						</div>
+
+						<!-- Card -->
+						<div  compile="getWidgetContent(content)" class="lesson-sect" ng-if="content.is_visible===true">
+						</div>
+						
+
+						<div  data-ng-repeat="responseMarkerRef in content.response_marker_refs" class="lesson-sect">
+							<div ng-if="responseMarkerRef.position===0">
+								<div ng-if="responseMarkerRef.responses.length ===0  || (responseMarkerRef.responses.length > 0 && responseMarkerRef.responses[0].response_url.length === 0 || responseMarkerRef.responses[0].response_html.length === 0 && responseMarkerRef.responses[0].response_url.length === 0) " class="lesson-sect">
+									<div class="noresponse">
+										<span ng-if="otherUser.f_name && $root.menteeAbsent == 'False'"> {{otherUser.f_name}} didn't have a chance to complete this part yet. Please go ahead and complete whatever you can so they can respond next time. We also encourage you to send {{otherUser.f_name}} a message in <a href="http://learn.imentor.org/help/article/link/welcome-to-conversations" target="_blank">Conversations</a>. </span>
+										<span ng-if="otherUser.f_name && $root.menteeAbsent == 'NA'"> {{otherUser.f_name}} didn't have a chance to complete this part yet. Please go ahead and complete whatever you can so they can respond next time. We also encourage you to send {{otherUser.f_name}} a message in <a href="http://learn.imentor.org/help/article/link/welcome-to-conversations" target="_blank">Conversations</a>. </span>
+										<span ng-if="otherUser.f_name && $root.menteeAbsent == 'True'"><ul><li>{{otherUser.f_name}} wasn't in class today, but it is still important for you to demonstrate consistency and complete your portion of the Canvas.</li><li>You can also consider sending a message to {{otherUser.f_name}} through <a href="http://learn.imentor.org/help/article/link/welcome-to-conversations" target="_blank">Conversations</a>.</li><li>If you have any questions or concerns, either about what to do or about {{otherUser.f_name}}, please reach out to your Program Manager.</li></ul></span>
+										<span ng-if="!otherUser.f_name"> Your upcoming match didn't have a chance to complete this part yet. Please go ahead and complete whatever you can so they can respond in the near future. </span>
+									</div>
+								</div>
+								<div data-ng-repeat="response in responseMarkerRef.responses" class="lesson-sect"  ng-if="responseMarkerRef.responses.length >0 && (responseMarkerRef.responses[0].response_html.length > 0 || responseMarkerRef.responses[0].response_url.length > 0 )" >
+									<div ng-if="response"  compile="getWidgetResponse(responseMarkerRef)" class="lesson-sect" id="{{'response_marker_ref_response_' + response.id}}"></div>
+								</div>
+							</div>
+						</div>
+						<div  data-ng-repeat="responseMarker in content.response_markers" class="lesson-sect">
+							<div ng-if="responseMarker.position===0">
+								<div data-ng-repeat="response in responseMarker.responses" class="lesson-sect">
+									<div ng-if="response"  compile="getWidgetResponseMarker(responseMarker)" class="lesson-sect" id="{{'response_' + response.id}}"></div>
+								</div>
+								<div ng-if="responseMarker.responses.length === 0 "  compile="getWidgetResponseMarker(responseMarker)" class="lesson-sect" id="{{'response_marker_' + responseMarker.id}}">	
+								</div>
+							</div>
+						</div>
+					</div>						
+				</div>
+			</div>
+			<div   ng-if="widget.app_type == 3" class="upload-app" >
+				<div  data-ng-repeat="appWidget in widget.widgets" class="upload-widget lesson-sect">
+					<div  data-ng-repeat="content in appWidget.content" class="lesson-sect">
+						<div  compile="getWidgetContent(content)" class="lesson-sect" ng-if="content.is_visible===true">
+
+						</div>
+					</div>						
+				</div>
+			</div>
+			<div   ng-if="widget.app_type == 4" class="log-app" >
+				<div  data-ng-repeat="appWidget in widget.widgets" class="log-widget lesson-sect">
+					<div  data-ng-repeat="content in appWidget.content" class="lesson-sect">
+						<div  compile="getWidgetContent(content)" class="lesson-sect" ng-if="content.is_visible===true"></div>
+					</div>						
+				</div>
+			</div>
+			
+	</div>
+	<div class="clearfix"></div>
+</div>

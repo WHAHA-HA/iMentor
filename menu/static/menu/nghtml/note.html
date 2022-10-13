@@ -1,0 +1,14 @@
+<div ng-controller="noteController" id="note">
+
+    <div class="notefield">Add a note to profile for...<input class='noteinput' type="text" name="input" ng-model="recipient"></div>
+    <div class="notefield">Subject: <input class='noteinput' type="text" name="input" ng-model="subject"></div>
+
+    <text-angular ng-model="htmlVariable"></text-angular>
+
+    <div class="notefield">Send copy for note to:  <input class='noteinput' type="text" name="input" ng-model="sender"></div>
+
+    <div class="row">
+        <button id="sign-in" class="button-all button-sm orange">Save</button>
+        <button class="button-all button-sm white" ng-click="closeThisDialog()">Cancel</button>
+    </div>
+</div>

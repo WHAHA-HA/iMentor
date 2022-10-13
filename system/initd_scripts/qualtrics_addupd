@@ -1,0 +1,54 @@
+#!/bin/sh
+#
+# qualtrics_addupd initscript
+#
+### BEGIN INIT INFO
+# Provides: qualtrics_addupd
+# Required-Start:
+# Required-Stop:
+# Should-Start:
+# Should-Stop:
+# Default-Start: 2 3 4 5
+# Default-Stop: 0 1 6
+# Short-Description: Start and stop qualtrics_addupd
+# Description: qualtrics_addupd for iMentor application
+### END INIT INFO
+
+chown -R imentor /var/log/uwsgi/*
+chgrp -R imentor /var/log/uwsgi/*
+chmod -R g+w /var/log/uwsgi/*
+
+. /lib/lsb/init-functions
+
+export MROOT=/mnt/shared/imentor/new_platform
+#export PYTHONPATH=/export/shared/imentor/new_platform
+
+case "$1" in
+  start)
+    log_begin_msg "Starting Qualtrics add/del Daemon... $PARAMS"
+    sudo -H -u imentor bash -c 'python /mnt/shared/imentor/new_platform/qualtrics/qualtrics_queue.py >/dev/null 2>&1 &'
+    pid=`ps awux | grep qualtrics_queue.py | grep -v grep | awk '{print $2}'`
+    echo $pid > /var/lock/qualtrics_queue_daemon.pid
+    log_begin_msg "Qualtrics add/update daemon started."
+    log_end_msg 0
+  ;;
+  stop)
+    log_begin_msg "Stopping Qualtrics add/del Daemon..."
+    # Threaded and multiprocessed.
+    for i in `ps awux | grep qualtrics_queue.py | awk '{print $2}'`; do sudo kill -9 $i; done
+    #start-stop-daemon --stop --oknodo --retry 30 --pidfile /var/lock/mqp.pid --name python || log_end_msg 1
+    rm -f /var/lock/qualtrics_queue_daemon.pid
+    log_end_msg 0
+  ;;
+  status)
+    ps awux | grep qualtrics_queue.py
+  ;;
+  *)
+    log_begin_msg "Usage: $0 {start|stop|status}"
+    log_end_msg 0
+    exit 1
+  ;;
+esac
+
+exit 0
+

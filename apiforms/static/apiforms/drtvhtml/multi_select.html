@@ -1,0 +1,22 @@
+
+<!--ng_required doesn't make any sense-->
+<!--Type =7 -->
+<div style="display: inline-block;">
+  <span class="questiontext" ng-bind-html="htmlText"></span>
+  <div ng-repeat="answer in question.answers track by $index"
+       ng-disabled="!answer.is_active"
+       ng-class="{'selected': answer.selected==true }"
+       class="multi-select-field"
+       ng-click="update(answer)"
+       ng-enter="update(answer)"
+       name="multisel1"
+       tabindex="[[tabIndex + $index]]"
+      >
+    <span class="answer">[[answer.answer_text]]</span>
+    <span style="float: right;"  ng-class="{'selected': answer.selected==true }" class="glyphicon glyphicon-ok" aria-hidden="true"></span>
+  </div>
+</div>
+
+<span ng-show="question.required  && question.edited == true && question.showRequired == true" class="form-error">[[fieldErrMsg]]</span>
+<span class="error">[[error]]</span>
+

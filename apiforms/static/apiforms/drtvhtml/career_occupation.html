@@ -1,0 +1,36 @@
+<!--ng_required doesn't make any sense-->
+<!--Type =17 <br/>-->
+
+<div style="display: inline-block;">
+  <span class="questiontext" ng-bind-html="htmlText"></span>
+  <br/>
+  <div ng-repeat="obj in careers track by $index"
+       ng-disabled="!question.is_active"
+       ng-click="selectCareer(obj)"
+       ng-enter="selectCareer(obj)"
+       ng-class="{'selected': career==obj}"
+       class="multi-select-field"
+       name="career1"
+       tabindex="[[tabIndex+$index]]"
+      >
+    <span class="answer">[[obj.name]]</span><span style="float: right;"  ng-class="{'selected': career==obj}" aria-hidden="true"></span>
+  </div>
+
+  <br/>
+  <span class="questiontext occupation">Occupations: for [[career.name]] </span>
+  <div ng-repeat="obj in career.occupations track by $index"
+       ng-disabled="!question.is_active"
+       ng-click="selectOccupation(obj)"
+       ng-enter="selectOccupation(obj)"
+       ng-class="{'selected': obj.selected==true }"
+       class="occupations multi-select-field2"
+       name="career2"
+       tabindex="[[tabIndex+50+$index]]"
+      >
+    <span class="answer">[[obj.name]]</span><span style="float: right;"  ng-class="{'selected': obj.selected==true }" class="glyphicon glyphicon-ok" aria-hidden="true"></span>
+  </div>
+</div>
+
+<span ng-show="question.required && question.edited == true && question.showRequired == true" class="form-error">[[fieldErrMsg]]</span>
+<span class="error">[[error]]</span>
+

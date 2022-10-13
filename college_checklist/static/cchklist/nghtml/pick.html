@@ -1,0 +1,49 @@
+<style>
+  button.selected {
+    color: white;
+    background-color: #00aeef;
+  }
+</style>
+
+<div>
+  <input type="text"
+         class="form-control question-ptext"
+         ng-model="college"
+         placeholder="Search for a college"
+         typeahead-min-length="3"
+         typeahead="college.name for college in getCollegePicks($viewValue)"
+         typeahead-loading="loadingColleges"
+         typeahead-on-select='onSelect($item, $model, $label)'
+         autofocus="true"
+
+         />
+
+
+<div>
+  <div ng-repeat="college in colleges" ng-init="checkValid()" id="[['col_' + $index]]">
+    <h3 class="college-name" id="coll-name">[[college.college.name]]</h3>
+    <div class="button-row">
+      <button
+          ng-repeat="collegeType in collegeTypes | orderBy:'ordinal' "
+          class="college-chc"
+          id="[['col-type-sel_' + $index]]"
+          ng-class="{'selected': college.category_id == collegeType.id }"
+          ng-click="updateCategoryId(college, collegeType.id)" style=""
+          ng-if="collegeType.id!=0">
+        [[collegeType.name]]
+      </button>
+      <!--<button class="college-chc" ng-class="{'selected': college.category_id == UNSURE }" ng-click="updateCategoryId(college, UNSURE)" style="">Not sure</button>-->
+      <!--<button class="college-chc" ng-class="{'selected': college.category_id == SAFETY }" ng-click="updateCategoryId(college,SAFETY)">Safety</button>-->
+      <!--<button class="college-chc" ng-class="{'selected': college.category_id == TARGET }" ng-click="updateCategoryId(college,TARGET)">Target</button>-->
+      <!--<button class="college-chc" ng-class="{'selected': college.category_id == REACH }" ng-click="updateCategoryId(college,REACH)">Reach</button>-->
+      <span ng-click="removeCollege(college)" id="remove-col"><i class="fa fa-trash-o"></i></span>
+    </div>
+    <span style="color:red;">[[college.error]]</span>
+  </div>
+
+  <div>
+    <button id="update-prog" ng-class="{'disabled': colleges.length < 1 || fieldNotSel}" ng-click="updateProgress()" ng-disabled="colleges.length < 1"  class="choose-school" ng-show="currentPath === '/'">Update application progress</button>
+  </div>
+
+  </div>
+</div>

@@ -1,0 +1,138 @@
+<div ng-controller="TasksCtrl" id="tasks-container">
+    <div class="tasks task0" ng-if="showAnnouncement">
+        <div class="survey-box">
+            <h4 style="font-weight: 400;">{{announcement_description}}</h4>
+            <div bind-html-compile="announcement_html" >
+            </div>
+
+            <button ng-click="$root.showAnnouncement=false;closeThisTask(0);updateAnnouncement(announcement_id);" style="margin-top: 10px;" class="buttonTasks orange"><a style="color:white;">Got it!</a></button>
+            <button ng-click="$root.showAnnouncement=false;closeThisTask(0);" style="margin-top: 10px;" class="buttonTasks white"><a style="color:black;">Remind me next time</a></button>
+
+        </div>
+    </div>
+
+    <div class="tasks task1" ng-if="showSurvey">
+        <div class="survey-box">
+            <h4 style="font-weight: 400;">Take the {{surveyName || "Pre-Survey 2015-16"}}</h4>
+            <div>This survey requires about 15 minutes of your time.</div>
+            <div>It greatly helps us improve our program, as you can read <a href="https://learn.imentor.org/help/article/link/how-surveys-help-to-improve-our-program" target="_blank">here</a>.</div>
+            <div>Thank you in advance!</div>
+            <button ng-click="$root.showSurvey=false;closeThisTask(1);goToSurvey();" style="margin-top: 10px;" class="buttonTasks orange"><a style="color:white;">Take the survey</a></button>
+            <button ng-click="$root.showSurvey=false;closeThisTask(1);" style="margin-top: 10px;" class="buttonTasks white"><a style="color:black;">Remind me next time</a></button>
+        </div>
+    </div>
+
+    <div class="tasks task2" ng-if="showRating">
+        <div class="ngdialog-message">
+            <h4 style="font-weight: 400;">Rate your relationship with {{ratingName}}</h4>
+            <div>0 indicates no relationship, while 10 indicates the best possible relationship.</div>
+            <!--999 is the default rating and indicates that no previous rating exists.-->
+            <div ng-if="rating && rating != 999">As a reference point, your previous rating was {{rating}}.</div>
+            <div class="desktopStyles">
+            <ul class="ratingnum"><li class="ratingsList" ng-repeat="n in [] | range:10" ng-click="$root.showRating=false;selectRating(n);" ng-class="{'selectedRating': n == newRating}">{{n}}</li></ul>
+            </div>
+            <div class="mobileStyles">
+            <ul class="ratingnum"><li class="ratingsList" ng-repeat="n in [] | range:5" ng-click="$root.showRating=false;selectRating(n);" ng-class="{'selectedRating': n == newRating}">{{n}}</li></ul>
+            <ul class="ratingnum"><li class="ratingsList" ng-repeat="n in [] | range:4" ng-click="$root.showRating=false;selectRating(n+6);" ng-class="{'selectedRating': n + 6 == newRating}">{{n + 6}}</li></ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="tasks task3 evt events-task" ng-if="showEvents">
+        <div class="ngdialog-message tasks3">
+            <div class="eventContainer" ng-repeat="event in events">
+                <h4 style="font-weight: 400;">RSVP to {{event.event_name}}</h4>
+                <div><i class="fa fa-calendar"></i> {{event.event_date}} at {{event.event_time}}</div>
+                <div><i class="fa fa-map-marker"></i><span style="color:#00aeef;"> <a class="evtAddress" href="http://maps.google.com/?q={{event.event_address}}" target="_blank">{{event.event_address}}</a></span></div>
+                <div style="margin: 20px 0 20px 0;">
+                    <img class="reflectionImg" style="position: relative;" ng-src="{{otherUser.photo}}"/> {{event.counterparty_first_name}}
+                    <span ng-if="event.counterparty_rsvp == 'NR'"> didn't respond.</span>
+                    <span ng-if="event.counterparty_rsvp == 'Y'"> is going.</span>
+                    <span ng-if="event.counterparty_rsvp == 'N'"> is not going.</span>
+                    <span ng-if="event.counterparty_rsvp == 'M'"> isn't sure yet.</span>
+                </div>
+                <div class="btn-group" data-toggle="buttons" ng-if="eventsLength >= 2">
+                    <label class="btn btn-default" ng-click="rsvp('Y', event.rsvp_id)">
+                        <div><input name="cssPre1" id="css1" value="Going" class="radio" type="radio" data-ng-model="cssPre" ng-change="rsvp('N', event.rsvp_id)">I'm going.</div>
+                    </label>
+                    <label class="btn btn-default" ng-click="rsvp('N', event.rsvp_id)">
+                        <div><input name="cssPre1" id="css2" value="Not going" type="radio" data-ng-model="cssPre" ng-change="rsvp('N', event.rsvp_id)">I'm not going.</div>
+                    </label>
+                    <label class="btn btn-default" ng-class="{'active': event.party_rsvp=='M'}" ng-click="rsvp('M', event.rsvp_id)">
+                        <div><input name="cssPre1" id="css3" value="Maybe" type="radio" checked="checked" data-ng-model="cssPre" ng-change="rsvp('M', event.rsvp_id)">I'm not sure yet.</div>
+                    </label>
+                </div>
+
+                <div class="btn-group" data-toggle="buttons" ng-if="eventsLength < 2">
+                    <label class="btn btn-default" ng-click="rsvp('Y', event.rsvp_id);closeThisTask(3);$root.showEvents=false;">
+                        <div><input name="cssPre1" id="css1" value="Going" class="radio" type="radio" data-ng-model="cssPre" ng-change="rsvp('Y', event.rsvp_id)">I'm going.</div>
+                    </label>
+                    <label class="btn btn-default" ng-click="rsvp('N', event.rsvp_id);closeThisTask(3);$root.showEvents=false;">
+                        <div><input name="cssPre1" id="css2" value="Not going" type="radio" data-ng-model="cssPre" ng-change="rsvp('N', event.rsvp_id)">I'm not going.</div>
+                    </label>
+                    <label class="btn btn-default" ng-class="{'active': event.party_rsvp=='M'}" ng-click="rsvp('M', event.rsvp_id);closeThisTask(3);$root.showEvents=false;">
+                        <div><input name="cssPre1" id="css3" value="Maybe" type="radio" checked="checked" data-ng-model="cssPre" ng-change="rsvp('M', event.rsvp_id)">I'm not sure yet.</div>
+                    </label>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="tasks task2 confirmationTask" ng-if="showValidateInfo">
+        <div class="ngdialog-message">
+            <form name="myForm" novalidate>
+            <h4 style="font-weight: 400;">Confirm your personal information</h4>
+            <div class="fieldSeparator">By confirming the information below, we can keep in contact with you and provide the best program experience.</div>
+            <div class="fieldSeparator">
+                <span class="infoField">Cell phone</span>
+                <input style="width: 125px;padding: 4px 0px;" name="phone" type="text" ng-model="phoneNum" ui-mask="(999) 999-9999" ui-options="{clearOnBlur: false, allowInvalidValue: true}" ui-mask-placeholder ui-mask-placeholder-char="_"/>
+            </div>
+            <div class="fieldSeparator">
+                <span class="infoField">Email</span>
+                <input style="width: 300px;padding: 4px 0px;" name="input" type="text" ng-model="emailAdd" required>
+            </div>
+            <div class="fieldSeparator" ng-if="$root.userrole == 'Mentee'">
+                <multi-select-date name="birthdate" ng-model="dateOfBirth" year-order="desc" start-year="1986" end-year="2006" required></multi-select-date>
+                <br>
+            </div>
+                <div class="validation">
+                    <div style="color:red;">{{phoneNumError}}</div>
+                    <div style="color:red;">{{emailError}}</div>
+                    <div style="color:red">{{dateError}}</div>
+                </div>
+            <div class="fieldSeparator">
+                <button ng-click="updatePersonalInfo(phoneNum,emailAdd, myForm.birthdate.$viewValue, infoId);showValidate =true;" style="margin-top: 10px;" class="buttonTasks orange"><a style="color:white;">Confirm</a></button>
+                <button ng-click="closeThisTask(4);$root.showValidateInfo=false;" style="margin-top: 10px;" class="buttonTasks white"><a style="color:black;">Remind me next time</a></button>
+            </div>
+
+            </form>
+        </div>
+</div>
+</div>
+<script type="text/ng-template" id="multiSelectDate">
+
+        <div class="form-inline">
+            <span class="infoField">Date of birth</span>
+            <div class="form-group">
+                <span class="infoField2"></span>
+                    <select ng-model="date.month" ng-options="month for month in selects.months()" class="form-control">
+                    <option value="" disabled>--</option>
+                    </select>
+            </div>
+            <div class="form-group">
+                <span class="infoField2"></span>
+                <select ng-model="date.day" ng-options="day for day in selects.days()" class="form-control">
+                <option value="" disabled>--</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <span class="infoField2"></span>
+                <select ng-model="date.year" ng-options="year for year in selects.years() | orderBy: year:yearOrder" class="form-control">
+                    <option value="" disabled>----</option>
+                </select>
+            </div>
+
+    </div>
+
+</script>

@@ -1,0 +1,1 @@
+curl -i https://nyc.imentordev.org/sms/ --data "Body=YES&To=+16099488101&From=+12013063502" --header "User-Agent: TwilioProxy/1.1" --header "Host: localhost:8000" --header "Cache-Control: max-age=259200" --header "Accept: */*" --header "Content-Type: application/x-www-form-urlencoded" --digest -u "imentor:2qa3ws4ed5rf6tg7yh"

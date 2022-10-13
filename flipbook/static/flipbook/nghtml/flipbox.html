@@ -1,0 +1,74 @@
+<div id="flip-box">
+    <div class="">
+        <div class="close-container"><a href ng-click="close();" ><i class="close">X</i></a></div>
+        <div class="flip-box-content">
+            <div class="chat-container"  ng-hide="currentContent.content_type == 'Conversation'">
+                <iframe ng-attr-src="{{currentContent.content_link.indexOf('/') == 0 && currentContent.content_link || '' }}" iframe-onload="iframeLoaded()"></iframe>
+            </div>
+            <div class="chat-container"  ng-show="currentContent.content_type == 'Conversation'">
+            <div ng-controller="Shell as vm" style="position: absolute; bottom: 0px; right:0px; z-index: 1;">
+                <irontec-simple-chat
+                        messages="vm.messages"
+                        username="vm.username"
+                        input-placeholder-text="You can write here"
+                        submit-button-text="Send your message"
+                        title="{{vm.title}}"
+                        theme="material"
+                        submit-function="vm.sendMessage"
+                        visible="vm.visible"
+                        expand-on-new="vm.expandOnNew">
+                </irontec-simple-chat>
+            </div>
+            </div>
+        </div>
+    </div>
+    <div class="flip-navigation">
+        <button class="previous" ng-click="previous();" ng-hide="currentContentIndex<=0"> <i class="fa fa-angle-left"></i> </button>
+        <div class="flip-navigation-data">
+            <span style="margin-right: 20px;">
+                
+                 <span dropdown on-toggle="toggled(open)" class="dropdown">
+                  <a href dropdown-toggle  >
+                    <i class="fa fa-wrench"></i>
+                  </a>
+                  <ul class="enrollment-dropdown dropdown-menu" aria-labelledby="simple-dropdown"  ng-show="currentContent &&  currentContent.flag_type_id == 'NA'">
+                    <li>
+
+                      <a href class="" ng-click="vm.addFlag(1)">
+                        Add review flag
+                      </a>
+                    </li>
+                    <li>
+                      <a href class="" ng-click="vm.addFlag(2)">
+                        Add safety flag
+                      </a>
+                    </li>
+                    <li>
+                      <a href class="" ng-click="vm.addFlag(3) ">
+                        Add story flag
+                      </a>
+                    </li>
+                  </ul>
+                   <ul class="enrollment-dropdown dropdown-menu" aria-labelledby="simple-dropdown"  ng-show="currentContent &&  currentContent.flag_type_id != 'NA'">
+                    <li>
+                      <a href class="" ng-click="vm.addFlag('NA')">
+                        Remove existing flag
+                      </a>
+                    </li>
+                    </ul>
+                </span>
+            </span>
+            <span style="margin-right: 20px;" ng-if="currentContent.flag_id == '0'">Flag pending refresh...</span>
+            <span style="margin-right: 20px;" ng-if="currentContent.flag_id != 'NA' && currentContent.flag_id != '0' && currentContent.flag_type_id != 'NA' ">
+                <span ng-if="currentContent.flag_type_id === 1">Review</span>
+                <span ng-if="currentContent.flag_type_id === 2">Safety</span>
+                <span ng-if="currentContent.flag_type_id === 3">Story</span>
+                <span ng-if="currentContent.flag_type_id == 'NA'"></span>
+            </span>
+            <span style="margin-right: 20px;">{{currentContent.first_name}} {{currentContent.last_name}}</span>
+            <span style="margin-right: 20px;">{{currentContent.user_type}}</span>
+            <span>{{currentContent.content_updated}}</span>
+        </div>
+        <button class="next" ng-click="next();" ng-hide="currentContentIndex >= vm.filteredItems.length-1"> <i class="fa fa-angle-right"></i> </button>
+    </div>
+</div>

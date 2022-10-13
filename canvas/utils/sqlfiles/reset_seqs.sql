@@ -1,0 +1,9 @@
+select setval('canvas_unit_info_id_seq', (select max(id) from canvas_unit_info) + 1);
+select setval('canvas_grade_info_id_seq', (select max(id) from canvas_grade_info) + 1);
+select setval('canvas_curriculum_id_seq', (select max(id) from canvas_curriculum) + 1);
+select setval('canvas_set_id_seq', (select max(id) from canvas_set) + 1);
+select setval('canvas_app_id_seq', (select max(id) from canvas_app) + 1);
+select setval('canvas_widget_id_seq', (select max(id) from canvas_widget) + 1);
+select setval('canvas_widget_content_id_seq', (select max(id) from canvas_widget_content) + 1);
+select setval('canvas_widget_content_response_marker_id_seq', (select max(id) from canvas_widget_content_response_marker) + 1);
+select setval('canvas_widget_content_marker_reference_id_seq', (select max(id) from canvas_widget_content_marker_reference) + 1);

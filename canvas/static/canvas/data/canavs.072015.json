@@ -1,0 +1,377 @@
+{
+   "canvas_set":{
+      "start_datetime":"2015-06-23 00:00:00",
+      "user_id":100112,
+      "description":"Sample 1, First in the Family",
+      "user_completed":null,
+      "apps":[
+         {
+            "canvas_set_id":6,
+            "user_id":100112,
+            "description":"Framing Activity",
+            "parent_id":4,
+            "widgets":[
+               {
+                  "ordinal":100,
+                  "user_id":100112,
+                  "canvas_app_id":12,
+                  "content":[
+                     {
+                        "ordinal":100,
+                        "widget_id":18,
+                        "user_id":100112,
+                        "url":"http://izquotes.com/quotes-pictures/quote-believe-you-can-and-you-re-halfway-there-theodore-roosevelt-158024.jpg",
+                        "plain_text":null,
+                        "filename":null,
+                        "parent_id":6,
+                        "html":null,
+                        "content_type":9,
+                        "response_marker_refs":[
+
+                        ],
+                        "response_markers":[
+
+                        ],
+                        "id":38,
+                        "persona_id":77231
+                     },
+                     {
+                        "ordinal":200,
+                        "widget_id":18,
+                        "user_id":100112,
+                        "url":null,
+                        "plain_text":null,
+                        "filename":null,
+                        "parent_id":6,
+                        "html":"We displayed the following instructions to your mentee as a Do Now activity to frame the lesson:<p>Write to your mentor and share what this quote means to you. Where in your life can you see this connecting?</p><p>And further below is the response from your mentee, as well as an opportunity for you to respond:</p>",
+                        "content_type":11,
+                        "response_marker_refs":[
+                           {
+                              "ordinal":100,
+                              "read_only":true,
+                              "user_id":100112,
+                              "responses":[
+
+                              ],
+                              "parent_id":1,
+                              "position":0,
+                              "widget_content_id":39,
+                              "id":7,
+                              "persona_id":77231,
+                              "marker_id":0
+                           }
+                        ],
+                        "response_markers":[
+                           {
+                              "ordinal":100,
+                              "user_id":100112,
+                              "responses":[
+                                 {
+                                    "ordinal":0,
+                                    "response_text":null,
+                                    "user_id":100112,
+                                    "external_table_id":null,
+                                    "response_url":null,
+                                    "chars":0,
+                                    "response_id":null,
+                                    "words":0,
+                                    "response_html":"<p>Test Response 1</p>",
+                                    "id":3,
+                                    "persona_id":77231,
+                                    "marker_id":9
+                                 }
+                              ],
+                              "parent_id":3,
+                              "response_type":2,
+                              "position":0,
+                              "widget_content_id":39,
+                              "id":9,
+                              "persona_id":77231
+                           }
+                        ],
+                        "id":39,
+                        "persona_id":77231
+                     }
+                  ],
+                  "parent_id":4,
+                  "id":18,
+                  "persona_id":77231
+               }
+            ],
+            "app_type":2,
+            "total":3,
+            "id":12,
+            "persona_id":77231,
+            "n_of_total":1
+         },
+         {
+            "canvas_set_id":6,
+            "user_id":100112,
+            "description":"New Content",
+            "parent_id":5,
+            "widgets":[
+               {
+                  "ordinal":100,
+                  "user_id":100112,
+                  "canvas_app_id":13,
+                  "content":[
+                     {
+                        "ordinal":100,
+                        "widget_id":19,
+                        "user_id":100112,
+                        "url":"https://www.youtube.com/watch?v=bznt_4Kbo5Q",
+                        "plain_text":null,
+                        "filename":null,
+                        "parent_id":7,
+                        "html":"<!--Below are the variations in links that users may provide from YouTube.-->\n<!--https://youtu.be/bznt_4Kbo5Q-->\n<!--https://www.youtube.com/watch?v=bznt_4Kbo5Q-->\n<!--https://www.youtube.com/watch?v=bznt_4Kbo5Q&spfreload=10-->\n\n<!--Below is our generic iframe HTML for YouTube content.-->\n<iframe src=\"https://www.youtube.com/embed/bznt_4Kbo5Q?enablejsapi=1\" width=\"640\" height=\"360\" frameborder=\"0\" allowfullscreen></iframe>",
+                        "content_type":2,
+                        "response_marker_refs":[
+
+                        ],
+                        "response_markers":[
+
+                        ],
+                        "id":40,
+                        "persona_id":77231
+                     },
+                     {
+                        "ordinal":200,
+                        "widget_id":19,
+                        "user_id":100112,
+                        "url":null,
+                        "plain_text":null,
+                        "filename":null,
+                        "parent_id":7,
+                        "html":"We displayed the following instructions to your mentee:<p><ul type=\"disc\"><li>In your groups, brainstorm a list of as many challenges of being 1st as you can.</li><li>Write those challenges in your group's \u201cChallenges\u201d box in the Google Doc.</li></ul></p>",
+                        "content_type":11,
+                        "response_marker_refs":[
+
+                        ],
+                        "response_markers":[
+
+                        ],
+                        "id":41,
+                        "persona_id":77231
+                     },
+                     {
+                        "ordinal":300,
+                        "widget_id":19,
+                        "user_id":100112,
+                        "url":"https://docs.google.com/document/d/1bb7HiWrGj_nv1lG1OLu8dZakz9D6azRU9T9fwIGSeLM/edit?usp=sharing ",
+                        "plain_text":null,
+                        "filename":null,
+                        "parent_id":7,
+                        "html":"<!--Below are the variations in links that users may provide from Google, specifically Google apps such as documents and spreadsheets.-->\n<!--https://docs.google.com/document/d/1bb7HiWrGj_nv1lG1OLu8dZakz9D6azRU9T9fwIGSeLM/edit?usp=sharing -->\n\n<!--Below is our generic iframe HTML for Google content.-->\n<iframe src=\"https://docs.google.com/document/d/1bb7HiWrGj_nv1lG1OLu8dZakz9D6azRU9T9fwIGSeLM/edit?usp=sharing \" width=\"780\" height=\"580\" frameborder=\"0\" allowFullScreen></iframe>",
+                        "content_type":6,
+                        "response_marker_refs":[
+
+                        ],
+                        "response_markers":[
+
+                        ],
+                        "id":42,
+                        "persona_id":77231
+                     }
+                  ],
+                  "parent_id":5,
+                  "id":19,
+                  "persona_id":77231
+               },
+               {
+                  "ordinal":200,
+                  "user_id":100112,
+                  "canvas_app_id":13,
+                  "content":[
+                     {
+                        "ordinal":100,
+                        "widget_id":20,
+                        "user_id":100112,
+                        "url":"https://youtu.be/RYsQp_ocMvQ",
+                        "plain_text":null,
+                        "filename":null,
+                        "parent_id":8,
+                        "html":"<!--Below are the variations in links that users may provide from YouTube.-->\n<!--https://youtu.be/RYsQp_ocMvQ-->\n<!--https://www.youtube.com/watch?v=RYsQp_ocMvQ-->\n<!--https://www.youtube.com/watch?v=RYsQp_ocMvQ&spfreload=10-->\n\n<!--Below is our generic iframe HTML for YouTube content.-->\n<iframe src=\"https://www.youtube.com/embed/RYsQp_ocMvQ?enablejsapi=1\" width=\"640\" height=\"360\" frameborder=\"0\" allowfullscreen></iframe>",
+                        "content_type":2,
+                        "response_marker_refs":[
+
+                        ],
+                        "response_markers":[
+
+                        ],
+                        "id":43,
+                        "persona_id":77231
+                     },
+                     {
+                        "ordinal":200,
+                        "widget_id":20,
+                        "user_id":100112,
+                        "url":null,
+                        "plain_text":null,
+                        "filename":null,
+                        "parent_id":8,
+                        "html":"We displayed the following instructions to your mentee:<p><ul type=\"disc\"><li>In your groups, discuss how many of the challenges you listed apply to Michelle Obama's experience as a 1st Generation college student.</li><li>Next, brainstorm a list of as many questions you can about being a first generation college student, the challenges of going to college, and/or anything else that comes to mind related to going to college.</li><li>Type those questions into your group's \u201cQuestions\u201d box in the Google Doc.</li></ul></p>",
+                        "content_type":11,
+                        "response_marker_refs":[
+
+                        ],
+                        "response_markers":[
+
+                        ],
+                        "id":44,
+                        "persona_id":77231
+                     },
+                     {
+                        "ordinal":300,
+                        "widget_id":20,
+                        "user_id":100112,
+                        "url":"https://docs.google.com/document/d/1bb7HiWrGj_nv1lG1OLu8dZakz9D6azRU9T9fwIGSeLM/edit?usp=sharing",
+                        "plain_text":null,
+                        "filename":null,
+                        "parent_id":8,
+                        "html":"<!--Below are the variations in links that users may provide from Google, specifically Google apps such as documents and spreadsheets.-->\n<!--https://docs.google.com/document/d/1bb7HiWrGj_nv1lG1OLu8dZakz9D6azRU9T9fwIGSeLM/edit?usp=sharing-->\n\n<!--Below is our generic iframe HTML for Google content.-->\n<iframe src=\"https://docs.google.com/document/d/1bb7HiWrGj_nv1lG1OLu8dZakz9D6azRU9T9fwIGSeLM/edit?usp=sharing\" width=\"780\" height=\"580\" frameborder=\"0\" allowFullScreen></iframe>",
+                        "content_type":6,
+                        "response_marker_refs":[
+
+                        ],
+                        "response_markers":[
+
+                        ],
+                        "id":45,
+                        "persona_id":77231
+                     }
+                  ],
+                  "parent_id":5,
+                  "id":20,
+                  "persona_id":77231
+               },
+               {
+                  "ordinal":300,
+                  "user_id":100112,
+                  "canvas_app_id":13,
+                  "content":[
+                     {
+                        "ordinal":100,
+                        "widget_id":21,
+                        "user_id":100112,
+                        "url":null,
+                        "plain_text":null,
+                        "filename":null,
+                        "parent_id":9,
+                        "html":"We displayed the following intructions to your mentee:<p>Using the website below, find an answer to your group's question. Once your group finds an answer, type that answer into your group's \u201cAnswers\u201d box in the Google Doc.</p>",
+                        "content_type":11,
+                        "response_marker_refs":[
+
+                        ],
+                        "response_markers":[
+
+                        ],
+                        "id":46,
+                        "persona_id":77231
+                     },
+                     {
+                        "ordinal":200,
+                        "widget_id":21,
+                        "user_id":100112,
+                        "url":"http://www.firstgenerationstudent.com/ ",
+                        "plain_text":null,
+                        "filename":null,
+                        "parent_id":9,
+                        "html":null,
+                        "content_type":10,
+                        "response_marker_refs":[
+
+                        ],
+                        "response_markers":[
+
+                        ],
+                        "id":47,
+                        "persona_id":77231
+                     }
+                  ],
+                  "parent_id":5,
+                  "id":21,
+                  "persona_id":77231
+               }
+            ],
+            "app_type":2,
+            "total":3,
+            "id":13,
+            "persona_id":77231,
+            "n_of_total":2
+         },
+         {
+            "canvas_set_id":6,
+            "user_id":100112,
+            "description":"Sharing With Your Mentee",
+            "parent_id":6,
+            "widgets":[
+               {
+                  "ordinal":100,
+                  "user_id":100112,
+                  "canvas_app_id":14,
+                  "content":[
+                     {
+                        "ordinal":100,
+                        "widget_id":22,
+                        "user_id":100112,
+                        "url":null,
+                        "plain_text":null,
+                        "filename":null,
+                        "parent_id":10,
+                        "html":"Finally, we displayed the following instructions to your mentee:<p><ul type=\"disc\"><li>Share something that you learned today about the challenge of being 1st and how you can overcome that challenge.</li><li>Share any questions that you still have about going to college that weren\u2019t answered in today\u2019s class.</li></ul></p><p>Further below is the response from your mentee, as well as an opportunity for you to respond to any questions there:</p>",
+                        "content_type":11,
+                        "response_marker_refs":[
+                           {
+                              "ordinal":100,
+                              "read_only":true,
+                              "user_id":100112,
+                              "responses":[
+
+                              ],
+                              "parent_id":2,
+                              "position":0,
+                              "widget_content_id":48,
+                              "id":8,
+                              "persona_id":77231,
+                              "marker_id":0
+                           }
+                        ],
+                        "response_markers":[
+                           {
+                              "ordinal":100,
+                              "user_id":100112,
+                              "responses":[
+
+                              ],
+                              "parent_id":4,
+                              "response_type":2,
+                              "position":0,
+                              "widget_content_id":48,
+                              "id":10,
+                              "persona_id":77231
+                           }
+                        ],
+                        "id":48,
+                        "persona_id":77231
+                     }
+                  ],
+                  "parent_id":6,
+                  "id":22,
+                  "persona_id":77231
+               }
+            ],
+            "app_type":2,
+            "total":3,
+            "id":14,
+            "persona_id":77231,
+            "n_of_total":3
+         }
+      ],
+      "user_started":null,
+      "parent_id":2,
+      "end_datetime":"2015-09-30 00:00:00",
+      "id":6,
+      "persona_id":77231,
+      "canvas_id":6
+   }
+}

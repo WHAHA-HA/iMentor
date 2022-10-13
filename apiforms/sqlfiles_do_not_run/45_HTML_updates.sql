@@ -1,0 +1,3 @@
+﻿UPDATE forms_section_question
+SET question_text = 'More about our programs…<p>College Ready 4 Year Match (recommended): This match begins in the student''s 9th grade year and continues through the 12th grade. We need over 1,000 mentors for our 4-year program in New York City this year. 4-year matches are available in Manhattan, Brooklyn and the Bronx.</p>College Success 3-Year Match: This match begins in the student''s 11th grade year and continues through the first year of college. We need approximately 200 mentors for our 3-year program in New York City this year. 3-year matches are available in Brooklyn only.'
+WHERE id = 28;

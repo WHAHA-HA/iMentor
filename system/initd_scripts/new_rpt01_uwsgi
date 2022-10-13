@@ -1,0 +1,52 @@
+#!/bin/bash
+# /etc/init.d/uwsgi
+#
+### BEGIN INIT INFO
+# Provides: new_platform_uwsgi
+# Required-Start:
+# Required-Stop:
+# Should-Start:
+# Should-Stop:
+# Default-Start: 2 3 4 5
+# Default-Stop: 0 1 6
+# Short-Description: Start and stop uwsgi
+# Description: uWSGI for iMentor application
+### END INIT INFO
+
+chgrp -R imentor /var/log/uwsgi/*
+chmod -R g+w /var/log/uwsgi/*
+
+umask 002
+
+ulimit -n 10000
+
+daemon=/usr/local/bin/uwsgi
+pid=/tmp/new_platform_uwsgi.pid
+APP_DIR=/mnt/shared/imentor/new_platform
+export PYTHONPATH=/mnt/shared/imentor/new_platform:/mnt/shared/imentor/imi
+
+args="--ini /mnt/shared/imentor/new_platform/uwsgi/rpt01_uwsgi.ini"
+
+# Carry out specific functions when asked to by the system
+case "$1" in
+    start)
+        echo "Starting uwsgi"
+        cd $APP_DIR
+        start-stop-daemon -p $pid --start --exec $daemon -- $args
+        ;;
+    stop)
+        echo "Stopping script uwsgi"
+        start-stop-daemon --signal INT -p $pid --stop $daemon -- $args
+        ;;
+    reload)
+        echo "Reloading conf"
+        kill -HUP $(cat $pid)
+        ;;
+    *)
+        echo "Usage: /etc/init.d/uwsgi {start|stop|reload}"
+        exit 1
+    ;;
+esac
+
+exit 0
+

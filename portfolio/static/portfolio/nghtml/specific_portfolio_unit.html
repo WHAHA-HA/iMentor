@@ -1,0 +1,109 @@
+<div ng-controller="UnitCtlr" style="margin:0 auto;position: relative;" id="top" ng-init="gotoTop();">
+    <a class="bckLesson" style="font-size:16px;float: right;position: relative;top: -15px;" ng-click="go('resources');" href="" class="backBtn"><i class="icon-my_files"></i> My Files</a>
+    <div class="bckCont">
+        <a ng-click="go('/');" style="font-size:16px;" class="backBtn" href=""><span class="fa fa-arrow-circle-left"></span> Back</a>
+    </div>
+    <div class="lessonsContainer">
+        <h2 class="lessonTitle">[[unitTitle]]</h2>
+        <div ng-repeat="l in lessons" class="lessons box" ng-click="goHrefLesson('/canvas/lessoncopy/' + [[l.cscopy_id]], l.scheduled_flag)" style="position: relative;" ng-init="init(l.scheduled_flag,l.lesson_type);" ng-class="{'locked': l.scheduled_flag == 'False'};">
+            <div style="height: 200px;position: relative;margin-top: 10px;">
+                <h4 ng-class="{'greyedOut': l.scheduled_flag == 'False'};" class="titles" style="color:#585757;height: 15px;font-size: 16px;padding: 0px 20px 20px 20px;">[[l.lesson_number]]. [[l.lesson_description]] <div ng-if="l.new_content_flag == 'True' && l.scheduled_flag == 'True'" class="iconBlue newFlag"><img class="newFlag" style="height: 35px;image-rendering: auto;" src="//cdn.imentor.org/new_platform/static/portfolio/img/11_new.png"></div></h4>
+                <img ng-if="l.scheduled_flag == 'True'"  style="width:100%; height:auto;margin-top: 17px;" ng-src="[[l.featured_image]]">
+                <img style="width: 100%;height: auto;" ng-if="[[l.featured_image]] == '' && l.scheduled_flag == 'True'" ng-src="//cdn.imentor.org/new_platform/static/portfolio/img/default_lesson.jpg" />
+                <i class="icon-lock lockedIcon" ng-if="l.scheduled_flag == 'False'"/>
+            </div>
+            <div class="userInfo" ng-show="l.both_finished_flag == 'False'" ng-hide="userrole != 'Mentor' && userrole !== 'Mentee' || l.scheduled_flag == 'False'">
+                <span class="menteeS">
+            <i ng-hide="l.mentor_finished_flag == 'True' || otherPersonMentor == ' '" style="font-size: 22px;" class="icon-person"></i>
+            <i ng-show="l.mentor_finished_flag == 'True'" ng-class="{'iconBlue': l.mentor_finished_flag == 'True'};" class="icon-person personBlue"></i>
+            <i ng-if="l.mentor_finished_flag == 'True'" class="icon-check iconBlue checkBlue"></i>
+            <p class="gray userName" ng-show="otherPersonMentee" ng-class="{'iconBlue': l.mentor_finished_flag == 'True'};">[[firstname.split("", 15).join("").toUpperCase(); ]]<span ng-if="firstname.length > 14">...</span></p>
+                <p class="gray userName" ng-show="otherPersonMentor" ng-class="{'iconBlue': l.mentor_finished_flag == 'True'};">[[otherPersonMentor.split("", 15).join("").toUpperCase(); ]]<span ng-if="otherPersonMentor.length > 14">...</span></p>
+                </span>
+                <span class="mentorS">
+            <i ng-hide="l.mentee_finished_flag == 'True' || otherPersonMentee == ' '"  style="font-size: 22px;" class="icon-person"></i>
+            <i ng-show="l.mentee_finished_flag == 'True'" ng-class="{'iconBlue': l.mentee_finished_flag == 'True'};" class="icon-person personBlue"></i>
+            <i ng-if="l.mentee_finished_flag == 'True'" class="icon-check iconBlue checkBlue"></i>
+            <p class="gray userName" ng-if="otherPersonMentor" ng-class="{'iconBlue': l.mentee_finished_flag == 'True'};">[[firstname.split("", 15).join("").toUpperCase(); ]]<span ng-if="firstname.length > 14">...</span></p>
+                <p class="gray userName" ng-if="otherPersonMentee" ng-class="{'iconBlue': l.mentee_finished_flag == 'True'};">[[otherPersonMentee.split("", 15).join("").toUpperCase(); ]]<span ng-if="otherPersonMentee.length > 14">...</span></p>
+                </span>
+            </div>
+            <div class="userInfo" ng-show="l.both_finished_flag == 'True' && l.current_lesson_flag == 'False' && l.scheduled_flag == 'True'">
+                <span style="font-size: 20px;" class="fa fa-star iconBlue"></span>
+                <p class="iconBlue">FINISHED</p>
+            </div>
+            <div class="userInfo currentLesson" ng-show="l.current_lesson_flag == 'True' && l.scheduled_flag == 'True'">
+                CURRENT LESSON
+            </div>
+        </div>
+    </div>
+    <!-- reflection notepads for mentor and mentee -->
+    <div class="reflectionPad" ng-if="userrole === 'Mentee' && lessons.length>0">
+        <div ng-if="counterparyReflection" class="reflectionHeader responseCard" ng-if="unlockReflection == true" style="margin-bottom: 10px;margin-bottom: 30px;">
+            <div ng-show="otherPersonMentee" class="reflectionName"><img class="reflectionImg" ng-src="[[otherMenteePhoto]]" err-src="//cdn.imentor.org/new_platform/static/portfolio/img/person.png" />[[firstname]]'S REFLECTION</div>
+            <div ng-show="otherPersonMentor" class="reflectionName"><img class="reflectionImg" ng-src="[[otherMentorPhoto]]" err-src="//cdn.imentor.org/new_platform/static/portfolio/img/person.png" />[[otherPersonMentor]]'S REFLECTION</div>
+            <hr>
+            <div style="max-height: 185px;height: 185px;overflow-y: scroll;padding: 20px;" style="margin-top: 20px;" class="responseCard-content">
+                <p style="margin: 0px;" ng-bind-html="counterparyReflection"></p>
+            </div>
+        </div>
+        <div class="reflectionHeader responseCard">
+            <h5 style="color:#2B2B2B;margin-left: 10px;"><img style="margin-right: 5px;" ng-src="//cdn.imentor.org/new_platform/static/portfolio/img/reflection.png"/>YOUR REFLECTION</h5>
+            <div ng-bind-html="mentee_card" style="padding:10px;font-size: 16px;"></div>
+            <div style="text-align: center;
+    color: #B1B1B1;">Your reflection will be shared with your mentor.</div>
+        </div>
+        <div class="overbox2" ng-class="{'reflectionOverlay': unlockReflection == false};" ng-if="unlockReflection == true">
+            <i class="icon-lock overlayLock" ng-if="unlockReflection == false;" ></i>
+            <span class="overlayText" ng-if="unlockReflection == false;" class="overlayText">After completing all lessons in this unit, you will be able to write your reflection here.</span>
+            <text-angular class="textAngularBox" ng-model="$parent.$parent.reflectionHtml" placeholder="Record your reflection here, which will be shared with your mentor." ng-class="{'reflectionUnderlay': unlockReflection  == false};" name="textAngularBox1"></text-angular>
+        </div>
+        <div class="overbox2" ng-class="{'reflectionOverlay': unlockReflection == false};" ng-if="unlockReflection == false">
+            <i class="icon-lock overlayLock" ng-if="unlockReflection == false;" ></i>
+            <span class="overlayText" ng-if="unlockReflection == false;" class="overlayText">After completing all lessons in this unit, you will be able to write your reflection here.</span>
+        </div>
+        <div class="margin-30"></div>
+        <div class="btnCont">
+        <button ng-show="unlockReflection == true" class="btn-primary orange" style="float: right;width: 120px;" ng-click="finishReflection()" ng-disabled="finishButtonText != finishButtonDefaultText">[[finishButtonText]]</button>
+        </div>
+        </div>
+    <div class="reflectionPad" ng-if="userrole === 'Mentor' && lessons.length>0">
+        <div ng-if="counterparyReflection" class="reflectionHeader responseCard" ng-if="unlockReflection == true" style="margin-bottom: 10px;margin-bottom: 30px;">
+            <div ng-show="otherPersonMentee" class="reflectionName"><img class="reflectionImg" ng-src="[[otherMenteePhoto]]" err-src="//cdn.imentor.org/new_platform/static/portfolio/img/person.png" />[[otherPersonMentee]]'S REFLECTION</div>
+            <div ng-show="otherPersonMentor" class="reflectionName"><img class="reflectionImg" ng-src="[[otherMentorPhoto]]" err-src="//cdn.imentor.org/new_platform/static/portfolio/img/person.png" />[[otherPersonMentor]]'S REFLECTION
+            </div>
+            <hr>
+            <div style="max-height: 185px;height: 185px;overflow-y: scroll;padding: 20px;" style="margin-top: 20px;" class="responseCard-content">
+                <div style="margin: 0px;" ng-bind-html="counterparyReflection"></div>
+            </div>
+        </div>
+        <div class="reflectionHeader responseCard">
+            <h5 style="color:#2B2B2B;margin-left: 10px;"><img style="margin-right: 5px;" ng-src="//cdn.imentor.org/new_platform/static/portfolio/img/reflection.png"/>YOUR REFLECTION</h5>
+            <div ng-bind-html="mentor_card" style="padding:10px;font-size: 16px;margin: 0px;"></div>
+            <div style="text-align: center;
+    color: #B1B1B1;">Your reflection will be shared with your mentee.</div>
+        </div>
+        <div class="overbox2" ng-class="{'reflectionOverlay': unlockReflection == false};" ng-if="unlockReflection == true">
+            <i class="icon-lock overlayLock" ng-if="unlockReflection == false;" ></i>
+            <span class="overlayText" ng-if="unlockReflection == false;" class="overlayText">After completing all lessons in this unit, you will be able to write your reflection here.</span>
+            <text-angular class="textAngularBox" ng-model="$parent.$parent.reflectionHtml" placeholder="Record your reflection here, which will be shared with your mentee." ng-class="{'reflectionUnderlay': unlockReflection  == false};" name="textAngularBox"></text-angular>
+        </div>
+        <div class="overbox2" ng-class="{'reflectionOverlay': unlockReflection == false};" ng-if="unlockReflection == false">
+            <i class="icon-lock overlayLock" ng-if="unlockReflection == false;" ></i>
+            <span class="overlayText" ng-if="unlockReflection == false;" class="overlayText">After completing all lessons in this unit, you will be able to write your reflection here.</span>
+        </div>
+        <div class="margin-30"></div>
+        <div class="btnCont">
+        <button ng-show="unlockReflection == true" class="btn-primary orange" style="float: right;width: 120px;" ng-click="finishReflection()" ng-disabled="finishButtonText != finishButtonDefaultText">[[finishButtonText]]</button>
+    </div>
+        </div>
+    <div class="reflectionPad" ng-if="userrole != 'Mentor' && userrole != 'Mentee' && !user_id">
+        <div ng-if="counterparyReflection" class="reflectionHeader responseCard" ng-if="unlockReflection == true" ng-bind-html="counterparyReflection"></div>
+        <div class="reflectionHeader responseCard">
+            <h5 style="color:#2B2B2B;margin-left: 10px;"><img style="margin-right: 5px;" ng-src="//cdn.imentor.org/new_platform/static/portfolio/img/reflection.png"/>MENTEE REFLECTION PREVIEW</h5>
+            <div ng-bind-html="mentee_card" style="padding:10px;font-size: 16px;margin: 0px;"></div>
+            <div class="margin-30"></div>
+        </div>
+        <div class="margin-30"></div>
+    </div>
+</div>

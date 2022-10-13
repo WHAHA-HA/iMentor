@@ -1,0 +1,29 @@
+<div class="navbar navbar-default" role="navigation" ng-controller="header">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <!--<hamburger-toggle state="tgState" class="hamburger-toggle"></hamburger-toggle>-->
+      <span class="navbar-brand">
+        Intake Application
+      </span>
+      <span ng-show="busy" class="statusNotifications">Loading...</span>
+      <span class="statusNotifications">[[formSaving]]</span>
+      <div class="notifications">
+        <span ng-if="userrole === 'Mentor' || userrole === 'Mentee'" class="username"><a href="/iuser/myinfo/[[persona]]/">[[firstname]] [[lastname.split('')[0] ]]</a></span>
+        <span ng-if="userrole !== 'Mentor' && userrole !== 'Mentee'" class="username"><a href="/iuser/backend_profile/[[persona]]/">[[firstname]] [[lastname.split('')[0] ]]</a></span>
+        <!--<i class="glyphicon glyphicon-comment"></i>--></div>
+    </div>
+  </div>
+</div>
+
+
+<div class="sidenav" ng-class="{open: tgState}">
+  <ul class="nav nav-pills nav-stacked">
+    <li ui-sref-active="active"><a ui-sref="home">Intake Application</a></li>
+    <li><a href="/events/personal/">Calendar</a></li>
+    <li><a href="/iuser/myinfo/[[persona]]/" >Profile</a></li>
+    <!--<li ng-show="userrole === 'Mentee'"><a href="https://learn.imentor.org/help/article/link/imentor-curriculum">Resources</a></li>-->
+    <li ng-show="userrole !== 'Mentee'"><a href="https://learn.imentor.org/help/article/link/home" target="_blank">Learning Center</a></li>
+    <li ui-sref-active="active"><a href="/iuser/logout/">Sign out</a></li>
+  </ul>
+  <!-- <hamburger-toggle state="tgState" class="hamburger-toggle"></hamburger-toggle>-->
+</div>

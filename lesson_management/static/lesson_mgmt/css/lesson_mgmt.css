@@ -1,0 +1,493 @@
+/* General */
+body {
+
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#0b438e+0,3971a6+31,77b1c7+71,b3eee6+100 */
+  background: #0b438e; /* Old browsers */
+  background: -moz-linear-gradient(top, #0b438e 0%, #3971a6 31%, #77b1c7 71%, #b3eee6 100%); /* FF3.6-15 */
+  background: -webkit-linear-gradient(top, #0b438e 0%,#3971a6 31%,#77b1c7 71%,#b3eee6 100%); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to bottom, #0b438e 0%,#3971a6 31%,#77b1c7 71%,#b3eee6 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#0b438e', endColorstr='#b3eee6',GradientType=0 ); /* IE6-9 */
+  font-family: "Verdana", "Helvetica Neue", "Helvetica", "Arial" !important;
+}
+
+h1,h2,h3,h4,h5,h6{
+  color:white;
+  font-weight: 200;
+}
+a {
+  color: white;
+  text-decoration: none;
+}
+.admin-heading {
+  float: left;
+  width: 100%;
+  margin: 90px 0px 50px 0px;
+  color: #4a4a4a;
+  font-family: georgia;
+}
+select{
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  color: #3a7cfb;
+  font-weight: 200;
+  -webkit-border-radius: 0px;
+  border-radius: 0px;
+  font-size: 18px;
+  padding: 10px;
+  width: 420px;
+  cursor: pointer;
+  background: #FFFFFF url(/new_platform/static/img/caret.png) no-repeat 95% center;
+  background-size: 15px 15px;
+  border: 0px solid transparent;
+  border-bottom: 2px solid #a5c6ff;
+  box-shadow: none !important;
+  text-align: left;
+  display: block;
+}
+.multiSelect>button {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  color: #3a7cfb;
+  font-weight: 200;
+  -webkit-border-radius: 0px;
+  border-radius: 0px;
+  font-size: 18px;
+  padding: 10px;
+  width: 350px;
+  cursor: pointer;
+  background: #FFFFFF url('/new_platform/static/img/caret.png') no-repeat 95% center;
+  background-size: 15px 15px;
+  border: 0px solid transparent;
+  border-bottom: 2px solid #a5c6ff;
+  box-shadow: none !important;
+  text-align: left;
+}
+select.dateselect {
+  width: 100px;
+  background-size: 15px;
+}
+input#date-pick2 {
+  padding: 7px;
+  color: #737373;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  color: #3a7cfb;
+  font-weight: 200;
+  -webkit-border-radius: 0px;
+  border-radius: 0px;
+  /* padding: 10px; */
+  /* width: 350px; */
+  cursor: pointer;
+  background: #FFFFFF url(/new_platform/static/img/caret.png) no-repeat 95% center;
+  background-size: 15px 15px;
+  border: 0px solid transparent;
+  border-bottom: 2px solid #a5c6ff;
+  box-shadow: none !important;
+  text-align: left;
+  font-size: 16px;
+}
+.multiSelect .caret {
+  display: none;
+}
+
+#lesson-mgmt-body {
+  padding: 0px 40px;
+  min-height: 1000px;
+  width: 1080px;
+
+}
+
+.questions {
+  font-size: 20px;
+  font-weight: 200;
+  padding: 30px 0px 10px 0px;
+  font-family: georgia;
+  color: #4a4a4a;
+}
+.table-header {
+  background-color: #4a4a4a!important;
+  color: #fff;
+  height: 40px;
+  border-bottom: 1px solid white;
+}
+.btn-primary {
+  padding: 12px 30px;
+  /* font-family: Helvetica Neue; */
+  font-size: 16px;
+  font-weight: 200;
+  border: 0px;
+  margin-right: 9px;
+  background-color: #76c63b;
+  border-radius: 0px;
+}
+.btn-primary:hover {
+  background-color: rgba(118, 198, 59, 0.78);
+}
+.btn-primary.active, .btn-primary:active, .open>.dropdown-toggle.btn-primary, .btn-primary.focus, .btn-primary:focus {
+  background-color: rgba(118, 198, 59, 0.78);
+  color: white;
+  border-color: transparent;
+  outline: -webkit-focus-ring-color auto 0px;
+}
+.btn-primary.active.focus, .btn-primary.active:focus, .btn-primary.active:hover, .btn-primary:active.focus, .btn-primary:active:focus, .btn-primary:active:hover, .open>.dropdown-toggle.btn-primary.focus, .open>.dropdown-toggle.btn-primary:focus, .open>.dropdown-toggle.btn-primary:hover {
+  background-color: rgba(118, 198, 59, 0.78);
+  color: white;
+  border-color: transparent;
+  outline: -webkit-focus-ring-color auto 0px;
+}
+.btn-primary[disabled]{
+  background-color: transparent !important;
+  font-size: 16px;
+  font-style: normal;
+  border: 1px solid #76c63b;
+  color: #76c63b;
+}
+
+.btn-default.focus, .btn-default:focus,.btn-default:hover {
+  color: #737373;
+  background-color: white;
+  border-color: transparent;
+}
+.btn-primary a:hover {
+  color: white !important;
+
+}
+.btn-primary.disabled, .btn-primary.disabled.active, .btn-primary.disabled.focus, .btn-primary.disabled:active, .btn-primary.disabled:focus, .btn-primary.disabled:hover, .btn-primary[disabled], .btn-primary[disabled].active, .btn-primary[disabled].focus, .btn-primary[disabled]:active, .btn-primary[disabled]:focus, .btn-primary[disabled]:hover, fieldset[disabled] .btn-primary, fieldset[disabled] .btn-primary.active, fieldset[disabled] .btn-primary.focus, fieldset[disabled] .btn-primary:active, fieldset[disabled] .btn-primary:focus, fieldset[disabled] .btn-primary:hover {
+  background-color: #76c63b;
+}
+button.btn-primary[disabled]:hover {
+  border: 1px solid rgba(118, 198, 59, 0.78);
+  cursor: not-allowed;
+}
+.margin-20 {
+  height: 20px;
+}
+.margin-30 {
+  height: 30px;
+}
+.margin-40 {
+  height: 40px;
+}
+
+/* Custom Calendar */
+._720kb-datepicker-calendar {
+  width: 300px;
+  top: -280px;
+}
+._720kb-datepicker-calendar-header:nth-child(odd) {
+  background: white;
+}
+._720kb-datepicker-calendar-month {
+  color: gray;
+}
+._720kb-datepicker-calendar-day:hover, ._720kb-datepicker-calendar-day._720kb-datepicker-active {
+  background: #3a7cfb;
+  color: white !important;
+  border-radius: 20px;
+}
+._720kb-datepicker-calendar-month span {
+  font-size: 13px;
+  margin-left: 1%;
+  color: gray;
+  font-weight: 400;
+}
+._720kb-datepicker-calendar-days-header div {
+  width: 14.2%;
+  font-weight: 500;
+  font-size: 11.5px;
+  padding: 10px 0.5%;
+  float: left;
+  text-align: center;
+  color: rgba(0,0,0,0.7);
+}
+._720kb-datepicker-calendar-header:nth-child(even) {
+  background: white;
+}
+._720kb-datepicker-calendar-days-header {
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 0 2% 0 2%;
+  background: transparent;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.32);
+  border-top: 1px solid rgba(0, 0, 0, 0.32);
+}
+datepicker, .datepicker, [datepicker], ._720kb-datepicker-calendar-header, ._720kb-datepicker-calendar-body, ._720kb-datepicker-calendar-days-header, ._720kb-datepicker-calendar-years-pagination-pages {
+  font-family: "Verdana", "Helvetica Neue", "Helvetica", "Arial" !important;
+  font-size: 13.5px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  box-sizing: border-box;
+  width: 300px;
+}
+
+/* Custom Time Picker */
+.c_timepicker{
+  position: relative;
+  left: -80px;
+  top: -2px;
+}
+#date-pick {
+  position: relative;
+  top: 32px;
+}
+.btn-link {
+  color: white;
+}
+.form-control {
+  display: block;
+  width: 100%;
+  height: 38px;
+  padding: 6px 12px;
+  font-size: 16px;
+  line-height: 1.42857143;
+  color: #555;
+  background-color: #fff;
+  background-image: none;
+  border-radius: 0px;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  -webkit-transition: none;
+  -o-transition: none;
+  transition: none;
+  border: 1px solid #a5c6ff;
+}
+.btn {
+  display: inline-block;
+  padding: 6px 12px;
+  margin-bottom: 0;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.42857143;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  -ms-touch-action: manipulation;
+  touch-action: manipulation;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  background-image: none;
+  border: 1px solid transparent;
+  border-radius: 0px;
+}
+.c_timepicker td {
+  color: white;
+}
+.c_timepicker button {
+  margin-left: 4px;
+  color: #3a7cfb;
+  height: 38px;
+  font-size: 16px;
+}
+input.form-control {
+  margin: 0px 3px;
+  color: #3a7cfb;
+}
+
+/* Scheduled Page*/
+.scheduleMsg {
+  width: 600px;
+  margin: 0 auto;
+  margin-top: 360px;
+  background-color: #EEEEEE;
+  color: gray;
+  padding: 15px;
+  text-align: center;
+}
+input::-webkit-input-placeholder{
+  color: #3a7cfb;
+  font-weight: 200;
+}
+input:-moz-placeholder { /* Firefox 18- */
+  color: #3a7cfb;
+  font-weight: 200;
+}
+input::-moz-placeholder {  /* Firefox 19+ */
+  color: #3a7cfb;
+  font-weight: 200;
+}
+input:-ms-input-placeholder {
+  color: #3a7cfb;
+  font-weight: 200;
+}
+input::-webkit-inner-spin-button {
+  display: none;
+}
+input[type=number] {-moz-appearance: textfield;}
+
+th.tblHeader{
+  text-align: left;
+  width: 17%;
+  font-weight: 400;
+  padding: 10px;
+  background-color: #4a4a4a;
+  color: white;
+  border-right: 1px solid white;
+}
+th.tblHeader2 {
+  text-align: left;
+
+  font-weight: 400;
+  padding: 10px;
+  background-color: #4a4a4a;
+  color: white;
+}
+th.tblHeader1{
+  width: 5%;
+}
+.tableChrt {
+  background-color: rgb(255, 255, 255);
+  color: dimgrey;
+  font-weight: 200;
+  margin-bottom: 0;
+}
+.tblCell{
+  padding: 10px;
+}
+.tblCell1{
+  width: 5%;
+}
+.tblCell2{
+  width: 17%;
+}
+.tblCell3{
+
+}
+.tableChrt tr:nth-child(even) {
+
+}
+.tableChrt tr {
+
+}
+
+.tableChrt tr:first-of-type {
+
+}
+.tableChrt tbody tr:first-of-type {
+
+}
+.table-striped>tbody>tr:nth-of-type(odd) {
+  background-color: #EEE;
+}
+table.new-content tbody tr:hover {
+  background-color: #e7effe;
+}
+.fa.fa-flag{
+  font-size: 18px;
+  padding: 10px 0px;
+}
+span.fa.fa-flag.flag-ok.unselected {
+  color: #4a4a4a;
+}
+.fa.fa-flag.selected {
+  color: #4a4a4a;
+
+}
+.tableContainer{
+  max-height: 216px;
+  overflow-y: scroll;
+  width: 700px;
+  overflow-x: hidden;
+  border: 1px solid #4a4a4a;
+}
+.translucentBkg {
+  color: white !important;
+  font-weight: 200 !important;
+  width: 70%;
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 40px;
+  margin-top: 280px;
+  text-align: center;
+}
+
+table.tableChrt tbody tr.selected {
+    background-color: #e5f6ef;
+}
+table.tableChrt tbody tr:hover {
+    background-color: #e7effe;
+}
+table.tableChrt tbody tr {
+    cursor: pointer;
+}
+table.tableChrt .open>.dropdown-menu {
+    background-color: #4a4a4a;
+}
+table.tableChrt .dropdown-menu>li>a {
+    color: white;
+}
+table.tableChrt .dropdown-menu>li>a:focus, table.tableChrt .dropdown-menu>li>a:hover {
+    color: #00aeff !important;
+    background-color: transparent !important;
+}
+table.tableChrt .manage-col{
+  width: 12%;
+  font-weight: 400;
+  padding: 10px;
+  background-color: #4a4a4a!important;
+  color: #fff;
+  position: relative;
+}
+
+.glyphicon.selected {
+    color: #00aeff;
+}
+.glyphicon {
+  color: #fafafa;
+}
+
+.lessonDeleteConfirmBox {
+  width: 300px;
+  font-weight: 400;
+  padding: 4px 13px 2px 13px;
+  background-color: black;
+  color: white;
+  position: absolute;
+  top: 28px;
+  left: 4px;
+  z-index: 2;
+  text-align: left;
+  border-radius: 3px;
+}
+
+
+.lessonDeleteConfirmBox .deleteInput {
+  color: black;
+  margin: 3px 0;
+  width: 100%;
+}
+
+.disabled {
+    cursor: default;
+    opacity: .5;
+    color: gray;
+}
+
+
+.lessonDeleteConfirmBox a {
+    padding: 3px 15px 3px 0px;
+    clear: both;
+    font-weight: 400;
+    line-height: 1.42857143;
+    color: #333;
+    white-space: nowrap;
+    color: white;
+}
+.lessonDeleteConfirmBox a:focus, .lessonDeleteConfirmBox a:hover {
+    color: #262626;
+    text-decoration: none;
+    background-color: #f5f5f5;
+    color: #00aeff !important;
+    background-color: transparent !important;
+}
+
+.table.tableChrt>tbody>tr>td, .table.tableChrt>tbody>tr>th, .table.tableChrt>tfoot>tr>td, .table.tableChrt>tfoot>tr>th,  .table.tableChrt>thead>tr>td, .table.tableChrt>thead>tr>th {
+  border: none;
+}

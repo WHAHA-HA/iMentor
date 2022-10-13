@@ -1,0 +1,18 @@
+<div class="im-embed-attachment">
+    <div class="im-embed-attachment-preview">
+        <div class="im-embed-attachment-icon"> <i class="fa fa-file-powerpoint-o"></i> </div>
+        <div class="im-embed-attachment-detail">
+            <div class="im-embed-attachment-title"> <a href="{{url}}" alt="{{url}}">{{url}}</a> </div>
+            <div class="im-embed-attachment-view">
+               <button ng-click="downloadFile(url)"><i class="fa fa-download"></i>Download</button>
+                <a href="{{url}}" target="_blank">
+                    <button><i class="fa fa-eye"></i> View</button>
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="clearfix"></div>
+    <div class="im-embed-attachment-viewer">
+        <iframe ng-src="{{iframeUrl}}" frameBorder="0"></iframe>
+    </div>
+</div>

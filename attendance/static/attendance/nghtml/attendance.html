@@ -1,0 +1,169 @@
+<div ng-controller="AttendanceCtrl" class="attendanceView">
+
+
+    <h2 class="header-title">Take attendance in your class</h2>
+    <div>
+
+
+        <div
+                isteven-multi-select
+                input-model="partnerSites"
+                output-model="selectedPartner"
+                button-label="name"
+                item-label="name"
+                tick-property="ticked"
+                max-height="200px"
+                max-labels="1"
+                on-item-click="loadStudents(selectedPartner.id);updatePage();"
+                selection-mode="single"
+                translation="localLang"
+        >
+        </div>
+    </div>
+
+    <div ng-if="selectedPartner1 && allready" class="statsChart">
+        <div class="stats" style="background-color: #Eaf2fe;">
+            <div class="title blue-bg lesson-description">[[lessons[0].description]]</div>
+            <div ng-hide="lessons[0].description=='NA'"><span class="percent" style="color:#468AFB;">[[lessons[0].present_percentage]]</span><span class="percentSign" style="color:#468AFB;">%</span></div>
+            <div class="percent" ng-if="lessons[0].description=='NA'">NA</div>
+            <p>class attended</p>
+        </div>
+        <div class="stats">
+            <div class="title darkGray lesson-description">[[lessons[1].description]]</div>
+            <div class="gray"><span class="percent">[[lessons[1].present_percentage]]</span><span class="percentSign">%</span></div>
+            <p>class attended</p>
+        </div>
+        <div class="stats">
+            <div class="title darkGray lesson-description">[[lessons[2].description]]</div>
+            <div class="gray"><span class="percent">[[lessons[2].present_percentage]]</span><span class="percentSign">%</span></div>
+            <p>class attended</p>
+        </div>
+    </div>
+    <table class="roster" ng-show="selectedPartner1" id="attendance-table">
+
+        <thead fsm-sticky-header="useFixedHeader" scroll-body="#attendance-table" scroll-stop='35'  fsm-z-index="9">
+        <tr class="table-header table-header-top">
+            <th colspan="12" class="text-bottom manage-col">
+            <span dropdown on-toggle="toggled(open)" class="pull-lef" style="padding: 0px 15px;"
+            >
+              <a href dropdown-toggle style="font-weight: 200;" ng-class="{'disabled': !anySelection}">
+                  Contact
+              </a>
+              <ul class="enrollment-dropdown dropdown-menu" aria-labelledby="simple-dropdown">
+                  <li>
+                      <a href class="" ng-click="sendEmails('mentees')">
+                          Email selected students
+                      </a>
+                  </li>
+              </ul>
+            </span>
+
+            </th>
+        </tr>
+        <tr class="header"   >
+
+            <td rowspan="2" class="text-bottom contact ticker-col">
+
+                <a href style="color: white;" ng-click="updateSelections()">
+                <span class="glyphicon glyphicon-ok" style="float: left;"
+                      ng-class="{'selected': globalSelection == true, 'unselected': globalSelection != true}">
+
+                </span>
+                </a>
+            </td>
+            <td rowspan="2" class="text-bottom mentee-name">First Name</td>
+            <td rowspan="2" class="text-bottom mentor-name">Last Name</td>
+            <td class="text-center blue-bg padding-bottom-zero" colspan="2">
+                <p class="lesson-description">[[lessons[0].description]]</p>
+                <p>[[lessons[0].lesson_start | date:'MM/dd/yy' ]] to [[lessons[0].lesson_end | date:'MM/dd/yy']]</p>
+            </td>
+            <td class="text-center padding-bottom-zero" colspan="2">
+                <p class="lesson-description">[[lessons[1].description]]</p>
+                <p class="gray">[[lessons[1].lesson_start | date:'MM/dd/yy' ]] to [[lessons[1].lesson_end | date:'MM/dd/yy']]</p>
+            </td>
+            <td class="text-center padding-bottom-zero" colspan="2">
+                <p class="lesson-description">[[lessons[2].description]]</p>
+                <p class="gray">[[lessons[2].lesson_start | date:'MM/dd/yy' ]] to [[lessons[2].lesson_end | date:'MM/dd/yy']]</p>
+            </td>
+        </tr>
+
+        </thead>
+
+        <tbody>
+        <tr ng-repeat="ele in roster track by $index" ng-class="{'selected': ele.selected == true, 'unselected': ele.selected != true}"  >
+            <td class="ticker-col contact" ng-click="updateRosterSelection(ele)">
+                <span class="" ng-class="ele.selected? ' fa fa-check-square-o' : 'fa fa-square-o'"/>
+            </td>
+            <td class="">
+                <span><a href="[[ele.profile_link]]" target="_blank">[[ele.first_name]]</a></span>
+            </td>
+
+            <td class="">
+                <span><a href="[[ele.profile_link]]" target="_blank">[[ele.last_name]]</a></span>
+            </td>
+
+            <td class="left-border" colspan="2" style="text-align: center;">
+               <!-- <span ng-click="studentData(ele, lessons[0]);" ng-if=" 'Not taken' == lessons[0].engagement[$index].description "  alt="Not taken" title="Not taken">Not taken</span>
+                <span class="glyphicon glyphicon-ok selected" ng-if=" 'Present' == lessons[0].engagement[$index].description "  alt="Present" title="Present"></span>
+                <span class="fa fa-times" ng-if=" 'Absent' == lessons[0].engagement[$index].description " alt="Absent" title="Absent"></span>
+                <span class="fa fa-times" ng-if=" 'NA' == lessons[0].engagement[$index].description " alt="Absent" title="Absent">NA</span>-->
+
+                <!--<span ng-hide=" 'Not taken' == lessons[0].engagement[$index].description" ng-class="lessons[0].engagement[$index].description == 'Present'? 'PresentBtn' : ''" ng-click="studentData(ele, lessons[0], 1);">Y</span>
+                <span ng-hide=" 'Not taken' == lessons[0].engagement[$index].description" ng-class="lessons[0].engagement[$index].description == 'Absent'? 'AbsentBtn' : ''" ng-click="studentData(ele, lessons[0], 2);">N</span>
+                <!--<span ng-if=" 'NA' == lessons[0].engagement[$index].description ">NA</span>-->
+                <span ng-if=" 'Not taken' == lessons[0].engagement[$index].description ">Not taken</span>
+
+                <div class="btn-group" data-toggle="buttons" ng-hide="'NA' == lessons[0].description">
+                    <label class="btn btn-default bt-present" ng-class="{selected: lessons[0].engagement[$index].description == 'Present'}" ng-click="studentData(ele, lessons[0], 2);">
+                        <div><input name="cssPre1" id="css1" value="Present" class="radio" type="radio" data-ng-model="cssPre">
+                            <span class="fa fa-check" ng-class="{selected: lessons[0].engagement[$index].description == 'Present'}" aria-hidden="true"></span>
+                        </div>
+                    </label>
+                    <label class="btn btn-default bt-absent" ng-click="studentData(ele, lessons[0], 3);" ng-class="{selected: lessons[0].engagement[$index].description == 'Absent'}">
+                        <div><input name="cssPre1" id="css2" value="Absent" type="radio" data-ng-model="cssPre">
+                            <span class="fa fa-times" ng-class="{selected: lessons[0].engagement[$index].description == 'Absent'}" aria-hidden="true"></span>
+                        </div>
+                    </label>
+                </div>
+            </td>
+
+            <td class="" colspan="2" style="text-align: center;">
+                <!--<span ng-click="studentData(ele, lessons[1]);" ng-if=" 'Not taken' == lessons[1].engagement[$index].description "  alt="Not taken" title="Not taken">Not taken</span>
+                <span class="glyphicon glyphicon-ok selected" ng-if=" 'Present' == lessons[1].engagement[$index].description "  alt="Present" title="Present"></span>
+                <span class="fa fa-times" ng-if=" 'Absent' == lessons[1].engagement[$index].description " alt="Absent" title="Absent">Absent</span>
+                <span class="fa fa-times" ng-if=" 'NA' == lessons[1].engagement[$index].description " alt="Absent" title="Absent">NA</span>-->
+
+
+                <!--<span ng-hide=" 'Not taken' == lessons[1].engagement[$index].description" ng-class="lessons[1].engagement[$index].description == 'Present'? 'PresentBtn' : ''" ng-click="studentData(ele, lessons[1], 1);">Y</span>
+                <span ng-hide=" 'Not taken' == lessons[1].engagement[$index].description" ng-class="lessons[1].engagement[$index].description == 'Absent'? 'AbsentBtn' : ''" ng-click="studentData(ele, lessons[1], 2);">N</span>
+                <!--<span ng-if=" 'NA' == lessons[1].engagement[$index].description ">NA</span>-->
+                <span ng-if=" 'Not taken' == lessons[1].engagement[$index].description ">Not taken</span>
+                <span ng-if=" 'NA' == lessons[1].engagement[$index].description ">NA</span>
+                <span ng-if="lessons[1].engagement[$index].description == 'Present' " class="fa fa-check"></span>
+                <span ng-if="lessons[1].engagement[$index].description == 'Absent'" style="color:gray;" class="fa fa-times"></span>
+
+            </td>
+
+            <td class="" colspan="2" style="text-align: center;">
+                <!--<span ng-click="studentData(ele, lessons[2]);" ng-if=" 'Not taken' == lessons[2].engagement[$index].description "  alt="Not taken" title="Not taken">Not taken</span>
+                <span class="glyphicon glyphicon-ok selected" ng-if=" 'Present' == lessons[2].engagement[$index].description "  alt="Present" title="Present"></span>
+                <span class="fa fa-times" ng-if=" 'Absent' == lessons[2].engagement[$index].description " alt="Absent" title="Absent"></span>
+                <span class="fa fa-times" ng-if=" 'NA' == lessons[2].engagement[$index].description " alt="Absent" title="Absent">NA</span>-->
+
+                <!--<span ng-hide="'Not taken' == lessons[2].engagement[$index].description" ng-class="lessons[2].engagement[$index].description == 'Present'? 'PresentBtn' : ''" ng-click="studentData(ele, lessons[2], 1);">Y</span>
+                <span ng-hide="'Not taken' == lessons[2].engagement[$index].description" ng-class="lessons[2].engagement[$index].description == 'Absent'? 'AbsentBtn' : ''" ng-click="studentData(ele, lessons[2], 2);">N</span>
+                <!--<span ng-if=" 'NA' == lessons[2].engagement[$index].description ">NA</span>-->
+                <span ng-if=" 'Not taken' == lessons[2].engagement[$index].description ">Not taken</span>
+                <span ng-if=" 'NA' == lessons[2].engagement[$index].description ">NA</span>
+                <span ng-if="lessons[2].engagement[$index].description == 'Present' " class="fa fa-check"></span>
+                <span ng-if="lessons[2].engagement[$index].description == 'Absent'" style="color:gray;"  class="fa fa-times"></span>
+            </td>
+
+        </tr>
+        </tbody>
+
+    </table>
+
+
+
+</div>

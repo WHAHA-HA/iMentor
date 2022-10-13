@@ -1,0 +1,8 @@
+
+<ul class="results" id="matched_colleges">
+	<li im-collegematch ng-repeat="college in matching_colleges | filter:search_term | unique: 'id' | limitTo:5" 	id="[[college.id]]" 			school="[[college]]" ng-click="addSelection(college)">
+		<a href="#" school="[[college]]"> [[college.name]]
+      <span class="pull-right"> Enter to Add </span>
+    </a>
+  </li>
+</ul>

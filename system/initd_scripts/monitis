@@ -1,0 +1,16 @@
+#!/bin/sh -e
+
+### BEGIN INIT INFO
+# Provides: monitis
+# Required-Start:
+# Required-Stop:
+# Should-Start:
+# Should-Stop:
+# Default-Start: 2 3 4 5
+# Default-Stop: 0 1 6
+# Short-Description: Control Monitis internal agent.
+# Description: monitis
+### END INIT INFO
+
+/var/monitis/monitis.sh start
+

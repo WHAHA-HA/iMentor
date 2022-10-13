@@ -1,0 +1,22 @@
+<form name="signupForm" class="resetpass" ng-submit="signUp(email, password, confirmpass, 'Mentee')" ng-controller="SignUpController" novalidate>
+  <div class="send-pass new-pass centered">
+    <div class="signupform">
+      <h2 style="margin-bottom: 20px;"> Create your mentee account</h2>
+      <div class="row">
+        <input type="email" name="email" ng-model="email" placeholder="Email address" required />
+        <div class="validation-box"><span class="error-inline" ng-show="((signupForm.email.$dirty && signupForm.email.$error.required && submitted) || (signupForm.email.$dirty && signupForm.email.$invalid && submitted))">Please enter a valid email.</span></div>
+      </div>
+      <div class="margin20"></div>
+      <input type="password" id="password" name="password" ng-model="password" placeholder="Create password" required />
+      <div class="row">
+        <input type="password" id="confirmpass" name="confirmpass" ng-model="confirmpass" pw-check="password" placeholder="Confirm password" style="border-top: none;" required />
+        <div class="validation-box2"><span class="error-inline" ng-show="(signupForm.confirmpass.$dirty && signupForm.password.$dirty && signupForm.confirmpass.$error.pwmatch && submitted)">Passwords do not match</span></div>
+      </div>
+      <div class="margin20"></div>
+      <button class="button-all button-sm orange" ng-disabled="submitInProgress == true" ng-click="submitted=true" type="submit">{{submitBtnText}}</button>
+      <div ng-show="authenticationError">
+        {{authenticationError}}
+      </div>
+    </div>
+  </div>
+</form>

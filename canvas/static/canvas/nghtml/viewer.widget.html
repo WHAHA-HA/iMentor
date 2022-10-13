@@ -1,0 +1,19 @@
+<div class="col-lg-12 col-md-12 widget-content">
+		<div class="detailBox">
+		    <div class="actionBox">
+		        <ul class="commentList">
+		            <li  ng-repeat="item in richtextContent">
+		                <div class="commenterImage">
+		                  <img img-fix-orientation="user.photo" ng-src="{{item.user.photo}}" alt="" />
+		                </div>
+		                <div class="commentText">
+		                    <p compile="item.html" ></p>
+		                    <span class="date sub-text">{{item.user.f_name}} -- {{item.addedOn}}</span>
+		                </div>
+		            </li>
+		        </ul>
+		    </div>
+		</div>
+	</div>
+</div>
+

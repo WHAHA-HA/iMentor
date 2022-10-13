@@ -1,0 +1,19 @@
+<div class="im-embed-attachment">
+    <!--<div class="im-embed-attachment-preview">
+        <div class="im-embed-attachment-icon"> <i class="fa fa-file-pdf-o"></i> </div>
+        <div class="im-embed-attachment-detail">
+            <div class="im-embed-attachment-title"> <a href="{{url}}" alt="{{url}}">{{url}}</a> </div>
+            <div class="im-embed-attachment-view">
+               <button ng-click="downloadFile(url)"><i class="fa fa-download"></i>Download</button>
+                <a href="{{url}}" target="_blank">
+                    <button><i class="fa fa-eye"></i> View</button>
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="clearfix"></div>-->
+    <div class="im-embed-attachment-viewer">
+        <iframe ng-src="{{iframeUrl}}" height="480" frameborder="0" allowFullScreen  sandbox="allow-scripts allow-same-origin allow-popups"></iframe>
+        <div class="im-embed-notloaded" ng-bind-html="notLoadedMessage"  ng-if="notLoaded"></div>
+    </div>
+</div>

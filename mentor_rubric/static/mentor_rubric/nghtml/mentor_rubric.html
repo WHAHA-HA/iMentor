@@ -1,0 +1,296 @@
+<div class="UnitContainer" id="top" style="">
+  <div>
+    <h2 class="admin-heading" style="padding-bottom: 15px; padding-bottom: 30px;" >Evaluate your mentors</h2>
+
+    <div ng-if="showDropdownYears" style="position: relative;top:0px; display: inline-block; margin-right: 10px;" class="mobileCont">
+
+      <div
+              isteven-multi-select
+              input-model="vm.program_years"
+              output-model="vm.selectedYears"
+              button-label="program_year_description"
+              item-label="program_year_description"
+              tick-property="ticked"
+              class="partner-sites"
+              max-height="200px"
+              max-labels="1"
+              on-item-click="vm.updateYear()"
+              on-select-all="vm.updateYearAll()"
+              on-select-none="vm.resetYear()"
+              on-reset="vm.resetYear()"
+              translation="vm.programYearsLang"
+              helper-elements="all filter none"
+              selection-mode="single"
+      >
+      </div>
+      <div
+              isteven-multi-select
+              input-model="vm.partner_info"
+              output-model="vm.selectedPartnerSites"
+              button-label="name"
+              item-label="name"
+              tick-property="ticked"
+              class="partner-sites"
+              max-height="200px"
+              max-labels="1"
+              on-item-click="vm.updatePartner()"
+              on-select-all="vm.updatePartnerAll()"
+              on-select-none="vm.resetPartner()"
+              on-reset="vm.resetPartner()"
+              translation="vm.partnerSitesLang"
+              helper-elements="all filter none"
+              style="margin-left: 10px;" >
+      </div>
+      <div class="refresh">
+        <button ng-click="vm.updatePartner()" class="icon" ng-disabled="vm.apiCall" ng-hide="vm.selectedPartnerSites.length === 0 "><i class="fa fa-refresh"></i></button>
+      </div>
+    </div>
+
+    <div class="rubric-criteria" >
+       <!-- Nav tabs -->
+      <div class="info-header" role="tablist">Rubric Criteria</div>
+  <ul class="nav nav-tabs  nav-justified" role="tablist">
+    <li role="presentation" class="active"><a href="#strenghts-based" aria-controls="strenghts-based" role="tab" data-toggle="tab">Strengths Based</a></li>
+    <li role="presentation"><a href="#resources" aria-controls="resources" role="tab" data-toggle="tab">Resources</a></li>
+    <li role="presentation"><a href="#response-time" aria-controls="response-time" role="tab" data-toggle="tab">Response Time</a></li>
+    <li role="presentation"><a href="#curriculum" aria-controls="curriculum" role="tab" data-toggle="tab">Curriculum</a></li>
+  </ul>
+
+  <!-- Tab panes -->
+  <div class="tab-content">
+    <div role="tabpanel" class="tab-pane active" id="strenghts-based">
+      <p class="rubric-criteria-title">Mentor takes a strengths-based stance regarding their mentee.</p>
+       <p>
+         <div class="row1">
+        <div class="col-md-4 col-lg-4 criteria-col">
+          <table>
+            <tr>
+              <td class="rubric-criteria-value"><div >1</div></td>
+              <td>
+                <p class="rubric-criteria-description-title">Not Meeting Expectations</p>
+                <p>Complains about mentee without an effort to maintain positivity about mentee potential. Makes negative assumptions about mentee motivations or behavior without sufficient information.</p>
+              </td>
+            </tr>
+          </table>
+        </div>
+        <div class="col-md-4 col-lg-4 criteria-col">
+          <table>
+            <tr>
+              <td class="rubric-criteria-value"><div >2</div></td>
+              <td>
+                <p class="rubric-criteria-description-title">Meeting Expectations</p>
+                <p>Mentor makes an effort to identify and capitalize on the strengths of the mentee regardless of the context and demonstrates persistence and positivity in the face of challenging situations with their mentee.</p>
+              </td>
+            </tr>
+          </table>
+        </div>
+        <div class="col-md-4 col-lg-4 criteria-col">
+          <table>
+            <tr>
+              <td class="rubric-criteria-value"><div >3</div></td>
+              <td>
+                <p class="rubric-criteria-description-title">Exceeding Expectations</p>
+                <p>Mentor demonstrates an extraordinary ability to identify and capitalize on the strengths of the mentee regardless of the context and demonstrates persistence and positivity in the face of challenging situations with their mentee.</p>
+              </td>
+            </tr>
+          </table>
+        </div>
+    </div>
+      </p>
+    </div>
+    <div role="tabpanel" class="tab-pane" id="resources">
+      <p class="rubric-criteria-title">Mentor supports mentee in utilizing all resources, when appropriate (including reaching out to their staff member or other external resources).</p>
+       <p>
+        <div class="col-md-4 col-lg-4">
+          <table>
+            <tr>
+              <td class="rubric-criteria-value"><div >1</div></td>
+              <td>
+                <p class="rubric-criteria-description-title">Not Meeting Expectations</p>
+                <p>When opportunities to identify additional support for a mentee emerge, mentor does not utilize appropriate resources.</p>
+              </td>
+            </tr>
+          </table>
+        </div>
+        <div class="col-md-4 col-lg-4">
+          <table>
+            <tr>
+              <td class="rubric-criteria-value"><div >2</div></td>
+              <td>
+                <p class="rubric-criteria-description-title">Meeting Expectations</p>
+                <p>When appropriate, mentor identifies additional support structures for the mentee based on mentee’s need (e.g. family, guidance counselor, etc.).</p>
+              </td>
+            </tr>
+          </table>
+        </div>
+        <div class="col-md-4 col-lg-4">
+          <table>
+            <tr>
+              <td class="rubric-criteria-value"><div >3</div></td>
+              <td>
+                <p class="rubric-criteria-description-title">Exceeding Expectations</p>
+                <p>Mentor takes initiative beyond locating an individual to help his/her mentee and identifies resources based on a mentee’s need and specifically aids in the mentee’s addressing challenges or answering difficult questions.</p>
+              </td>
+            </tr>
+          </table>
+        </div>
+      </p>
+    </div>
+    <div role="tabpanel" class="tab-pane" id="response-time">
+      <p class="rubric-criteria-title">Mentor responds to staff member in a timely fashion.</p>
+       <p>
+        <div class="col-md-4 col-lg-4">
+          <table>
+            <tr>
+              <td class="rubric-criteria-value"><div >1</div></td>
+              <td>
+                <p class="rubric-criteria-description-title">Not Meeting Expectations</p>
+                <p>Mentor consistently does not respond to staff member within a week of being contacted.</p>
+              </td>
+            </tr>
+          </table>
+        </div>
+        <div class="col-md-4 col-lg-4">
+          <table>
+            <tr>
+              <td class="rubric-criteria-value"><div >2</div></td>
+              <td>
+                <p class="rubric-criteria-description-title">Meeting Expectations</p>
+                <p>Mentor, on average, responds to staff member within a week of being contacted for any programmatic reasons.</p>
+              </td>
+            </tr>
+          </table>
+        </div>
+        <div class="col-md-4 col-lg-4">
+          <table>
+            <tr>
+              <td class="rubric-criteria-value"><div >3</div></td>
+              <td>
+                <p class="rubric-criteria-description-title">Exceeding Expectations</p>
+                <p>Mentor consistently responds to any staff member contacts within 48 hours.</p>
+              </td>
+            </tr>
+          </table>
+        </div>
+      </p>
+    </div>
+    <div role="tabpanel" class="tab-pane" id="curriculum">
+      <p class="rubric-criteria-title">Mentor models effective use of canvas prompt curriculum.</p>
+       <p>
+        <div class="col-md-4 col-lg-4">
+          <table>
+            <tr>
+              <td class="rubric-criteria-value"><div >1</div></td>
+              <td>
+                <p class="rubric-criteria-description-title">Not Meeting Expectations</p>
+                <p>Mentor consistently does not adhere to the canvas prompt guidelines.</p>
+              </td>
+            </tr>
+          </table>
+        </div>
+        <div class="col-md-4 col-lg-4">
+          <table>
+            <tr>
+              <td class="rubric-criteria-value"><div >2</div></td>
+              <td>
+                <p class="rubric-criteria-description-title">Meeting Expectations</p>
+                <p>Mentor adheres to canvas prompt guidelines on a regular basis and communicates in an appropriate way.</p>
+              </td>
+            </tr>
+          </table>
+        </div>
+        <div class="col-md-4 col-lg-4">
+          <table>
+            <tr>
+              <td class="rubric-criteria-value"><div >3</div></td>
+              <td>
+                <p class="rubric-criteria-description-title">Exceeding Expectations</p>
+                <p>Mentor includes more high-quality and informative detail in his/her communications to his/her mentee than is suggested by the canvas prompt guidelines.</p>
+              </td>
+            </tr>
+          </table>
+        </div>
+      </p>
+    </div>
+  </div>
+    </div>
+
+  </div>
+  <div style="position: relative; top:0px;" class="mobileCont">
+    <div ng-show="vm.selectedPartnerSites.length>0">
+      <div class="row filter-buttons" >
+        <div class="col-md-12 col-lg-12">
+          
+          <input class="search" placeholder="Search" ng-model="vm.searchString">
+          <i class="fa fa-search fa-flip-horizontal" aria-hidden="true"></i>
+        </div>
+      </div>
+      <div class="margin-15"></div>
+      <table class="table table-striped new-content" ng-show="loadingMentorRubricNewContent === false && vm.new_content.length>0 && vm.filteredItems.length>0" id="rubric-table">
+        <thead style="">
+        <tr class="table-header table-header-top">
+          <th colspan="12" class="text-bottom manage-col">
+            <span href class="pull-right" style="padding: 3px 10px;" ng-click="">Showing {{vm.new_content.length}} mentors</span>
+
+          </th>
+        </tr>
+          <tr style="background-color: #4a4a4a;"  fsm-sticky-header="vm.useFixedHeader" scroll-body="#rubric-table" scroll-stop='35'  fsm-z-index="9">
+            <!--<th rowspan="" class="text-bottom manage-col">
+              <span dropdown on-toggle="toggled(open)" class="pull-left dropdown"
+                >
+                <a href dropdown-toggle style="color: white;" ng-class="{'disabled': !vm.selectedContent}">
+                  Manage <i class="fa fa-wrench"></i>
+                </a>
+              </span>
+            </th>-->
+            <th>Mentor First</th>
+            <th>Mentor Last</th>
+            <th>Mentee First</th>
+            <th>Mentee Last</th>
+            <th class="drop-down-column">Strengths Based</th>
+            <th class="drop-down-column">Resources</th>
+            <th class="drop-down-column">Response Time</th>
+            <th class="drop-down-column">Curriculum</th>
+            <th style="text-align: center;">Complete</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr  ng-repeat="content in  (vm.filteredItems = (vm.new_content  | filter:vm.searchString))"   ng-class="{'selected': vm.selectedContent == content, 'unselected': vm.selectedContent != content}">
+            <!--<td class="text-center manage-col"  ng-click="vm.updateContentSelection(content)"
+              >
+              <span class="glyphicon glyphicon-ok"  ng-class="{'selected': vm.selectedContent == content, 'unselected': vm.selectedContent != content}" />
+              </td>-->
+              <td><a ng-href="{{content.mentor_profile_link}}" target="_blank">{{content.mentor_first_name}}</a></td>
+              <td><a ng-href="{{content.mentor_profile_link}}" target="_blank">{{content.mentor_last_name}}</a></td>
+              <td><a ng-href="{{content.mentee_profile_link}}" target="_blank">{{content.mentee_first_name}}</a></td>
+              <td><a ng-href="{{content.mentee_profile_link}}" target="_blank">{{content.mentee_last_name}}</a></td>
+              <td>
+                <select ng-model="content.rubric_strengths_based" ng-options="option.id as option.label for option in vm.options"  class="selectDefault " ng-class="{'selectOne' : content.rubric_strengths_based == 1, 'selectTwo' : content.rubric_strengths_based == 2, 'selectThree' : content.rubric_strengths_based == 3}"  ng-change="content.changed=true;">
+                </select>              
+              </td>
+              <td>
+                <select ng-model="content.rubric_resources" ng-options="option.id as option.label for option in vm.options"  class="selectDefault " ng-class="{'selectOne' : content.rubric_resources == 1, 'selectTwo' : content.rubric_resources == 2, 'selectThree' : content.rubric_resources == 3}"  ng-change="content.changed=true;">
+                </select>
+                
+              </td>
+              <td>
+                <select ng-model="content.rubric_response_time" ng-options="option.id as option.label for option in vm.options"  class="selectDefault " ng-class="{'selectOne' : content.rubric_response_time == 1, 'selectTwo' : content.rubric_response_time == 2, 'selectThree' : content.rubric_response_time == 3}"  ng-change="content.changed=true;">
+                </select>
+                
+              </td>
+              <td>
+                <select ng-model="content.rubric_curriculum" ng-options="option.id as option.label for option in vm.options"  class="selectDefault " ng-class="{'selectOne' : content.rubric_curriculum == 1, 'selectTwo' : content.rubric_curriculum == 2, 'selectThree' : content.rubric_curriculum == 3}"  ng-change="content.changed=true;">
+                </select>
+        
+              </td>
+              <td style="text-align: center;">
+                <button ng-show="vm.showSaved(content)" class="btn  btn-default btn-green" >Saved</button>
+                <button ng-show="vm.showSubmit(content)" ng-click="vm.updateData(content);" class="btn btn-default btn-gray">Submit</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    
+  </div>

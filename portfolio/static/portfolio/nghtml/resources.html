@@ -1,0 +1,15 @@
+<div class="resourceContainer" id="top" ng-init="init();" ng-controller="ResourcesCtlr">
+	<div class="bckCont bckMob" style="width: 80px;"><a ng-click="go('/'); $root.isResources=false;" style="font-size:16px;" class="backBtn" href=""><span class="fa fa-arrow-circle-left"></span> Back</a></div>
+    <h2 class="filesMob" style="padding-bottom: 15px;">My Files</h2>
+    <div ng-repeat="r in resources" class="units box box2" ng-click="openResource(r.resource_link);"  style="position: relative;">
+        <div>
+            <h4 class="titles" style="color:#333333;height: 15px;font-size: 15px;padding:0px 5px;">[[r.resource_description.substring(0,21)]]<span ng-if="r.resource_description.length > 21">...</span></h4>
+            <div style="padding-top: 10px;">
+                <i ng-if="r.resource_type === 'Google'" class="icon-google_file unit-icons2"></i>
+                <i ng-if="r.resource_type != 'Google'" class="icon-upload_file unit-icons2"></i>
+            </div>
+        </div>
+
+    </div>
+</div>
+

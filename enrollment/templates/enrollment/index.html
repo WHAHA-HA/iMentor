@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html>
+  <head lang="en">
+    <meta charset="UTF-8">
+    <title>Mentee Enrollment | iMentor</title>
+    <link rel="shortcut icon" href="//cdn.imentor.org/new_platform/static/img/favicon.png" type="image/x-icon" />
+    <!-- Vendor CSS -->
+    <link href="//cdn.imentor.org/new_platform/static/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="//cdn.imentor.org/new_platform/static/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
+    <link href="//cdn.imentor.org/new_platform/static/nvd3-1.1.15-beta/nv.d3.min.css" rel="stylesheet" >
+    <link href="//cdn.imentor.org/new_platform/static/angular-hamburger/angular-hamburger-toggle.css" rel="stylesheet" />
+    <link href="//cdn.imentor.org/new_platform/static/angular-multi-select/isteven-multi-select.css" rel="stylesheet"/>
+    <!-- Custom CSS -->
+    <link href="/new_platform/static/enrollment/css/enrollment.css" rel="stylesheet" />
+    <link href="/new_platform/static/hambuger-menu/header-bar-universal-admin.css" rel="stylesheet" />
+    <!-- Vendor Scripts -->
+    <script src="//cdn.imentor.org/new_platform/static/jquery/jquery.min.js"></script>
+    <script src="//cdn.imentor.org/new_platform/static/angular/angular.min.js"></script>
+    <script src="//cdn.imentor.org/new_platform/static/angular-ui-bootstrap/ui-bootstrap-tpls.min.js"></script>
+    <script src="//cdn.imentor.org/new_platform/static/angular-ui-router/angular-ui-router.min.js"></script>
+    <script src="//cdn.imentor.org/new_platform/static/angular-resource/angular-resource.js"></script>
+    <script src="//cdn.imentor.org/new_platform/static/d3-3.3.13/d3.min.js"></script>
+    <script src="//cdn.imentor.org/new_platform/static/nvd3-1.1.15-beta/nv.d3.min.js"></script> <!-- or use another assembly -->
+    <script src="//cdn.imentor.org/new_platform/static/angular-nvd3/angular-nvd3.min.js"></script>
+    <script src="//cdn.imentor.org/new_platform/static/angular-hamburger/angular-hamburger-toggle.js"></script>
+    <script src="//cdn.imentor.org/new_platform/static/angular-multi-select/isteven-multi-select.js"></script>
+    <script src="//cdn.imentor.org/new_platform/static/underscore/underscore-min.js"></script>
+    <script src="//cdn.imentor.org/new_platform/static/ngDialog/lib/ngDialog.min.js "></script>
+    <script src="//cdn.imentor.org/new_platform/static/isMobile/isMobile.min.js"></script>
+    <script src="//cdn.imentor.org/new_platform/static/fsm-sticky-header/fsm-sticky-header.js"></script>
+    <!-- Custom Scripts -->
+    <script type="text/javascript"  src="/new_platform/static/enrollment/js/angular-init.js"></script>
+    <script type="text/javascript"  src="/new_platform/static/enrollment/js/controllers.js"></script>
+    <script type="text/javascript"  src="/new_platform/static/enrollment/js/directives.js"></script>
+  </head>
+  <body ng-app="enrollment" ng-controller="TrackingCtrl" ng-init="init(); page_loaded=false; selectedPrtnr=false">
+    <!-- NAVIGATION -->
+    <div ng-controller="headerController">
+      <div class="navbar navbar-default" role="navigation">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <hamburger-toggle state="tgState" class="hamburger-toggle"></hamburger-toggle>
+            <span class="navbar-brand">
+              Mentee Enrollment
+            </span>
+            <div style="display: inline-block;position: relative;top: 8px;left:10px;">
+              <span style="color:gray;" ng-if="!page_loaded && !loaded_partners">Loading...</span>
+              <span style="color:gray;" ng-if="!page_loaded && loaded_partners && selectedPrtnr">Loading chart...</span>
+            </div>
+            <div class="notifications">
+              <span ng-if="userrole === 'Mentor' || userrole === 'Mentee'" class="username">[[firstname]] [[lastname.split('')[0] ]]</span>
+              <span ng-if="userrole !== 'Mentor' && userrole !== 'Mentee'" class="username">[[firstname]] [[lastname.split('')[0] ]]</span>
+              <!--<i class="glyphicon glyphicon-comment"></i>--></div>
+            </div>
+          </div>
+        </div>
+        <div class="sidenav" ng-class="{open: tgState}" ng-init="Administration = false; Reports = false;" style="font-size:14px;font-weight: 400;">
+          <ul ng-if="userrole === 'Mentor' || userrole === 'Mentee'" class="nav nav-pills nav-stacked">
+            <li ui-sref-active="active"><a href="/canvas/#/">Current Lesson</a></li>
+            <li ui-sref-active="active"><a href="/portfolio/#/">Portfolio</a></li>
+            <li ng-if="(match_status === 'M' && userrole === 'Mentor') || userrole === 'Mentee'" ui-sref-active="active"><a href="/cchklist/list/#/">College Checklist</a></li>
+            <li><a href="/events/personal/">Calendar</a></li>
+            <!--<li><a href="/iuser/myinfo/{{persona}}/" >Profile</a></li>-->
+            <!--<li ng-show="userrole === 'Mentee'"><a href="https://learn.imentor.org/help/article/link/imentor-curriculum">Resources</a></li>-->
+            <li ng-show="userrole !== 'Mentee'"><a href="https://learn.imentor.org/help/article/link/home" target="_blank">Learning Center</a></li>
+            <li><a href="/message/list/">Legacy Platform</a></li>
+            <li ui-sref-active="active"><a href="https://imentor.org/privacy-policy">iMentor Privacy Policy</a></li>
+            <li ui-sref-active="active"><a  href="" ng-click="logout();">Sign out</a></li>
+          </ul>
+          <ul ng-if="userrole !== 'Mentor' && userrole !== 'Mentee'" class="nav nav-pills nav-stacked">
+            <li ui-sref-active="active"><a href="/canvas/#/">Current Lesson</a></li>
+            <li ui-sref-active="active"><a href="/portfolio/#/">Portfolio</a></li>
+            <li ui-sref-active="active"><a href="/lesson_mgmt/#/">Lesson Management</a></li>
+            <li><a href="/events/admin/">Calendar</a></li>
+            <li><a href="/message/list/note/">Add a Note</a></li>
+            <!--<li><a href="/iuser/backend_profile/{{persona}}/" >Profile</a></li>-->
+            <li><a ng-click="Administration = !Administration" style="cursor:pointer"><span class="fa fa-caret-down" style="position: relative;top: 3px;margin-right: 3px;font-size: 14px;"></span> Administration </a></li>
+            <ul ng-show="Administration === true" class="submenu">
+              <li><a href="/iuser/" >Users</a></li>
+              <li><a href="/partners/list/">Partner Sites</a></li>
+              <li><a href="/attendance/">Attendance</a></li>
+              <!--<li><a href="/survey/">Surveys</a></li>-->
+              <li><a href="/new_surveys/">Surveys</a></li>
+              <li ng-show="subdomain != 'mentor2' && subdomain != 'bbsu' && subdomain != 'bbbscharlotte' && subdomain != 'bbbsmilwaukee' && subdomain != 'bbbswillgrundy'"><a href="/enrollment/">Mentee Enrollment</a></li>
+              <li ng-show="subdomain === 'platformtraining'"><a href="/mentor_rubric/">Mentor Rubric</a></li>
+              <!--<li><a href="/reporting/manage_alerts/">Alerts</a></li>-->
+            </ul>
+            <li><a ng-click="Reports = !Reports" style="cursor:pointer"><span class="fa fa-caret-down" style="position: relative;top: 3px;margin-right: 7px;font-size: 14px;"></span>Reports</a></li>
+            <ul ng-show="Reports === true" class="submenu">
+              <li><a href="/snapshot/">Snapshot</a></li>
+              <li ng-show="isOnPartnerListTableau && (subdomain == 'nyc' || subdomain == 'chicago' || subdomain == 'bayarea' || subdomain == '127')"><a ng-href="[[programUrl]]" target="_blank" style="cursor: pointer;" ng-click="getProgramParticipation([[subdomain]]);">S.T.E.V.E.</a></li>
+              <li ng-show="isOnPartnerListTableau && (subdomain != 'nyc' && subdomain != 'chicago' && subdomain != 'bayarea' && subdomain != '127') && userrole != 'Partner Admin'"><a ng-href="[[programUrl]]" target="_blank" style="cursor: pointer;" ng-click="getProgramParticipation([[subdomain]]);">Participation History</a></li>
+              <li><a href="/flipbook/">Flipbook</a></li>
+              <li><a href="/reporting/intake_application_tracker/">Intake App Tracker</a></li>
+              <li><a href="/iuser/screening_tracker/">Screening Tracker</a></li>
+              <!--<li><a href="/reporting/participation_tracker/">MPT</a></li>-->
+              <!--<li><a href="/reporting/email_tracker/">Email Tracker</a></li>-->
+              <!--<li><a href="/reporting/email_log/">Email Log</a></li>-->
+              <li><a href="/reporting/event_tracker/">Event Tracker</a></li>
+              <li><a href="/reporting/event_log/">Event Log</a></li>
+              <!--<li><a href="/ratings/tracker/pairs/2/">Ratings Tracker</a></li>-->
+              <li><a href="/notes/support_tracker_pair/">Support Tracker</a></li>
+              <li><a href="/notes/note_log/">Note Log</a></li>
+            </ul>
+            <li><a href="https://learn.imentor.org/" target="_blank">Learning Center</a></li>
+            <li><a href="/message/list/">Legacy Platform</a></li>
+            <li ui-sref-active="active"><a href="https://imentor.org/privacy-policy">iMentor Privacy Policy</a></li>
+            <li ui-sref-active="active"><a href="" ng-click="logout();">Sign out</a></li>
+          </ul>
+        </div>
+      </div>
+      <!-- END OF NAVIGATION -->
+      <div id="enrollment-body">
+        <div class="enroll-container">
+          <h2 class="header-title" style="padding-bottom: 15px;">Get your mentees ready to be matched</h2>
+          <div
+            isteven-multi-select
+            input-model="partnerSites"
+            output-model="selectedPartnerSites"
+            button-label="name"
+            item-label="name"
+            tick-property="ticked"
+            class="partner-sites"
+            max-height="200px"
+            max-labels="1"
+            on-item-click="loadMentees(pageSize,1);selectedPrtnr = true"
+            on-select-all="delayedLoadMentees()"
+            on-select-none="delayedLoadMentees()"
+            on-reset="delayedLoadMentees()"
+            translation="partnerSitesLang",
+            >
+          </div>
+          <button class="hideshow-btn" ng-if="!summaryVisible && selectedPartnerSites.length>0" ng-click="toggleStatusPanel()"><a style="color: #00aeff;font-weight: 200;" href class="pull-right qualtrics-blue" ng-click="toggleStatusPanel()"><i style="color: #00aeff;font-size: 26px;position: relative;
+            top: 4px;
+          right: 1px;"class="fa fa-pie-chart"></i> Show</a></button>
+          <div class="hideshow" style="position: relative;left:30%">
+          </div>
+          <div class="summary" ng-show="summaryVisible && selectedPartnerSites.length>0">
+            <!--<div ng-if="!page_loaded">
+              <img style="display: block;
+              margin-left: auto;
+              margin-right: auto"src='//cdn.imentor.org/new_platform/static/enrollment/img/loading.gif' alt="loading">
+            </div>-->
+            <div ng-if="page_loaded">
+              <div class="title blue-bg lesson-description"><h4 class="pull-left" style="margin-left: 15px;">Matching Progress</h4>
+                </div>
+
+
+
+              <div class="chartOpts">
+                <nvd3 options="chartOptions" data="chartData"></nvd3>
+              </div>
+              <div class="chartLegend">
+                <ul style="list-style-type: none ">
+                  <li><span class="legnd_span" style="color:#bed6fd">[[match_not_ready]]</span> <span class="legnd-info">  Not ready to be matched</span><span class="legnd-female">[[match_not_ready_female]]  Female <br />[[match_not_ready_male]] Male</span></li></li>
+                  <li><span class="legnd_span" style="color:#6fa2fb">[[match_ready]]</span>  <span class="legnd-info"> Ready to be matched</span><span class="legnd-female">[[match_ready_female]]  Female <br />[[match_ready_male]] Male </span></li>
+                  <li><span class="legnd_span" style="color:#3a7cfb">[[matched]]</span> <span class="legnd-info">  Matched</span><span class="legnd-female">[[matched_female]]  Female <br />[[matched_male]] Male</span></li>
+                </ul>
+              </div>
+              <div class="chartLegend4">
+                <ul style="list-style-type: none ">
+                  <li><span class="legnd_span2" style="color:#3a7cfb">[[student_total]]</span> <span class="legnd-info2"> Total Students</span></li>
+                  <li><span class="recs-female"><span class="sm-numb">[[total_female_records]]</span>  Female <span class="recs-male"> <span class="sm-numb">[[total_male_records]]</span>  Male</span></span></li>
+
+                </ul>
+              </div>
+              <table class="tableChrt">
+                <tr>
+                  <th class="chrtHeader" ></th>
+
+                  <th class="chrtHeader" >Applications Completed</th>
+                  <th class="chrtHeader">Attendance</th>
+                  <th class="chrtHeader" >Program Readiness</th>
+                  <th class="chrtHeader">Parental Consent</th>
+                </tr>
+                <tr>
+                  <td>All</td>
+
+                  <td>[[app_complete]]%</td>
+                  <td>[[total_attendance]]%</td>
+                  <td>[[total_readiness]]%</td>
+                  <td>[[total_parental_consent]]%</td>
+                </tr>
+                <tr>
+                  <td>Female</td>
+
+                  <td>[[app_complete_female]]%</td>
+                  <td>[[attendance_female]]%</td>
+                  <td>[[readiness_female]]%</td>
+                  <td>[[parental_consent_female]]%</td>
+                </tr>
+                <tr>
+                  <td>Male</td>
+
+                  <td>[[app_complete_male]]%</td>
+                  <td>[[attendance_male]]%</td>
+                  <td>[[readiness_male]]%</td>
+                  <td>[[parental_consent_male]]%</td>
+                </tr>
+              </table>
+            </div>
+          </div>
+          <p style="height: 20px;">&nbsp;</p>
+          <div class="row" ng-show="selectedPartnerSites.length>0">
+            <div class="col-md-12 col-lg-12">
+              <input class="search" placeholder="Search" ng-model="searchString" ng-blur="loadMentees(pageSize,1)" ng-enter="loadMentees(pageSize,1)">
+              <i class="fa fa-search fa-flip-horizontal" aria-hidden="true"></i>
+            </div>
+          </div>
+          <div class="row" ng-show="selectedPartnerSites.length>0">
+            <div class="col-md-12 col-lg-12">
+              <div class="list-info">
+                <span>Showing [[mentees.data.length]] of [[mentees.total]] users</span>
+
+              </div>
+            </div>
+            <table class="stats" ng-show="selectedPartnerSites.length>0" id="enrollment-table">
+              <thead fsm-sticky-header="useFixedHeader" scroll-body="#enrollment-table" scroll-stop='35' fsm-z-index="9">
+              <tr class="table-header table-header-top">
+                <th colspan="12" class="text-bottom manage-col">
+                  <a href class="pull-right" style="padding: 3px 10px;" ng-click="exportToCsv()">Export as CSV</a>
+
+                </th>
+              </tr>
+                <tr class="header" style="background-color: #4a4a4a;color:white" >
+                  <th>
+                    <a href="" ng-click="sortBy('first_name')">First Name</a>
+                    <span class="sort" ng-click="sortBy('first_name')" ng-show="sortField === 'first_name'" ng-class="{reverse: sortDir=='desc'}"></span>
+                    <i class="fa fa-sort" ng-click="sortBy('first_name')" ng-show="sortField != 'first_name'" style="color:white;"></i>
+                  </th>
+                  <th>
+                    <a href="" ng-click="sortBy('last_name')">Last Name</a>
+                    <span class="sort" ng-click="sortBy('last_name')" ng-show="sortField === 'last_name'" ng-class="{reverse: sortDir=='desc'}"></span>
+                    <i class="fa fa-sort" ng-click="sortBy('last_name')" ng-show="sortField != 'last_name' " style="color:white;"></i>
+                  </th>
+                  <th>
+                    <a href="" ng-click="sortBy('partner_id')">Partner Site</a>
+                    <span class="sort" ng-click="sortBy('partner_id')" ng-show="sortField === 'partner_id'" ng-class="{reverse: sortDir=='desc'}"></span>
+                    <i class="fa fa-sort" ng-click="sortBy('partner_id')" ng-show="sortField != 'partner_id'" style="color:white;"></i>
+                  </th>
+                  <th>
+                    Gender
+                    <br/>
+                    <span dropdown on-toggle="toggled(open)" class="field-name pull-left">
+                      <a href dropdown-toggle>
+                        <span> [[displayFilterValues(genderChoices,option.filter.gender)]]</span>
+                        <i class="glyphicon glyphicon-chevron-down"></i>
+                      </a>
+                      <ul class="enrollment-dropdown dropdown-menu" aria-labelledby="simple-dropdown">
+                        <li >
+                          <a href class="" ng-click="setFilterAll('gender', genderChoices) ">
+                            <i class="glyphicon glyphicon-ok" ng-style="{ visibility: getFilterAll('gender', genderChoices) ? 'visible' : 'hidden' }" ></i> All
+                          </a>
+                        </li>
+                        <li ng-repeat="(key, val) in genderChoices">
+                          <a href class="" ng-click="setFilter('gender', key) ">
+                            <i class="glyphicon glyphicon-ok" ng-style="{ visibility: isInFilter('gender', key) ? 'visible' : 'hidden' }" ></i> [[val]]
+                          </a>
+                        </li>
+                      </ul>
+                    </span>
+                  </th>
+                  <th>
+                    Application Status
+                    <br/>
+                    <span dropdown on-toggle="toggled(open)" class="field-name pull-left">
+                      <a href dropdown-toggle>
+                        <span> [[displayFilterValues(appChoices,option.filter.application_status)]]</span>
+                        <i class="glyphicon glyphicon-chevron-down"></i>
+                      </a>
+                      <ul class="enrollment-dropdown dropdown-menu" aria-labelledby="simple-dropdown">
+                        <li >
+                          <a href class="" ng-click="setFilterAll('application_status', appChoices) ">
+                            <i class="glyphicon glyphicon-ok" ng-style="{ visibility: getFilterAll('application_status', appChoices) ? 'visible' : 'hidden' }" ></i> All
+                          </a>
+                        </li>
+                        <li ng-repeat="(key, val) in appChoices">
+                          <a href class="" ng-click="setFilter('application_status', key) ">
+                            <i class="glyphicon glyphicon-ok" ng-style="{ visibility: isInFilter('application_status', key) ? 'visible' : 'hidden' }" ></i> [[val]]
+                          </a>
+                        </li>
+                      </ul>
+                    </span>
+                  </th>
+                  <th>
+                    Attendance
+                    <br/>
+                    <span dropdown on-toggle="toggled(open)" class="field-name pull-left">
+                      <a href dropdown-toggle>
+                        <span> [[displayFilterValues(attendanceChoices,option.filter.attendance)]]</span>
+                        <i class="glyphicon glyphicon-chevron-down"></i>
+                      </a>
+                      <ul class="enrollment-dropdown dropdown-menu" aria-labelledby="simple-dropdown">
+                        <li >
+                          <a href class="" ng-click="setFilterAll('attendance', attendanceChoices) ">
+                            <i class="glyphicon glyphicon-ok" ng-style="{ visibility: getFilterAll('attendance', attendanceChoices) ? 'visible' : 'hidden' }" ></i> All
+                          </a>
+                        </li>
+                        <li ng-repeat="(key, val) in attendanceChoices">
+                          <a href class="" ng-click="setFilter('attendance', 1 * key) ">
+                            <i class="glyphicon glyphicon-ok" ng-style="{ visibility: isInFilter('attendance', 1*key) ? 'visible' : 'hidden' }" ></i> [[val]]
+                          </a>
+                        </li>
+                      </ul>
+                    </span>
+                  </th>
+                  <th>
+                    <a href="" ng-click="sortBy('program_readiness')">Program Readiness</a>
+                    <br/>
+                    <span dropdown on-toggle="toggled(open)" class="field-name pull-left">
+                      <a href dropdown-toggle>
+                        <span> [[displayFilterValues(readinessChoices,option.filter.program_readiness)]]</span>
+                        <i class="glyphicon glyphicon-chevron-down"></i>
+                      </a>
+                      <ul class="enrollment-dropdown dropdown-menu" aria-labelledby="simple-dropdown">
+                        <li >
+                          <a href class="" ng-click="setFilterAll('program_readiness', readinessChoices) ">
+                            <i class="glyphicon glyphicon-ok" ng-style="{ visibility: getFilterAll('program_readiness', readinessChoices) ? 'visible' : 'hidden' }" ></i> All
+                          </a>
+                        </li>
+                        <li ng-repeat="(key, val) in readinessChoices">
+                          <a href class="" ng-click="setFilter('program_readiness', 1 * key) ">
+                            <i class="glyphicon glyphicon-ok" ng-style="{ visibility: isInFilter('program_readiness', 1*key) ? 'visible' : 'hidden' }" ></i> [[val]]
+                          </a>
+                        </li>
+                      </ul>
+                    </span>
+                  </th>
+                  <th>
+                    Parental Consent
+                    <br/>
+                    <span dropdown on-toggle="toggled(open)" class="field-name pull-left">
+                      <a href dropdown-toggle>
+                        <span> [[displayFilterValues(parentChoices,option.filter.parental_consent)]]</span>
+                        <i class="glyphicon glyphicon-chevron-down"></i>
+                      </a>
+                      <ul class="enrollment-dropdown dropdown-menu" aria-labelledby="simple-dropdown">
+                        <li >
+                          <a href class="" ng-click="setFilterAll('parental_consent', parentChoices) ">
+                            <i class="glyphicon glyphicon-ok" ng-style="{ visibility: getFilterAll('parental_consent', parentChoices) ? 'visible' : 'hidden' }" ></i> All
+                          </a>
+                        </li>
+                        <li ng-repeat="(key, val) in parentChoices">
+                          <a href class="" ng-click="setFilter('parental_consent',  key) ">
+                            <i class="glyphicon glyphicon-ok" ng-style="{ visibility: isInFilter('parental_consent', key) ? 'visible' : 'hidden' }" ></i> [[val]]
+                          </a>
+                        </li>
+                      </ul>
+                    </span>
+                  </th>
+                  <th>
+                    User Status
+                    <br/>
+                    <span dropdown on-toggle="toggled(open)" class="field-name pull-left">
+                      <a href dropdown-toggle>
+                        <span> [[displayFilterValues(userStatusChoices,option.filter.user_status)]]</span>
+                        <i class="glyphicon glyphicon-chevron-down"></i>
+                      </a>
+                      <ul class="enrollment-dropdown dropdown-menu" aria-labelledby="simple-dropdown">
+                        <li >
+                          <a href class="" ng-click="setFilterAll('user_status', userStatusChoices) ">
+                            <i class="glyphicon glyphicon-ok" ng-style="{ visibility: getFilterAll('user_status', userStatusChoices) ? 'visible' : 'hidden' }" ></i> All
+                          </a>
+                        </li>
+                        <li ng-repeat="(key, val) in userStatusChoices">
+                          <a href class="" ng-click="setFilter('user_status',  key) ">
+                            <i class="glyphicon glyphicon-ok" ng-style="{ visibility: isInFilter('user_status', key) ? 'visible' : 'hidden' }" ></i> [[val]]
+                          </a>
+                        </li>
+                      </ul>
+                    </span>
+                  </th>
+                  <th>
+                    Match Status
+                    <br/>
+                    <span dropdown on-toggle="toggled(open)" class="field-name pull-left">
+                      <a href dropdown-toggle>
+                        <span> [[displayFilterValues(matchChoices,option.filter.match_status)]]</span>
+                        <i class="glyphicon glyphicon-chevron-down"></i>
+                      </a>
+                      <ul class="enrollment-dropdown dropdown-menu" aria-labelledby="simple-dropdown">
+                        <li >
+                          <a href class="" ng-click="setFilterAll('match_status', matchChoices) ">
+                            <i class="glyphicon glyphicon-ok" ng-style="{ visibility: getFilterAll('match_status', matchChoices) ? 'visible' : 'hidden' }" ></i> All
+                          </a>
+                        </li>
+                        <li ng-repeat="(key, val) in matchChoices">
+                          <a href class="" ng-click="setFilter('match_status', key) ">
+                            <i class="glyphicon glyphicon-ok" ng-style="{ visibility: isInFilter('match_status', key) ? 'visible' : 'hidden' }" ></i> [[val]]
+                          </a>
+                        </li>
+                      </ul>
+                    </span>
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                <!--Shows statistics-->
+                <tr class="mentee" ng-repeat="mentee in mentees.data">
+                  <td><a class="user" href="/iuser/backend_profile/[[mentee.persona_id]]/">[[mentee.first_name]]</a></td>
+                  <td><a class="user" href="/iuser/backend_profile/[[mentee.persona_id]]/">[[mentee.last_name]]</a></td>
+                  <td>[[getPartnerById(mentee.partner_id).name]]</td>
+                  <td>[[mentee.gender]]</td>
+                  <td ng-class="{'green': mentee.application_status == true}">
+                    <span ng-if="mentee.application_status==true">Complete</span>
+                    <span ng-if="mentee.application_status==false">Incomplete</span>
+                  </td>
+                  <td style="position: relative;">
+                    <i ng-class="{'green': mentee.attendance == 1}" ng-model="mentee.tmpAttendance" class="fa fa-chevron-down icon-arrow-caret" aria-hidden="true"></i>
+                    <select ng-class="{'green-drop': mentee.attendance == 1}" class="tbl-drops" ng-model="mentee.tmpAttendance" ng-change="updateMentee(mentee)"
+                      ng-options="key as value for (key,value) in attendanceChoices"
+                      >
+                    </select>
+                  </td>
+                  <td ng-class="{'green': mentee.program_readiness == 1}" style="position: relative;">
+                    <i ng-class="{'green': mentee.program_readiness == 1}" ng-model="mentee.tmpReadiness" class="fa fa-chevron-down icon-arrow-caret" aria-hidden="true"></i>
+                    <select ng-class="{'green-drop': mentee.program_readiness == 1}" class="tbl-drops" ng-model="mentee.tmpReadiness" ng-change="updateMentee(mentee)"
+                      ng-options="key as value for (key,value) in readinessChoices"
+                      >
+                    </select>
+                  </td>
+                  <td ng-class="{'green': mentee.parental_consent == 'Yes'}">[[mentee.parental_consent]]</td>
+                  <td ng-class="{'green': mentee.user_status == 'A'}">[[userStatusChoices[mentee.user_status] ]]</td>
+                  <td ng-class="{'green': mentee.match_status == 'RTBM' || mentee.match_status == 'M'}">[[matchChoices[mentee.match_status] ]]</td>
+                </tr>
+              </tbody>
+            </table>
+            <p style="height: 2px;margin: 0px;">&nbsp;</p>
+            <div class="row" style="padding: 0px 15px;background-color: #4a4a4a;margin: 0;" ng-show="selectedPartnerSites.length>0">
+              <div class="col-md-12 col-lg-12">
+                <div class="pagenav-container">
+                <pagination total-items="mentees.total" ng-model="currentPage" max-size="5" class="pagination-sm pull-right" rotate="false" items-per-page="pageSize"  ng-change="pageChanged()"></pagination>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-3696665-2', 'auto');
+  ga('send', 'pageview');
+  </script>
+</body>
+</html>

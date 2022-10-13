@@ -1,0 +1,2 @@
+alter table qualtrics_survey drop constraint composite_qualtrics_survey_role_survey_key;
+alter table qualtrics_survey add constraint composite_qualtrics_survey_role_survey_key_member_id unique(survey_string,user_type,member_id);

@@ -1,0 +1,10 @@
+<div class=" profile-pic circular" ng-if="widget.app_type===1"><img ng-src="{{otherUser.photo}}" alt="{{otherUser.f_name}}" />  </div>
+<div class="im-embed-attachment">
+    <div class="im-embed-attachment-viewer content-html" ng-if="!useMobileFriendly">
+        <div ng-bind-html="html" html-content ></div>
+        <div class="im-embed-notloaded" ng-bind-html="notLoadedMessage" ng-if="notLoaded"></div>
+    </div>
+    <div class="im-embed-attachment-viewer content-html" ng-if="useMobileFriendly">
+        <div>This content is available <a ng-href="{{iframeUrl}}" target="_blank">here</a> on mobile devices.</div>
+    </div>
+</div>

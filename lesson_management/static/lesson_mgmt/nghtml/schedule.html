@@ -1,0 +1,131 @@
+<div ng-controller="MainCtrl">
+<h2 class="admin-heading">Manage your lessons</h2>
+    <p class="questions"> Which group of students is this lesson for?</p>
+
+      <div
+        isteven-multi-select
+        input-model="classes"
+        output-model="selectedPartnerSites"
+        button-label="name"
+        item-label="name"
+        tick-property="ticked"
+        class="partner-sites"
+        max-height="200px"
+        max-labels="1"
+        on-item-click="updatePartner()"
+        on-select-all="updatePartner()"
+        on-select-none="resetPartner()"
+        on-reset="resetPartner()"
+        translation="partnerSitesLang"
+        selection-mode="single"
+        ></div>
+
+    <div class="margin-20"></div>
+
+    <p ng-if="selectedPartner && scheduledLessons.length > 0"class="questions">Below are all lessons scheduled for [[selectedPartner.name]]</p>
+    <table ng-if="selectedPartner && scheduledLessons.length > 0" class="tableChrt" style="width: 700px;">
+        <tr class="table-header table-header-top">
+            <th colspan='12' class="text-bottom manage-col text-center ">
+                <span dropdown on-toggle="toggled(open)" class="pull-left dropdown"
+                >
+                  <a href dropdown-toggle style="" ng-class="{'disabled': !selectedLessonId}">
+                      Manage <i class="fa fa-wrench"></i>
+                  </a>
+                <ul class="enrollment-dropdown dropdown-menu" aria-labelledby="simple-dropdown"  ng-show="selectedLesson">
+                    <li ng-hide="showDelete === true">
+
+                        <a href class="" ng-click="showDeleteBox()">
+                            Delete this lesson
+                        </a>
+
+                    </li>
+                </ul>
+                </span>
+                <div ng-show="showDelete === true" class="lessonDeleteConfirmBox">
+                    <p>Enter the word "delete" as a confirmation:<br/>
+                        <input type="text"  ng-model="$parent.deleteText" class="deleteInput"/><br/>
+                        <a  href ng-click="cancelDelete()" style="">Cancel</a>
+                        <a  href ng-click="confirmDelete()" style="">Confirm</a>
+                    </p>
+                </div>
+            </th>
+        </tr>
+        <tr>
+            <th class="tblHeader tblHeader1"><span class="glyphicon glyphicon-ok" style="margin-right: 5px;float: left;"></span></th>
+            <th class="tblHeader">Start</th>
+            <th class="tblHeader">End</th>
+            <th class="tblHeader2">Lesson</th>
+        </tr>
+        </table>
+    <div class="tableContainer" ng-if="selectedPartner && scheduledLessons.length > 0">
+        <table class=" table table-striped tableChrt" style="width: 700px;">
+
+        <tr ng-repeat="lesson in scheduledLessons"  ng-class="{'selected': selectedLessonId == lesson.curriculum_id}">
+            <td class="text-center tblCell tblCell1"  ng-click="updateLessonSelection(lesson)"
+             >
+                <span class="fa fa-flag flag-ok"  ng-class="{'selected': selectedLessonId == lesson.curriculum_id, 'unselected': selectedLessonId != lesson.curriculum_id ,' fa fa-check-square-o': selectedLessonId == lesson.curriculum_id, 'fa fa-square-o':selectedLessonId == lesson.curriculum_id != true}" />
+
+
+            </td>
+
+
+            <td class="tblCell tblCell2">[[lesson.lesson_start_string]]</td>
+            <td class="tblCell tblCell2">[[lesson.lesson_end_string]]</td>
+            <td class="tblCell tblCell3">[[lesson.lesson_description]] ([[lesson.grade_number]].[[lesson.unit_number]].[[lesson.lesson_number]]) </td>
+        </tr>
+    </table>
+        </div>
+    <div ng-if="scheduledLessons.length < 1 && selectedPartner">
+        <p style="padding: 10px;
+    background-color: #EEEEEE;
+    color: gray;
+    width: 565px;">You haven’t scheduled any lessons yet for [[selectedPartner.name]].</p>
+    </div>
+
+    <div class="margin-20"></div>
+
+<p class="questions"> Choose a lesson to schedule</p>
+<div>
+    <select ng-model="selectedGrade"
+            ng-options="item.grade.grade_number as item.grade.description + ' (' + item.grade.grade_number + ')' for item in curriculum | unique:'grade.grade_number' | orderBy:['grade.grade_number', 'grade.description']"
+            ng-change="updateGrade(selectedGrade)"
+            >
+        <option value="">Grade</option>
+    </select>
+
+
+    <!--ng-options="item as item.unit.description for item in curriculum"-->
+    <select ng-show="selectedGrade"
+            ng-model="selectedUnit"
+            ng-options="item.unit.id as item.unit.description + ' (' + item.unit.unit_number + ')' for item in curriculum | property:'grade.grade_number':selectedGrade | unique: 'unit.description' | orderBy:['unit.unit_number','unit.description' ]"
+            ng-change="updateUnit(selectedUnit)"
+            >
+        <option value="">Unit</option>
+    </select>
+
+
+    <select ng-show="selectedUnit"
+            ng-model="selectedLesson"
+            ng-options="item.id as item.description + ' (' + item.curriculum_number + ')' for item in curriculum | filter:selectedGrade | property:'unit.id':selectedUnit | property:'grade.grade_number':selectedGrade | orderBy:['curriculum_number', 'description']"
+            ng-change="updateLesson(selectedLesson)"
+            >
+        <option value="">Lesson</option>
+    </select>
+</div>
+
+<div class="margin-20"></div>
+
+<p class="questions">Choose when the lesson will begin</p>
+<div style="position: relative;top: -25px;">
+    <div id="date-pick" class="datepicker" date-set="[[today | date:'MM/dd/yy']]" date-format="MM/dd/yy" date-min-limit="[[minDate | date:'MM/dd/yy']]" date-max-limit="[[maxDate | date:'yyyy/MM/dd']]" button-prev="<i class='fa fa-arrow-left'></i>" button-next="<i class='fa fa-arrow-right'></i>">
+        <input style="padding:7px;color: #737373;" ng-model="lesson.sch_date" id="date-pick2" type="text" placeholder="MM/DD/YY" class="app-deadline" ng-change="updateCollege(lesson)" readonly/>
+    </div>
+
+    <timepicker class="c_timepicker" ng-model="mytime" ng-change="changed(mytime)" hour-step="hstep" minute-step="mstep" show-meridian="ismeridian"></timepicker>
+</div>
+    <button ng-hide="scheduling" ng-disabled="!selectedGrade || !selectedUnit || !selectedLesson || !selectedPartner || !lesson.sch_date || scheduling" ng-click="scheduleLesson()" class="btn-primary">Schedule the lesson</button>
+    <button ng-hide="!scheduling" ng-disabled="!selectedGrade || !selectedUnit || !selectedLesson || !selectedPartner || !lesson.sch_date || scheduling" class="btn-primary">Scheduling...</button>
+</div>
+<div class="margin-30"></div>
+<div class="margin-30"></div>
+

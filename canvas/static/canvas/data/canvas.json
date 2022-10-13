@@ -1,0 +1,14 @@
+﻿{
+	"id": "1", 
+	"description": "Grade 9, Lesson 1", 
+	"start_datetime":"",
+	"end_datetime":"",
+	"config":{ "draggable": true, "editable": true},
+	"apps": [
+		
+		{"id": 3, "title": "Canvas Log", "ordinal": 3,  "send_mask": 4, "recv_mask": 3, "app_type": 3, "widgets":[]}
+
+	]
+}
+
+	

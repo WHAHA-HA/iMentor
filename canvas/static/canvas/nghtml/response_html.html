@@ -1,0 +1,10 @@
+<div class=" profile-pic circular" ng-if="response.user_id">
+	<img ng-src="{{otherUser.photo}}" alt="{{otherUser.f_name}}" ng-if="response.user_id===otherUser.user_id" />  
+	<img img-fix-orientation="user.photo" ng-src="{{user.photo}}" alt="{{user.f_name}}" ng-if="response.user_id===user.user_id" />
+</div>
+<div class="im-embed-attachment">
+    <div class="im-embed-attachment-viewer content-html">
+        <div ng-bind-html="html" html-content ng-if="isHtml"></div>
+        <a href="{{url}}" alt="{{filename}}" target="_blank"  ng-if="!isHtml">{{filename}}</a>
+    </div>
+</div>

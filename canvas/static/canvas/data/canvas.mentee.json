@@ -1,0 +1,275 @@
+{  
+   "canvas_set":{  
+      "start_datetime":"2015-06-23 00:00:00",
+      "description":"Sample 1, First in the Family",
+      "apps":[  
+         {  
+            "canvas_set_id":1,
+            "app_type":2,
+            "description":null,
+            "user_started":null,
+            "user_completed":null,
+            "widgets":[  
+               {  
+                  "ordinal":100,
+                  "content":[  
+                     {  
+                        "ordinal":100,
+                        "widget_id":1,
+                        "url":"http://izquotes.com/quotes-pictures/quote-believe-you-can-and-you-re-halfway-there-theodore-roosevelt-158024.jpg",
+                        "plain_text":null,
+                        "filename":null,
+                        "html":null,
+                        "content_type":9,
+                        "response_markers":[  
+
+                        ],
+                        "id":1
+                     },
+                     {  
+                        "ordinal":200,
+                        "widget_id":1,
+                        "url":null,
+                        "plain_text":"Write to your mentor and share what this quote means to you. Where in your life can you see this connecting?",
+                        "filename":null,
+                        "html":null,
+                        "content_type":12,
+                        "response_markers":[  
+                           {  
+                              "ordinal":100,
+                              "prompt":null,
+                              "response_type":1,
+                              "widget_content_id":2,
+                              "id":1
+                           }
+                        ],
+                        "id":2
+                     }
+                  ],
+                  "id":1,
+                  "canvas_app_id":1
+               }
+            ],
+            "total":3,
+            "id":1,
+            "n_of_total":1
+         },
+         {  
+            "canvas_set_id":1,
+            "app_type":2,
+            "description":null,
+            "user_started":null,
+            "user_completed":null,
+            "widgets":[  
+               {  
+                  "ordinal":100,
+                  "content":[  
+                     {  
+                        "ordinal":100,
+                        "widget_id":2,
+                        "url":"https://www.youtube.com/watch?v=bznt_4Kbo5Q ",
+                        "plain_text":null,
+                        "filename":null,
+                        "html":"<!--Below are the variations in links that users may provide from YouTube.-->\n<!--https://youtu.be/bznt_4Kbo5Q -->\n<!--https://www.youtube.com/watch?v=bznt_4Kbo5Q -->\n<!--https://www.youtube.com/watch?v=bznt_4Kbo5Q &spfreload=10-->\n\n<!--Below is our generic iframe HTML for YouTube content.-->\n<iframe  id=\"youtubeplayer1\"  src=\"https://www.youtube.com/embed/bznt_4Kbo5Q?enablejsapi=1 \" width=\"640\" height=\"360\" frameborder=\"0\" allowfullscreen></iframe>",
+                        "content_type":2,
+                        "response_markers":[  
+
+                        ],
+                        "id":3
+                     },
+                     {  
+                        "ordinal":100,
+                        "widget_id":2,
+                        "url":"https://www.youtube.com/watch?v=bznt_4Kbo5Q ",
+                        "plain_text":null,
+                        "filename":null,
+                        "html":"<iframe src=\"https://embed-ssl.ted.com/talks/joey_alexander_an_11_year_old_prodigy_performs_old_school_jazz.html\" width=\"560\" height=\"315\" frameborder=\"0\" scrolling=\"no\" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>",
+                        "content_type":2,
+                        "response_markers":[  
+
+                        ],
+                        "id":4
+                     },
+                     {  
+                        "ordinal":100,
+                        "widget_id":2,
+                        "url":"https://vimeo.com/130797908",
+                        "plain_text":null,
+                        "filename":null,
+                        "html":"<iframe src=\"https://player.vimeo.com/video/130797908?api=1&player_id=vimeoplayer1\" id=\"vimeoplayer1\" width=\"640\" height=\"360\" frameborder=\"0\" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>",
+                        "content_type":3,
+                        "response_markers":[  
+
+                        ],
+                        "id":5
+                     },
+                     {  
+                        "ordinal":100,
+                        "widget_id":2,
+                        "url":"https://vimeo.com/130797908",
+                        "plain_text":null,
+                        "filename":null,
+                        "html":"<iframe src=\"https://player.vimeo.com/video/130797908?api=1&player_id=vimeoplayer2\" id=\"vimeoplayer2\" width=\"640\" height=\"360\" frameborder=\"0\" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>",
+                        "content_type":3,
+                        "response_markers":[  
+
+                        ],
+                        "id":6
+                     },
+                     {  
+                        "ordinal":200,
+                        "widget_id":2,
+                        "url":null,
+                        "plain_text":null,
+                        "filename":null,
+                        "html":"<ul type=\"disc\"><li>In your groups, brainstorm a list of as many challenges of being 1st as you can.</li><li>Write those challenges in your group's \u201cChallenges\u201d box in the Google Doc.</li></ul>",
+                        "content_type":11,
+                        "response_markers":[  
+
+                        ],
+                        "id":7
+                     },
+                     {  
+                        "ordinal":300,
+                        "widget_id":2,
+                        "url":"https://docs.google.com/document/d/1bb7HiWrGj_nv1lG1OLu8dZakz9D6azRU9T9fwIGSeLM/edit?usp=sharing ",
+                        "plain_text":null,
+                        "filename":null,
+                        "html":"<!--Below are the variations in links that users may provide from Google, specifically Google apps such as documents and spreadsheets.-->\n<!--https://docs.google.com/document/d/1bb7HiWrGj_nv1lG1OLu8dZakz9D6azRU9T9fwIGSeLM/edit?usp=sharing -->\n\n<!--Below is our generic iframe HTML for Google content.-->\n<iframe src=\"https://docs.google.com/document/d/1bb7HiWrGj_nv1lG1OLu8dZakz9D6azRU9T9fwIGSeLM/edit?usp=sharing \" width=\"780\" height=\"580\" frameborder=\"0\" allowFullScreen></iframe>",
+                        "content_type":6,
+                        "response_markers":[  
+
+                        ],
+                        "id":8
+                     }
+                  ],
+                  "id":2,
+                  "canvas_app_id":2
+               },
+               {  
+                  "ordinal":200,
+                  "content":[  
+                     {  
+                        "ordinal":100,
+                        "widget_id":3,
+                        "url":"http://www.imfirst.org/stories/michelle-in-washington-dc/ ",
+                        "plain_text":null,
+                        "filename":null,
+                        "html":null,
+                        "content_type":10,
+                        "response_markers":[  
+
+                        ],
+                        "id":6
+                     },
+                     {  
+                        "ordinal":200,
+                        "widget_id":3,
+                        "url":null,
+                        "plain_text":null,
+                        "filename":null,
+                        "html":"<ul type=\"disc\"><li>In your groups, discuss how many of the challenges you listed apply to Michelle Obama's experience as a 1st Generation college student.</li><li>In your groups, discuss how many of the challenges you listed apply to Michelle Obama's experience as a 1st Generation college student.</li><li>Type those questions into your group's \u201cQuestions\u201d box in the Google Doc.</li></ul>",
+                        "content_type":11,
+                        "response_markers":[  
+
+                        ],
+                        "id":7
+                     },
+                     {  
+                        "ordinal":300,
+                        "widget_id":3,
+                        "url":"https://docs.google.com/document/d/1bb7HiWrGj_nv1lG1OLu8dZakz9D6azRU9T9fwIGSeLM/edit?usp=sharing",
+                        "plain_text":null,
+                        "filename":null,
+                        "html":"<!--Below are the variations in links that users may provide from Google, specifically Google apps such as documents and spreadsheets.-->\n<!--https://docs.google.com/document/d/1bb7HiWrGj_nv1lG1OLu8dZakz9D6azRU9T9fwIGSeLM/edit?usp=sharing-->\n\n<!--Below is our generic iframe HTML for Google content.-->\n<iframe src=\"https://docs.google.com/document/d/1bb7HiWrGj_nv1lG1OLu8dZakz9D6azRU9T9fwIGSeLM/edit?usp=sharing\" width=\"780\" height=\"580\" frameborder=\"0\" allowFullScreen></iframe>",
+                        "content_type":6,
+                        "response_markers":[  
+
+                        ],
+                        "id":8
+                     }
+                  ],
+                  "id":3,
+                  "canvas_app_id":2
+               },
+               {  
+                  "ordinal":300,
+                  "content":[  
+                     {  
+                        "ordinal":100,
+                        "widget_id":4,
+                        "url":null,
+                        "plain_text":"Using the website below, find an answer to your group's question. Once your group finds an answer, type that answer into your group's \u201cAnswers\u201d box in the Google Doc.",
+                        "filename":null,
+                        "html":null,
+                        "content_type":12,
+                        "response_markers":[  
+
+                        ],
+                        "id":9
+                     },
+                     {  
+                        "ordinal":200,
+                        "widget_id":4,
+                        "url":"http://www.firstgenerationstudent.com/ ",
+                        "plain_text":null,
+                        "filename":null,
+                        "html":null,
+                        "content_type":10,
+                        "response_markers":[  
+
+                        ],
+                        "id":10
+                     }
+                  ],
+                  "id":4,
+                  "canvas_app_id":2
+               }
+            ],
+            "total":3,
+            "id":2,
+            "n_of_total":2
+         },
+         {  
+            "canvas_set_id":1,
+            "app_type":2,
+            "description":null,
+            "user_started":null,
+            "user_completed":null,
+            "widgets":[  
+               {  
+                  "ordinal":100,
+                  "content":[  
+                     {  
+                        "ordinal":100,
+                        "widget_id":5,
+                        "url":null,
+                        "plain_text":null,
+                        "filename":null,
+                        "html":"<ul type=\"disc\"><li>Share something that you learned today about the challenge of being 1st and how you can overcome that challenge.</li><li>Share something that you learned today about the challenge of being 1st and how you can overcome that challenge.</li></ul>",
+                        "content_type":11,
+                        "response_markers":[  
+                           {  
+                              "ordinal":100,
+                              "prompt":null,
+                              "response_type":1,
+                              "widget_content_id":11,
+                              "id":2
+                           }
+                        ],
+                        "id":11
+                     }
+                  ],
+                  "id":5,
+                  "canvas_app_id":3
+               }
+            ],
+            "total":3,
+            "id":3,
+            "n_of_total":3
+         }
+      ],
+      "end_datetime":"2015-06-30 00:00:00",
+      "id":1
+   }
+}

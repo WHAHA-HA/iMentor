@@ -1,0 +1,78 @@
+<div ng-controller="headerController">
+<div class="navbar navbar-default" role="navigation">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <hamburger-toggle ng-mouseover="hamburgerHover()" ng-mouseleave="HamburgerUnhover()" ng-click="toggleState()" style="cursor: pointer;" state="tgState" class="hamburger-toggle"></hamburger-toggle>
+      <span class="navbar-brand">
+        College Checklist
+      </span>
+
+      <div class="notifications">
+        <notification-icon ng-show="$root.showChat" class="messageNotification" count="$root.messageCount" ng-click="$root.toggleChat();$root.markAsRead=true;">
+          <i ng-class="{'chatNoMsgs': $root.messageCount < 1, 'chatMsgs': $root.messageCount > 0}" ng-click="$root.toggleChat();$root.markAsRead=true;" class="fa fa-comment fa-3x"></i>
+        </notification-icon>
+
+        <span ng-if="userrole === 'Mentor' || userrole === 'Mentee'" class="username">[[firstname]] [[lastname.split('')[0] ]]</span>
+        <span ng-if="userrole !== 'Mentor' && userrole !== 'Mentee'" class="username">[[firstname]] [[lastname.split('')[0] ]]</span>
+        <!--<i class="glyphicon glyphicon-comment"></i>-->
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="sidenav" ng-class="{open: tgState}" ng-init="Administration = false; Reports = false;" style="font-size:14px;font-weight: 400;">
+  <ul ng-if="userrole === 'Mentor' || userrole === 'Mentee'" class="nav nav-pills nav-stacked">
+    <li ui-sref-active="active"><a href="/canvas/#/">Current Lesson</a></li>
+    <li ui-sref-active="active"><a href="/portfolio/#/">Portfolio</a></li>
+    <li ng-if="(match_status === 'M' && userrole === 'Mentor') || userrole === 'Mentee'" ui-sref-active="active"><a href="/cchklist/list/#/">College Checklist</a></li>
+    <li><a href="/events/personal/">Calendar</a></li>
+    <!--<li><a href="/iuser/myinfo/{{persona}}/" >Profile</a></li>-->
+    <!--<li ng-show="userrole === 'Mentee'"><a href="https://learn.imentor.org/help/article/link/imentor-curriculum">Resources</a></li>-->
+    <li ng-show="userrole !== 'Mentee'"><a href="https://learn.imentor.org/help/article/link/home" target="_blank">Learning Center</a></li>
+    <li><a href="/message/list/">Legacy Platform</a></li>
+    <li ui-sref-active="active"><a href="https://imentor.org/privacy-policy">iMentor Privacy Policy</a></li>
+    <li ui-sref-active="active"><a  href="" ng-click="logout();">Sign out</a></li>
+  </ul>
+  <ul ng-if="userrole !== 'Mentor' && userrole !== 'Mentee'" class="nav nav-pills nav-stacked">
+    <li ui-sref-active="active"><a href="/canvas/#/">Current Lesson</a></li>
+    <li ui-sref-active="active"><a href="/portfolio/#/">Portfolio</a></li>
+    <li ui-sref-active="active"><a href="/lesson_mgmt/#/">Lesson Management</a></li>
+    <li><a href="/events/admin/">Calendar</a></li>
+    <li><a href="/message/list/note/">Add a Note</a></li>
+    <!--<li><a href="/iuser/backend_profile/{{persona}}/" >Profile</a></li>-->
+    <li><a ng-click="Administration = !Administration" style="cursor:pointer"><span class="fa fa-caret-down" style="position: relative;top: 3px;margin-right: 3px;font-size: 14px;"></span> Administration </a></li>
+    <ul ng-show="Administration === true" class="submenu">
+      <li><a href="/iuser/" >Users</a></li>
+      <li><a href="/partners/list/">Partner Sites</a></li>
+      <li><a href="/attendance/">Attendance</a></li>
+      <!--<li><a href="/survey/">Surveys</a></li>-->
+      <li><a href="/new_surveys/">Surveys</a></li>
+      <li ng-show="subdomain != 'mentor2' && subdomain != 'bbsu' && subdomain != 'bbbscharlotte' && subdomain != 'bbbsmilwaukee' && subdomain != 'bbbswillgrundy'"><a href="/enrollment/">Mentee Enrollment</a></li>
+      <li ng-show="subdomain === 'platformtraining'"><a href="/mentor_rubric/">Mentor Rubric</a></li>
+      <!--<li><a href="/reporting/manage_alerts/">Alerts</a></li>-->
+    </ul>
+    <li><a ng-click="Reports = !Reports" style="cursor:pointer"><span class="fa fa-caret-down" style="position: relative;top: 3px;margin-right: 7px;font-size: 14px;"></span>Reports</a></li>
+    <ul ng-show="Reports === true" class="submenu">
+      <li><a href="/snapshot/">Snapshot</a></li>
+      <li ng-show="isOnPartnerListTableau && (subdomain == 'nyc' || subdomain == 'chicago' || subdomain == 'bayarea' || subdomain == '127')"><a ng-href="[[programUrl]]" target="_blank" style="cursor: pointer;" ng-click="getProgramParticipation([[subdomain]]);">S.T.E.V.E.</a></li>
+      <li ng-show="isOnPartnerListTableau && (subdomain != 'nyc' && subdomain != 'chicago' && subdomain != 'bayarea' && subdomain != '127')&& userrole != 'Partner Admin'"><a ng-href="[[programUrl]]" target="_blank" style="cursor: pointer;" ng-click="getProgramParticipation([[subdomain]]);">Participation History</a></li>
+      <li><a href="/flipbook/">Flipbook</a></li>
+      <li><a href="/reporting/intake_application_tracker/">Intake App Tracker</a></li>
+      <li><a href="/iuser/screening_tracker/">Screening Tracker</a></li>
+      <!--<li><a href="/reporting/participation_tracker/">MPT</a></li>-->
+      <!--<li><a href="/reporting/email_tracker/">Email Tracker</a></li>-->
+      <!--<li><a href="/reporting/email_log/">Email Log</a></li>-->
+      <li><a href="/reporting/event_tracker/">Event Tracker</a></li>
+      <li><a href="/reporting/event_log/">Event Log</a></li>
+      <!--<li><a href="/ratings/tracker/pairs/2/">Ratings Tracker</a></li>-->
+      <li><a href="/notes/support_tracker_pair/">Support Tracker</a></li>
+      <li><a href="/notes/note_log/">Note Log</a></li>
+    </ul>
+    <li><a href="https://learn.imentor.org/" target="_blank">Learning Center</a></li>
+    <li><a href="/message/list/">Legacy Platform</a></li>
+    <li ui-sref-active="active"><a href="https://imentor.org/privacy-policy">iMentor Privacy Policy</a></li>
+    <li ui-sref-active="active"><a href="" ng-click="logout();">Sign out</a></li>
+  </ul>
+</div>
+</div>

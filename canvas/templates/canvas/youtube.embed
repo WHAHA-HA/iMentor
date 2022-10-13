@@ -1,0 +1,9 @@
+<!--Below are the variations in links that users may provide from YouTube.-->
+<!--https://youtu.be/{{url}}-->
+<!--https://www.youtube.com/watch?v={{url}}-->
+<!--https://www.youtube.com/watch?v={{url}}&spfreload=10-->
+
+<!--Below is our generic iframe HTML for YouTube content.-->
+<div class="js-video [vimeo, widescreen]">
+<iframe src="https://www.youtube.com/embed/{{url}}?enablejsapi=1" width="640" height="480" frameborder="0" allowfullscreen  sandbox="allow-scripts allow-same-origin allow-popups" ></iframe>
+</div>

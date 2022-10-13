@@ -1,0 +1,17 @@
+
+<!--Type:2 <br/>-->
+<div>
+  <input type="text"
+         ng-required="question.is_required"
+         placeholder="[[question.question_text]]"
+         ng-model="question.user_response.user_response"
+         ng-blur="update()"
+         ng-change="updateRequired()"
+         class="question-ptext"
+         name="textbox1"
+         tabindex="[[tabIndex]]"
+         ng-disabled="question.onBackendCall == true"
+      />
+  <span ng-show="question.required == true && question.edited == true && question.showRequired == true" class="form-error">[[fieldErrMsg]]</span>
+  <span class="error">[[error]]</span> <br/>
+</div>

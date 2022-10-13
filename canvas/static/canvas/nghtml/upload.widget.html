@@ -1,0 +1,50 @@
+<div class="im-embed-attachment">
+    <div class="im-embed-attachment-viewer">
+        <div class="filesList upload-list">
+            <ul style="clear:both" ng-show="filesUpload.length > 0">
+                <li class="sel-file" ng-repeat="f in filesUpload | reverse">
+                    <div class="file-trash pull-left" ng-show="f.progress===100 && !errorMsg" ng-click="remove(f)"><a style="font-size: 22px;"class="fa fa-trash-o" ng-click="remove(f)"></a></div>
+                    <div class="" style="width: 35%;display: inline-block;" ng-class="{'upload-complete-color': f.progress===100}">
+                        <a ng-show="f.progress <= 100 && !errorMsg" href="{{f.result.url}}" alt="{{f.name}}" target="_blank">{{f.savedname.substring(0,30)}}<span ng-show="f.savedname.length >= 30">...</span></a>
+                    </div>
+                    <div class="pull-right fileUp-cntrl" style="position: relative;" ng-hide="f.progress===100">
+                        <span style="font-size: 26px;color: red" class="fa fa-times" ng-click="f.upload.abort();f.upload.aborted=true; abort(f);remove(f);" ng-show="f.upload != null && !f.upload.aborted"></span>
+                    </div>
+                    <div class="progress" ng-show="f.progress >= 0 && f.progress!=100 && !f.upload.aborted"><div style="width:{{f.progress}}%"></div></div>
+                    <div ng-show="errorMsg" style="margin-top: 20px;background-color: #eee;padding: 10px;">
+                        <span style="font-size: 26px;color: red;float: left; margin-right: 7px;" class="fa fa-times" ng-click="f.upload.abort();f.upload.aborted=true; abort(f);remove(f);" ng-show="f.upload != null && !f.upload.aborted"></span>
+                        <span ng-show="errorMsg">{{f.savedname.substring(0,30)}} {{errorMsg}}</span>
+                    </div>
+                    <div class="clearfix"></div>
+                    <!--
+                <img ng-show="f.type.indexOf('image') > -1" ngf-src="f" class="thumb" ngf-accept="'image/*'">
+                <span class="progress" ng-show="f.progress >= 0">
+                  <div style="width:{{f.progress}}%">{{f.progress}}%</div>
+                </span>
+                <span class="label label-info">{{f.name}}</span> - <span class="label label-info">size: {{f.size}}B</span> - <span class="label label-default">type: {{f.type}}</span>
+                <button class="button btn btn-danger upload-button-abort" ng-click="f.upload.abort();f.upload.aborted=true; abort(f)" ng-show="f.upload != null && f.progress < 100 && !f.upload.aborted">Abort
+                </button>
+                <a ng-show="f.result && f.result.url " href="javascript:void(0)"  ng-click="f.showDetail = !f.showDetail" class="label label-success  upload-result" >Success</a>
+                 <a ng-show="f.result && !f.result.url " href="javascript:void(0)"  ng-click="f.showDetail = !f.showDetail" class="label label-danger  upload-result" >Failed</a>
+                <button class="button btn btn-danger pull-right" ng-click="remove(f)" ng-show="f.result"><span class="fa fa-trash"></span>
+                </button>
+                <div ng-show="f.result" class="upload-response">
+                    <div  ng-show="f.result.url"><a href="{{getUrl(f.result.url)}}" alt="{{item.name}}" target="_blank">{{getUrl(f.result.url)}}</a></div>
+                    <div  ng-show="!f.result.url"><h5>{{f.result}}</h5></div>
+                </div>
+                -->
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="im-embed-attachment-preview">
+        <div class="file-drop-box-container" >
+            <div class="file-drop-box"  ngf-select ngf-drop ng-model="filesUpload" ngf-multiple="false" ngf-keep="true" accept="{{allowTypes}}" ngf-accept="validateType($file)"  ng-disabled="uploadProgress || filesUpload.length>0" ngf-drag-over-class="dragClass" ng-hide="filesUpload.length>0">
+                Click here to select a file from your computer and begin the upload.
+                <br />
+                <i class="fa fa-arrow-circle-up"></i>
+            </div>
+        </div>
+    </div>
+    <div class="clearfix"></div>
+</div>

@@ -1,0 +1,15 @@
+<!--Type:1 <br/>-->
+<div>
+  <span class="questiontext" ng-bind-html="htmlText"></span>
+  <textarea
+      ng-required="question.is_required"
+      ng-blur="update()"
+      ng-model="question.user_response.user_response"
+      ng-change="updateRequired()"
+      tabindex="[[tabIndex]]"
+      ng-disabled="question.onBackendCall == true"
+      >
+  </textarea>
+  <span ng-show="question.required && question.edited == true && question.showRequired == true" class="form-error">[[fieldErrMsg]]</span>
+  <span class="error">[[error]]</span> <br/>
+</div>

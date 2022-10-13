@@ -1,0 +1,7 @@
+<div class="widget-content">
+	<ul class="activities">
+		<li data-ng-repeat="log in activities  | orderBy:'id'">
+			<span class="text-primary">{{log.sendMask}}|{{log.recvMask}}</span>-<span class="text-success">{{log.id}}</span> : <span class="bg-primary">{{log.state}}</span> <span>{{log.data}}</span>
+		</li>
+	</ul>
+<div>

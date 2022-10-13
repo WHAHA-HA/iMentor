@@ -1,0 +1,12 @@
+<div class="form-header" id="header">
+  <h1 style="color:#FFFFFF;">[[description]]</h1>
+  <!--<div class="spinner" ng-show="busy"><img ng-src="/new_platform/static/apiforms/img/dots.gif"  alt="Loading icon"><h3>Please wait while we generate your application...</h3></div>-->
+  <div class="logout" ng-click="logout()"><a>Sign out</a></div>
+  <br/>
+
+  <ul class="nav navbar-nav thetabs" ng-controller="headerController" ng-init="init()" id="headerCtrl">
+    <li id="[[$index + 1]]" ng-repeat="sect in sections | orderBy:'ordinal'" ng-class="{active:'[[$index + 1]]' == theTab, disabled: isDisabledSection($index), past: '[[$index + 1]]' < theTab, 'mentorTab': sections.length == 4, 'menteeTab': sections.length == 3}" class="form-sections">
+      <a class="tabLinks" ng-click="moveToSection($index)" ng-class="{pointer: '[[$index + 1]]' != theTab}">[[sect.description]]</a>
+    </li></ul>
+</div>
+[[theTab]]

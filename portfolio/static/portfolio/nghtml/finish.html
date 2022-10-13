@@ -1,0 +1,19 @@
+<div id="finished" ng-controller="FinishCtlr" ng-init="gotoTop();">
+    <div class="centered">
+        <div class="appinfo">
+            <h2>Congrats!</h2>
+            <h2>You finished your unit.</h2>
+            <div class="margin60"></div>
+            <div class="margin-30"></div>
+            <div>
+                <button ng-click="goHref('/portfolio/');" style="margin: 0 0 20px 0; width: 220px" class="btn-primary orange">Explore your Portfolio</button>
+            </div>
+            <div>
+                <button class="btn-primary finish" ng-click="goHref('/canvas/');" style="margin: 0 0 20px 0; width: 220px"><a href="">Review your current lesson</a></button>
+            </div>
+            <div>
+                <button class="btn-primary finish" ng-click="logout();" style="width: 110px"><a href="">Sign out</a></button>
+            </div>
+        </div>
+    </div>
+</div>

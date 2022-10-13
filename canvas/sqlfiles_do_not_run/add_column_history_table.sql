@@ -1,0 +1,2 @@
+﻿alter table canvas_content_user_response_history add column original_response_id INTEGER NOT NULL DEFAULT 0;
+alter table canvas_content_user_response_history add column new_response_id INTEGER NOT NULL DEFAULT 0;

@@ -1,0 +1,47 @@
+<div> <form name="validationForm" ng-submit="submit()">
+    <div class="" ng-show="error && error.length > 0" role="alert">{{error}}</div>
+    <div   text-angular data-ng-model="ngModel"  
+                        ta-text-editor-setup="setup"
+                        name="{{textAngularName}}"
+                        id="{{textAngularName}}"
+                     >
+    </div>
+</form>
+
+</div>
+<!--
+<mentio-menu mentio-for="textAngularName"
+             mentio-trigger-char="':'"
+             mentio-items="emojisFiltered"
+             mentio-template-url="/emoji-mentions.tpl"
+             mentio-search="searchEmoji(term)"
+             mentio-select="getEmojiText(item)">
+</mentio-menu>
+
+<mentio-menu mentio-for="textAngularName"
+             mentio-trigger-char="'~'"
+             mentio-items="macrosFiltered"
+             mentio-template-url="/macro-mentions.tpl"
+             mentio-search="searchMacro(term)"
+             mentio-select="getMacroText(item)">
+</mentio-menu>
+-->
+<script type="text/ng-template" id="/emoji-mentions.tpl">
+    <ul class="list-group popup-search">
+        <li mentio-menu-item="emoji" ng-repeat="emoji in items" class="list-group-item">
+            <img ng-src="{{emoji.imageUrl}}" class="popup-photo">
+            <!--<img src="{{blankImage}}" class="{{emoji.emojiClass}}" class="popup-photo" />-->
+            <span class="text-primary" ng-bind-html="emoji.short_name | mentioHighlight:typedTerm:'menu-highlighted'"></span>
+            
+        </li>
+    </ul>
+</script>
+
+<script type="text/ng-template" id="/macro-mentions.tpl">
+    <ul class="list-group popup-search">
+        <li mentio-menu-item="macro" ng-repeat="macro in items" class="list-group-item">
+            <span class="text-primary" ng-bind-html="macro.key | mentioHighlight:typedTerm:'menu-highlighted'"></span>
+            
+        </li>
+    </ul>
+</script>

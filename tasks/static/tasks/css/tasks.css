@@ -1,0 +1,326 @@
+.ngdialog-content, h1,h2,h3{
+  font-family: "Helvetica Neue", "Helvetica", "Arial" !important;
+  font-weight: 200 !important;
+  margin-bottom: 20px;
+  color:rgb(68, 68, 68);
+}
+.ngdialog-content h1, #tasks-container h2,#tasks-container h3{
+  margin-bottom: 20px;
+}
+.ngdialog-content h3{
+  font-size: 22px !important;
+}
+body{
+background: url('//cdn.imentor.org/new_platform/static/lesson_mgmt/img/blurry_bg.jpg') no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  font-family: "Helvetica Neue", "Helvetica", "Arial" !important;
+}
+.ngdialog.ngdialog-theme-plain .ngdialog-content {
+  	width: 580px;
+  	padding: 0em;
+}
+a:focus {
+  outline: -webkit-focus-ring-color auto 0px;
+}
+.orange{
+  background-color: #FD9851;
+  color: white !important;
+}
+.orange:hover{
+  background-color: #FDA651;
+}
+.gray{
+	background-color: #EEEEEE;
+  color: #2B2B2B !Important;
+}
+.ratingsList:hover{
+  cursor: pointer;
+}
+.gray:hover{
+  background-color: #FFF;
+  color: #2B2B2B !Important;
+}
+.tasks {
+  background-color: white;
+  margin-bottom: 10px;
+  padding: 10px 25px;
+  border-bottom: 1px solid gray;
+}
+.tasks:last-child {
+  border-bottom: 0px solid gray;
+}
+.ngdialog.ngdialog-theme-plain .ngdialog-button.ngdialog-button-primary {
+  background: #FD9851;
+}
+.ngdialog.ngdialog-theme-plain .ngdialog-button {
+  padding: 10px 30px;
+  font-size: 14px;
+  font-weight: 400;
+  border: 0px;
+  margin-right: 9px;
+  color: white;
+  border-radius: 0px;
+}
+.ngdialog.ngdialog-theme-plain .ngdialog-button {
+  border: 0;
+  cursor: pointer;
+  font-size: .8em;
+  margin: 0;
+  padding: .75em 2em;
+  width: 130px;
+  padding: 0px !important;
+  /* text-transform: uppercase; */
+}
+button.ngdialog-button {
+  border: solid transparent 0px !important;
+}
+.ngdialog.ngdialog-theme-plain {
+  padding-top: 100px;
+}
+.ngdialog-button {
+  display: inline-block;
+}
+.ngdialog-button{
+  text-align: center;
+  padding: 12px;
+  text-decoration: none;
+  text-decoration: none;
+  width: 110px;
+  height: 50px;
+  color:white;
+}
+.address {
+  color: #00aeef !important;
+  font-size: 14px;
+}
+.date {
+  font-size: 16px;
+}
+.icons{
+	margin-right: 7px;
+}
+.ratingnum {
+  padding: 0px;
+  display: inline-block;
+  margin: 20px 0px;
+}
+.ratingnum li {
+  display: inline;
+  margin-right: 0px;
+  border: 2px solid #00aeef;
+  border-right: 0px;
+  padding: 15px 18px;
+}
+.ratingnum li:last-child {
+  border-right: 2px solid #00aeef;
+}
+.ngdialog.ngdialog-theme-plain .ngdialog-button {
+  float: left !important;
+  text-transform: none !important;
+}
+.selectedRating {
+  background-color: #00aeef;
+}
+.ngdialog.ngdialog-theme-plain .ngdialog-content {
+  width: 585px !important;
+  background: transparent !important;
+}
+.ngdialog.ngdialog-theme-plain .ngdialog-close {
+
+}
+.ngdialog.ngdialog-theme-plain .ngdialog-content {
+  padding: 0px !important;
+}
+#tasks-container{
+  font-size: 16px;
+}
+#tasks-container .fa{
+  font-size: 24px;
+}
+.closeTasks{
+  cursor: pointer;
+}
+.buttonTasks {
+  border: none;
+  font-weight: 200;
+  color: #FFFFFF;
+  font-size: 13px;
+  padding: 10px 10px;
+}
+.buttonTasks:hover {
+ background-color: #F5F5F5;
+}
+#tasks-container .ngdialog-content a:focus, a:hover {
+  color: white;
+  text-decoration: none;
+}
+#tasks-container .ngdialog-content a.evtAddress:focus, a.evtAddress:hover {
+  color: #00aeef !important;
+  text-decoration: none;
+}
+.ngdialog.ngdialog-theme-plain .ngdialog-content li:hover{
+  background-color: rgba(0, 174, 239, 0.2);
+}
+#ngdialog1{
+  /*display: none;*/
+}
+.event {
+  border-bottom: 1px solid gray;
+  padding-bottom: 20px;
+}
+#tasks-container .btn-default.active, .btn-default:active, .open>.dropdown-toggle.btn-default {
+  color: white;
+  background-color: #00aeef;
+  font-weight: 200;
+  border-color: #00aeef !important;
+}
+#tasks-container .btn-default.active, .btn-default:active:hover{
+  background-color: #00aeef;
+}
+.btn {
+  border-radius: 0px !important;
+}
+#tasks-container .btn-default {
+  color: #333;
+  background-color: #fff;
+  border-color: #00aeef !important;
+  border: 2px solid transparent;
+  font-size: 16px;
+  font-weight: 200;
+}
+#tasks-container .btn-default:hover {
+  border-color: #00aeef !important;
+  background-color: rgba(0, 174, 239, 0.2);
+}
+#tasks-container .btn.active, .btn:active {
+  outline: 0;
+  -webkit-box-shadow: inset 0 0px 0px rgba(0,0,0,.125) !important;
+  box-shadow: inset 0 0px 0px rgba(0,0,0,.125) !important;
+}
+#tasks-container .btn-default:hover {
+  border-color: #00aeef !important;
+}
+#tasks-container .btn-default.active:hover{
+  background-color: #00aeef !important;
+}
+.eventContainer{
+  border-bottom: 1px solid gray;
+  padding-bottom: 20px;
+}
+.eventContainer:last-of-type {
+  border-bottom: 0px solid gray;
+}
+.reflectionImg {
+  width: 30px;
+  height: auto;
+}
+.ngdialog-overlay {
+  background: rgba(0, 0, 0, 0.81) !important;
+}
+
+.ngdialog.ngdialog-theme-plain .ngdialog-content .task0  li:hover {
+    background-color: transparent;
+}
+
+.ngdialog.ngdialog-theme-plain .ngdialog-content .task0 iframe{
+      max-width: 100%;
+}
+.announcement-embed-notloaded { 
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 1px;
+  background-color: #E0E0E0;
+}
+
+.announcement-embed {
+  position: relative;
+}
+
+.mobileStyles{
+  display: none;
+}
+.desktopStyles{
+  display: inline-block;
+}
+
+a {
+    word-wrap: break-word;
+  }
+.btn-group>.btn:not(:first-child):not(:last-child):not(.dropdown-toggle) {
+    border-radius: 0;
+    margin-left: -2px;
+}
+.fieldSeparator{
+  margin-bottom: 10px;
+}
+.infoField {
+  display: inline-block;
+  width: 100px;
+}
+.fieldSeparator .form-group {
+  margin-right: 15px;
+}
+.confirmationTask .form-control {
+  border-radius: 0px;
+}
+@media (max-width: 800px) {
+  .mobileStyles{
+    display: inline-block;
+  }
+  .desktopStyles{
+    display: none;
+  }
+
+  .survey-box iframe { 
+    width : 100% !important;
+    height: 100% !important;
+  }
+
+  .ratingnum li {
+   padding: 15px 17px; 
+  }
+  
+  .events-task .btn-group .btn {
+    min-width: 150px;
+    margin-right: 200px;
+  }
+  .btn-group .btn+.btn {
+    margin-left: 0px; 
+  }
+  .confirmationTask input {
+    width: 300px;
+    display: block;
+    height: 34px;
+    padding: 6px 12px;
+    font-size: 14px;
+    line-height: 1.42857;
+    color: rgb(85, 85, 85);
+    border: 1px solid rgb(204, 204, 204);
+    border-radius: 0px;
+    background-image: none;
+    background-color: rgb(255, 255, 255);
+  }
+
+  
+}
+@media (max-width: 800px) and (orientation: portrait) {
+  .btn-group>.btn:not(:first-child):not(:last-child):not(.dropdown-toggle) {
+     margin-left: 0;
+  }
+}
+ @media (max-width: 800px) and (orientation: landscape) {
+  .events-task .btn-group .btn {
+    min-width: 0px;
+    margin-right: 0px;
+  }
+  .btn-group .btn+.btn {
+    margin-left: -1px; 
+  }
+
+ }

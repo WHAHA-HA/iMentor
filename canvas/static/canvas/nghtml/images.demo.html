@@ -1,0 +1,25 @@
+<div class="row">
+  <div class="span12">
+    <div class="pa-sidebar well well-small">
+    	<center>
+	  		<h4>Image Selector Demo</h4>
+		</center>
+
+		<div class="row">
+			<span>
+				Imentor API : <input type="textbox" data-ng-model="vm.selected.url" > <a class="btn btn-primary" im-image-selector im-image-selector-images="vm.images"   im-image-selector-selected="vm.selected"><i class="glyphicon glyphicon-image"></i>Select Image</a> 
+			</span> 
+			<img src="{{vm.selected.url}}" alt="{{vm.selected.title}}">
+			
+		</div>
+		<div class="row">&nbsp;</div>
+		<div class="row">
+			<span>
+				Flickr API : <input type="textbox" data-ng-model="vm.flickrSelected.url" > <a class="btn btn-primary" im-image-selector im-image-selector-service="vm.photoService"   im-image-selector-selected="vm.flickrSelected"><i class="glyphicon glyphicon-image"></i>Select Image</a> 
+			</span> 
+			<img src="{{vm.flickrSelected.url}}" alt="{{vm.flickrSelected.title}}">
+			
+		</div>
+    </div> 
+  </div>
+</div>

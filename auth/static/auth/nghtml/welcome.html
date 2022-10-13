@@ -1,0 +1,49 @@
+<div ng-controller="WelcomeController" style="height:100%" ng-show="showSignbox == false">
+    <div style="text-align: center;">
+        <div class="signinCont">
+            <a class="signinLink button-all" ng-click="showSignin()">Sign in</a>
+        </div>
+        <div ng-show="showSignbox == false" class="signup-message-box">
+            <h1 class="main-header centered">Welcome to<br>{{name}}</br></h1>
+            <h3 class="subheader centered">To start your journey, sign up here as...</h3>
+            <div class="landingBtns centered">
+                <a href="#/signupmentor">
+                    <button class="landingBtn orange button-all button-lg">New mentor</button>
+                </a>
+                <a href="#/signupmentee">
+                    <button class="landingBtn orange button-all button-lg">New mentee</button>
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="about"><a href="https://imentor.org/privacy-policy">iMentor Privacy Policy</a><span ng-show="isOnPartnerList">&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;</span><a ng-href="partnership_page/#/" target="_blank" ng-show="isOnPartnerList">About iMentor's partnership with {{name}}</a></div>
+</div>
+<form name="loginForm" novalidate class="loginForm" ng-controller="LoginController" ng-submit="loginUser(email, password)" ng-show="showSignbox == true">
+    <h4 class="signinMsg" style="margin-bottom: 15px;">Sign into the platform</h4>
+    <!-- We added id attributes to email and password to allow Jenkins to find these elements. -->
+    <input id="email" type="email" name="email" ng-model="email" placeholder="Email address" required ng-focus/>
+    <input id="password" type="password" name="password" ng-model="password" placeholder="Password" style="border-top: none;" required />
+    <div class="forgot-pass"><a href="/#/pswforgot">Trouble signing in?</a></div>
+    <div class="loginBtns">
+        <button id="sign-in" class="button-all button-sm orange" ng-disabled="busy == true" ng-click="submitted=true">{{buttonText}}</button>
+        <a>
+            <button class="button-all button-sm white" ng-disabled="busy == true" ng-click="showWelcome()">Cancel</button>
+        </a>
+    </div>
+    <div class="error-container" ng-show="(loginForm.email.$dirty && loginForm.email.$invalid && submitted)">
+        <span class="error" ng-show="loginForm.email.$error.required">
+        An email address is required.
+    </span>
+        <span class="error" ng-show="loginForm.email.$error.email">
+        Enter a valid email address.
+    </span>
+    </div>
+    <div class="error-container" ng-show="(loginForm.password.$dirty && loginForm.password.$error.required && submitted)">
+        <span class="error" ng-show="loginForm.password.$error.required">
+        A password is required.
+    </span>
+    </div>
+    <div ng-show="authenticationError && authenticationError !== 'This field is required.'">
+        {{authenticationError}}
+    </div>
+</form>

@@ -1,0 +1,14 @@
+<!--Type: 10 <br/>-->
+
+<div>
+   <select ng-model="state"
+          ng-options="state as state.name for state in states"
+          ng-disabled="!question.is_active || question.onBackendCall == true"
+          ng-change = "update()"
+          tabindex="[[tabIndex]]"
+       >
+    <option value="">[[question.question_text]]</option>
+  </select>
+  <span ng-show="question.required && question.edited == true && question.showRequired == true" class="form-error">[[fieldErrMsg]]</span>
+  <span class="error" >[[error]]</span> <br/>
+</div>

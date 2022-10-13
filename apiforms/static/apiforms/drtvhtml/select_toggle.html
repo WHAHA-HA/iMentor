@@ -1,0 +1,27 @@
+<!--Type: 5 <br/> -->
+<div class="actions button-toggle" >
+  <span class="questiontext" ng-bind-html="htmlText"></span>
+  <button
+      class="yes pull-left"
+      ng-class="{'selected': question.user_response.answer_id == yesAnswer.id, 'required': question.is_required }"
+      ng-click = "update(yesAnswer) "
+      tabindex="[[tabIndex]]"
+      ng-class="{'required': question.is_required}"
+      ng-disabled="question.onBackendCall == true"
+      >
+    [[yesAnswer.answer_text]]
+  </button>
+
+  <button
+      class="no pull-left"
+      ng-class="{'selected': question.user_response.answer_id == noAnswer.id, 'required': question.is_required }"
+      ng-click = "update(noAnswer)"
+      tabindex="[[tabIndex+1]]"
+      ng-disabled="question.onBackendCall == true"
+      >
+    [[noAnswer.answer_text]]
+  </button>
+  <span ng-show="question.required && question.edited == true && question.showRequired == true" class="form-error">[[fieldErrMsg]]</span>
+  <span class="error">[[error]]</span>
+</div>
+

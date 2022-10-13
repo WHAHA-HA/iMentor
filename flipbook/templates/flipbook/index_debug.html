@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html >
+<head lang="en">
+  <meta charset="UTF-8">
+  <title>Flipbook | iMentor</title>
+  <script type="text/javascript">
+      var imentor_cdn_prefix = "{{CDN_URL}}";
+      function getCdnUrlPrefix(path) {
+        return imentor_cdn_prefix + (path || '');
+      }
+  </script>
+  <link rel="shortcut icon" href="//cdn.imentor.org/new_platform/static/img/favicon.png" type="image/x-icon" />
+
+  <!-- Vendor CSS -->
+  <link href="{{CDN_URL}}/new_platform/static/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="{{CDN_URL}}/new_platform/static/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
+  <link href="{{CDN_URL}}/new_platform/static/bootstrap-toggle/css/bootstrap-toggle.min.css" rel="stylesheet" />
+
+  <link href="{{CDN_URL}}/new_platform/static/nvd3-1.1.15-beta/nv.d3.min.css" rel="stylesheet" >
+  <link href="{{CDN_URL}}/new_platform/static/angular-hamburger/angular-hamburger-toggle.css" rel="stylesheet" />
+  <link href="{{CDN_URL}}/new_platform/static/angular-multi-select/isteven-multi-select.css" rel="stylesheet"/>
+  <link rel="stylesheet" href="/new_platform/static/angular-datepicker/angular-datepicker.css"/>
+  <link href="{{CDN_URL}}/new_platform/static/textAngular/textAngular.css" rel="stylesheet" />
+  <link href="https://i.icomoon.io/public/3e64826c61/iMentorIcons/style.css" rel="stylesheet">
+  <link href="{{CDN_URL}}/new_platform/static/ngDialog/lib/ngDialog.min.css" rel="stylesheet" />
+  <link href="{{CDN_URL}}/new_platform/static/ngDialog/lib/ngDialog-theme-plain.min.css" rel="stylesheet">
+
+
+  <!-- Custom CSS -->
+  <link href="{{CDN_URL}}/new_platform/static/flipbook/css/flipbook.css" rel="stylesheet" />
+  <link href="/new_platform/static/hambuger-menu/header-bar-universal-admin.css" rel="stylesheet" />
+
+  <link href="{{CDN_URL}}/new_platform/static/conversations/css/style.css" rel="stylesheet" />
+  <link href="{{CDN_URL}}/new_platform/static/conversations/css/themes.css" rel="stylesheet" />
+  <link href="{{CDN_URL}}/new_platform/static/conversations/css/custom.css" rel="stylesheet" />
+
+
+<!-- Vendor Scripts -->
+    <script src="{{CDN_URL}}/new_platform/static/postal/lodash.min.js"></script>
+    <script src="{{CDN_URL}}/new_platform/static/jquery/jquery.min.js"></script>
+    <script src="{{CDN_URL}}/new_platform/static/exif/exif.js"></script>
+    <script src="{{CDN_URL}}/new_platform/static/angular/angular.min.js"></script>
+    <script src="{{CDN_URL}}/new_platform/static/angular-ui-bootstrap/ui-bootstrap-tpls.min.js"></script>
+    <script src="{{CDN_URL}}/new_platform/static/angular-cookies/angular-cookies.min.js"></script>
+    <script src="{{CDN_URL}}/new_platform/static/angular-ui-router/angular-ui-router.min.js"></script>
+    <script src="{{CDN_URL}}/new_platform/static/angular-resource/angular-resource.js"></script>
+    <script src="{{CDN_URL}}/new_platform/static/angular-ui-utils/ui-utils.min.js"></script>
+    <script src="{{CDN_URL}}/new_platform/static/bootstrap/js/bootstrap.min.js"></script>
+    <script src="{{CDN_URL}}/new_platform/static/d3-3.3.13/d3.min.js"></script>
+    <script src="{{CDN_URL}}/new_platform/static/nvd3-1.1.15-beta/nv.d3.min.js"></script>
+    <script src="{{CDN_URL}}/new_platform/static/angular-scroll/angular-scroll.min.js"></script>  
+    <script src="{{CDN_URL}}/new_platform/static/bootstrap-toggle/js/bootstrap-toggle.min.js"></script>
+    <script src="{{CDN_URL}}/new_platform/static/bootstrap-toggle/js/bootstrap-toggle.directive.min.js"></script>
+    <script src="{{CDN_URL}}/new_platform/static/isMobile/isMobile.min.js"></script>
+    <!-- or use another assembly -->
+    <script src="{{CDN_URL}}/new_platform/static/angular-nvd3/angular-nvd3.min.js"></script>
+    <script src="{{CDN_URL}}/new_platform/static/angular-hamburger/angular-hamburger-toggle.js"></script>
+    <script src="{{CDN_URL}}/new_platform/static/angular-multi-select/isteven-multi-select.js"></script>
+    <script src="{{CDN_URL}}/new_platform/static/underscore/underscore-min.js"></script>
+    <script src="{{CDN_URL}}/new_platform/static/ngDialog/lib/ngDialog.min.js "></script>
+    <script src="{{CDN_URL}}/new_platform/static/angular-datepicker/angular-datepicker.js"></script>
+    <script src="{{CDN_URL}}/new_platform/static/angular-route/angular-route.min.js"></script>
+    <script src='{{CDN_URL}}/new_platform/static/textAngular/textAngular-dropdownToggle.js'></script>
+    <script src='{{CDN_URL}}/new_platform/static/textAngular/bootstrap-colorpicker-module.js'></script>
+    <script src='{{CDN_URL}}/new_platform/static/textAngular/textAngular-rangy.min.js'></script>
+    <script src='{{CDN_URL}}/new_platform/static/textAngular/textAngular-sanitize.custom.js'></script>
+    <script src='{{CDN_URL}}/new_platform/static/textAngular/textAngular.js'></script>
+    <script src="{{CDN_URL}}/new_platform/static/ngDialog/lib/ngDialog.min.js "></script>
+    <script src="{{CDN_URL}}/new_platform/static/autolinker/Autolinker.js"></script>
+     <script src="{{CDN_URL}}/new_platform/static/exif/angular-fix-image-orientation.js"></script>
+    <!-- TextAngular Setup - Vendor Scripts -->
+    <script src="{{CDN_URL}}/new_platform/static/angular-animate/angular-animate.min.js"></script>
+    <script src='{{CDN_URL}}/new_platform/static/textAngular/textAngularSetup.js'></script>
+    <script src='{{CDN_URL}}/new_platform/static/ment.io/mentio.custom.js'></script>
+    <script src='{{CDN_URL}}/new_platform/static/ng-file-upload/ng-file-upload-shim.js'></script>
+    <script src='{{CDN_URL}}/new_platform/static/ng-file-upload/ng-file-upload.js'></script>
+    <script src="{{CDN_URL}}/new_platform/static/angular-notifications/angular-notification-icons.min.js"></script>
+    <script src="{{CDN_URL}}/new_platform/static/fsm-sticky-header/fsm-sticky-header.js"></script>
+    
+
+    <!-- Custom Scripts -->
+    <!-- TextAngular Setup - Custom Scripts -->
+    <script src="{{CDN_URL}}/new_platform/static/canvas/js/embed.service.js"></script>
+    <script src="{{CDN_URL}}/new_platform/static/canvas/js/upload.service.js"></script>
+    <script src="{{CDN_URL}}/new_platform/static/canvas/js/helper.js"></script>
+    <script src="{{CDN_URL}}/new_platform/static/canvas/js/blockui.directive.js"></script>
+    <script src="{{CDN_URL}}/new_platform/static/canvas/js/image.selector.directive.js"></script>
+
+  <!-- Custom Scripts -->
+  <script type="text/javascript" src="{{CDN_URL}}/new_platform/static/flipbook/js/app.js"></script>
+  <script type="text/javascript" src="{{CDN_URL}}/new_platform/static/flipbook/js/datacontext.service.js"></script>
+  <script type="text/javascript" src="{{CDN_URL}}/new_platform/static/flipbook/js/flipbook.controller.js"></script>
+
+  <script src="{{CDN_URL}}/new_platform/static/conversations/scripts/chatModule-admin.js"></script>
+  <script src="{{CDN_URL}}/new_platform/static/conversations/scripts/conv_obo.js "></script>
+
+
+</head>
+<body ng-app="flipbook" >
+  <div ng-include src="'{{CDN_URL}}/new_platform/static/flipbook/nghtml/header-bar.html'"></div>
+
+  <div   class="content flipbook-body" ng-class="{'sidenav-open': tgState}">
+    <div class="container-fluid ng-scope">
+      <div ui-view class=" slide"></div>
+    </div>
+  </div>
+
+</body>
+</html>

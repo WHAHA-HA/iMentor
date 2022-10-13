@@ -1,0 +1,42 @@
+<div class="im-image-selector">
+    <div class="modal-header">
+        <h3 class="modal-title">Select Image</h3>
+    </div>
+    <div class="modal-body">
+        <div class="row" >
+            <div class="col-xs-3 im-image-selector-categories" ng-show="categories.length>0">
+                <input type="text" name="" ng-model="categoryFilter" placeholder="Search Albums">
+                <div class="im-image-selector-categories-animate"  ng-repeat="item in categories | filter: { title: categoryFilter } " >
+                     <a href="#" class="btn btn-primary" ng-click="changeCategory(item)" >
+                        {{item.title}}
+                    </a>
+                </div>
+            </div>
+            <div class="col-xs-9" >
+                <div class="panel panel-default">
+                  <div class="panel-heading">{{selectedCategory.title}}</div>
+                  <div class="panel-body">
+                    <div class="row im-image-selector-images" >
+                    <div class="col-sm-3" ng-repeat="item in items  | filter: { category: filter }" >
+                        <a href="#" class="thumbnail" ng-click="selected.item = item">
+                            <img ng-src="{{item.thumbnail}}" alt="{{item.title}}">
+                        </a>
+                    </div>
+                </div>
+                  </div>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+    <div class="modal-footer">
+
+        <div class="col-xs-2" >
+            <a href="#" class="thumbnail">
+                <img ng-src="{{selected.item.thumbnail}}" alt="{{selected.item.title}}" >
+            </a>
+        </div>
+        <button class="btn btn-primary" ng-click="ok()">OK</button>
+        <button class="btn btn-warning" ng-click="cancel()">Cancel</button>
+    </div>
+</div>

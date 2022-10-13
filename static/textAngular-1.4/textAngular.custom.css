@@ -1,0 +1,65 @@
+.angularTextbar button.btn {
+    padding: 9px 0px;
+    width: 51px;
+    font-size: 12px;
+    border: solid 1px #ccc;
+}
+
+.font-dropdown:hover {
+    background-color: rgb(219, 214, 214);
+    width: 100%;
+    line-height: 21px;
+}
+.font-dropdown {
+    background-color: transparent;
+    border: 0px solid gray;
+    font-size: 12px;
+    line-height: 21px;
+    width: 100%;
+    text-align: left;
+}
+span.bar-btn-dropdown {
+	background-color: transparent !important;
+    border: 0px solid red;
+    margin: 0px;
+    padding: 0px !important;
+    opacity: 1 !important;
+}
+.ta-scroll-window.form-control, .ta-scroll-window.form-control:focus{
+     border: none; 
+     border-radius: 0px; 
+     -webkit-box-shadow: none;
+     box-shadow: none;
+     -webkit-transition: none;
+    -o-transition: none;
+     transition: none;
+}
+.ta-scroll-window > .ta-bind {
+	color: #333 !important;
+	border: none; 
+     border-radius: 0px; 
+     -webkit-box-shadow: none;
+     box-shadow: none;
+     -webkit-transition: none;
+    -o-transition: none;
+     transition: none;
+	 outline: none;
+    outline-color:  none;
+    outline-style:  none;
+    outline-width:  none;
+}
+
+
+.ta-scroll-window.form-control i, .ta-bind i {
+	font-family: inherit;
+	speak: inherit;
+	font-style: italic;
+	font-weight: inherit;
+	font-variant: inherit;
+	text-transform: inherit;
+	line-height: inherit;
+
+	/* Better Font Rendering =========== */
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
